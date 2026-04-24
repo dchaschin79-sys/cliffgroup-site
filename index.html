@@ -297,9 +297,9 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
   </div>
 
   <div class="floating-tags">
-    <div class="float-tag"><i></i>SalesPro · Inventory live</div>
+    <div class="float-tag"><i></i>SalesPro · 1,280 SKUs tracked</div>
     <div class="float-tag"><i style="background:#7BC495"></i>HVAC Pro · 5 jobs today</div>
-    <div class="float-tag"><i></i>Estimate Pro · 13 sheets</div>
+    <div class="float-tag"><i></i>Estimate Pro · 13 sheets scanned</div>
   </div>
 
   <div class="hero-inner">
@@ -335,10 +335,10 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
     <p class="lede reveal d2">Each product is standalone. Bought together, they share customers, data and numbers.</p>
     <div class="products">
       <div class="product reveal d1" data-product="salespro">
-        <span class="product-badge">Inventory & Sales</span>
+        <span class="product-badge">Sales & Inventory</span>
         <div class="product-icon icon-anim"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></div>
         <h3>SalesPro</h3>
-        <p>Inventory, quotes, orders and invoicing — from warehouse to signed check.</p>
+        <p>Universal ERP for any business — clients, products, orders, invoices, warehouses, suppliers. Runs your whole operation, HVAC or otherwise.</p>
         <div class="product-link">Explore product <span class="arrow">→</span></div>
       </div>
       <div class="product accent-gold reveal d2" data-product="hvacpro">
@@ -643,9 +643,9 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 
   /* Modals */
   const productData = {
-    salespro:  { tag:'SalesPro · Sales & Inventory', title:'Everything you sell, in one system.', desc:'SalesPro ties quotes, inventory and invoicing into one tidy flow.', features:['Real-time inventory across locations','Quotes → orders → invoices without re-typing','QuickBooks and Stripe connectors','Custom pricing rules per customer','CSV export of everything, on demand'] },
-    hvacpro:   { tag:'HVAC Pro · Dispatch',          title:'Drag a job, route a truck, done.',     desc:'Live dispatch board plus a phone-first app for your techs.',     features:['Drag-and-drop schedule with ETAs','Offline-capable tech app (iOS & Android)','Auto routing across the day','Customer history on every call','In-app signature, photos, payment'] },
-    estimatepro:{tag:'Estimate Pro · Quoting',       title:'Signed before the truck leaves.',      desc:'Configure-to-quote for HVAC: equipment, labor, margin preset.',  features:['Drag-and-drop line items','Pricing rules that respect your margin','PDF + e-signature + payment link','Template library per job type','Converts straight into HVAC Pro'] },
+    salespro:  { tag:'SalesPro · Business Management', title:'One system to run the whole business.', desc:'A universal ERP for any company — not just HVAC. Clients, products, orders, invoices, warehouses, POs, approvals and returns, all in one calm workspace.', features:['Full inventory across warehouses and lots','Customers, orders, invoices and payments','Purchase orders, suppliers and returns','Approvals, audit log and role-based access','QuickBooks, Stripe and webhook integrations','Works for any business — HVAC, distribution, print, retail'] },
+    hvacpro:   { tag:'HVAC Pro · Field Operations',    title:'Drag a job, route a truck, done.',     desc:'A live operations hub plus a phone-first app for your techs. Dispatch, scheduling, invoices and analytics — built specifically for HVAC service teams.',     features:['Drag-and-drop dispatch with ETAs','Offline-capable tech app (iOS & Android)','Owner dashboard with financial overview','Work orders, closeout packets and signatures','Auto-routing and customer history on every call','In-app photos, payments and invoice status'] },
+    estimatepro:{tag:'Estimate Pro · Bid Management',  title:'From bid sheets to a priced estimate.',desc:'Bid management for HVAC General Contractors. Upload drawings, run AI Scan to detect components, manage bid invitations and turn sheets into priced estimates.',  features:['Project workspace with bid invitations','PDF sheet upload — up to 50 MB per sheet','AI Scan — detects equipment, ducts, components','Confirm / exclude / edit detected items','Generate estimates straight from takeoffs','Track status: Draft · Active · Submitted · Archived'] },
   };
   function mockFor(key, host){
     const styles = {
@@ -654,8 +654,8 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
       hvacpro: `<div style="display:grid;grid-template-columns:60px 1fr;gap:6px;font-size:11px;color:#9AA7BD">`
         + ['09:00','10:30','12:00','13:30','15:00'].map((t,i)=>`<div style="padding:4px 0">${t}</div><div style="padding:6px 10px;border-radius:6px;background:${['rgba(201,174,122,.2)','rgba(63,102,80,.25)','rgba(201,174,122,.15)','rgba(158,106,85,.2)','rgba(201,174,122,.2)'][i]};color:#E6EDF7">${['Smith · AC tune-up','Patel · Install','Oak Apts · Repair','Hill Co · Estimate','Brown · Maintenance'][i]}</div>`).join('') + `</div>`,
       estimatepro: `<div style="display:flex;flex-direction:column;gap:4px">`
-        + [['3-ton AC unit','$3,400'],['Installation labor','$1,200'],['Ductwork','$640'],['Warranty','$180']].map(([a,b])=>`<div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(255,255,255,.04);border-radius:6px;font-size:12px;color:#E6EDF7"><span>${a}</span><span>${b}</span></div>`).join('')
-        + `<div style="display:flex;justify-content:space-between;padding:12px;border-radius:8px;background:rgba(201,174,122,.18);border:1px solid rgba(201,174,122,.35);font-size:13px;color:#C9AE7A;font-weight:700;margin-top:6px"><span>Total</span><span>$5,420.00</span></div></div>`,
+        + [['Moore Park / NEW GYM','13 sheets'],['Chiller VA Miami','0 sheets'],['OFP 6th Floor','0 sheets'],['Oak trails Park Ext.','8 sheets']].map(([a,b])=>`<div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(255,255,255,.04);border-radius:6px;font-size:12px;color:#E6EDF7"><span>${a}</span><span style="color:#C9AE7A">${b}</span></div>`).join('')
+        + `<div style="display:flex;justify-content:space-between;padding:12px;border-radius:8px;background:rgba(201,174,122,.18);border:1px solid rgba(201,174,122,.35);font-size:13px;color:#C9AE7A;font-weight:700;margin-top:6px"><span>AI Scan detected</span><span>40 components</span></div></div>`,
     };
     host.innerHTML = styles[key] || '';
   }
@@ -726,4 +726,3 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 </script>
 </body>
 </html>
-
