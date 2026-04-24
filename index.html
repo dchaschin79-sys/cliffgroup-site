@@ -155,7 +155,7 @@ section.dark .lede{color:var(--fg-on-ink-dim)}
 .why-item p{font-size:14px;color:var(--fg-dim);line-height:1.55;font-family:var(--sans)}
 
 /* MOCK */
-.mock-area{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;margin-top:40px}
+.mock-area{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;margin-top:72px;padding-top:20px}
 @media (max-width:900px){.mock-area{grid-template-columns:1fr}}
 .mock-laptop{position:relative;width:100%;aspect-ratio:16/10;background:#18243B;border:1px solid rgba(255,255,255,.08);border-radius:14px 14px 4px 4px;padding:10px;box-shadow:0 30px 60px -20px rgba(14,42,74,.4);transition:transform var(--t-slow);transform-style:preserve-3d}
 .mock-laptop::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-10px;height:8px;background:linear-gradient(180deg,#2A3855,#0A1020);border-radius:0 0 8px 8px}
@@ -381,7 +381,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
     <p class="lede reveal d2">The HVAC Pro ops board + the field app — same data, two screens.</p>
 
     <div class="mock-area reveal d3">
-      <div class="mock-laptop" data-parallax="0.06">
+      <div class="mock-laptop">
         <div class="mock-screen">
           <div class="mock-topbar">
             <span class="logo" style="gap:8px">
@@ -422,7 +422,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
         </div>
       </div>
 
-      <div class="mock-phone" data-parallax="-0.03">
+      <div class="mock-phone">
         <div class="mock-phone-screen">
           <div class="mock-phone-card dark">
             <b>Next job</b>
@@ -726,3 +726,4 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 </script>
 </body>
 </html>
+
