@@ -1,0 +1,17 @@
+.DS_Store
+*.DS_Store
+
+# Local/editor files
+.idea/
+.vscode/
+
+# Dependency/build folders if the site is ever wrapped in tooling
+node_modules/
+dist/
+build/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+!backend/.env.example
