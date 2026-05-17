@@ -1,123 +1,102 @@
-# Cliff Group Florida Static Site Deployment
+# Cliff Group Florida Railway Deployment
 
-This repository contains the static marketing website for Cliff Group Florida plus a separate lightweight lead-capture backend in `backend/`. The public homepage remains `index.html` and still deploys to Cloudflare Pages with no build command. The backend deploys separately to Railway.
+This repository now deploys the public Cliff Group Florida marketing website as a minimal Node static service on Railway.
 
-## Production Files
+The site is still a static frontend. There is no frontend build step, no auth, and no Stripe integration. The separate lead-capture API remains in `backend/` and is already hosted at:
 
-Required for deployment:
+`https://cliffgroup-api-production.up.railway.app`
 
-- `index.html` - production homepage and all active page behavior.
-- `_headers` - Cloudflare Pages security headers.
-- `_redirects` - canonical redirect from `/index.html` to `/`.
-- `backend/` - Railway-ready lead capture API, not part of the Cloudflare Pages static build.
+## Production Architecture
 
-Recommended to keep in the repository:
+| Layer | File / Service | Purpose |
+| --- | --- | --- |
+| Web service | `server.js` | Serves `index.html`, static files, security headers, health checks, and SPA fallback routes |
+| Runtime config | `package.json` | Declares Node runtime and `npm start` |
+| Lockfile | `package-lock.json` | Lets Railway install the root app deterministically |
+| Railway config | `railway.json` | Uses Nixpacks, starts `npm start`, and checks `/health` |
+| Homepage | `index.html` | Production landing page and active inline UI logic |
+| Optional script copy | `app.js` | Kept aligned with inline form logic, but not referenced by `index.html` |
+| Lead API | `backend/` | Separate Railway backend service for PostgreSQL lead capture |
 
-- `README_DEPLOYMENT.md` - deployment instructions.
-- `README_LEAD_CAPTURE.md` - lead capture API and Railway deployment notes.
-- `.gitignore` - ignores local metadata and future build/dependency artifacts.
+## Railway Web Service Settings
 
-Not required for the current production website:
-
-- `app.js` - not referenced by `index.html`; the active marketing-page script is inline.
-- `shots/` - local screenshot/reference asset.
-- `uploads/` - local uploaded/reference images, not referenced by the homepage.
-- `CLIFF_GROUP_PLATFORM_REPORT.md` - planning/reporting document, not required for serving the public site.
-- `.DS_Store` - macOS metadata; should not be committed or deployed.
-
-## Cloudflare Pages Deployment
-
-Use Cloudflare Pages as a static site with no build command. Keep the backend deployment separate in Railway.
-
-Recommended project settings:
+Use the repository root for the public website service.
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | None |
-| Build command | Leave blank |
-| Build output directory | `/` or repository root |
-| Environment variables | None required for the static frontend |
-| Production branch | `main` or your chosen production branch |
+| Builder | Nixpacks |
+| Root directory | Repository root |
+| Install command | Railway default, `npm install` |
+| Start command | `npm start` |
+| Health check path | `/health` |
+| Required env vars | None for the frontend |
+| Port binding | `server.js` listens on `process.env.PORT` |
 
-If Cloudflare requires an output directory value, use the repository root. Do not use a build command for the current version.
+Do not set the web service root directory to `backend/`. The `backend/` folder is a separate API service with its own deployment config.
 
-## Domain Setup
+## Local Validation
 
-Recommended custom domain setup:
+```bash
+npm install
+HOST=127.0.0.1 PORT=8787 npm start
+curl -I http://127.0.0.1:8787/
+curl -I http://127.0.0.1:8787/app.js
+curl -I http://127.0.0.1:8787/some/spa/path
+curl -s http://127.0.0.1:8787/health
+```
 
-- `cliffgroupflorida.com` should point to the Cloudflare Pages project.
-- `www.cliffgroupflorida.com` should redirect to `https://cliffgroupflorida.com`.
-- Keep SaaS product subdomains separate for future apps:
-  - `app.cliffgroupflorida.com`
-  - `salespro.cliffgroupflorida.com`
-  - `hvacpro.cliffgroupflorida.com`
-  - `estimatepro.cliffgroupflorida.com`
+Expected results:
 
-For this static marketing deployment, only the apex domain and optional `www` redirect are required.
+- `/` returns `200` and `text/html`.
+- `/app.js` returns `200` and `application/javascript`.
+- Unknown extensionless paths return `index.html` for SPA fallback support.
+- `/health` returns `{"ok":true}`.
+- Security headers are present.
 
-## Security Headers
+## Lead Forms
 
-The `_headers` file adds baseline Cloudflare Pages security headers:
+The frontend lead forms post JSON to:
 
-- `X-Frame-Options: DENY`
-- `X-Content-Type-Options: nosniff`
-- `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy`
-- `Content-Security-Policy`
+`https://cliffgroup-api-production.up.railway.app/api/leads`
 
-The current site uses inline CSS and inline JavaScript, so the CSP allows `'unsafe-inline'` for scripts and styles. The CSP also allows form submissions to the Railway lead API at `https://cliffgroup-api-production.up.railway.app`. Tighten this later if the site is refactored into external static assets.
+Payload shape:
 
-## Redirects
+- `name`
+- `email`
+- `phone`
+- `company`
+- `message`
+- `source`
 
-The `_redirects` file redirects `/index.html` to `/` for canonical homepage behavior.
+The page CSP allows `connect-src` to the Railway lead API, and the lead API must include the production web origin in its `ALLOWED_ORIGINS` environment variable.
 
-No catch-all SPA redirect is needed because this is not a route-based SPA. The site uses in-page anchors such as:
+## Removed Deployment Files
 
-- `#products`
-- `#why`
-- `#preview`
-- `#contact`
+These Cloudflare/static-hosting files were intentionally removed from the Railway web service path:
 
-## Functional Notes
+- `_headers`
+- `_redirects`
 
-Current buttons and modals remain frontend-only UI, but forms now submit to the backend API:
-
-- Product cards open the product modal.
-- Demo buttons open the demo modal.
-- Contact and demo forms submit asynchronously to the lead API with loading, success, and error states.
-- Form data is stored in PostgreSQL by the Railway backend.
-- Resend sends internal and lead confirmation emails when configured.
-
-The static frontend still has no auth, Stripe, client-side secrets, or build step.
+Security headers and fallback routing now live in `server.js`, because Railway serves this site through Node rather than Cloudflare Pages static-file conventions.
 
 ## Deployment Checklist
 
-- [ ] Commit `index.html`, `_headers`, `_redirects`, `.gitignore`, and `README_DEPLOYMENT.md`.
-- [ ] Do not commit `.DS_Store`.
-- [ ] Create a Cloudflare Pages project.
-- [ ] Select the Git repository.
-- [ ] Set framework preset to `None`.
-- [ ] Leave build command blank.
-- [ ] Set build output directory to repository root.
-- [ ] Deploy the production branch.
-- [ ] Add `cliffgroupflorida.com` as a custom domain.
-- [ ] Redirect `www.cliffgroupflorida.com` to the apex domain.
-- [ ] Confirm `https://cliffgroupflorida.com/` serves `index.html`.
-- [ ] Confirm `/index.html` redirects to `/`.
-- [ ] Confirm the nav anchors scroll to Platform, Products, Preview, and Contact.
-- [ ] Confirm Book Demo opens the demo modal.
-- [ ] Confirm product cards open the product modal.
-- [ ] Confirm contact and demo forms submit to the lead API with no page reload.
-- [ ] Confirm test leads appear in the Railway Postgres `leads` table.
-- [ ] Confirm internal and confirmation emails send through Resend.
-- [ ] Confirm security headers are present in the browser or with `curl -I`.
+- [ ] Confirm the Railway website service uses the repository root.
+- [ ] Confirm the Railway website service is not pointed at `backend/`.
+- [ ] Confirm Railway detects Node/Nixpacks.
+- [ ] Confirm `npm install` completes.
+- [ ] Confirm Railway starts `npm start`.
+- [ ] Confirm logs show `Cliff Group site listening on 0.0.0.0:$PORT`.
+- [ ] Confirm `/health` returns `{"ok":true}`.
+- [ ] Confirm the public Railway URL serves the homepage.
+- [ ] Confirm `/app.js` and image assets serve with `200`.
+- [ ] Confirm an extensionless path such as `/platform` serves the homepage.
+- [ ] Confirm the contact/demo forms submit to the lead API.
+- [ ] Confirm the lead appears in the backend admin dashboard or database.
 
-## Future Work Not Included In This Step
+## Important Notes
 
-Do not add these until the SaaS platform phase:
-
-- Authentication.
-- Stripe Billing.
-- Trial workspace provisioning.
-- Product subdomain routing.
-- Customer dashboard.
+- The public website and lead API are two separate Railway services.
+- The public website should not run the backend API from `backend/`.
+- The backend API should not serve the marketing homepage.
+- Keep the website deployment minimal: `package.json`, `package-lock.json`, `railway.json`, and `server.js`.
