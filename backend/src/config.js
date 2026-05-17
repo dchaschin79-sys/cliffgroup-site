@@ -3,6 +3,7 @@ require('dotenv').config();
 const defaultOrigins = [
   'https://cliffgroupflorida.com',
   'https://www.cliffgroupflorida.com',
+  'https://cliffgroup-site-production-4726.up.railway.app',
   'https://cliffgroup-site-production.up.railway.app',
   'http://127.0.0.1:8787',
   'http://localhost:8787',

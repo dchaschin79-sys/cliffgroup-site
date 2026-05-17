@@ -29,10 +29,12 @@ const corsOptions = {
   },
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
+  optionsSuccessStatus: 204,
   maxAge: 86400
 };
 
 app.use('/api', cors(corsOptions));
+app.options('/api/*', cors(corsOptions));
 app.use(express.json({ limit: '24kb' }));
 app.use(express.urlencoded({ extended: false, limit: '12kb' }));
 

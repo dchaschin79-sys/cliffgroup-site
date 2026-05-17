@@ -57,7 +57,7 @@ Backend variables:
 PORT=8788
 DATABASE_URL=postgresql://USER:PASSWORD@HOST:PORT/DATABASE
 DATABASE_SSL=true
-ALLOWED_ORIGINS=https://cliffgroupflorida.com,https://www.cliffgroupflorida.com,https://cliffgroup-site-production.up.railway.app
+ALLOWED_ORIGINS=https://cliffgroupflorida.com,https://www.cliffgroupflorida.com,https://cliffgroup-site-production-4726.up.railway.app,https://cliffgroup-site-production.up.railway.app
 ADMIN_USERNAME=admin
 ADMIN_PASSWORD=replace-with-a-long-random-password
 RESEND_API_KEY=re_replace_with_resend_key
