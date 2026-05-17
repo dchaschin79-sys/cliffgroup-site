@@ -68,7 +68,7 @@ Payload shape:
 - `message`
 - `source`
 
-The page CSP allows `connect-src` to the Railway lead API, and the lead API must include the production web origin in its `ALLOWED_ORIGINS` environment variable.
+The page CSP allows `connect-src` to the Railway lead API. The backend config includes the custom domain and Railway website origin by default; keep any additional production domains in the lead API `ALLOWED_ORIGINS` environment variable.
 
 ## Removed Deployment Files
 
