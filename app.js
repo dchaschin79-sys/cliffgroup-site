@@ -377,6 +377,24 @@
     return '';
   }
 
+  async function postLeadPayload(url, payload) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'omit',
+      body: JSON.stringify(payload)
+    });
+    const body = await response.json().catch(() => ({}));
+
+    if (!response.ok || body.ok === false) {
+      const error = new Error(body.error || 'We could not send this request. Please try again.');
+      error.status = response.status;
+      throw error;
+    }
+
+    return body;
+  }
+
   async function submitLeadForm(e, fallbackType) {
     e.preventDefault();
     const form = e.target;
@@ -394,16 +412,11 @@
     setFormState(form, 'loading', '');
 
     try {
-      const response = await fetch(leadApiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'omit',
-        body: JSON.stringify(payload)
-      });
-      const body = await response.json().catch(() => ({}));
-
-      if (!response.ok || body.ok === false) {
-        throw new Error(body.error || 'We could not send this request. Please try again.');
+      try {
+        await postLeadPayload(leadApiUrl, payload);
+      } catch (error) {
+        if (error.status !== 404) throw error;
+        await postLeadPayload(`${leadApiUrl}/${formType}`, payload);
       }
 
       const message = formType === 'contact'
