@@ -327,17 +327,104 @@
     setTimeout(() => { el.classList.remove('show'); setTimeout(()=>el.remove(),400); }, 4000);
   };
 
-  window.submitModal = function(e, which) {
+  const leadApiUrl = (() => {
+    const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
+    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
+  })();
+
+  function setFormState(form, state, message) {
+    const button = form.querySelector('button[type="submit"]');
+    const label = button?.querySelector('[data-submit-label]');
+    const status = form.querySelector('.form-status');
+
+    if (button && !button.dataset.defaultLabel && label) {
+      button.dataset.defaultLabel = label.textContent;
+    }
+
+    if (button) {
+      button.disabled = state === 'loading';
+      button.classList.toggle('is-loading', state === 'loading');
+    }
+
+    if (label && button) {
+      label.textContent = state === 'loading' ? 'Sending...' : button.dataset.defaultLabel;
+    }
+
+    if (status) {
+      status.textContent = message || '';
+      status.classList.toggle('error', state === 'error');
+      status.classList.toggle('success', state === 'success');
+    }
+  }
+
+  function leadPayload(form, formType) {
+    const data = new FormData(form);
+    const message = data.get('message') || data.get('operational_problem') || '';
+    return {
+      name: data.get('full_name') || data.get('name') || '',
+      email: data.get('email') || '',
+      phone: data.get('phone') || '',
+      company: data.get('company') || '',
+      message,
+      source: `${formType}:${window.location.href}`
+    };
+  }
+
+  function validateLeadPayload(payload) {
+    if (!String(payload.name || '').trim()) return 'Please enter your name.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
+    if (String(payload.message || '').length > 3000) return 'Please keep the message under 3000 characters.';
+    return '';
+  }
+
+  async function submitLeadForm(e, fallbackType) {
     e.preventDefault();
-    e.target.closest('.modal-backdrop').classList.remove('open');
-    e.target.reset();
-    if (which === 'demo') toast("Got it — we'll reach out within one business day.");
-    else toast("Welcome aboard! Check your inbox for login details.");
+    const form = e.target;
+    const formType = form.dataset.leadForm || fallbackType || 'contact';
+    if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+    const payload = leadPayload(form, formType);
+    const validationError = validateLeadPayload(payload);
+
+    if (validationError) {
+      setFormState(form, 'error', validationError);
+      toast(validationError, 'error');
+      return;
+    }
+
+    setFormState(form, 'loading', '');
+
+    try {
+      const response = await fetch(leadApiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'omit',
+        body: JSON.stringify(payload)
+      });
+      const body = await response.json().catch(() => ({}));
+
+      if (!response.ok || body.ok === false) {
+        throw new Error(body.error || 'We could not send this request. Please try again.');
+      }
+
+      const message = formType === 'contact'
+        ? 'Message received. We will reply within one business day.'
+        : "Got it — we'll reach out within one business day.";
+      form.reset();
+      setFormState(form, 'success', 'Received. We will follow up shortly.');
+      form.closest('.modal-backdrop')?.classList.remove('open');
+      toast(message);
+    } catch (error) {
+      const message = error.message || 'We could not send this request. Please try again.';
+      setFormState(form, 'error', message);
+      toast(message, 'error');
+    }
+  }
+
+  window.submitModal = function(e, which) {
+    submitLeadForm(e, which === 'demo' ? 'demo' : 'walkthrough');
   };
   window.submitContact = function(e) {
-    e.preventDefault();
-    e.target.reset();
-    toast('Message sent. A real human will reply soon.');
+    submitLeadForm(e, 'contact');
   };
 
   /* ---------- Cookie banner ---------- */

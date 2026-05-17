@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="lead-api-url" content="" />
+<meta name="lead-api-url" content="https://cliffgroup-api-production.up.railway.app/api/leads" />
 <title>Cliff Group — Software for HVAC & Business Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -616,9 +616,9 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
       <form class="form-grid reveal d3" data-lead-form="contact" onsubmit="submitContact(event)">
         <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required/><label>Your name</label></div>
         <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required/><label>Email</label></div>
-        <div class="field full"><input name="company" type="text" placeholder=" " autocomplete="organization"/><label>Company</label></div>
+        <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"/><label>Company</label></div>
+        <div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"/><label>Phone</label></div>
         <div class="field full"><textarea name="operational_problem" placeholder=" " required></textarea><label>Where does your operation get stuck?</label></div>
-        <div class="field honeypot" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off"/></div>
         <div class="field full">
           <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-submit-label>Request walkthrough</span> <span class="btn-arrow">→</span></button>
           <p class="form-status" role="status" aria-live="polite"></p>
@@ -670,9 +670,9 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
     <form class="form-light form-grid" data-lead-form="demo" onsubmit="submitModal(event,'demo')">
       <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required/><label>Your name</label></div>
       <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required/><label>Work email</label></div>
-      <div class="field full"><input name="company" type="text" placeholder=" " autocomplete="organization"/><label>Company</label></div>
+      <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"/><label>Company</label></div>
+      <div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"/><label>Phone</label></div>
       <div class="field full"><textarea name="operational_problem" placeholder=" "></textarea><label>Which handoff is costing time today? (optional)</label></div>
-      <div class="field honeypot" aria-hidden="true"><input name="website" type="text" tabindex="-1" autocomplete="off"/></div>
       <div class="field full">
         <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-submit-label>Request walkthrough</span> <span class="btn-arrow">→</span></button>
         <p class="form-status" role="status" aria-live="polite"></p>
@@ -855,14 +855,10 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
   };
 
   /* Lead capture */
-  const leadApiBase = (() => {
+  const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
-    if (explicit) return explicit.replace(/\/+$/, '');
-    if (['localhost', '127.0.0.1'].includes(window.location.hostname)) return 'http://127.0.0.1:8788';
-    return 'https://api.cliffgroupflorida.com';
+    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
-
-  const leadEndpoint = formType => `${leadApiBase}/api/leads/${formType}`;
 
   function setFormState(form, state, message) {
     const button = form.querySelector('button[type="submit"]');
@@ -891,33 +887,46 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 
   function leadPayload(form, formType) {
     const data = new FormData(form);
+    const message = data.get('message') || data.get('operational_problem') || '';
     return {
-      form_type: formType,
-      full_name: data.get('full_name') || '',
+      name: data.get('full_name') || data.get('name') || '',
       email: data.get('email') || '',
-      company: data.get('company') || '',
-      role: data.get('role') || '',
       phone: data.get('phone') || '',
-      team_size: data.get('team_size') || '',
-      message: data.get('message') || '',
-      operational_problem: data.get('operational_problem') || data.get('message') || '',
-      source_page: window.location.href,
-      website: data.get('website') || ''
+      company: data.get('company') || '',
+      message,
+      source: `${formType}:${window.location.href}`
     };
+  }
+
+  function validateLeadPayload(payload) {
+    if (!String(payload.name || '').trim()) return 'Please enter your name.';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
+    if (String(payload.message || '').length > 3000) return 'Please keep the message under 3000 characters.';
+    return '';
   }
 
   async function submitLeadForm(e, fallbackType) {
     e.preventDefault();
     const form = e.target;
     const formType = form.dataset.leadForm || fallbackType || 'contact';
+    if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
+    const payload = leadPayload(form, formType);
+    const validationError = validateLeadPayload(payload);
+
+    if (validationError) {
+      setFormState(form, 'error', validationError);
+      toast(validationError);
+      return;
+    }
+
     setFormState(form, 'loading', '');
 
     try {
-      const response = await fetch(leadEndpoint(formType), {
+      const response = await fetch(leadApiUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'omit',
-        body: JSON.stringify(leadPayload(form, formType))
+        body: JSON.stringify(payload)
       });
       const body = await response.json().catch(() => ({}));
 

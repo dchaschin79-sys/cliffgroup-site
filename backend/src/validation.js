@@ -27,9 +27,17 @@ function isEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+function inferFormTypeFromSource(value) {
+  const prefix = cleanString(value, 80).split(':')[0];
+  return FORM_TYPES.has(prefix) ? prefix : '';
+}
+
 function normalizeLead(body, routeFormType, req) {
   const errors = [];
-  const formType = cleanString(routeFormType || body.form_type, 32);
+  const formType = cleanString(
+    routeFormType || body.form_type || inferFormTypeFromSource(body.source) || 'contact',
+    32
+  );
 
   if (!FORM_TYPES.has(formType)) {
     errors.push('Invalid form type.');
@@ -51,7 +59,7 @@ function normalizeLead(body, routeFormType, req) {
     body.operational_problem || body.problem || body.handoff || body.message,
     3000
   );
-  const sourcePage = cleanString(body.source_page || req.get('referer') || '', 1000);
+  const sourcePage = cleanString(body.source_page || body.source || req.get('referer') || '', 1000);
 
   if (!fullName) errors.push('Full name is required.');
   if (!email || !isEmail(email)) errors.push('A valid email is required.');

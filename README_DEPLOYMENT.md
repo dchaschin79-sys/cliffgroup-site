@@ -65,7 +65,7 @@ The `_headers` file adds baseline Cloudflare Pages security headers:
 - `Permissions-Policy`
 - `Content-Security-Policy`
 
-The current site uses inline CSS and inline JavaScript, so the CSP allows `'unsafe-inline'` for scripts and styles. The CSP also allows form submissions to `https://api.cliffgroupflorida.com`. Tighten this later if the site is refactored into external static assets.
+The current site uses inline CSS and inline JavaScript, so the CSP allows `'unsafe-inline'` for scripts and styles. The CSP also allows form submissions to the Railway lead API at `https://cliffgroup-api-production.up.railway.app`. Tighten this later if the site is refactored into external static assets.
 
 ## Redirects
 

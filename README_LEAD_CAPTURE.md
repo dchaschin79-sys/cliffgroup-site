@@ -12,7 +12,7 @@ Phase 2 adds real lead capture while keeping the public website static.
 | Email notifications | Resend | API calls from the backend |
 | Admin view | `/admin` on backend | HTTP Basic Auth |
 
-The frontend posts to `https://api.cliffgroupflorida.com` in production and `http://127.0.0.1:8788` on localhost.
+The frontend posts to `https://cliffgroup-api-production.up.railway.app/api/leads`.
 
 ## Database Schema
 
@@ -41,9 +41,10 @@ Core fields:
 | Method | Route | Purpose |
 | --- | --- | --- |
 | `GET` | `/api/health` | Railway health check |
-| `POST` | `/api/leads/demo` | Demo request form |
-| `POST` | `/api/leads/contact` | Contact form |
-| `POST` | `/api/leads/walkthrough` | Walkthrough form |
+| `POST` | `/api/leads` | Generic production lead endpoint |
+| `POST` | `/api/leads/demo` | Backward-compatible demo request form |
+| `POST` | `/api/leads/contact` | Backward-compatible contact form |
+| `POST` | `/api/leads/walkthrough` | Backward-compatible walkthrough form |
 | `GET` | `/admin` | Protected lead list |
 | `GET` | `/admin/leads/:id` | Protected lead detail |
 | `POST` | `/admin/leads/:id/status` | Protected status update |
@@ -72,10 +73,10 @@ PUBLIC_SITE_URL=https://cliffgroupflorida.com
 2. Add a Railway Postgres database or attach a managed Postgres connection.
 3. Add the environment variables above.
 4. Deploy the backend service.
-5. Map the service to `api.cliffgroupflorida.com`.
-6. Confirm `https://api.cliffgroupflorida.com/api/health` returns `{"ok":true}`.
+5. Map or confirm the Railway service at `https://cliffgroup-api-production.up.railway.app`.
+6. Confirm `https://cliffgroup-api-production.up.railway.app/api/health` returns `{"ok":true}`.
 7. Submit a test lead from the production site.
-8. Confirm the lead appears at `https://api.cliffgroupflorida.com/admin`.
+8. Confirm the lead appears in the backend admin dashboard.
 
 ## Security Notes
 

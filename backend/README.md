@@ -39,9 +39,10 @@ The API listens on `http://127.0.0.1:8788` by default.
 | Method | Route | Purpose |
 | --- | --- | --- |
 | `GET` | `/api/health` | Health check for Railway. |
-| `POST` | `/api/leads/demo` | Demo request form. |
-| `POST` | `/api/leads/contact` | Contact request form. |
-| `POST` | `/api/leads/walkthrough` | Workflow walkthrough request form. |
+| `POST` | `/api/leads` | Generic production lead endpoint. |
+| `POST` | `/api/leads/demo` | Backward-compatible demo request form. |
+| `POST` | `/api/leads/contact` | Backward-compatible contact request form. |
+| `POST` | `/api/leads/walkthrough` | Backward-compatible workflow walkthrough request form. |
 | `GET` | `/admin` | Protected recent leads list. |
 | `GET` | `/admin/leads/:id` | Protected lead detail view. |
 | `POST` | `/admin/leads/:id/status` | Protected status update. |

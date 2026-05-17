@@ -100,6 +100,7 @@ function leadRoute(formType) {
   };
 }
 
+app.post('/api/leads', leadLimiter, leadRoute(null));
 app.post('/api/leads/demo', leadLimiter, leadRoute('demo'));
 app.post('/api/leads/contact', leadLimiter, leadRoute('contact'));
 app.post('/api/leads/walkthrough', leadLimiter, leadRoute('walkthrough'));
