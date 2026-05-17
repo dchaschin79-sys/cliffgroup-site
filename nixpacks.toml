@@ -1,5 +1,0 @@
-[phases.setup]
-nixPkgs = ["caddy"]
-
-[start]
-cmd = "caddy file-server --listen :8080 --root ."
