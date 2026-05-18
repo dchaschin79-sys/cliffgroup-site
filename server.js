@@ -45,9 +45,19 @@ const securityHeaders = {
   ].join('; ')
 };
 
+const salesProLoginUrl = process.env.SALESPRO_LOGIN_URL || 'https://web-production-70049.up.railway.app/salespro/login';
+
 function send(res, statusCode, headers, body) {
   res.writeHead(statusCode, { ...securityHeaders, ...headers });
   res.end(body);
+}
+
+function redirect(res, location) {
+  send(res, 302, {
+    'Location': location,
+    'Cache-Control': 'no-cache',
+    'Content-Type': 'text/plain; charset=utf-8'
+  }, `Redirecting to ${location}`);
 }
 
 function resolveRequestPath(url) {
@@ -56,6 +66,10 @@ function resolveRequestPath(url) {
 
   if (pathname === '/health' || pathname === '/api/health') {
     return { health: true };
+  }
+
+  if (pathname === '/salespro/login' || pathname === '/login') {
+    return { redirectTo: salesProLoginUrl };
   }
 
   if (pathname === '/') {
@@ -105,6 +119,11 @@ const server = http.createServer((req, res) => {
 
   if (route.health) {
     send(res, 200, { 'Content-Type': 'application/json; charset=utf-8' }, JSON.stringify({ ok: true }));
+    return;
+  }
+
+  if (route.redirectTo) {
+    redirect(res, route.redirectTo);
     return;
   }
 
