@@ -57,7 +57,10 @@ function extractEmailAddress(value) {
     .replace(/^['"]|['"]$/g, '')
     .trim();
   const match = text.match(/<\s*([^<>@\s]+@[^<>@\s]+\.[^<>@\s]+)\s*>/);
-  return match ? match[1] : text;
+  if (match) return match[1];
+
+  const looseMatch = text.match(/[^\s<>"']+@[^\s<>"']+\.[^\s<>"']+/);
+  return looseMatch ? looseMatch[0] : text;
 }
 
 function isValidEmail(value) {
@@ -101,6 +104,9 @@ async function sendResendEmail({ to, subject, html, text }) {
   if (!isValidEmail(fromAddress)) {
     return { status: 'failed', reason: 'invalid RESEND_FROM_EMAIL' };
   }
+  const sender = config.resendFromEmail.includes('<') && config.resendFromEmail.includes('>')
+    ? config.resendFromEmail.trim().replace(/^['"]|['"]$/g, '').trim()
+    : fromAddress;
 
   let response;
   try {
@@ -111,7 +117,7 @@ async function sendResendEmail({ to, subject, html, text }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: config.resendFromEmail,
+        from: sender,
         to: recipients,
         subject,
         html,
