@@ -67,6 +67,8 @@ EMAIL_ENABLED=true
 PUBLIC_SITE_URL=https://cliffgroupflorida.com
 ```
 
+`RESEND_FROM_EMAIL` must be a Resend-verified sender/domain. If Resend rejects a message, the API still returns `201` after storing the lead and reports the failed channel in `notifications`.
+
 ## Railway Deployment
 
 1. Create a Railway service from the `backend/` directory.
@@ -86,6 +88,7 @@ PUBLIC_SITE_URL=https://cliffgroupflorida.com
 - A hidden honeypot field is included for spam protection prep.
 - Admin routes use HTTP Basic Auth and require `ADMIN_PASSWORD`.
 - Secrets belong only in Railway environment variables, never in `index.html`.
+- Email failures do not prevent lead storage.
 
 ## Future SaaS Readiness
 

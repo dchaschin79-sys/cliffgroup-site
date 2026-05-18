@@ -80,18 +80,26 @@ function leadRoute(formType) {
 
     try {
       const lead = await createLead(normalized.lead);
-      let notifications = { internal: { status: 'skipped' }, confirmation: { status: 'skipped' } };
+      let notifications = {
+        internal: { status: 'skipped', reason: 'not attempted' },
+        customer: { status: 'skipped', reason: 'not attempted' }
+      };
 
       try {
         notifications = await sendLeadNotifications(lead);
       } catch (error) {
-        console.error('Lead notification failed', { leadId: lead.id, message: error.message });
-        notifications = { error: true };
+        console.error('Lead notification system failed', { leadId: lead.id, message: error.message });
+        notifications = {
+          internal: { status: 'failed', reason: 'notification system error' },
+          customer: { status: 'failed', reason: 'notification system error' }
+        };
       }
 
       res.status(201).json({
+        success: true,
         ok: true,
         status: 'received',
+        leadId: lead.id,
         id: lead.id,
         notifications
       });

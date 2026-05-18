@@ -342,12 +342,12 @@
     }
 
     if (button) {
-      button.disabled = state === 'loading';
+      button.disabled = state === 'loading' || state === 'success';
       button.classList.toggle('is-loading', state === 'loading');
     }
 
     if (label && button) {
-      label.textContent = state === 'loading' ? 'Sending...' : button.dataset.defaultLabel;
+      label.textContent = state === 'loading' ? 'Sending...' : state === 'success' ? 'Sent' : button.dataset.defaultLabel;
     }
 
     if (status) {
@@ -375,6 +375,23 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
     if (String(payload.message || '').length > 3000) return 'Please keep the message under 3000 characters.';
     return '';
+  }
+
+  function finishSuccessfulSubmit(form, message) {
+    const modal = form.closest('.modal-backdrop');
+    form.reset();
+    setFormState(form, 'success', message);
+    toast(message);
+
+    if (modal) {
+      setTimeout(() => {
+        modal.classList.remove('open');
+        setFormState(form, 'idle', '');
+      }, 2200);
+      return;
+    }
+
+    setTimeout(() => setFormState(form, 'idle', ''), 4500);
   }
 
   async function postLeadPayload(url, payload) {
@@ -419,13 +436,7 @@
         await postLeadPayload(`${leadApiUrl}/${formType}`, payload);
       }
 
-      const message = formType === 'contact'
-        ? 'Message received. We will reply within one business day.'
-        : "Got it — we'll reach out within one business day.";
-      form.reset();
-      setFormState(form, 'success', 'Received. We will follow up shortly.');
-      form.closest('.modal-backdrop')?.classList.remove('open');
-      toast(message);
+      finishSuccessfulSubmit(form, "Thanks — we'll contact you shortly.");
     } catch (error) {
       const message = error.message || 'We could not send this request. Please try again.';
       setFormState(form, 'error', message);

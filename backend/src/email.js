@@ -45,35 +45,97 @@ function emailShell(title, body) {
   `;
 }
 
+function safeEmailList(to) {
+  return (Array.isArray(to) ? to : [to])
+    .map(value => String(value || '').trim())
+    .filter(Boolean);
+}
+
+function extractEmailAddress(value) {
+  const text = String(value || '').trim();
+  const match = text.match(/<([^<>@\s]+@[^<>@\s]+\.[^<>@\s]+)>$/);
+  return match ? match[1] : text;
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
+}
+
+async function parseResendError(response) {
+  const text = await response.text().catch(() => '');
+  if (!text) return `Resend request failed with ${response.status}.`;
+
+  try {
+    const body = JSON.parse(text);
+    return body.message || body.error || text.slice(0, 240);
+  } catch {
+    return text.slice(0, 240);
+  }
+}
+
+function logNotificationResult(channel, lead, result) {
+  if (result.status === 'sent' || result.status === 'skipped') return;
+
+  console.warn('Lead notification failed', {
+    channel,
+    leadId: lead.id,
+    status: result.status,
+    reason: result.reason,
+    statusCode: result.statusCode
+  });
+}
+
 async function sendResendEmail({ to, subject, html, text }) {
   if (!config.emailEnabled) return { status: 'skipped', reason: 'email disabled' };
   if (!config.resendApiKey) return { status: 'skipped', reason: 'missing RESEND_API_KEY' };
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${config.resendApiKey}`,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      from: config.resendFromEmail,
-      to: Array.isArray(to) ? to : [to],
-      subject,
-      html,
-      text
-    })
-  });
-
-  if (!response.ok) {
-    const message = await response.text().catch(() => 'Resend request failed.');
-    throw new Error(`Resend request failed with ${response.status}: ${message.slice(0, 240)}`);
+  const recipients = safeEmailList(to);
+  if (!recipients.length || recipients.some(recipient => !isValidEmail(recipient))) {
+    return { status: 'failed', reason: 'invalid recipient email' };
   }
 
-  return { status: 'sent' };
+  const fromAddress = extractEmailAddress(config.resendFromEmail);
+  if (!isValidEmail(fromAddress)) {
+    return { status: 'failed', reason: 'invalid RESEND_FROM_EMAIL' };
+  }
+
+  let response;
+  try {
+    response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${config.resendApiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: config.resendFromEmail,
+        to: recipients,
+        subject,
+        html,
+        text
+      })
+    });
+  } catch (error) {
+    return { status: 'failed', reason: 'resend network error' };
+  }
+
+  if (!response.ok) {
+    return {
+      status: 'failed',
+      reason: await parseResendError(response),
+      statusCode: response.status
+    };
+  }
+
+  const body = await response.json().catch(() => ({}));
+  return { status: 'sent', id: body.id || '' };
 }
 
 async function sendLeadNotifications(lead) {
-  const results = {};
+  const results = {
+    internal: { status: 'skipped', reason: 'missing INTERNAL_NOTIFICATION_EMAIL' },
+    customer: { status: 'skipped', reason: 'missing lead email' }
+  };
 
   if (config.internalNotificationEmail) {
     const html = emailShell(
@@ -93,8 +155,7 @@ async function sendLeadNotifications(lead) {
       html,
       text: `New ${lead.form_type} request from ${lead.full_name} (${lead.email}). Lead ID: ${lead.id}.`
     });
-  } else {
-    results.internal = { status: 'skipped', reason: 'missing INTERNAL_NOTIFICATION_EMAIL' };
+    logNotificationResult('internal', lead, results.internal);
   }
 
   const confirmationHtml = emailShell(
@@ -107,12 +168,13 @@ async function sendLeadNotifications(lead) {
     `
   );
 
-  results.confirmation = await sendResendEmail({
+  results.customer = await sendResendEmail({
     to: lead.email,
     subject: 'We received your Cliff Group walkthrough request',
     html: confirmationHtml,
     text: `Hi ${lead.full_name}, thanks for reaching out to Cliff Group Florida. We received your request and will follow up within one business day.`
   });
+  logNotificationResult('customer', lead, results.customer);
 
   return results;
 }

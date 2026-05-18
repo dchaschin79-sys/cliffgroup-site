@@ -6,7 +6,7 @@ This backend is a lightweight Railway-ready API for the static Cliff Group Flori
 
 - Accepts marketing form submissions from the static site.
 - Stores leads in PostgreSQL.
-- Sends internal and confirmation emails through Resend.
+- Sends internal and customer confirmation emails through Resend.
 - Provides a minimal Basic Auth protected `/admin` dashboard.
 - Keeps the public website static and Cloudflare Pages compatible.
 
@@ -86,4 +86,5 @@ curl https://api.cliffgroupflorida.com/api/health
 
 - The API stores leads before attempting email notifications.
 - If Resend is not configured, leads are still stored and notification status is reported as skipped.
+- If Resend rejects a message, leads are still stored and the response reports the failed notification channel with a safe reason. Use a Resend-verified sender in `RESEND_FROM_EMAIL`.
 - The admin dashboard is intentionally small and should later be replaced or integrated into the SaaS control plane.
