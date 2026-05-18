@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
 <title>Cliff Group — Software for HVAC & Business Automation</title>
+<script>
+  (function () {
+    var path = window.location.pathname.replace(/\/+$/, '') || '/';
+    if (path === '/salespro/login' || path === '/login') {
+      window.location.replace('https://web-production-70049.up.railway.app/salespro/login');
+    }
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
