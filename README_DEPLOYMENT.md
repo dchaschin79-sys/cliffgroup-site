@@ -4,7 +4,7 @@ This repository now deploys the public Cliff Group Florida marketing website as 
 
 The site is still a static frontend. There is no frontend build step, no auth, and no Stripe integration. The separate lead-capture API remains in `backend/` and is already hosted at:
 
-`https://cliffgroup-api-production.up.railway.app`
+`https://zesty-reflection-production-274d.up.railway.app`
 
 ## Production Architecture
 
@@ -57,7 +57,7 @@ Expected results:
 
 The frontend lead forms post JSON to:
 
-`https://cliffgroup-api-production.up.railway.app/api/leads`
+`https://zesty-reflection-production-274d.up.railway.app/api/leads`
 
 Payload shape:
 

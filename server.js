@@ -36,7 +36,7 @@ const securityHeaders = {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data:",
-    "connect-src 'self' https://cliffgroup-api-production.up.railway.app",
+    "connect-src 'self' https://zesty-reflection-production-274d.up.railway.app",
     "object-src 'none'",
     "base-uri 'self'",
     "frame-ancestors 'none'",

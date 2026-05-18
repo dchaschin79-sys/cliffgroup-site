@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="lead-api-url" content="https://cliffgroup-api-production.up.railway.app/api/leads" />
+<meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
 <title>Cliff Group — Software for HVAC & Business Automation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -857,7 +857,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
   /* Lead capture */
   const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
-    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
+    return (explicit || 'https://zesty-reflection-production-274d.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
 
   function setFormState(form, state, message) {

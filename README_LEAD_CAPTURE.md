@@ -12,7 +12,7 @@ Phase 2 adds real lead capture while keeping the public website static.
 | Email notifications | Resend | API calls from the backend |
 | Admin view | `/admin` on backend | HTTP Basic Auth |
 
-The frontend posts to `https://cliffgroup-api-production.up.railway.app/api/leads`.
+The frontend posts to `https://zesty-reflection-production-274d.up.railway.app/api/leads`.
 
 ## Database Schema
 
@@ -73,8 +73,8 @@ PUBLIC_SITE_URL=https://cliffgroupflorida.com
 2. Add a Railway Postgres database or attach a managed Postgres connection.
 3. Add the environment variables above.
 4. Deploy the backend service.
-5. Map or confirm the Railway service at `https://cliffgroup-api-production.up.railway.app`.
-6. Confirm `https://cliffgroup-api-production.up.railway.app/api/health` returns `{"ok":true}`.
+5. Map or confirm the Railway service at `https://zesty-reflection-production-274d.up.railway.app`.
+6. Confirm `https://zesty-reflection-production-274d.up.railway.app/api/health` returns `{"ok":true}`.
 7. Submit a test lead from the production site.
 8. Confirm the lead appears in the backend admin dashboard.
 
