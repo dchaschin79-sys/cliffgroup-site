@@ -18,6 +18,20 @@ The site is still a static frontend. There is no frontend build step, no auth, a
 | Optional script copy | `app.js` | Kept aligned with inline form logic, but not referenced by `index.html` |
 | Lead API | `backend/` | Separate Railway backend service for PostgreSQL lead capture |
 
+## Product Routes
+
+The public website keeps a lightweight static architecture. Railway serves `index.html` for extensionless product paths, and the page applies route-specific product copy in the browser.
+
+| Route | Product Experience | Notes |
+| --- | --- | --- |
+| `/` | HVAC Pro / ecosystem entry | Defaults to the HVAC operations platform story |
+| `/hvacpro` | HVAC Pro | Dispatch, estimating, scheduling, invoicing and field coordination for HVAC contractors |
+| `/salespro` | SalesPro | Inventory, orders, invoices, purchasing, payments and spreadsheet replacement for small businesses |
+| `/salespro/demo` | SalesPro demo | Loads SalesPro positioning and opens the demo modal |
+| `/salespro/login` | SalesPro route preserved | Served by the same static fallback until a dedicated app/login surface is connected |
+
+Future products can reuse the same route-profile pattern without adding CMS complexity.
+
 ## Railway Web Service Settings
 
 Use the repository root for the public website service.

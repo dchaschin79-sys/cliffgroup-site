@@ -359,18 +359,18 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 </svg>
 
 <nav class="nav" id="nav">
-  <a class="logo" href="#">
+  <a class="logo" href="/">
     <span class="logo-mark"><svg viewBox="0 0 24 24"><use href="#i-cliff"/></svg></span>
     <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
   </a>
   <div class="nav-links">
-    <a href="#workflow">Platform</a>
-    <a class="active" href="#products">Products</a>
-    <a href="#preview">Preview</a>
+    <a href="/hvacpro">HVAC Pro</a>
+    <a href="/salespro">SalesPro</a>
+    <a href="#products">Ecosystem</a>
     <a href="#contact">Contact</a>
   </div>
   <div class="nav-cta">
-    <a class="btn btn-ghost-light" href="#workflow">View Platform</a>
+    <a class="btn btn-ghost-light" href="#products">View Products</a>
     <button class="btn btn-primary" data-modal="demo">Book Demo <span class="btn-arrow">→</span></button>
   </div>
 </nav>
@@ -476,7 +476,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
         <h3>SalesPro</h3>
         <p>For owners and office teams who need customers, products, orders, invoices, payments and reporting in one business system.</p>
         <ul class="module-list"><li>Connects invoices and payments to the job flow</li><li>Supports inventory, products and purchasing</li><li>Gives leadership cleaner operating numbers</li></ul>
-        <div class="product-link">Explore module <span class="arrow">→</span></div>
+        <a class="product-link" href="/salespro">Explore SalesPro <span class="arrow">→</span></a>
       </div>
       <div class="product accent-gold reveal d2" data-product="hvacpro">
         <span class="product-badge gold">Field Command</span>
@@ -484,7 +484,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
         <h3>HVAC Pro</h3>
         <p>For dispatchers, service managers and technicians who need the day coordinated from office board to field closeout.</p>
         <ul class="module-list"><li>Schedules and dispatches jobs across teams</li><li>Keeps techs aligned with job and equipment history</li><li>Turns completed work into invoice-ready records</li></ul>
-        <div class="product-link">Explore module <span class="arrow">→</span></div>
+        <a class="product-link" href="/hvacpro">Explore HVAC Pro <span class="arrow">→</span></a>
       </div>
       <div class="product accent-green reveal d3" data-product="estimatepro">
         <span class="product-badge green">Bid Management</span>
@@ -644,13 +644,13 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 <footer>
   <div class="footer-grid">
     <div>
-      <a class="logo nav-light" href="#">
+      <a class="logo nav-light" href="/">
         <span class="logo-mark"><svg viewBox="0 0 24 24"><use href="#i-cliff"/></svg></span>
         <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
       </a>
       <p style="margin-top:14px;color:var(--fg-dim);font-size:14px;max-width:320px">HVAC operations software for estimating, dispatch, field coordination, invoicing and visibility.</p>
     </div>
-    <div><h5>Products</h5><a href="#products">SalesPro</a><a href="#products">HVAC Pro</a><a href="#products">EstimatePro</a></div>
+    <div><h5>Products</h5><a href="/salespro">SalesPro</a><a href="/hvacpro">HVAC Pro</a><a href="#products">EstimatePro</a></div>
     <div><h5>Platform</h5><a href="#pain">Pain points</a><a href="#workflow">Workflow</a><a href="#trust">Reliability</a><a href="#preview">Preview</a></div>
     <div><h5>Contact</h5><a href="#contact">Request walkthrough</a><a href="mailto:hello@cliffgroup.software">Email Cliff Group</a><a href="tel:+13055550142">Call Miami office</a></div>
   </div>
@@ -719,6 +719,271 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 
 <script>
 (() => {
+  const routePath = window.location.pathname.replace(/\/+$/, '') || '/';
+  const routeProduct = routePath.startsWith('/salespro') ? 'salespro' : routePath.startsWith('/hvacpro') ? 'hvacpro' : 'hvacpro';
+
+  const productRoutes = {
+    hvacpro: {
+      title: 'HVAC Pro — HVAC Operations Platform | Cliff Group Florida',
+      hero: {
+        eyebrow: 'HVAC operations platform',
+        h1: 'Run every HVAC job from estimate to invoice.',
+        lede: 'Cliff Group Florida gives contractors one operational layer for estimating, scheduling, dispatch, field coordination, invoicing and owner visibility.',
+        tags: ['Estimate approved -> job scheduled', 'Dispatch board live', 'Invoice sent before the truck leaves'],
+        proof: [
+          ['Estimate -> Dispatch -> Invoice', 'Connected job flow'],
+          ['Office + field visibility', 'Same operation, same data'],
+          ['Residential + commercial', 'Built for HVAC contractors']
+        ]
+      },
+      pain: {
+        eyebrow: 'Operational leaks',
+        h2: 'HVAC shops do not lose margin in one place.',
+        lede: 'They lose it in handoffs: a missed call, a stale estimate, a confused dispatch board, a tech without context, an invoice that waits until tomorrow.',
+        cards: [
+          ['01', 'Calls become scattered notes', 'Customer details land in texts, paper pads and memory instead of a shared operational record.'],
+          ['02', 'Estimates lose momentum', 'Bid sheets, pricing and approvals sit disconnected from scheduling and follow-up.'],
+          ['03', 'Dispatch changes faster than the board', 'Jobs move, routes change and the office has to chase technicians for status.'],
+          ['04', 'Spreadsheets become the system', 'Inventory, invoices, customer history and job notes drift into separate files.'],
+          ['05', 'Field teams lack context', 'Techs need equipment history, parts, photos, signatures and job details before they arrive.'],
+          ['06', 'Revenue waits on paperwork', 'When closeout and invoicing are delayed, cash collection and reporting slow down with it.']
+        ]
+      },
+      workflow: {
+        eyebrow: 'Platform workflow',
+        h2: 'One connected HVAC operating system.',
+        lede: 'Cliff Group is the operational layer across the customer journey: capture the opportunity, price the work, schedule the crew, run the field day, invoice cleanly and see the numbers.',
+        steps: [
+          ['Lead', 'Capture demand', 'Customer and opportunity details start in one place.'],
+          ['Estimate', 'Price the work', 'EstimatePro turns bid inputs and sheet review into priced work.'],
+          ['Schedule', 'Plan capacity', 'Approved work becomes a scheduled job without retyping.'],
+          ['Dispatch', 'Run the day', 'HVAC Pro coordinates routes, crews, ETAs and field status.'],
+          ['Complete', 'Close the job', 'Photos, notes, signatures and parts stay attached to the job.'],
+          ['Invoice', 'Collect faster', 'SalesPro keeps invoices, payments and customer records connected.'],
+          ['Report', 'See the operation', 'Owners see jobs, revenue, close rate and work in progress.']
+        ],
+        modules: [
+          ['EstimatePro', 'Bid and estimate engine', 'For estimators and contractors who need faster, cleaner takeoffs and proposal flow.'],
+          ['HVAC Pro', 'Dispatch and field command', 'For office teams and technicians coordinating jobs, routes, equipment and closeout.'],
+          ['SalesPro', 'Revenue and operations backbone', 'For owners managing customers, products, invoices, payments, inventory and reporting.']
+        ]
+      },
+      cta: ['Platform walkthrough', 'See how the workflow would run inside your HVAC shop.', 'Bring your current process. We will map the estimate, dispatch, field and invoice handoffs.'],
+      products: ['Product ecosystem', 'Three modules. One operational picture.', 'Start with the workflow that hurts most. Add the rest when you are ready to connect estimating, dispatch, field work, invoicing and reporting.'],
+      trust: {
+        eyebrow: 'Operational credibility',
+        h2: 'Premium software without a heavy rollout.',
+        lede: 'The platform is designed for real HVAC operations: residential calls, commercial service, project estimates, field teams, office users and owner reporting.'
+      },
+      preview: {
+        eyebrow: 'Preview',
+        h2: 'See the operation, not just the schedule.',
+        lede: 'The operations board and field view keep office staff, technicians and owners working from the same job reality.',
+        appName: 'HVAC Pro',
+        tabs: ['Dashboard', 'Dispatch', 'Jobs', 'Customers', 'Invoices'],
+        card: ['Operations Hub', 'Owner Dashboard', '6 technicians · 48 open jobs · $48,200 this month'],
+        stats: [['243', 'Customers'], ['48', 'Jobs'], ['62%', 'Close rate'], ['$48.2k', 'MRR']],
+        rows: [['Smith residence · AC tune-up', '10:30', 'Route A'], ['Patel · Install 3-ton', '12:00', 'Route B'], ['Oak Apts · Coil clean', '14:15', 'Route A']],
+        phone: ['Next job', 'Smith · AC tune-up', '2.4 mi · route A', 'Parts on truck', [['Filter 16x25', '6'], ['Capacitor 45µF', '2'], ['R-410A refrigerant', '1 tank']], 'Today', '5 jobs', '3 done']
+      },
+      contact: ['Book Demo', 'Map your HVAC operation.', 'Tell us where work gets stuck today. We will walk through the right module path and show how the workflow can connect.', 'Where does your operation get stuck?', 'Walk through your HVAC workflow.', 'A focused platform walkthrough for dispatch, estimating, field coordination and invoicing.', 'Which handoff is costing time today? (optional)'],
+      finalCta: ['Future-ready platform', 'Build the operating system before the growth creates more chaos.', 'Use Cliff Group to connect the workflows you run today and prepare for a fuller SaaS ecosystem tomorrow.'],
+      footer: 'HVAC operations software for estimating, dispatch, field coordination, invoicing and visibility.'
+    },
+    salespro: {
+      title: 'SalesPro — Business Management Software | Cliff Group Florida',
+      hero: {
+        eyebrow: 'SalesPro business management software',
+        h1: 'Run inventory, orders, invoices and payments without spreadsheets.',
+        lede: 'SalesPro gives small businesses and solo operators a simple operating layer for products, purchasing, customer records, orders, invoices, payments and reporting.',
+        tags: ['Inventory updated', 'Order approved -> invoice ready', 'Payment recorded'],
+        proof: [
+          ['Inventory + Orders + Invoices', 'One practical business flow'],
+          ['Purchasing + Payments', 'Less spreadsheet chasing'],
+          ['Solo and small teams', 'Built for daily operators']
+        ]
+      },
+      pain: {
+        eyebrow: 'Spreadsheet pressure',
+        h2: 'Small business operations break when the spreadsheet becomes the system.',
+        lede: 'SalesPro focuses on the back-office work that slows operators down: stock counts, order status, invoices, purchase tracking, payments and basic reporting.',
+        cards: [
+          ['01', 'Inventory lives in memory', 'Stock levels, SKUs and product details get guessed instead of tracked in one shared system.'],
+          ['02', 'Orders get buried', 'Quotes, sales orders and customer requests drift across inboxes, texts and spreadsheet tabs.'],
+          ['03', 'Invoices wait too long', 'Completed work or fulfilled orders still require manual cleanup before billing can happen.'],
+          ['04', 'Spreadsheet versions conflict', 'The team loses time figuring out which file has the real customer, product or payment data.'],
+          ['05', 'Purchasing becomes reactive', 'Low stock, supplier activity and purchase records are hard to see until a problem appears.'],
+          ['06', 'Cash visibility is fuzzy', 'Owners need a simple view of sales, unpaid invoices, payments and product movement.']
+        ]
+      },
+      workflow: {
+        eyebrow: 'SalesPro workflow',
+        h2: 'A simple operating system for everyday business management.',
+        lede: 'SalesPro keeps the core commercial flow connected: customer record, product list, order, inventory movement, purchase activity, invoice, payment and owner reporting.',
+        steps: [
+          ['Customer', 'Start clean', 'Keep customer and company records in one place.'],
+          ['Product', 'Know what you sell', 'Track SKUs, pricing, stock and product details.'],
+          ['Order', 'Capture demand', 'Turn requests into orders without spreadsheet re-entry.'],
+          ['Purchase', 'Restock smarter', 'Track supplier purchases and inventory movement.'],
+          ['Invoice', 'Bill clearly', 'Create invoice-ready records from order activity.'],
+          ['Payment', 'See collections', 'Connect payment status to the invoice and customer.'],
+          ['Report', 'Run the business', 'Review sales, inventory, invoices and outstanding work.']
+        ],
+        modules: [
+          ['SalesPro', 'Business management backbone', 'For small businesses that need inventory, orders, invoices, purchasing, payments and reporting without spreadsheet chaos.'],
+          ['HVAC Pro', 'Field-service expansion', 'For teams that later need scheduling, dispatch, job closeout and field coordination.'],
+          ['EstimatePro', 'Bid and estimate expansion', 'For teams that later need structured bid, takeoff and proposal workflows.']
+        ]
+      },
+      cta: ['SalesPro walkthrough', 'See how SalesPro can replace the spreadsheet stack.', 'Bring your current inventory, order and invoice process. We will map the simplest starting workflow.'],
+      products: ['Product ecosystem', 'Start with SalesPro. Add field-service modules later.', 'SalesPro stands on its own for small business operations, while the Cliff Group ecosystem leaves room to expand into dispatch, estimating and field workflows when needed.'],
+      trust: {
+        eyebrow: 'Small business credibility',
+        h2: 'Simple software for operators who need clarity fast.',
+        lede: 'SalesPro is designed for lean teams that need a practical replacement for scattered spreadsheets, paper orders and disconnected payment records.'
+      },
+      preview: {
+        eyebrow: 'Preview',
+        h2: 'See products, orders and invoices in one business view.',
+        lede: 'SalesPro gives owners a clean read on customers, product movement, invoice status and payments without building another spreadsheet.',
+        appName: 'SalesPro',
+        tabs: ['Dashboard', 'Inventory', 'Orders', 'Invoices', 'Payments'],
+        card: ['Business Hub', 'Owner Dashboard', '42 SKUs · 18 open orders · $24,600 invoiced'],
+        stats: [['42', 'SKUs'], ['18', 'Orders'], ['$8.4k', 'Open invoices'], ['11', 'Purchases']],
+        rows: [['ACME Supply · filter reorder', 'PO-1042', 'Open'], ['Miller Co · invoice 1328', '$1,240', 'Due'], ['Thermostat T3 · restock', '21 units', 'Live']],
+        phone: ['Next task', 'Review low-stock items', '6 products below reorder point', 'Inventory snapshot', [['Filter 16x25', '48'], ['Capacitor 45µF', '12'], ['Thermostat T3', '21']], 'Today', '7 invoices', '4 paid']
+      },
+      contact: ['SalesPro Demo', 'Map your business workflow.', 'Tell us where inventory, orders, purchasing or invoicing gets stuck. We will show how SalesPro can simplify the flow.', 'Where does your business process get stuck?', 'Walk through your SalesPro workflow.', 'A focused walkthrough for inventory, orders, purchasing, invoices, payments and reporting.', 'Which spreadsheet or handoff is costing time today? (optional)'],
+      finalCta: ['Spreadsheet replacement', 'Give your business a cleaner operating backbone.', 'Use SalesPro to replace scattered files with one simple system for products, orders, invoices and payments.'],
+      footer: 'Simple business management software for inventory, orders, invoices, purchasing, payments and reporting.'
+    }
+  };
+
+  function text(selector, value) {
+    const el = document.querySelector(selector);
+    if (el && value !== undefined) el.textContent = value;
+  }
+
+  function html(selector, value) {
+    const el = document.querySelector(selector);
+    if (el && value !== undefined) el.innerHTML = value;
+  }
+
+  function eyebrow(selector, value) {
+    html(selector, `<span class="dot"></span>${value}`);
+  }
+
+  function applyRouteProfile() {
+    const profile = productRoutes[routeProduct];
+    if (!profile) return;
+
+    document.title = profile.title;
+    document.body.dataset.productRoute = routeProduct;
+
+    eyebrow('.hero .eyebrow', profile.hero.eyebrow);
+    text('.hero h1', profile.hero.h1);
+    text('.hero .lede', profile.hero.lede);
+    document.querySelectorAll('.floating-tags .float-tag').forEach((el, index) => {
+      el.childNodes.forEach(node => {
+        if (node.nodeType === Node.TEXT_NODE) node.remove();
+      });
+      el.append(document.createTextNode(profile.hero.tags[index] || ''));
+    });
+    document.querySelectorAll('.hero-proof > div').forEach((el, index) => {
+      text(`.hero-proof > div:nth-child(${index + 1}) strong`, profile.hero.proof[index]?.[0]);
+      text(`.hero-proof > div:nth-child(${index + 1}) span`, profile.hero.proof[index]?.[1]);
+    });
+
+    eyebrow('#pain .eyebrow', profile.pain.eyebrow);
+    text('#pain h2', profile.pain.h2);
+    text('#pain .lede', profile.pain.lede);
+    document.querySelectorAll('.pain-card').forEach((card, index) => {
+      const data = profile.pain.cards[index];
+      if (!data) return;
+      text(`.pain-card:nth-child(${index + 1}) span`, data[0]);
+      text(`.pain-card:nth-child(${index + 1}) h3`, data[1]);
+      text(`.pain-card:nth-child(${index + 1}) p`, data[2]);
+    });
+
+    eyebrow('#workflow .eyebrow', profile.workflow.eyebrow);
+    text('#workflow h2', profile.workflow.h2);
+    text('#workflow .lede', profile.workflow.lede);
+    document.querySelectorAll('.workflow-step').forEach((step, index) => {
+      const data = profile.workflow.steps[index];
+      if (!data) return;
+      text(`.workflow-step:nth-child(${index + 1}) span`, data[0]);
+      text(`.workflow-step:nth-child(${index + 1}) b`, data[1]);
+      text(`.workflow-step:nth-child(${index + 1}) p`, data[2]);
+    });
+    document.querySelectorAll('.module-map > div').forEach((mod, index) => {
+      const data = profile.workflow.modules[index];
+      if (!data) return;
+      text(`.module-map > div:nth-child(${index + 1}) span`, data[0]);
+      text(`.module-map > div:nth-child(${index + 1}) strong`, data[1]);
+      text(`.module-map > div:nth-child(${index + 1}) p`, data[2]);
+    });
+
+    eyebrow('.cta-section.dark:not(.final-cta) .eyebrow', profile.cta[0]);
+    text('.cta-section.dark:not(.final-cta) h2', profile.cta[1]);
+    text('.cta-section.dark:not(.final-cta) p', profile.cta[2]);
+    eyebrow('#products > .container > .eyebrow', profile.products[0]);
+    text('#products h2', profile.products[1]);
+    text('#products > .container > .lede', profile.products[2]);
+    eyebrow('#trust .eyebrow', profile.trust.eyebrow);
+    text('#trust h2', profile.trust.h2);
+    text('#trust .lede', profile.trust.lede);
+    eyebrow('#preview .eyebrow', profile.preview.eyebrow);
+    text('#preview h2', profile.preview.h2);
+    text('#preview .lede', profile.preview.lede);
+    text('.app-name', profile.preview.appName);
+    document.querySelectorAll('.mock-tab').forEach((tab, index) => text(`.mock-tab:nth-child(${index + 1})`, profile.preview.tabs[index]));
+    text('.mock-hero-card .eb', profile.preview.card[0]);
+    text('.mock-hero-card h5', profile.preview.card[1]);
+    text('.mock-hero-card p', profile.preview.card[2]);
+    document.querySelectorAll('.mock-stat').forEach((stat, index) => {
+      text(`.mock-stat:nth-child(${index + 1}) b`, profile.preview.stats[index]?.[0]);
+      text(`.mock-stat:nth-child(${index + 1}) span`, profile.preview.stats[index]?.[1]);
+    });
+    document.querySelectorAll('.mock-row').forEach((row, index) => {
+      const data = profile.preview.rows[index];
+      if (!data) return;
+      text(`.mock-row:nth-child(${index + 1}) span:nth-child(1)`, data[0]);
+      text(`.mock-row:nth-child(${index + 1}) span:nth-child(2)`, data[1]);
+      text(`.mock-row:nth-child(${index + 1}) span:nth-child(3)`, data[2]);
+    });
+
+    const phone = profile.preview.phone;
+    text('.mock-phone-card.dark b', phone[0]);
+    text('.mock-phone-card.dark .row:nth-child(2) span:nth-child(1)', phone[1]);
+    text('.mock-phone-card.dark .row:nth-child(3)', phone[2]);
+    text('.mock-phone-card:nth-child(2) b', phone[3]);
+    document.querySelectorAll('.mock-phone-card:nth-child(2) .row').forEach((row, index) => {
+      text(`.mock-phone-card:nth-child(2) .row:nth-child(${index + 2}) span:nth-child(1)`, phone[4][index]?.[0]);
+      text(`.mock-phone-card:nth-child(2) .row:nth-child(${index + 2}) span:nth-child(2)`, phone[4][index]?.[1]);
+    });
+    text('.mock-phone-card:nth-child(3) b', phone[5]);
+    text('.mock-phone-card:nth-child(3) .row span:nth-child(1)', phone[6]);
+    text('.mock-phone-card:nth-child(3) .row span:nth-child(2)', phone[7]);
+
+    eyebrow('#contact .eyebrow', profile.contact[0]);
+    text('#contact h2', profile.contact[1]);
+    text('#contact .lede', profile.contact[2]);
+    text('#contact textarea + label', profile.contact[3]);
+    text('#modal-demo h3', profile.contact[4]);
+    text('#modal-demo .sub', profile.contact[5]);
+    text('#modal-demo textarea + label', profile.contact[6]);
+    eyebrow('.final-cta .eyebrow', profile.finalCta[0]);
+    text('.final-cta h2', profile.finalCta[1]);
+    text('.final-cta p', profile.finalCta[2]);
+    text('footer p', profile.footer);
+
+    if (routePath === '/salespro/demo' || routePath === '/hvacpro/demo') {
+      setTimeout(() => document.getElementById('modal-demo')?.classList.add('open'), 250);
+    }
+  }
+
+  applyRouteProfile();
+
   /* Reveal */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
