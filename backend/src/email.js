@@ -1,5 +1,7 @@
 const config = require('./config');
 
+const FALLBACK_FROM_EMAIL = 'Cliff Group Florida <hello@cliffgroup.software>';
+
 function escapeHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
@@ -100,12 +102,19 @@ async function sendResendEmail({ to, subject, html, text }) {
     return { status: 'failed', reason: 'invalid recipient email' };
   }
 
-  const fromAddress = extractEmailAddress(config.resendFromEmail);
+  let senderSource = config.resendFromEmail;
+  let fromAddress = extractEmailAddress(senderSource);
+  if (!isValidEmail(fromAddress)) {
+    console.warn('Invalid RESEND_FROM_EMAIL; using fallback sender.');
+    senderSource = FALLBACK_FROM_EMAIL;
+    fromAddress = extractEmailAddress(senderSource);
+  }
+
   if (!isValidEmail(fromAddress)) {
     return { status: 'failed', reason: 'invalid RESEND_FROM_EMAIL' };
   }
-  const sender = config.resendFromEmail.includes('<') && config.resendFromEmail.includes('>')
-    ? config.resendFromEmail.trim().replace(/^['"]|['"]$/g, '').trim()
+  const sender = senderSource.includes('<') && senderSource.includes('>')
+    ? senderSource.trim().replace(/^['"]|['"]$/g, '').trim()
     : fromAddress;
 
   let response;
