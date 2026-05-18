@@ -52,8 +52,11 @@ function safeEmailList(to) {
 }
 
 function extractEmailAddress(value) {
-  const text = String(value || '').trim();
-  const match = text.match(/<([^<>@\s]+@[^<>@\s]+\.[^<>@\s]+)>$/);
+  const text = String(value || '')
+    .trim()
+    .replace(/^['"]|['"]$/g, '')
+    .trim();
+  const match = text.match(/<\s*([^<>@\s]+@[^<>@\s]+\.[^<>@\s]+)\s*>/);
   return match ? match[1] : text;
 }
 
