@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>SalesPro | Small Business Sales, Inventory, Orders, and Invoice Software</title>
+    <meta name="description" content="SalesPro helps small businesses replace spreadsheets with simple order tracking, inventory management, invoice management, purchasing, and online payment workflows.">
+    <meta name="keywords" content="small business sales software, inventory management software, invoice management, order tracking, spreadsheet replacement, purchase order software">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.cliffgroupflorida.com/salespro">
+    <link rel="icon" href="https://web-production-70049.up.railway.app/static/logo.jpg?v=20260323c">
+    <link rel="apple-touch-icon" href="https://web-production-70049.up.railway.app/static/logo.jpg?v=20260323c">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Cliff Group Florida">
+    <meta property="og:title" content="SalesPro | Small Business Sales, Inventory, Orders, and Invoice Software">
+    <meta property="og:description" content="SalesPro helps small businesses replace spreadsheets with simple order tracking, inventory management, invoice management, purchasing, and online payment workflows.">
+    <meta property="og:url" content="https://www.cliffgroupflorida.com/salespro">
+    <meta property="og:image" content="https://web-production-70049.up.railway.app/static/logo.jpg?v=1">
+    <meta property="og:image:alt" content="SalesPro by Cliff Group Florida">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SalesPro | Small Business Sales, Inventory, Orders, and Invoice Software">
+    <meta name="twitter:description" content="SalesPro helps small businesses replace spreadsheets with simple order tracking, inventory management, invoice management, purchasing, and online payment workflows.">
+    <meta name="twitter:image" content="https://web-production-70049.up.railway.app/static/logo.jpg?v=1">
+    
+    <style>
+    :root{
+      --bg:#f7f1e7;
+      --surface:#fffdf8;
+      --surface-2:#f9f2e5;
+      --surface-3:#f0e6d6;
+      --ink:#1f2937;
+      --muted:#667085;
+      --brand:#17324b;
+      --brand-2:#254866;
+      --gold:#b9924a;
+      --border:#e3d7c4;
+      --line:#d6c7b0;
+      --success:#e8f4ea;
+      --shadow:0 24px 60px rgba(23,50,75,.10);
+      --shadow-soft:0 12px 32px rgba(23,50,75,.075);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      color:var(--ink);
+      font-family:"Avenir Next","Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(185,146,74,.16), transparent 24%),
+        linear-gradient(180deg, #fcf8f1 0%, #f3ede4 100%);
+    }
+    a{color:#1d4f8c}
+    a:hover{color:#17324b}
+    .shell{max-width:1180px;margin:0 auto;padding:24px 22px 90px}
+    .topbar{
+      display:flex;justify-content:space-between;align-items:center;gap:16px;
+      padding:14px 18px;margin-bottom:18px;border:1px solid var(--border);border-radius:22px;
+      background:rgba(255,253,248,.82);backdrop-filter:blur(10px);box-shadow:var(--shadow);
+    }
+    .brand-mark{display:flex;align-items:center;gap:14px}
+    .brand-badge{
+      width:46px;height:46px;border-radius:16px;background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);
+    }
+    .brand-copy strong{display:block;font-size:15px}
+    .brand-copy span{display:block;color:var(--muted);font-size:13px}
+    .topnav{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+    .topnav a{
+      display:inline-flex;align-items:center;min-height:34px;
+      text-decoration:none;color:var(--muted);font-weight:700;font-size:14px
+    }
+    .topnav a:hover{color:var(--brand)}
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(320px,400px);
+      gap:22px;
+      align-items:stretch;
+      margin-bottom:22px;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+    .hero-copy{
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.10), transparent 26%),
+        linear-gradient(135deg, #17324b 0%, #274968 58%, #355d81 100%);
+      color:#fff6e8;
+      border-color:rgba(255,255,255,.08);
+    }
+    .eyebrow{color:#d7b473;text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:800;margin-bottom:12px}
+    .hero h1{font-family:Georgia,serif;font-size:58px;line-height:1.02;margin:0 0 14px}
+    .hero p{font-size:18px;line-height:1.65;color:#dde6ee;margin:0 0 18px}
+    .hero-list{display:grid;gap:10px;margin:22px 0}
+    .hero-list div{padding:13px 14px;border-radius:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12)}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;
+      text-decoration:none;border:none;font-weight:700;font-size:15px;cursor:pointer;
+      transition:transform .16s ease, box-shadow .16s ease, background-color .16s ease, border-color .16s ease
+    }
+    .btn-primary{background:#f2dfb6;color:#221707}
+    .btn-secondary{background:#6c7887;color:#fff}
+    .btn-ghost{background:rgba(255,255,255,.10);color:#fff;border:1px solid rgba(255,255,255,.14)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(23,50,75,.12)}
+    .hero-panel{display:grid;gap:14px}
+    .hero-kicker{
+      padding:18px;border-radius:22px;background:var(--surface-2);border:1px solid var(--border)
+    }
+    .hero-kicker strong{display:block;font-family:Georgia,serif;font-size:34px;margin-bottom:6px}
+    .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .stat{padding:18px;border-radius:22px;background:var(--surface-2);border:1px solid var(--border)}
+    .stat strong{display:block;font-family:Georgia,serif;font-size:30px;margin-bottom:6px}
+    .section{margin-top:34px}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin:0 0 18px}
+    .section-head h2{font-family:Georgia,serif;font-size:38px;margin:0}
+    .section-head p{color:var(--muted);max-width:680px;line-height:1.6;margin:0}
+    .feature-grid,.screenshot-grid,.script-grid,.demo-grid{display:grid;gap:16px}
+    .feature-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .screenshot-grid{grid-template-columns:1fr}
+    .script-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .demo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .feature-grid .mini-card{background:linear-gradient(180deg,#fffdf9 0%,#faf4ea 100%)}
+    .mini-card{padding:22px;border-radius:24px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)}
+    .mini-card,.workflow-step,.sample-card{transition:transform .16s ease, border-color .16s ease, box-shadow .16s ease}
+    .mini-card:hover,.workflow-step:hover,.sample-card:hover{transform:translateY(-2px);border-color:#d3bd93;box-shadow:var(--shadow)}
+    .mini-card h3{margin:0 0 10px;font-size:22px}
+    .mini-card p{margin:0;color:var(--muted);line-height:1.6}
+    .mini-card .tag{display:inline-flex;margin-bottom:10px;padding:6px 10px;border-radius:999px;background:var(--surface-3);color:var(--brand);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .placeholder{
+      min-height:210px;padding:22px;border-radius:24px;
+      background:
+        linear-gradient(180deg, rgba(246,233,205,.92), rgba(255,255,255,.98)),
+        repeating-linear-gradient(135deg, rgba(201,152,61,.10) 0 14px, rgba(201,152,61,.02) 14px 28px);
+      border:1px dashed #d8bf8f;
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .placeholder strong{font-size:24px}
+    .placeholder span{display:block;color:#7f6d47;line-height:1.55}
+    .workflow-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .workflow-step{
+      padding:20px;border-radius:24px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)
+    }
+    .workflow-step strong{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:14px;background:var(--brand);color:#fff;margin-bottom:12px}
+    .workflow-step h3{margin:0 0 8px;font-size:20px}
+    .workflow-step p{margin:0;color:var(--muted);line-height:1.6}
+    .demo-hero-copy h1{font-size:52px}
+    .demo-hero-copy p{max-width:720px}
+    .demo-chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .demo-chip{
+      display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.12);color:#fff8ec;font-weight:700;font-size:13px
+    }
+    .preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .preview-card{padding:24px;border-radius:24px;background:var(--surface);border:1px solid var(--border);box-shadow:var(--shadow-soft)}
+    .product-preview-card{transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease}
+    .product-preview-card:hover{transform:translateY(-3px);box-shadow:0 30px 70px rgba(23,50,75,.14);border-color:#d1bc94}
+    .preview-card-head{display:flex;align-items:start;justify-content:space-between;gap:14px;margin-bottom:16px}
+    .preview-card h3{margin:0 0 8px;font-size:24px}
+    .preview-card p{margin:0;color:var(--muted);line-height:1.65}
+    .preview-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:16px 0}
+    .preview-metric{
+      min-width:0;padding:12px 13px;border-radius:16px;background:#f8f2e8;border:1px solid #eadfcd
+    }
+    .preview-metric span{display:block;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .preview-metric strong{display:block;margin-top:4px;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .preview-table-wrap{overflow-x:auto;border:1px solid #eadfcd;border-radius:18px;background:#fff}
+    .preview-table{width:100%;border-collapse:collapse;min-width:520px;font-size:14px}
+    .preview-table th{
+      text-align:left;padding:12px 14px;background:#f5ecdc;color:#546170;font-size:11px;text-transform:uppercase;letter-spacing:.08em
+    }
+    .preview-table td{padding:13px 14px;border-top:1px solid #efe6d8;vertical-align:top}
+    .preview-table td:first-child{font-weight:800;color:var(--brand);white-space:nowrap}
+    .preview-footnote{margin-top:13px;color:var(--muted);font-size:13px;line-height:1.5}
+    .screenshot-frame{
+      margin:0;
+      overflow:hidden;
+      border-radius:24px;
+      border:1px solid #dac8aa;
+      background:linear-gradient(180deg,#fffdf9 0%,#f7eddd 100%);
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.70), 0 16px 38px rgba(23,50,75,.10)
+    }
+    .screenshot-toolbar{
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:12px;
+      align-items:center;
+      padding:14px 16px;
+      border-bottom:1px solid #eadfcc;
+      background:rgba(255,253,248,.92)
+    }
+    .screenshot-toolbar strong{display:block;color:var(--brand);font-size:14px}
+    .screenshot-toolbar span{display:block;color:var(--muted);font-size:12px;line-height:1.45}
+    .screenshot-dots{display:flex;gap:6px}
+    .screenshot-dots span{width:10px;height:10px;border-radius:999px;background:#d7c5a5}
+    .screenshot-dots span:nth-child(1){background:#d79a7a}
+    .screenshot-dots span:nth-child(2){background:#dfc26b}
+    .screenshot-dots span:nth-child(3){background:#85b987}
+    .screenshot-surface{padding:16px;background:linear-gradient(180deg,#fffaf0 0%,#fffdf8 100%)}
+    .screenshot-summary{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+      margin-bottom:12px
+    }
+    .screenshot-stat{
+      min-width:0;
+      padding:12px;
+      border-radius:16px;
+      background:#f8f0e2;
+      border:1px solid #eadfcd
+    }
+    .screenshot-stat span{display:block;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .screenshot-stat strong{display:block;margin-top:4px;color:var(--ink);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .screenshot-frame figcaption{
+      padding:13px 16px;
+      color:#6f5d3c;
+      background:#fbf4e7;
+      border-top:1px solid #eadfcc;
+      font-size:13px;
+      line-height:1.5
+    }
+    .screenshot-teaser{
+      display:grid;
+      grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);
+      gap:18px;
+      align-items:stretch;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:28px;
+      background:rgba(255,253,248,.84);
+      box-shadow:var(--shadow-soft);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease
+    }
+    .screenshot-teaser:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#d1bc94}
+    .screenshot-teaser-copy{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:10px
+    }
+    .screenshot-teaser-copy h3{margin:0 0 10px;font-size:26px;line-height:1.2}
+    .screenshot-teaser-copy p{margin:0;color:var(--muted);line-height:1.65}
+    .feature-chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .feature-chip{
+      display:inline-flex;
+      align-items:center;
+      min-height:30px;
+      padding:0 11px;
+      border-radius:999px;
+      background:#efe3cd;
+      color:#5d4825;
+      font-size:12px;
+      font-weight:800
+    }
+    .workflow-caption{
+      margin-top:14px;
+      padding:14px 16px;
+      border-radius:18px;
+      background:#f7efe0;
+      color:#62543f;
+      line-height:1.55;
+      font-size:14px
+    }
+    .status-badge{
+      display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;
+      min-height:30px;padding:0 11px;border-radius:999px;font-size:12px;font-weight:800
+    }
+    .status-good{background:#e5f4ea;color:#24663b}
+    .status-warn{background:#fff2cf;color:#75551a}
+    .status-info{background:#eaf0f7;color:#254866}
+    .preview-placeholder{
+      min-height:220px;margin-top:18px;padding:22px;border-radius:22px;border:1px dashed #d6bf93;
+      background:
+        linear-gradient(180deg, rgba(248,240,226,.98), rgba(255,255,255,.98)),
+        repeating-linear-gradient(135deg, rgba(185,146,74,.10) 0 14px, rgba(185,146,74,.03) 14px 28px);
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .preview-placeholder strong{font-size:22px;color:#6d5330}
+    .preview-placeholder span{display:block;color:#826948;line-height:1.55}
+    .demo-story{
+      display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,380px);gap:18px;align-items:stretch
+    }
+    .sample-grid{display:grid;gap:14px}
+    .sample-card{padding:20px;border-radius:22px;background:var(--surface-2);border:1px solid var(--border)}
+    .sample-card h3{margin:0 0 10px;font-size:20px}
+    .sample-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+    .sample-list li{padding:12px 14px;border-radius:16px;background:#fff;border:1px solid #eadfcf}
+    .sample-list strong{display:block}
+    .cta-panel{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    input,textarea{
+      width:100%;min-height:50px;border:1px solid #d7dfeb;border-radius:18px;padding:14px 16px;font:inherit;background:#fff;color:var(--ink);
+      transition:border-color .16s ease, box-shadow .16s ease
+    }
+    input:focus,textarea:focus{outline:none;border-color:#c8a866;box-shadow:0 0 0 4px rgba(185,146,74,.16)}
+    textarea{min-height:120px;resize:vertical}
+    .full{grid-column:1 / -1}
+    .muted{color:var(--muted)}
+    .banner{padding:18px 20px;border-radius:22px;background:var(--success);border:1px solid #b8dfc0;color:#1d5b2d;margin-bottom:18px}
+    .list{display:grid;gap:8px;padding-left:18px}
+    .pdf-card{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .lead-note{
+      margin-top:16px;padding:16px 18px;border-radius:20px;background:#f6f1e7;border:1px dashed var(--line);color:var(--muted)
+    }
+    .inline-link{font-weight:700;text-decoration:none}
+    @media (max-width: 980px){
+      .hero,.feature-grid,.screenshot-grid,.screenshot-teaser,.script-grid,.demo-grid,.form-grid,.workflow-grid,.stat-grid,.preview-grid,.demo-story{grid-template-columns:1fr}
+      .section-head{align-items:start;flex-direction:column}
+      .topbar{align-items:start;flex-direction:column}
+      .hero h1{font-size:46px}
+      .pdf-card{align-items:start;flex-direction:column}
+      .cta-panel{align-items:start;flex-direction:column}
+      .cta-row .btn{flex:1 1 auto}
+    }
+    @media (max-width: 640px){
+      .shell{padding:18px 14px 70px}
+      .card{padding:22px}
+      .hero h1{font-size:38px}
+      .demo-hero-copy h1{font-size:36px}
+      .preview-card-head{display:grid}
+      .preview-metrics,.screenshot-summary{grid-template-columns:1fr}
+      .preview-card{padding:18px}
+      .screenshot-teaser{padding:14px}
+      .screenshot-surface{padding:12px}
+      .screenshot-frame .preview-table{min-width:460px}
+      .cta-row{align-items:stretch}
+      .cta-row .btn{width:100%}
+      .section{margin-top:28px}
+      .section-head h2{font-size:32px}
+    }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="topbar">
+        <div class="brand-mark">
+          <div class="brand-badge">CG</div>
+          <div class="brand-copy">
+            <strong>Cliff Group Florida</strong>
+            <span>SalesPro is part of the Cliff Group Florida business software ecosystem.</span>
+          </div>
+        </div>
+        <div class="topnav">
+          <a href="https://www.cliffgroupflorida.com" target="_blank" rel="noopener">Main Website</a>
+          <a href="/salespro/demo">Demo Page</a>
+          <a href="/salespro/one-pager.pdf" target="_blank" rel="noopener">One-Pager</a>
+          <a href="/salespro/login">Login</a>
+          <a href="mailto:cliffgroupinc@gmail.com">Contact</a>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="card hero-copy">
+          <div class="eyebrow">Cliff Group Florida · SalesPro</div>
+          <h1>Simple business software for small teams that are tired of running everything from spreadsheets.</h1>
+          <p>SalesPro helps small businesses and solo operators manage orders, inventory, invoices, purchase orders, and customer payments in one practical workflow.</p>
+          <div class="hero-list">
+            <div>Create orders and invoices without bouncing between multiple files.</div>
+            <div>Track stock, purchasing, and receiving with a workflow that is easy to follow.</div>
+            <div>Give customers clean PDFs, shipment updates, and payment links from one system.</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#request-demo">Request Demo</a>
+            <a class="btn btn-ghost" href="/salespro/demo">View Demo Page</a>
+            <a class="btn btn-ghost" href="/salespro/one-pager.pdf" target="_blank" rel="noopener">Download One-Pager</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <div class="card hero-kicker">
+            <div class="eyebrow">Best Fit</div>
+            <strong>Made for product-based small businesses.</strong>
+            <span>Use it to replace spreadsheet-driven order tracking, manual inventory counts, disconnected invoicing, and ad hoc purchasing notes.</span>
+          </div>
+          <div class="card">
+            <div class="eyebrow">Why Teams Start</div>
+            <div class="stat-grid">
+              <div class="stat"><strong>1</strong><span>Place for customers, products, orders, inventory, invoices, and purchase orders</span></div>
+              <div class="stat"><strong>Fast</strong><span>Simple workflows your team can learn without a heavy implementation project</span></div>
+              <div class="stat"><strong>Online</strong><span>Customer portal with invoice PDFs and payment links</span></div>
+              <div class="stat"><strong>Practical</strong><span>Built for businesses that need clarity, not enterprise complexity</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">What SalesPro Helps You Do</div>
+            <h2>Run the day-to-day work from one screen instead of five spreadsheets</h2>
+          </div>
+          <p>SalesPro is designed for companies that sell products, keep inventory, buy replenishment stock, send invoices, and want a cleaner workflow than email threads and spreadsheet tabs.</p>
+        </div>
+        <div class="feature-grid"><div class="mini-card"><div class="tag">SalesPro</div><h3>Replace spreadsheets with one workflow</h3><p>Keep customers, products, orders, inventory, and invoices in one place so you stop chasing updates across multiple files.</p></div><div class="mini-card"><div class="tag">SalesPro</div><h3>Sell products and track stock clearly</h3><p>See what you have on hand, what needs to be ordered, and what is ready to ship without guessing.</p></div><div class="mini-card"><div class="tag">SalesPro</div><h3>Create invoices and collect payment faster</h3><p>Send a clean invoice, give the customer an online payment link, and follow the balance without manual math.</p></div><div class="mini-card"><div class="tag">SalesPro</div><h3>Handle purchase orders and receiving</h3><p>Create purchase orders, receive products into stock, and keep purchasing tied to real inventory movement.</p></div><div class="mini-card"><div class="tag">SalesPro</div><h3>Keep customers updated</h3><p>Send shipment updates, share portal links, and give customers clear documents they can open on their own.</p></div><div class="mini-card"><div class="tag">SalesPro</div><h3>Stay practical for small teams</h3><p>SalesPro is built for small businesses and solo operators who need a simple operating system, not a bloated ERP.</p></div></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Visual Walkthrough</div>
+            <h2>Realistic product previews built for screenshots and demos</h2>
+          </div>
+          <p>These polished presentation blocks make the product feel concrete before a live walkthrough. They are ready to pair with real screenshots or short clips as the demo account matures.</p>
+        </div>
+        <div class="screenshot-grid">
+    <div class="screenshot-teaser">
+      
+    <figure class="screenshot-frame" aria-label="Orders product screenshot preview">
+      <div class="screenshot-toolbar">
+        <div class="screenshot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <strong>Orders workspace</strong>
+          <span>Order entry keeps the customer, product lines, quantities, totals, and next step visible in one clean view.</span>
+        </div>
+      </div>
+      <div class="screenshot-surface">
+        <div class="screenshot-summary"><div class="screenshot-stat"><span>Customer</span><strong>Palm Beach Flooring LLC</strong></div><div class="screenshot-stat"><span>Order</span><strong>SO-1048</strong></div><div class="screenshot-stat"><span>Total</span><strong>$2,184.60</strong></div></div>
+        
+    <div class="preview-table-wrap">
+      <table class="preview-table">
+        <thead><tr><th>SKU</th><th>Product</th><th>Qty</th><th>Total</th></tr></thead>
+        <tbody><tr><td>FPR-36200</td><td>Floor protection paper roll 36 in x 200 ft</td><td>12</td><td><span class="status-badge status-info">$1,428.00</span></td></tr><tr><td>TAPE-BLUE-2</td><td>Blue contractor tape 2 in</td><td>24</td><td><span class="status-badge status-info">$310.80</span></td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <figcaption>Start with the customer, add products by SKU or name, confirm quantities, then move the order to invoice or fulfillment.</figcaption>
+    </figure>
+    
+      <div class="screenshot-teaser-copy">
+        <div class="eyebrow">Orders</div>
+        <h3>Order entry keeps the customer, product lines, quantities, totals, and next step visible in one clean view.</h3>
+        <p>Start with the customer, add products by SKU or name, confirm quantities, then move the order to invoice or fulfillment.</p>
+        <div class="feature-chip-row"><span class="feature-chip">Fast product lookup</span><span class="feature-chip">Clear order totals</span><span class="feature-chip">Customer-linked history</span></div>
+      </div>
+    </div>
+    
+    <div class="screenshot-teaser">
+      
+    <figure class="screenshot-frame" aria-label="Inventory product screenshot preview">
+      <div class="screenshot-toolbar">
+        <div class="screenshot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <strong>Inventory workspace</strong>
+          <span>Inventory previews show practical warehouse quantities, reorder signals, and product availability without spreadsheet cleanup.</span>
+        </div>
+      </div>
+      <div class="screenshot-surface">
+        <div class="screenshot-summary"><div class="screenshot-stat"><span>Warehouse</span><strong>Main - Pompano</strong></div><div class="screenshot-stat"><span>Low stock</span><strong>2 SKUs</strong></div><div class="screenshot-stat"><span>Available</span><strong>1,420 units</strong></div></div>
+        
+    <div class="preview-table-wrap">
+      <table class="preview-table">
+        <thead><tr><th>SKU</th><th>Product</th><th>On hand</th><th>Status</th></tr></thead>
+        <tbody><tr><td>FPR-36200</td><td>Floor protection paper 36 in</td><td>86 rolls</td><td><span class="status-badge status-good">In stock</span></td></tr><tr><td>TAPE-BLUE-2</td><td>Blue contractor tape</td><td>18 cases</td><td><span class="status-badge status-warn">Reorder</span></td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <figcaption>Review stock levels, identify low items, and create replenishment purchase orders before orders get stuck.</figcaption>
+    </figure>
+    
+      <div class="screenshot-teaser-copy">
+        <div class="eyebrow">Inventory</div>
+        <h3>Inventory previews show practical warehouse quantities, reorder signals, and product availability without spreadsheet cleanup.</h3>
+        <p>Review stock levels, identify low items, and create replenishment purchase orders before orders get stuck.</p>
+        <div class="feature-chip-row"><span class="feature-chip">Warehouse quantities</span><span class="feature-chip">Low stock signals</span><span class="feature-chip">SKU-level clarity</span></div>
+      </div>
+    </div>
+    
+    <div class="screenshot-teaser">
+      
+    <figure class="screenshot-frame" aria-label="Invoices product screenshot preview">
+      <div class="screenshot-toolbar">
+        <div class="screenshot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <strong>Invoices workspace</strong>
+          <span>Invoice previews focus on what customers care about: invoice number, due date, balance, PDF, and online payment access.</span>
+        </div>
+      </div>
+      <div class="screenshot-surface">
+        <div class="screenshot-summary"><div class="screenshot-stat"><span>Invoice</span><strong>INV-4E589602</strong></div><div class="screenshot-stat"><span>Due date</span><strong>Apr 15, 2026</strong></div><div class="screenshot-stat"><span>Balance</span><strong>$2,184.60</strong></div></div>
+        
+    <div class="preview-table-wrap">
+      <table class="preview-table">
+        <thead><tr><th>Item</th><th>Amount</th><th>Status</th></tr></thead>
+        <tbody><tr><td>Floor protection paper order</td><td>$1,428.00</td><td><span class="status-badge status-warn">Open</span></td></tr><tr><td>Tape and accessories</td><td>$310.80</td><td><span class="status-badge status-warn">Open</span></td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <figcaption>Create invoice from an order, email the PDF and portal link, then track open balance from the invoice screen.</figcaption>
+    </figure>
+    
+      <div class="screenshot-teaser-copy">
+        <div class="eyebrow">Invoices</div>
+        <h3>Invoice previews focus on what customers care about: invoice number, due date, balance, PDF, and online payment access.</h3>
+        <p>Create invoice from an order, email the PDF and portal link, then track open balance from the invoice screen.</p>
+        <div class="feature-chip-row"><span class="feature-chip">Branded PDFs</span><span class="feature-chip">Customer portal</span><span class="feature-chip">Payment-ready</span></div>
+      </div>
+    </div>
+    
+    <div class="screenshot-teaser">
+      
+    <figure class="screenshot-frame" aria-label="Purchasing product screenshot preview">
+      <div class="screenshot-toolbar">
+        <div class="screenshot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <strong>Purchasing workspace</strong>
+          <span>Purchasing previews make open quantities and receiving status visible so replenishment stays tied to real inventory needs.</span>
+        </div>
+      </div>
+      <div class="screenshot-surface">
+        <div class="screenshot-summary"><div class="screenshot-stat"><span>Supplier</span><strong>Grionika Supply</strong></div><div class="screenshot-stat"><span>PO</span><strong>PO-A3CCDA4C</strong></div><div class="screenshot-stat"><span>Open qty</span><strong>140 rolls</strong></div></div>
+        
+    <div class="preview-table-wrap">
+      <table class="preview-table">
+        <thead><tr><th>SKU</th><th>Product</th><th>Ordered</th><th>Open</th></tr></thead>
+        <tbody><tr><td>FPR-36200</td><td>Floor protection paper 36 in</td><td>200</td><td><span class="status-badge status-info">140</span></td></tr><tr><td>FPR-48200</td><td>Floor protection paper 48 in</td><td>120</td><td><span class="status-badge status-info">120</span></td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <figcaption>Build a purchase order, receive partial or full quantities, and let stock update as product arrives.</figcaption>
+    </figure>
+    
+      <div class="screenshot-teaser-copy">
+        <div class="eyebrow">Purchasing</div>
+        <h3>Purchasing previews make open quantities and receiving status visible so replenishment stays tied to real inventory needs.</h3>
+        <p>Build a purchase order, receive partial or full quantities, and let stock update as product arrives.</p>
+        <div class="feature-chip-row"><span class="feature-chip">Supplier PO tracking</span><span class="feature-chip">Receive now workflow</span><span class="feature-chip">Open quantity visibility</span></div>
+      </div>
+    </div>
+    
+    <div class="screenshot-teaser">
+      
+    <figure class="screenshot-frame" aria-label="Payments product screenshot preview">
+      <div class="screenshot-toolbar">
+        <div class="screenshot-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <strong>Payments workspace</strong>
+          <span>Payment previews show how online checkout connects back to invoice balance, paid amount, and customer-facing status.</span>
+        </div>
+      </div>
+      <div class="screenshot-surface">
+        <div class="screenshot-summary"><div class="screenshot-stat"><span>Payment</span><strong>Stripe Checkout</strong></div><div class="screenshot-stat"><span>Paid</span><strong>$2,184.60</strong></div><div class="screenshot-stat"><span>Balance</span><strong>$0.00</strong></div></div>
+        
+    <div class="preview-table-wrap">
+      <table class="preview-table">
+        <thead><tr><th>Date</th><th>Method</th><th>Amount</th><th>Status</th></tr></thead>
+        <tbody><tr><td>Apr 01</td><td>Card</td><td>$2,184.60</td><td><span class="status-badge status-good">Posted</span></td></tr><tr><td>Apr 01</td><td>Invoice balance</td><td>$0.00</td><td><span class="status-badge status-good">Paid</span></td></tr></tbody>
+      </table>
+    </div>
+    
+      </div>
+      <figcaption>Customer pays online, Stripe confirms checkout, and SalesPro updates the invoice payment history and balance.</figcaption>
+    </figure>
+    
+      <div class="screenshot-teaser-copy">
+        <div class="eyebrow">Payments</div>
+        <h3>Payment previews show how online checkout connects back to invoice balance, paid amount, and customer-facing status.</h3>
+        <p>Customer pays online, Stripe confirms checkout, and SalesPro updates the invoice payment history and balance.</p>
+        <div class="feature-chip-row"><span class="feature-chip">Online checkout</span><span class="feature-chip">Balance tracking</span><span class="feature-chip">Payment history</span></div>
+      </div>
+    </div>
+    </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Lead Flow</div>
+            <h2>Request Demo is now structured for the Cliff Group Florida workflow</h2>
+          </div>
+          <p>The current frontend and backend flow now prepares demo requests as company-level leads, so this page can later feed a centralized Cliff Group Florida lead pipeline.</p>
+        </div>
+        <div class="workflow-grid">
+          <div class="workflow-step">
+            <strong>1</strong>
+            <h3>Website entry</h3>
+            <p>Prospects land on the SalesPro page through the Cliff Group Florida website ecosystem and request a demo.</p>
+          </div>
+          <div class="workflow-step">
+            <strong>2</strong>
+            <h3>Lead tagging</h3>
+            <p>The request is stored with product, ecosystem, workflow, and entry-path tags to prepare for centralized lead management later.</p>
+          </div>
+          <div class="workflow-step">
+            <strong>3</strong>
+            <h3>Follow-up</h3>
+            <p>Your team can route demo requests into a shared Cliff Group Florida process without changing the public SalesPro URL structure.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="demo-grid">
+          <div class="mini-card">
+            <h3>Demo version</h3>
+            <p>Separate demo environment planned for walkthroughs, trial access, and sales conversations with sample data only.</p>
+            <div class="cta-row" style="margin-top:16px;">
+              <a class="btn btn-primary" href="/salespro/demo">Open Demo Page</a>
+            </div>
+          </div>
+          <div class="mini-card">
+            <h3>One-page sales summary</h3>
+            <p>Share a printable one-pager that explains who SalesPro is for, what it solves, and how the Cliff Group Florida team delivers it.</p>
+            <div class="cta-row" style="margin-top:16px;">
+              <a class="btn btn-secondary" href="/salespro/one-pager.pdf" target="_blank" rel="noopener">Download PDF</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Video Scripts</div>
+            <h2>Prepared short demo scripts</h2>
+          </div>
+          <p>These scripts are ready for later recording as short walkthroughs for sales conversations, follow-up emails, or the company website.</p>
+        </div>
+        <div class="script-grid"><div class="mini-card"><h3>Create an order in under a minute</h3><ol class="list"><li>Open Customers and pick the customer.</li><li>Create a new order and search by SKU, name, or barcode.</li><li>Add quantities, confirm totals, and save the order.</li><li>Finish on the completed order screen with the order number visible.</li></ol></div><div class="mini-card"><h3>How invoice, portal, and payment work together</h3><ol class="list"><li>Open an order and create an invoice.</li><li>Send the invoice by email and open the customer portal link.</li><li>Show the branded portal and the Pay Online button.</li><li>Finish on the paid invoice state back inside SalesPro.</li></ol></div><div class="mini-card"><h3>How inventory, purchasing, and shipping stay connected</h3><ol class="list"><li>Show low stock or a backorder-driven replenishment draft.</li><li>Create a purchase order and receive inventory.</li><li>Create a shipment and send a customer update.</li><li>Finish on the final fulfillment status for the order.</li></ol></div></div>
+      </section>
+
+      <section class="section">
+        <div class="card pdf-card">
+          <div>
+            <div class="eyebrow">Sales Material</div>
+            <h2 style="font-family:Georgia,serif;font-size:38px;margin:0 0 10px;">Download the SalesPro one-pager</h2>
+            <p class="muted">Use it in email follow-up, website conversations, or live sales meetings with small business owners.</p>
+          </div>
+          <a class="btn btn-primary" href="/salespro/one-pager.pdf" target="_blank" rel="noopener">Open PDF</a>
+        </div>
+      </section>
+
+      <section class="section" id="request-demo">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Request Demo</div>
+            <h2>Talk to the Cliff Group Florida team about SalesPro</h2>
+          </div>
+          <p>Use this form to request a walkthrough, ask about pricing, or plan how SalesPro could replace spreadsheets in your current workflow.</p>
+        </div>
+        <div class="card">
+          
+          <form method="post" action="https://web-production-70049.up.railway.app/salespro/request-demo">
+            <input type="hidden" name="product_key" value="salespro">
+            <input type="hidden" name="ecosystem_key" value="cliff_group_florida">
+            <input type="hidden" name="workflow_key" value="website_demo_request">
+            <input type="hidden" name="entry_path" value="/salespro">
+            <div class="form-grid">
+              <input name="name" placeholder="Your name" required>
+              <input name="company" placeholder="Company">
+              <input name="email" type="email" placeholder="Work email" required>
+              <input name="phone" placeholder="Phone">
+              <input class="full" name="website" placeholder="Website">
+              <textarea class="full" name="use_case" placeholder="What do you want SalesPro to help you manage? Orders, invoicing, inventory, purchasing, customer payments, shipping, or replacing spreadsheets in general."></textarea>
+            </div>
+            <div class="cta-row" style="margin-top:18px;">
+              <button class="btn btn-primary" type="submit">Request Demo</button>
+              <a class="btn btn-secondary" href="mailto:cliffgroupinc@gmail.com">Email Us Directly</a>
+            </div>
+            <div class="lead-note">
+              SalesPro demo requests are handled as part of the Cliff Group Florida workflow. This keeps follow-up, planning, and future product conversations in one ecosystem.
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
