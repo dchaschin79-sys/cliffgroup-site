@@ -35,7 +35,7 @@ const securityHeaders = {
     "script-src 'self' 'unsafe-inline'",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
-    "img-src 'self' data:",
+    "img-src 'self' data: https://web-production-70049.up.railway.app",
     "connect-src 'self' https://zesty-reflection-production-274d.up.railway.app",
     "object-src 'none'",
     "base-uri 'self'",
@@ -46,6 +46,7 @@ const securityHeaders = {
 };
 
 const salesProLoginUrl = process.env.SALESPRO_LOGIN_URL || 'https://web-production-70049.up.railway.app/salespro/login';
+const salesProAppUrl = (process.env.SALESPRO_APP_URL || 'https://web-production-70049.up.railway.app').replace(/\/+$/, '');
 
 function send(res, statusCode, headers, body) {
   res.writeHead(statusCode, { ...securityHeaders, ...headers });
@@ -58,6 +59,80 @@ function redirect(res, location) {
     'Cache-Control': 'no-cache',
     'Content-Type': 'text/plain; charset=utf-8'
   }, `Redirecting to ${location}`);
+}
+
+function isSalesProProxyPath(pathname) {
+  return [
+    '/salespro',
+    '/salespro/',
+    '/salespro/demo',
+    '/salespro/one-pager.pdf',
+    '/salespro/request-demo'
+  ].includes(pathname) || pathname.startsWith('/static/') || pathname.startsWith('/branding/');
+}
+
+function rewriteSalesProHtml(html) {
+  return html
+    .replace(/https:\/\/web-production-70049\.up\.railway\.app/g, '')
+    .replace(/http:\/\/127\.0\.0\.1:8000/g, salesProAppUrl);
+}
+
+async function proxySalesPro(req, res) {
+  const upstreamUrl = new URL(req.url || '/', salesProAppUrl);
+  const headers = {};
+
+  for (const [key, value] of Object.entries(req.headers)) {
+    if (!['host', 'connection', 'content-length'].includes(key.toLowerCase()) && value) {
+      headers[key] = value;
+    }
+  }
+
+  let body;
+  if (!['GET', 'HEAD'].includes(req.method)) {
+    body = await new Promise((resolve, reject) => {
+      const chunks = [];
+      req.on('data', (chunk) => chunks.push(chunk));
+      req.on('end', () => resolve(Buffer.concat(chunks)));
+      req.on('error', reject);
+    });
+  }
+
+  try {
+    const upstreamResponse = await fetch(upstreamUrl, {
+      method: req.method,
+      headers,
+      body,
+      redirect: 'manual'
+    });
+
+    const responseHeaders = {
+      'Cache-Control': upstreamResponse.headers.get('cache-control') || 'no-cache'
+    };
+    const contentType = upstreamResponse.headers.get('content-type') || 'application/octet-stream';
+    responseHeaders['Content-Type'] = contentType;
+
+    const location = upstreamResponse.headers.get('location');
+    if (location) {
+      responseHeaders.Location = location.replace(salesProAppUrl, '');
+    }
+
+    if (req.method === 'HEAD') {
+      send(res, upstreamResponse.status, responseHeaders, '');
+      return;
+    }
+
+    if (contentType.includes('text/html')) {
+      const html = await upstreamResponse.text();
+      send(res, upstreamResponse.status, responseHeaders, rewriteSalesProHtml(html));
+      return;
+    }
+
+    const buffer = Buffer.from(await upstreamResponse.arrayBuffer());
+    send(res, upstreamResponse.status, responseHeaders, buffer);
+  } catch (error) {
+    console.error('SalesPro proxy failed:', error.message);
+    send(res, 502, { 'Content-Type': 'text/plain; charset=utf-8' }, 'SalesPro page is temporarily unavailable');
+  }
 }
 
 function resolveRequestPath(url) {
@@ -110,6 +185,14 @@ function serveFile(res, filePath, statusCode = 200) {
 }
 
 const server = http.createServer((req, res) => {
+  const parsed = new URL(req.url || '/', 'http://localhost');
+  const pathname = decodeURIComponent(parsed.pathname);
+
+  if (isSalesProProxyPath(pathname)) {
+    proxySalesPro(req, res);
+    return;
+  }
+
   if (!['GET', 'HEAD'].includes(req.method)) {
     send(res, 405, { 'Content-Type': 'text/plain; charset=utf-8' }, 'Method Not Allowed');
     return;
