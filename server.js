@@ -47,6 +47,7 @@ const securityHeaders = {
 
 const salesProLoginUrl = process.env.SALESPRO_LOGIN_URL || 'https://web-production-70049.up.railway.app/salespro/login';
 const salesProAppUrl = (process.env.SALESPRO_APP_URL || 'https://web-production-70049.up.railway.app').replace(/\/+$/, '');
+const estimateProLoginUrl = process.env.ESTIMATEPRO_LOGIN_URL || 'https://frontend-production-9aa65.up.railway.app/login';
 
 function send(res, statusCode, headers, body) {
   res.writeHead(statusCode, { ...securityHeaders, ...headers });
@@ -145,6 +146,14 @@ function resolveRequestPath(url) {
 
   if (pathname === '/salespro/login' || pathname === '/login') {
     return { redirectTo: salesProLoginUrl };
+  }
+
+  if (pathname === '/estimatepro/login') {
+    return { redirectTo: estimateProLoginUrl };
+  }
+
+  if (pathname === '/estimatepro' || pathname === '/estimatepro/') {
+    return { filePath: path.join(rootDir, 'estimatepro', 'index.html'), fallback: false };
   }
 
   if (pathname === '/') {

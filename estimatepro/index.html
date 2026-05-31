@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EstimatePro | Cliff Group Florida</title>
+    <meta name="description" content="EstimatePro helps HVAC estimators organize bid projects, upload sheets, review AI-assisted takeoff marks, and prepare estimates.">
+    <link rel="canonical" href="https://cliffgroupflorida.com/estimatepro">
+    <link rel="icon" href="/assets/cliff-logo.png">
+    <style>
+      :root {
+        --bg: #f7f1e7;
+        --surface: #fffdf8;
+        --ink: #1f2937;
+        --muted: #667085;
+        --green: #1b5e3b;
+        --gold: #b9924a;
+        --border: #e3d7c4;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: linear-gradient(180deg, #fcf8f1 0%, var(--bg) 100%);
+      }
+      .shell {
+        width: min(980px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 28px 0 72px;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 14px 0;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 800;
+      }
+      .brand img { width: 42px; height: 42px; object-fit: contain; }
+      .nav {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+      }
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .hero {
+        margin-top: 44px;
+        padding: 54px;
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        background: var(--surface);
+        box-shadow: 0 24px 60px rgba(23, 50, 75, .10);
+      }
+      .eyebrow {
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: .16em;
+        font-size: 12px;
+        font-weight: 800;
+        margin-bottom: 14px;
+      }
+      h1 {
+        margin: 0;
+        max-width: 780px;
+        font-family: Georgia, serif;
+        font-size: clamp(42px, 7vw, 76px);
+        line-height: .98;
+      }
+      .lede {
+        max-width: 680px;
+        margin: 22px 0 0;
+        color: var(--muted);
+        font-size: 19px;
+        line-height: 1.65;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 30px;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 800;
+      }
+      .btn-primary {
+        background: var(--green);
+        color: #fff;
+      }
+      .btn-secondary {
+        border: 1px solid var(--border);
+        color: var(--ink);
+        background: #fffaf1;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .card {
+        padding: 20px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 253, 248, .72);
+      }
+      .card strong { display: block; margin-bottom: 8px; }
+      .card p { margin: 0; color: var(--muted); line-height: 1.5; }
+      footer {
+        margin-top: 34px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (max-width: 760px) {
+        .shell { width: min(100% - 28px, 980px); }
+        .topbar { align-items: flex-start; flex-direction: column; }
+        .hero { padding: 30px 22px; }
+        .cards { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="/">
+          <img src="/assets/cliff-logo.png" alt="Cliff Group Florida">
+          <span>Cliff Group Florida</span>
+        </a>
+        <nav class="nav" aria-label="EstimatePro navigation">
+          <a href="/">Home</a>
+          <a href="/salespro">SalesPro</a>
+          <a href="/estimatepro/login">Login</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">EstimatePro</div>
+        <h1>HVAC estimate workspace for bids, sheets, marks, and takeoff review.</h1>
+        <p class="lede">
+          EstimatePro is the estimating app for organizing bid projects, uploading drawing sheets,
+          reviewing AI-assisted detections, and preparing project estimates.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/estimatepro/login">Open EstimatePro</a>
+          <a class="btn btn-secondary" href="/">Back to Cliff Group</a>
+        </div>
+      </section>
+
+      <section class="cards" aria-label="EstimatePro capabilities">
+        <article class="card">
+          <strong>Project workspace</strong>
+          <p>Keep bid invites, contractors, sheets, and notes connected in one place.</p>
+        </article>
+        <article class="card">
+          <strong>Sheet review</strong>
+          <p>Upload PDFs, inspect rendered sheets, and review detected HVAC components.</p>
+        </article>
+        <article class="card">
+          <strong>Estimate output</strong>
+          <p>Convert confirmed takeoff items into pricing and estimate workflows.</p>
+        </article>
+      </section>
+
+      <footer>
+        This is a temporary simple landing page. A full EstimatePro marketing page will replace it later.
+      </footer>
+    </main>
+  </body>
+</html>
