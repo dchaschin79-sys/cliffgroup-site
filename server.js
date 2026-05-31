@@ -75,7 +75,15 @@ function isSalesProProxyPath(pathname) {
 function rewriteSalesProHtml(html) {
   return html
     .replace(/https:\/\/web-production-70049\.up\.railway\.app/g, '')
-    .replace(/http:\/\/127\.0\.0\.1:8000/g, salesProAppUrl);
+    .replace(/http:\/\/127\.0\.0\.1:8000/g, salesProAppUrl)
+    .replace(
+      /<a href="https:\/\/www\.cliffgroupflorida\.com" target="_blank" rel="noopener">Main Website<\/a>/g,
+      '<a href="/">Main Website</a>'
+    )
+    .replace(
+      /<a href="https:\/\/www\.cliffgroupflorida\.com">Main Website<\/a>/g,
+      '<a href="/">Main Website</a>'
+    );
 }
 
 async function proxySalesPro(req, res) {
