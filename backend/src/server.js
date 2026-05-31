@@ -56,11 +56,24 @@ const leadLimiter = rateLimit({
 app.use('/api', apiLimiter);
 
 app.get('/api/health', async (req, res) => {
+  const body = { ok: true, service: 'cliff-group-leads-api' };
+
   try {
     await healthCheck();
-    res.json({ ok: true, service: 'cliff-group-leads-api' });
+    body.database = 'connected';
   } catch (error) {
-    res.status(503).json({ ok: false, service: 'cliff-group-leads-api' });
+    body.database = 'unavailable';
+  }
+
+  res.json(body);
+});
+
+app.get('/api/ready', async (req, res) => {
+  try {
+    await healthCheck();
+    res.json({ ok: true, service: 'cliff-group-leads-api', database: 'connected' });
+  } catch (error) {
+    res.status(503).json({ ok: false, service: 'cliff-group-leads-api', database: 'unavailable' });
   }
 });
 
@@ -171,15 +184,16 @@ app.use((req, res) => {
 });
 
 async function start() {
-  try {
-    await ensureSchema();
-    app.listen(config.port, () => {
-      console.log(`Cliff Group leads API listening on port ${config.port}`);
-    });
-  } catch (error) {
-    console.error('Failed to start leads API', { message: error.message });
-    process.exit(1);
-  }
+  app.listen(config.port, async () => {
+    console.log(`Cliff Group leads API listening on port ${config.port}`);
+
+    try {
+      await ensureSchema();
+      console.log('Lead database schema verified');
+    } catch (error) {
+      console.error('Lead database schema verification failed', { message: error.message });
+    }
+  });
 }
 
 if (require.main === module) {
