@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
 <title>Cliff Group — Software for HVAC & Business Automation</title>
+<link rel="icon" href="/assets/cliff-logo.png" />
+<link rel="apple-touch-icon" href="/assets/cliff-logo.png" />
 <script>
   (function () {
     var path = window.location.pathname.replace(/\/+$/, '') || '/';
@@ -68,15 +70,12 @@ p{margin:0}
 
 /* LOGO */
 .logo{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;letter-spacing:-0.01em}
-.logo-mark{width:36px;height:36px;flex:0 0 auto;border-radius:8px;background:var(--cream);color:var(--ink);display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(14,42,74,0.12);position:relative;overflow:hidden}
-.logo-mark svg{width:22px;height:22px}
+.logo-mark{width:36px;height:36px;flex:0 0 auto;border-radius:8px;display:grid;place-items:center;position:relative;overflow:hidden}
+.logo-mark img{width:100%;height:100%;object-fit:contain}
 .logo-word{font-size:17px;line-height:1;color:var(--cream)}
 .logo-word small{display:block;font-family:var(--sans);font-size:10px;font-weight:500;color:var(--fg-on-ink-dim);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
 .nav-light .logo-word{color:var(--ink)}
 .nav-light .logo-word small{color:var(--fg-mute)}
-.nav-light .logo-mark{background:var(--ink);color:var(--cream)}
-.nav-light .logo-mark svg path{stroke:var(--gold)}
-.nav-light .logo-mark svg circle{fill:var(--gold)}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(28,42,62,0.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.06)}
@@ -368,7 +367,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
 
 <nav class="nav" id="nav">
   <a class="logo" href="/">
-    <span class="logo-mark"><svg viewBox="0 0 24 24"><use href="#i-cliff"/></svg></span>
+    <span class="logo-mark"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
     <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
   </a>
   <div class="nav-links">
@@ -547,7 +546,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
         <div class="mock-screen">
           <div class="mock-topbar">
             <span class="logo" style="gap:8px">
-              <span class="logo-mark" style="width:22px;height:22px;border-radius:5px;background:var(--gold)"><svg viewBox="0 0 24 24" style="width:14px;height:14px"><use href="#i-cliff"/></svg></span>
+              <span class="logo-mark" style="width:22px;height:22px;border-radius:5px"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
               <span class="app-name">HVAC Pro</span>
             </span>
             <span class="spacer"></span>
@@ -653,7 +652,7 @@ footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var
   <div class="footer-grid">
     <div>
       <a class="logo nav-light" href="/">
-        <span class="logo-mark"><svg viewBox="0 0 24 24"><use href="#i-cliff"/></svg></span>
+        <span class="logo-mark"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
         <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
       </a>
       <p style="margin-top:14px;color:var(--fg-dim);font-size:14px;max-width:320px">HVAC operations software for estimating, dispatch, field coordination, invoicing and visibility.</p>
