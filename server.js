@@ -64,8 +64,6 @@ function redirect(res, location) {
 
 function isSalesProProxyPath(pathname) {
   return [
-    '/salespro',
-    '/salespro/',
     '/salespro/demo',
     '/salespro/one-pager.pdf',
     '/salespro/request-demo'
@@ -162,6 +160,10 @@ function resolveRequestPath(url) {
 
   if (pathname === '/estimatepro' || pathname === '/estimatepro/') {
     return { filePath: path.join(rootDir, 'estimatepro', 'index.html'), fallback: false };
+  }
+
+  if (pathname === '/salespro' || pathname === '/salespro/') {
+    return { filePath: path.join(rootDir, 'salespro', 'index.html'), fallback: false };
   }
 
   if (pathname === '/') {
