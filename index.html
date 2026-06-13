@@ -4,7 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
-<title>Cliff Group — Software for HVAC & Business Automation</title>
+<title>Cliff Group Florida - Contractor Operations Platform</title>
+<meta name="description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
 <link rel="icon" href="/assets/cliff-logo.png" />
 <link rel="apple-touch-icon" href="/assets/cliff-logo.png" />
 <script>
@@ -13,1259 +14,817 @@
     if (path === '/salespro/login' || path === '/login') {
       window.location.replace('https://web-production-70049.up.railway.app/salespro/login');
     }
+    if (path === '/estimatepro/login') {
+      window.location.replace('https://frontend-production-9aa65.up.railway.app/login');
+    }
   })();
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --cream:#EFEAE0; --cream-2:#E7E1D4; --cream-3:#DED7C6;
-  --ink:#1C2A3E; --ink-2:#18263A; --ink-3:#2A3A52;
-  --gold:#C9AE7A; --gold-2:#B59A66;
-  --green:#3F6650; --green-2:#4C7860;
-  --fg:#1A1C1F; --fg-dim:#4A5060; --fg-mute:#6E7485;
-  --fg-on-ink:#F4EADB; --fg-on-ink-dim:#B8C2D1;
-  --line:rgba(14,42,74,0.12); --line-2:rgba(14,42,74,0.22);
-  --radius-sm:8px; --radius:14px; --radius-lg:22px;
-  --shadow-1:0 1px 2px rgba(14,42,74,0.06), 0 4px 14px rgba(14,42,74,0.08);
-  --shadow-2:0 2px 6px rgba(14,42,74,0.08), 0 20px 40px rgba(14,42,74,0.12);
-  --t-fast:.18s cubic-bezier(.2,.8,.2,1);
-  --t-med:.35s cubic-bezier(.2,.8,.2,1);
-  --t-slow:.6s cubic-bezier(.2,.8,.2,1);
+  --ink:#1C2A3E; --ink-2:#142033; --ink-3:#2A3A52;
+  --gold:#C9AE7A; --gold-2:#B99A5E;
+  --green:#3F6650; --green-2:#4F7A61;
+  --fg:#1A1C1F; --fg-dim:#4A5060; --fg-mute:#72798B;
+  --on-dark:#F4EADB; --on-dark-soft:#B8C2D1;
+  --line:rgba(14,42,74,.13); --line-2:rgba(14,42,74,.24);
+  --radius:14px; --radius-lg:22px; --shadow:0 18px 48px rgba(14,42,74,.16);
   --serif:'Fraunces','Iowan Old Style',Georgia,serif;
-  --sans:'Inter',system-ui,-apple-system,sans-serif;
+  --sans:'Inter',system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--ink);color:var(--fg);font:400 16px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{margin:0;padding:0}
+body{background:var(--cream);color:var(--fg);font:400 16px/1.58 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
-img{max-width:100%;display:block}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:700;letter-spacing:-0.02em;margin:0;font-variation-settings:'opsz' 48}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:700;letter-spacing:-.025em;line-height:1.04;margin:0;font-variation-settings:'opsz' 72}
 p{margin:0}
 ::selection{background:var(--gold);color:var(--ink)}
 
-/* CURSOR */
-.cursor-dot{position:fixed;top:0;left:0;width:7px;height:7px;border-radius:50%;background:var(--cream);pointer-events:none;z-index:300;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,opacity .2s}
-.cursor-ring{position:fixed;top:0;left:0;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(244,234,219,0.4);pointer-events:none;z-index:300;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s}
-.cursor-ring.hover{width:52px;height:52px;border-color:var(--gold)}
-.cursor-dot.hover{opacity:0}
-@media (hover:none){.cursor-dot,.cursor-ring{display:none}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:700;white-space:nowrap;transition:transform .18s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease,color .18s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 12px 26px -14px rgba(201,174,122,.9)}
+.btn-primary:hover{background:var(--gold-2)}
+.btn-light{border:1.5px solid rgba(244,234,219,.34);color:var(--cream);background:rgba(244,234,219,.06)}
+.btn-light:hover{border-color:var(--cream);background:rgba(244,234,219,.12)}
+.btn-ghost{border:1.5px solid var(--line-2);color:var(--ink);background:rgba(255,255,255,.16)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(14,42,74,.05)}
+.btn[disabled]{opacity:.68;cursor:not-allowed;transform:none}
+.btn.is-loading .arrow{animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* BUTTONS */
-.btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:14px;font-family:var(--sans);transition:transform var(--t-fast),box-shadow var(--t-fast),background var(--t-fast),color var(--t-fast),border-color var(--t-fast);will-change:transform;white-space:nowrap}
-.btn-primary{background:var(--gold);color:var(--ink);box-shadow:0 2px 0 rgba(28,42,62,.10),0 8px 18px -8px rgba(201,174,122,.4)}
-.btn-primary:hover{background:var(--gold-2);box-shadow:0 2px 0 rgba(28,42,62,.10),0 12px 22px -8px rgba(201,174,122,.55)}
-.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line-2)}
-.btn-ghost:hover{border-color:var(--ink);background:rgba(14,42,74,0.04)}
-.btn-ghost-light{background:transparent;color:var(--cream);border:1.5px solid rgba(244,234,219,0.3)}
-.btn-ghost-light:hover{border-color:var(--cream);background:rgba(244,234,219,0.08)}
-.btn[disabled]{opacity:.68;cursor:not-allowed;transform:none !important;box-shadow:none}
-.btn.is-loading .btn-arrow{animation:button-spin .85s linear infinite}
-@keyframes button-spin{to{transform:rotate(360deg)}}
-.btn-arrow{transition:transform var(--t-fast);display:inline-block}
-.btn:hover .btn-arrow{transform:translateX(3px)}
-
-/* LOGO */
-.logo{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:700;letter-spacing:-0.01em}
-.logo-mark{width:36px;height:36px;flex:0 0 auto;border-radius:8px;display:grid;place-items:center;position:relative;overflow:hidden}
+.nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:16px 38px;background:rgba(28,42,62,.82);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);transition:background .2s ease}
+.nav.scrolled{background:rgba(28,42,62,.97)}
+.logo{display:inline-flex;align-items:center;gap:12px;min-width:210px}
+.logo-mark{width:38px;height:38px;border-radius:10px;overflow:hidden;flex:0 0 auto}
 .logo-mark img{width:100%;height:100%;object-fit:contain}
-.logo-word{font-size:17px;line-height:1;color:var(--cream)}
-.logo-word small{display:block;font-family:var(--sans);font-size:10px;font-weight:500;color:var(--fg-on-ink-dim);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
-.nav-light .logo-word{color:var(--ink)}
-.nav-light .logo-word small{color:var(--fg-mute)}
+.logo-word{font-family:var(--serif);font-size:17px;font-weight:800;line-height:1;color:var(--cream)}
+.logo-word small{display:block;margin-top:3px;font:700 10px/1 var(--sans);letter-spacing:.11em;text-transform:uppercase;color:var(--on-dark-soft)}
+.nav-links{display:flex;gap:4px;padding:5px;border-radius:999px;background:rgba(244,234,219,.08)}
+.nav-links a{padding:8px 14px;border-radius:999px;color:var(--on-dark-soft);font-size:13px;font-weight:700;transition:background .18s ease,color .18s ease}
+.nav-links a:hover,.nav-links a.active{color:var(--cream);background:rgba(244,234,219,.09)}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.menu-toggle{display:none;width:42px;height:42px;border-radius:999px;background:rgba(244,234,219,.1);color:var(--cream)}
+.mobile-menu{display:none;position:fixed;top:70px;left:16px;right:16px;z-index:99;padding:14px;border:1px solid rgba(244,234,219,.14);border-radius:18px;background:rgba(28,42,62,.98);box-shadow:0 18px 44px rgba(0,0,0,.2)}
+.mobile-menu.open{display:block}
+.mobile-menu a,.mobile-menu button{display:flex;width:100%;padding:13px 14px;border-radius:12px;color:var(--cream);font-weight:700;text-align:left}
+.mobile-menu a:hover,.mobile-menu button:hover{background:rgba(244,234,219,.08)}
+.sticky-review{position:fixed;left:14px;right:14px;bottom:14px;z-index:120;display:none;transform:translateY(140%);transition:transform .25s ease}
+.sticky-review.show{transform:translateY(0)}
+.sticky-review .btn{width:100%;box-shadow:0 18px 44px rgba(14,42,74,.34)}
 
-/* NAV */
-.nav{position:sticky;top:0;z-index:100;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(28,42,62,0.75);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.06)}
-.nav.scrolled{background:rgba(28,42,62,0.96)}
-.nav-links{display:flex;gap:4px;padding:4px;background:rgba(244,234,219,0.08);border-radius:999px}
-.nav-links a{padding:8px 14px;font-size:13px;font-weight:500;color:var(--fg-on-ink-dim);border-radius:999px;transition:color var(--t-fast),background var(--t-fast)}
-.nav-links a:hover{color:var(--cream);background:rgba(244,234,219,0.05)}
-.nav-links a.active{background:var(--gold);color:var(--ink)}
-.nav-cta{display:flex;gap:10px;align-items:center}
-@media (max-width:820px){.nav-links{display:none}.nav{padding:14px 20px}}
+.section{padding:104px 38px;background:var(--cream);position:relative}
+.section.dark{background:var(--ink);color:var(--cream)}
+.section.soft{background:var(--cream-2)}
+.container{max-width:1180px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--fg-mute);font-size:11px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:999px;background:var(--gold)}
+.dark .eyebrow,.hero .eyebrow{color:var(--on-dark-soft)}
+.display{font-size:clamp(42px,6vw,92px)}
+.h2{font-size:clamp(32px,4vw,58px)}
+.h3{font-size:clamp(24px,2.5vw,36px)}
+.lede{max-width:650px;color:var(--fg-dim);font-size:18px;line-height:1.65}
+.dark .lede,.hero .lede{color:var(--on-dark-soft)}
+.section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,520px);gap:48px;align-items:end;margin-bottom:44px}
+.section-head h2{margin-top:14px}
+.section-head.center{display:block;text-align:center;max-width:820px;margin:0 auto 44px}
+.section-head.center .lede{margin:16px auto 0}
 
-/* SECTIONS */
-section{padding:110px 40px;position:relative;background:var(--cream);color:var(--fg)}
-section.dark{background:var(--ink);color:var(--cream)}
-section.dark h1,section.dark h2,section.dark h3,section.dark h4{color:var(--cream)}
-@media (max-width:720px){section{padding:80px 20px}}
-.container{max-width:1200px;margin:0 auto;position:relative;z-index:2}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11px;color:var(--fg-mute);letter-spacing:.18em;text-transform:uppercase;font-weight:600}
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
-section.dark .eyebrow{color:var(--fg-on-ink-dim)}
+.hero{position:relative;min-height:90vh;display:grid;align-items:end;padding:156px 38px 94px;color:var(--cream);background:radial-gradient(circle at 72% 26%,rgba(201,174,122,.18),transparent 27%),linear-gradient(135deg,var(--ink) 0%,#121D2E 100%);overflow:hidden}
+.grid-bg{position:absolute;inset:0;background:linear-gradient(to right,rgba(230,195,106,.055) 1px,transparent 1px) 0 0/64px 64px,linear-gradient(to bottom,rgba(230,195,106,.055) 1px,transparent 1px) 0 0/64px 64px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 78%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 78%)}
+.hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 410px;gap:58px;align-items:end}
+.hero h1{margin:20px 0 26px;max-width:13ch}
+.hero-actions,.section-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-card{align-self:center;border:1px solid rgba(244,234,219,.14);border-radius:22px;background:rgba(244,234,219,.075);box-shadow:0 28px 70px rgba(0,0,0,.18);overflow:hidden;backdrop-filter:blur(12px)}
+.hero-card-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(244,234,219,.1)}
+.hero-card-top b{font-family:var(--serif);font-size:22px}
+.live-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(123,196,149,.15);color:#B9E8C8;font-size:11px;font-weight:800}
+.live-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:#7BC495}
+.status-list{padding:18px;display:grid;gap:10px}
+.status-row{display:grid;grid-template-columns:92px 1fr auto;gap:12px;align-items:center;padding:12px;border:1px solid rgba(244,234,219,.12);border-radius:12px;background:rgba(244,234,219,.055)}
+.status-row span{font-size:12px;color:var(--on-dark-soft)}
+.status-row strong{font-size:13px;color:var(--cream)}
+.status-row em{font-style:normal;font-size:11px;font-weight:800;color:var(--gold)}
+.hero-proof{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:32px;max-width:860px}
+.hero-proof div{padding:15px 16px;border:1px solid rgba(244,234,219,.13);border-radius:13px;background:rgba(244,234,219,.06)}
+.hero-proof strong{display:block;font-size:13px}
+.hero-proof span{display:block;margin-top:4px;color:var(--on-dark-soft);font-size:12px}
 
-h1.display{font-size:clamp(44px,6.6vw,92px);line-height:1.02;letter-spacing:-0.035em;font-weight:700}
-h2.display{font-size:clamp(34px,4.6vw,58px);line-height:1.06;letter-spacing:-0.03em;font-weight:700}
-.lede{color:var(--fg-dim);font-size:18px;max-width:560px;line-height:1.6;font-family:var(--sans)}
-section.dark .lede{color:var(--fg-on-ink-dim)}
-.section-head{max-width:760px}
-.section-head h2{margin:14px 0 14px}
-.section-head.center{margin:0 auto;text-align:center}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--cream-2);transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-4px);border-color:var(--line-2);background:var(--cream);box-shadow:0 14px 36px rgba(14,42,74,.09)}
+.card.dark-card{background:rgba(244,234,219,.07);border-color:rgba(244,234,219,.13);color:var(--cream)}
+.card.dark-card:hover{background:rgba(244,234,219,.1);border-color:rgba(244,234,219,.22)}
+.num{display:inline-flex;margin-bottom:16px;color:var(--gold-2);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.dark .num{color:var(--gold)}
+.card h3,.card h4{font-size:24px;margin-bottom:10px}
+.card p,.card li{color:var(--fg-dim);font-size:14px;line-height:1.55}
+.dark-card p,.dark-card li{color:var(--on-dark-soft)}
+.card ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:8px}
+.card li{position:relative;padding-left:17px}
+.card li::before{content:"";position:absolute;left:0;top:.65em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
-.reveal.in{opacity:1;transform:none}
-.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+.workflow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:42px}
+.step{position:relative;min-height:172px;padding:18px 14px;border:1px solid rgba(244,234,219,.13);border-radius:14px;background:rgba(244,234,219,.065);transition:transform .18s ease,background .18s ease}
+.step:hover{transform:translateY(-5px);background:rgba(244,234,219,.1)}
+.step span{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.step b{display:block;color:var(--cream);font-size:15px;line-height:1.25;margin-bottom:8px}
+.step p{color:var(--on-dark-soft);font-size:12px;line-height:1.45}
 
-/* HERO (Magazine full-bleed) */
-.hero{padding:0;min-height:88vh;position:relative;overflow:hidden;display:flex;align-items:flex-end;background:linear-gradient(135deg,var(--ink) 0%,#141f30 100%)}
-.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.hero-bg .grid-lines{position:absolute;inset:0;background:linear-gradient(to right,rgba(230,195,106,0.05) 1px,transparent 1px) 0 0/60px 60px,linear-gradient(to bottom,rgba(230,195,106,0.05) 1px,transparent 1px) 0 0/60px 60px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 80%)}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);animation:float 18s ease-in-out infinite}
-.blob.b1{width:620px;height:620px;background:radial-gradient(circle,#C9AE7A,transparent 60%);top:-200px;right:-100px;opacity:.22}
-.blob.b2{width:520px;height:520px;background:radial-gradient(circle,#3F6650,transparent 60%);bottom:-200px;left:-100px;opacity:.18;animation-delay:-9s}
-@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,30px) scale(.94)}}
-.hero-inner{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;padding:160px 40px 100px;color:var(--cream)}
-.hero-inner h1{margin:22px 0 26px;max-width:14ch}
-.hero-inner .lede{color:var(--fg-on-ink-dim);max-width:560px}
-.hero-cta{display:flex;gap:12px;margin-top:40px;flex-wrap:wrap}
-.hero-proof{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:34px;max-width:820px}
-.hero-proof div{padding:14px 16px;border:1px solid rgba(244,234,219,.14);background:rgba(244,234,219,.07);border-radius:12px}
-.hero-proof strong{display:block;color:var(--cream);font-size:13px;font-weight:700;line-height:1.3}
-.hero-proof span{display:block;color:var(--fg-on-ink-dim);font-size:12px;margin-top:4px;line-height:1.35}
-.floating-tags{position:absolute;right:40px;top:42%;display:flex;flex-direction:column;gap:10px;z-index:2}
-@media (max-width:1024px){.floating-tags{display:none}}
-.float-tag{padding:10px 16px;border-radius:999px;font-size:12px;font-weight:600;background:rgba(244,234,219,0.08);color:var(--cream);border:1px solid rgba(244,234,219,0.15);backdrop-filter:blur(8px);animation:float-y 4s ease-in-out infinite;display:flex;align-items:center;gap:8px;font-family:var(--sans)}
-.float-tag:nth-child(2){animation-delay:-1.5s}.float-tag:nth-child(3){animation-delay:-3s}
-.float-tag i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:inline-block}
-@keyframes float-y{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.feature-split{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+.mock-board{border-radius:22px;padding:16px;background:var(--ink);box-shadow:var(--shadow);border:1px solid rgba(244,234,219,.12);color:var(--cream)}
+.mock-toolbar{display:flex;align-items:center;justify-content:space-between;padding:10px 10px 16px}
+.mock-toolbar b{font-family:var(--serif);font-size:22px}
+.mock-grid{display:grid;gap:10px}
+.mock-job{display:grid;grid-template-columns:84px 1fr auto;gap:12px;align-items:center;padding:12px;border-radius:12px;background:rgba(244,234,219,.07);border:1px solid rgba(244,234,219,.11)}
+.mock-job span{font-size:12px;color:var(--on-dark-soft)}
+.mock-job b{font-size:13px}
+.mock-job i{font-style:normal;padding:4px 8px;border-radius:999px;background:rgba(201,174,122,.18);color:var(--gold);font-size:11px;font-weight:800}
+.outcome-band{display:grid;grid-template-columns:repeat(4,1fr);gap:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--cream-2)}
+.outcome-band div{padding:28px;border-right:1px solid var(--line)}
+.outcome-band div:last-child{border-right:none}
+.outcome-band strong{display:block;font-family:var(--serif);font-size:28px;line-height:1.08;color:var(--ink);margin-bottom:8px}
+.outcome-band span{color:var(--fg-dim);font-size:14px}
 
-/* KPI strip */
-.kpi-row{display:grid;grid-template-columns:repeat(6,1fr);gap:0;background:var(--cream-2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.kpi-row > div{padding:24px 24px;border-right:1px solid var(--line)}
-.kpi-row > div:last-child{border-right:none}
-.k-label{font-size:11px;color:var(--fg-mute);letter-spacing:.1em;text-transform:uppercase;font-weight:600}
-.k-value{font-family:var(--serif);font-size:32px;font-weight:700;margin-top:6px;letter-spacing:-0.02em;color:var(--ink)}
-@media (max-width:900px){.kpi-row{grid-template-columns:repeat(3,1fr)}.kpi-row > div:nth-child(3n){border-right:none}.kpi-row > div:nth-child(-n+3){border-bottom:1px solid var(--line)}}
-@media (max-width:560px){.kpi-row{grid-template-columns:repeat(2,1fr)}.kpi-row > div{border-right:1px solid var(--line) !important;border-bottom:1px solid var(--line)}.kpi-row > div:nth-child(2n){border-right:none !important}}
+.ecosystem{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:stretch}
+.ecosystem-map{position:relative;min-height:430px;border:1px solid rgba(244,234,219,.13);border-radius:22px;background:radial-gradient(circle at 50% 44%,rgba(201,174,122,.19),transparent 28%),rgba(244,234,219,.06);overflow:hidden}
+.eco-node{position:absolute;width:190px;padding:18px;border:1px solid rgba(244,234,219,.16);border-radius:16px;background:rgba(28,42,62,.78);box-shadow:0 14px 36px rgba(0,0,0,.14)}
+.eco-node.main{left:50%;top:50%;transform:translate(-50%,-50%);width:220px;background:var(--gold);color:var(--ink);border-color:transparent}
+.eco-node:nth-child(2){left:36px;top:54px}
+.eco-node:nth-child(3){right:36px;top:54px}
+.eco-node:nth-child(4){left:50%;bottom:42px;transform:translateX(-50%)}
+.eco-node b{display:block;font-family:var(--serif);font-size:22px;margin-bottom:6px}
+.eco-node span{display:block;color:var(--on-dark-soft);font-size:12px}
+.eco-node.main span{color:rgba(28,42,62,.74)}
 
-/* PAIN */
-.pain-section{padding-top:80px}
-.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
-.pain-card{padding:26px;border:1px solid var(--line);background:var(--cream-2);border-radius:var(--radius);min-height:220px;transition:transform var(--t-fast),background var(--t-fast),border-color var(--t-fast)}
-.pain-card:hover{transform:translateY(-4px);background:var(--cream);border-color:var(--line-2)}
-.pain-card span{display:inline-flex;margin-bottom:20px;color:var(--gold-2);font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.pain-card h3{font-size:24px;line-height:1.12;margin-bottom:10px}
-.pain-card p{color:var(--fg-dim);font-size:14px;line-height:1.55}
+.cta-band{padding:58px 38px;background:var(--ink);color:var(--cream);border-top:1px solid rgba(244,234,219,.08);border-bottom:1px solid rgba(244,234,219,.08)}
+.cta-row{display:flex;align-items:center;justify-content:space-between;gap:34px}
+.cta-row h2{font-size:clamp(28px,3vw,44px);margin:10px 0}
+.cta-row p{max-width:660px;color:var(--on-dark-soft)}
 
-/* WORKFLOW */
-.workflow-section{padding-bottom:86px}
-.workflow-rail{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;margin-top:48px}
-.workflow-step{position:relative;padding:18px 14px;border:1px solid rgba(244,234,219,.13);background:rgba(244,234,219,.06);border-radius:12px;min-height:190px}
-.workflow-step span{display:inline-flex;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
-.workflow-step b{display:block;color:var(--cream);font-size:15px;line-height:1.25;margin-bottom:8px}
-.workflow-step p{color:var(--fg-on-ink-dim);font-size:12px;line-height:1.45}
-.module-map{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
-.module-map div{padding:24px;border:1px solid rgba(244,234,219,.13);background:rgba(244,234,219,.08);border-radius:var(--radius)}
-.module-map span{display:inline-flex;color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.module-map strong{display:block;color:var(--cream);font-family:var(--serif);font-size:22px;line-height:1.14;margin-bottom:8px}
-.module-map p{color:var(--fg-on-ink-dim);font-size:14px;line-height:1.55}
+.selector{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.selector button{text-align:left;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--cream-2);font-weight:800;color:var(--ink);transition:background .18s ease,transform .18s ease,border-color .18s ease}
+.selector button:hover,.selector button.active{background:var(--ink);color:var(--cream);transform:translateY(-3px)}
+.fit-panel{margin-top:18px;padding:24px;border-radius:18px;background:var(--ink);color:var(--cream);display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+.fit-panel p{color:var(--on-dark-soft);margin-top:6px}
 
-/* PRODUCTS */
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
-@media (max-width:900px){.products{grid-template-columns:1fr}}
-.product{position:relative;padding:32px;border-radius:var(--radius-lg);background:var(--cream-2);border:1px solid var(--line);transition:transform var(--t-med),border-color var(--t-med),background var(--t-med),box-shadow var(--t-med);overflow:hidden;cursor:pointer;display:flex;flex-direction:column;min-height:440px}
-.product:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 20px 40px -12px rgba(14,42,74,.2);background:var(--cream)}
-.product-badge{position:absolute;top:20px;right:20px;padding:5px 10px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(14,42,74,0.08);color:var(--ink)}
-.product-badge.green{background:rgba(63,102,80,0.14);color:var(--green)}
-.product-badge.gold{background:rgba(201,174,122,0.25);color:#7a5d19}
-.product-icon{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:var(--gold);margin-bottom:24px;transition:transform var(--t-med)}
-.product.accent-green .product-icon{background:var(--green);color:var(--cream)}
-.product.accent-gold .product-icon{background:var(--gold);color:var(--ink)}
-.product:hover .product-icon{transform:scale(1.08) rotate(-4deg)}
-.product h3{font-size:28px;margin-bottom:10px;letter-spacing:-0.02em}
-.product p{color:var(--fg-dim);font-size:15px;margin-bottom:18px;flex:0}
-.module-list{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px;flex:1}
-.module-list li{position:relative;padding-left:18px;font-size:13px;color:var(--fg-dim);line-height:1.45}
-.module-list li::before{content:"";position:absolute;left:0;top:.58em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
-.product-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--ink);padding-top:16px;border-top:1px solid var(--line);letter-spacing:.02em}
-.product-link .arrow{transition:transform var(--t-fast)}
-.product:hover .product-link .arrow{transform:translateX(4px)}
-.icon-anim{animation:icon-pulse 3s ease-in-out infinite}
-@keyframes icon-pulse{0%,100%{filter:drop-shadow(0 0 0 rgba(201,174,122,0))}50%{filter:drop-shadow(0 0 10px rgba(201,174,122,.35))}}
-
-/* CTA */
-.cta-section{padding:54px 40px;background:var(--ink);color:var(--cream);border-top:1px solid rgba(244,234,219,.08);border-bottom:1px solid rgba(244,234,219,.08)}
-.cta-section.cta-light{background:var(--cream-2);color:var(--fg);border-color:var(--line)}
-.cta-row{display:flex;align-items:center;justify-content:space-between;gap:32px}
-.cta-row h2{font-size:clamp(28px,3vw,42px);line-height:1.08;margin:10px 0 10px;color:inherit}
-.cta-row p{color:var(--fg-on-ink-dim);font-size:15px;max-width:640px}
-.cta-light .cta-row p{color:var(--fg-dim)}
-.final-cta{background:linear-gradient(135deg,var(--ink) 0%,#17243A 100%)}
-
-/* WHY */
-.why{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
-@media (max-width:900px){.why{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:560px){.why{grid-template-columns:1fr}}
-.why-item{padding:28px;border-radius:var(--radius);background:var(--cream-2);border:1px solid var(--line);transition:transform var(--t-fast),border-color var(--t-fast),background var(--t-fast)}
-.why-item:hover{transform:translateY(-4px);border-color:var(--line-2);background:var(--cream)}
-.why-icon{width:44px;height:44px;border-radius:10px;display:grid;place-items:center;background:rgba(14,42,74,0.06);color:var(--ink);margin-bottom:18px}
-.why-item h4{font-family:var(--serif);font-size:22px;margin-bottom:8px;letter-spacing:-0.01em}
-.why-item p{font-size:14px;color:var(--fg-dim);line-height:1.55;font-family:var(--sans)}
-
-/* CREDIBILITY */
-.credibility-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:46px}
-.credibility-card{padding:26px;border-radius:var(--radius);background:var(--cream-2);border:1px solid var(--line);min-height:178px;transition:transform var(--t-fast),background var(--t-fast),border-color var(--t-fast)}
-.credibility-card:hover{transform:translateY(-4px);background:var(--cream);border-color:var(--line-2)}
-.credibility-card h4{font-size:24px;margin-bottom:10px}
-.credibility-card p{color:var(--fg-dim);font-size:14px;line-height:1.55}
-
-/* MOCK */
-.mock-area{display:grid;grid-template-columns:1.15fr .85fr;gap:32px;align-items:center;margin-top:72px;padding-top:20px}
-@media (max-width:900px){.mock-area{grid-template-columns:1fr}}
-.mock-laptop{position:relative;width:100%;aspect-ratio:16/10;background:#18243B;border:1px solid rgba(255,255,255,.08);border-radius:14px 14px 4px 4px;padding:10px;box-shadow:0 30px 60px -20px rgba(14,42,74,.4);transition:transform var(--t-slow);transform-style:preserve-3d}
-.mock-laptop::after{content:"";position:absolute;left:-5%;right:-5%;bottom:-10px;height:8px;background:linear-gradient(180deg,#2A3855,#0A1020);border-radius:0 0 8px 8px}
-.mock-screen{width:100%;height:100%;border-radius:6px;overflow:hidden;background:var(--cream);border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column}
-.mock-topbar{display:flex;gap:16px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--ink);color:var(--cream);align-items:center}
-.mock-topbar .app-name{font-family:var(--serif);font-size:12px;font-weight:700;color:var(--cream)}
-.mock-topbar .spacer{flex:1}
-.mock-tabs{display:flex;gap:4px;padding:6px 10px;background:var(--cream-2);border-bottom:1px solid var(--line);overflow:hidden}
-.mock-tab{padding:4px 9px;border-radius:999px;font-size:9px;color:var(--fg-dim);background:transparent;border:1px solid var(--line);white-space:nowrap}
-.mock-tab.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-.mock-body{flex:1;display:flex;flex-direction:column;gap:10px;padding:14px;min-width:0;overflow:hidden}
-.mock-hero-card{background:var(--ink);color:var(--cream);border-radius:10px;padding:16px;display:grid;grid-template-columns:1fr auto;gap:12px;position:relative;overflow:hidden}
-.mock-hero-card::after{content:"";position:absolute;right:-20px;top:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(201,174,122,.22),transparent 60%)}
-.mock-hero-card .eb{font-size:8px;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;font-weight:700;font-family:var(--sans)}
-.mock-hero-card h5{font-family:var(--serif);font-size:18px;margin:4px 0 3px;line-height:1.1;letter-spacing:-0.02em;color:var(--cream)}
-.mock-hero-card p{font-size:9px;color:var(--fg-on-ink-dim);line-height:1.4}
-.mock-hero-card .pill{padding:3px 8px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:8px;font-weight:700;align-self:center;font-family:var(--sans)}
-.mock-stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.mock-stat{padding:8px 10px;border-radius:8px;background:var(--cream-2);border:1px solid var(--line)}
-.mock-stat b{font-family:var(--serif);font-size:14px;color:var(--ink);display:block;letter-spacing:-0.02em}
-.mock-stat span{font-family:var(--sans);font-size:8px;color:var(--fg-mute);letter-spacing:.06em;text-transform:uppercase}
-.mock-table{display:flex;flex-direction:column;gap:3px}
-.mock-row{display:grid;grid-template-columns:1fr 70px 55px;gap:8px;padding:6px 10px;border-radius:4px;background:var(--cream-2);font-size:9px;color:var(--fg-dim);align-items:center;font-family:var(--sans)}
-.mock-row .pill{padding:2px 6px;border-radius:999px;background:rgba(63,102,80,.15);color:var(--green);font-weight:600;text-align:center;font-size:8px}
-.mock-row .pill.gold{background:rgba(201,174,122,.3);color:#7A5D19}
-.mock-row .pill.ink{background:rgba(14,42,74,.1);color:var(--ink)}
-.mock-phone{width:220px;height:440px;border-radius:34px;background:#18243B;border:2px solid #2A3855;padding:8px;position:relative;box-shadow:0 30px 60px -20px rgba(14,42,74,.4);margin:0 auto}
-.mock-phone::before{content:"";position:absolute;top:14px;left:50%;transform:translateX(-50%);width:70px;height:6px;background:#000;border-radius:3px;z-index:2}
-.mock-phone-screen{width:100%;height:100%;background:var(--cream);border-radius:28px;overflow:hidden;display:flex;flex-direction:column;padding:34px 12px 12px;gap:8px}
-.mock-phone-card{padding:12px;border-radius:10px;background:var(--cream-2);border:1px solid var(--line);font-size:10px;color:var(--fg-dim)}
-.mock-phone-card.dark{background:var(--ink);color:var(--cream);border-color:transparent}
-.mock-phone-card.dark b{color:var(--cream)}
-.mock-phone-card b{color:var(--ink);display:block;font-family:var(--serif);font-size:13px;margin-bottom:5px;letter-spacing:-0.01em}
-.mock-phone-card .row{display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);margin-top:3px}
-.mock-phone-card .pill{padding:2px 7px;border-radius:999px;background:var(--gold);color:var(--ink);font-size:9px;font-weight:700;font-family:var(--sans)}
-
-/* CONTACT */
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch;padding:48px;border-radius:var(--radius-lg);background:var(--ink);color:var(--cream);position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;right:-100px;bottom:-100px;width:420px;height:420px;background:radial-gradient(circle,rgba(201,174,122,.16),transparent 60%);filter:blur(40px);pointer-events:none}
-@media (max-width:900px){.contact{grid-template-columns:1fr;padding:32px 24px}}
+.form-card{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;padding:40px;border-radius:24px;background:var(--ink);color:var(--cream);overflow:hidden;position:relative}
+.form-card::after{content:"";position:absolute;right:-120px;bottom:-160px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,174,122,.18),transparent 60%);pointer-events:none}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:2}
 .field{position:relative}
-.field.full{grid-column:span 2}
-.field input,.field textarea,.field select{width:100%;padding:16px 18px;background:rgba(244,234,219,0.08);border:1.5px solid rgba(244,234,219,0.15);border-radius:10px;color:var(--cream);font-family:var(--sans);font-size:14px;transition:border-color var(--t-fast),background var(--t-fast)}
-.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--gold);background:rgba(244,234,219,0.12)}
-.field textarea{min-height:100px;resize:vertical}
-.field label{position:absolute;left:18px;top:16px;color:rgba(244,234,219,0.5);font-size:14px;pointer-events:none;transition:all var(--t-fast)}
-.field input:focus + label,.field input:not(:placeholder-shown) + label,.field textarea:focus + label,.field textarea:not(:placeholder-shown) + label{top:-8px;left:12px;font-size:11px;color:var(--gold);background:var(--ink);padding:0 8px;letter-spacing:.03em}
-.field.honeypot{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
-.form-status{min-height:20px;margin:10px 0 0;color:var(--fg-on-ink-dim);font-size:13px;font-family:var(--sans);line-height:1.4}
-.form-status.error{color:#F1B4A5}
-.form-status.success{color:#D8C28B}
-.form-light input,.form-light textarea,.form-light select{background:var(--cream-2);border-color:var(--line);color:var(--fg)}
-.form-light input:focus,.form-light textarea:focus,.form-light select:focus{border-color:var(--ink);background:var(--cream)}
-.form-light label{color:var(--fg-mute)}
-.form-light input:focus + label,.form-light input:not(:placeholder-shown) + label,.form-light textarea:focus + label,.form-light textarea:not(:placeholder-shown) + label{background:var(--cream);color:var(--ink)}
-.form-light .form-status{color:var(--fg-mute)}
-.form-light .form-status.error{color:#9E3F2F}
-.form-light .form-status.success{color:var(--green)}
+.field.full{grid-column:1/-1}
+.field input,.field textarea,.field select{width:100%;min-height:54px;padding:16px 17px;border:1.5px solid rgba(244,234,219,.16);border-radius:11px;background:rgba(244,234,219,.08);color:var(--cream);outline:none;transition:border-color .18s ease,background .18s ease}
+.field textarea{min-height:112px;resize:vertical}
+.field select{appearance:none}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--gold);background:rgba(244,234,219,.12)}
+.field label{position:absolute;left:17px;top:16px;color:rgba(244,234,219,.56);pointer-events:none;transition:all .18s ease}
+.field input:focus + label,.field input:not(:placeholder-shown) + label,.field textarea:focus + label,.field textarea:not(:placeholder-shown) + label,.field select:focus + label,.field select:valid + label{top:-8px;left:11px;padding:0 7px;background:var(--ink);color:var(--gold);font-size:11px}
+.form-status{min-height:21px;margin:10px 0 0;color:var(--on-dark-soft);font-size:13px}
+.form-status.error{color:#F1B4A5}.form-status.success{color:#D8C28B}
 
-/* MODAL */
-.modal-backdrop{position:fixed;inset:0;background:rgba(14,42,74,0.75);backdrop-filter:blur(8px);z-index:500;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity var(--t-med);padding:20px}
+.modal-backdrop{position:fixed;inset:0;z-index:500;display:grid;place-items:center;padding:20px;background:rgba(14,42,74,.76);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .22s ease}
 .modal-backdrop.open{opacity:1;pointer-events:auto}
-.modal{width:100%;max-width:540px;background:var(--cream);border:1px solid var(--line-2);border-radius:var(--radius-lg);padding:36px;transform:translateY(20px) scale(.98);transition:transform var(--t-med);max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 30px 80px rgba(14,42,74,.3)}
-.modal.wide{max-width:920px}
+.modal{position:relative;width:min(540px,100%);max-height:90vh;overflow:auto;padding:34px;border:1px solid var(--line-2);border-radius:22px;background:var(--cream);box-shadow:0 30px 80px rgba(14,42,74,.34);transform:translateY(16px);transition:transform .22s ease}
 .modal-backdrop.open .modal{transform:none}
-.modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:8px;display:grid;place-items:center;color:var(--fg-dim);transition:background var(--t-fast),color var(--t-fast)}
+.modal .field input,.modal .field textarea,.modal .field select{background:var(--cream-2);border-color:var(--line);color:var(--fg)}
+.modal .field input:focus,.modal .field textarea:focus,.modal .field select:focus{background:var(--cream);border-color:var(--ink)}
+.modal .field label{color:var(--fg-mute)}
+.modal .field input:focus + label,.modal .field input:not(:placeholder-shown) + label,.modal .field textarea:focus + label,.modal .field textarea:not(:placeholder-shown) + label,.modal .field select:focus + label,.modal .field select:valid + label{background:var(--cream);color:var(--ink)}
+.modal .form-status{color:var(--fg-mute)}.modal .form-status.error{color:#9E3F2F}.modal .form-status.success{color:var(--green)}
+.modal h3{font-size:34px;margin:12px 0 10px}
+.modal .sub{color:var(--fg-dim);margin-bottom:24px}
+.modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:10px;color:var(--fg-dim)}
 .modal-close:hover{background:var(--cream-2);color:var(--ink)}
-.modal h3{font-size:32px;margin-bottom:10px;letter-spacing:-0.02em}
-.modal .sub{color:var(--fg-dim);font-size:15px;margin-bottom:26px}
-.modal .form-grid{gap:14px;margin-bottom:12px}
-.pmodal{display:grid;grid-template-columns:1fr 1fr;gap:36px}
-@media (max-width:720px){.pmodal{grid-template-columns:1fr}}
-.pmodal-mock{aspect-ratio:4/3;border-radius:14px;padding:14px;position:relative;overflow:hidden;background:var(--ink);border:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
-.pmodal-features{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:12px}
-.pmodal-features li{display:flex;gap:12px;font-size:14px;color:var(--fg-dim);line-height:1.5;font-family:var(--sans)}
-.pmodal-features li::before{content:"";width:20px;height:20px;border-radius:50%;background:var(--gold);display:inline-grid;place-items:center;flex:0 0 auto;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C2A3E' stroke-width='3'><polyline points='20 6 9 17 4 12'/></svg>");background-repeat:no-repeat;background-position:center;background-size:12px}
+.success-box{display:none;margin-top:16px;padding:18px;border-radius:14px;background:rgba(63,102,80,.12);border:1px solid rgba(63,102,80,.25);color:var(--green);font-weight:800}
+.success-box.show{display:block}
 
-/* TOAST */
-.toast-wrap{position:fixed;bottom:24px;right:24px;z-index:600;display:flex;flex-direction:column;gap:10px;pointer-events:none}
-.toast{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--ink);color:var(--cream);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-size:14px;min-width:260px;font-family:var(--sans);box-shadow:0 10px 40px rgba(14,42,74,.4);transform:translateX(20px);opacity:0;transition:transform var(--t-med),opacity var(--t-med);pointer-events:auto}
-.toast.show{transform:none;opacity:1}
-.toast-icon{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:var(--ink);flex:0 0 auto}
+.toast-wrap{position:fixed;right:22px;bottom:22px;z-index:600;display:grid;gap:10px;pointer-events:none}
+.toast{padding:14px 18px;border-radius:13px;background:var(--ink);color:var(--cream);box-shadow:0 16px 44px rgba(14,42,74,.32);border:1px solid rgba(244,234,219,.12);font-size:14px;opacity:0;transform:translateY(12px);transition:.22s ease;pointer-events:auto}
+.toast.show{opacity:1;transform:none}
 
-/* COOKIES */
-.cookies{position:fixed;bottom:16px;left:16px;right:16px;margin:0 auto;max-width:720px;z-index:400;padding:18px 22px;display:flex;gap:16px;align-items:center;background:var(--ink);color:var(--fg-on-ink-dim);border:1px solid rgba(255,255,255,.08);border-radius:14px;box-shadow:0 10px 40px rgba(14,42,74,.4);transform:translateY(160%);transition:transform .5s cubic-bezier(.2,.8,.2,1);font-size:13px;font-family:var(--sans)}
-.cookies.show{transform:none}
-.cookies b{color:var(--cream);font-family:var(--serif);font-weight:700;display:block;font-size:16px;margin-bottom:3px;letter-spacing:-0.01em}
-.cookies-actions{display:flex;gap:8px;flex:0 0 auto}
-.cookies-actions button{padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;transition:background var(--t-fast),color var(--t-fast);font-family:var(--sans)}
-.cookies-actions .deny{color:var(--fg-on-ink-dim)}
-.cookies-actions .deny:hover{color:var(--cream)}
-.cookies-actions .accept{background:var(--gold);color:var(--ink)}
-.cookies-actions .accept:hover{background:var(--gold-2)}
-@media (max-width:560px){.cookies{flex-direction:column;align-items:flex-start}}
+footer{padding:58px 38px 38px;background:var(--cream-3);border-top:1px solid var(--line)}
+.footer-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px}
+footer .logo-word{color:var(--ink)} footer .logo-word small{color:var(--fg-mute)}
+footer h5{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-mute);margin:0 0 14px}
+footer a{display:block;padding:5px 0;color:var(--fg-dim);font-size:14px}
+footer a:hover{color:var(--ink)}
+.footer-bar{max-width:1180px;margin:36px auto 0;padding-top:22px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;color:var(--fg-mute);font-size:13px}
 
-/* FOOTER */
-footer{padding:60px 40px 40px;background:var(--cream-3);border-top:1px solid var(--line)}
-.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
-@media (max-width:720px){.footer-grid{grid-template-columns:1fr 1fr}}
-.footer-grid h5{font-family:var(--sans);font-size:11px;color:var(--fg-mute);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;font-weight:700}
-.footer-grid a{display:block;padding:5px 0;color:var(--fg-dim);font-size:14px;transition:color var(--t-fast)}
-.footer-grid a:hover{color:var(--ink)}
-.footer-bar{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:var(--fg-mute);font-size:13px;font-family:var(--sans)}
-@media (max-width:560px){.footer-bar{flex-direction:column;gap:8px}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}.reveal.in{opacity:1;transform:none}
 
-/* RESPONSIVE REFINEMENTS */
-@media (max-width:1024px){
-  .hero-proof{grid-template-columns:repeat(2,minmax(0,1fr));max-width:640px}
-  .workflow-rail{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1040px){
+  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head{grid-template-columns:1fr}
+  .hero-card{max-width:560px}
+  .workflow{grid-template-columns:repeat(4,1fr)}
+  .grid-4,.outcome-band{grid-template-columns:repeat(2,1fr)}
+  .selector{grid-template-columns:repeat(2,1fr)}
+  .outcome-band div{border-bottom:1px solid var(--line)}
+  .outcome-band div:nth-child(2n){border-right:none}
 }
-@media (max-width:900px){
-  .pain-grid,.module-map,.credibility-grid{grid-template-columns:repeat(2,1fr)}
-  .workflow-rail{grid-template-columns:repeat(2,1fr)}
-  .cta-row{align-items:flex-start;flex-direction:column}
-  .cta-row .btn{width:auto}
-}
-@media (max-width:640px){
-  .nav{gap:14px}
-  .nav-cta .btn-ghost-light{display:none}
-  .nav-cta .btn-primary{padding:10px 15px}
-  .hero{min-height:auto}
-  .hero-inner{padding:116px 20px 74px}
-  .hero-inner h1{max-width:none}
-  .hero-proof,.pain-grid,.workflow-rail,.module-map,.credibility-grid{grid-template-columns:1fr}
-  .pain-card,.workflow-step,.credibility-card{min-height:auto}
-  .product{min-height:auto;padding:28px}
-  .cta-section{padding:46px 20px}
-  .form-grid{grid-template-columns:1fr}
-  .field.full{grid-column:span 1}
-  .modal{padding:30px 22px}
-  .mock-phone{width:min(220px,100%);height:420px}
+@media (max-width:820px){
+  .nav{padding:13px 18px}.nav-links,.nav-cta{display:none}.menu-toggle{display:grid;place-items:center}.logo{min-width:auto}
+  .section{padding:78px 20px}.hero{padding:120px 20px 72px;min-height:auto}.display{font-size:clamp(43px,13vw,68px)}
+  .hero-proof,.grid-3,.grid-4,.workflow,.outcome-band,.footer-grid{grid-template-columns:1fr}
+  .status-row,.mock-job{grid-template-columns:1fr;gap:5px}
+  .cta-band{padding:46px 20px}.cta-row{align-items:flex-start;flex-direction:column}
+  .eco-node,.eco-node.main{position:static;transform:none;width:auto}.ecosystem-map{display:grid;gap:12px;min-height:auto;padding:16px}
+  .form-card{padding:30px 22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+  .footer-bar{flex-direction:column}.sticky-review{display:block}
 }
 </style>
 </head>
 <body>
-
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="i-cliff" viewBox="0 0 24 24">
-      <path d="M4 20 L4 5 L10 5 C13 5 14.5 6.5 14.5 9 C14.5 11.5 13 13 10 13 L7 13" fill="none" stroke="#C9AE7A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M7 13 L7 20" fill="none" stroke="#C9AE7A" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="18" cy="6.5" r="1.6" fill="#C9AE7A"/>
-    </symbol>
-  </defs>
-</svg>
-
 <nav class="nav" id="nav">
   <a class="logo" href="/">
     <span class="logo-mark"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
     <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
   </a>
-  <div class="nav-links">
-    <a href="/hvacpro">HVAC Pro</a>
+  <div class="nav-links" id="navLinks">
+    <a href="/platform" data-nav="platform">Platform</a>
+    <a href="/hvacpro" data-nav="hvacpro">HVAC Pro</a>
+    <a href="/estimatepro">EstimatePro</a>
     <a href="/salespro">SalesPro</a>
-    <a href="/estimatepro">Estimate Pro</a>
-    <a href="#products">Ecosystem</a>
-    <a href="#contact">Contact</a>
+    <a href="/pricing" data-nav="pricing">Pricing</a>
   </div>
   <div class="nav-cta">
-    <a class="btn btn-ghost-light" href="#products">View Products</a>
-    <button class="btn btn-primary" data-modal="demo">Book Demo <span class="btn-arrow">→</span></button>
+    <a class="btn btn-light" href="/platform">View Platform</a>
+    <button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button>
   </div>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/hvacpro">HVAC Pro</a>
+  <a href="/estimatepro">EstimatePro</a>
+  <a href="/salespro">SalesPro</a>
+  <a href="/platform">Platform</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/contact">Contact</a>
+  <button data-modal="demo">Schedule Workflow Review</button>
+</div>
+<div class="sticky-review" id="stickyReview"><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button></div>
 
-<!-- HERO -->
-<header class="hero" id="top">
-  <div class="hero-bg">
-    <div class="grid-lines"></div>
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-  </div>
+<main id="app"></main>
 
-  <div class="floating-tags">
-    <div class="float-tag"><i></i>Estimate approved -> job scheduled</div>
-    <div class="float-tag"><i style="background:#7BC495"></i>Dispatch board live</div>
-    <div class="float-tag"><i></i>Invoice sent before the truck leaves</div>
-  </div>
-
-  <div class="hero-inner">
-    <span class="eyebrow reveal"><span class="dot"></span>HVAC operations platform</span>
-    <h1 class="display reveal d1">Run every HVAC job from estimate to invoice.</h1>
-    <p class="lede reveal d2">Cliff Group Florida gives contractors one operational layer for estimating, scheduling, dispatch, field coordination, invoicing and owner visibility.</p>
-    <div class="hero-cta reveal d3">
-      <button class="btn btn-primary" data-modal="demo">Book Demo <span class="btn-arrow">→</span></button>
-      <a class="btn btn-ghost-light" href="#workflow">View Platform</a>
-    </div>
-    <div class="hero-proof reveal d4">
-      <div><strong>Estimate -> Dispatch -> Invoice</strong><span>Connected job flow</span></div>
-      <div><strong>Office + field visibility</strong><span>Same operation, same data</span></div>
-      <div><strong>Residential + commercial</strong><span>Built for HVAC contractors</span></div>
-    </div>
-  </div>
-</header>
-
-<!-- PAIN POINTS -->
-<section id="pain" class="pain-section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow reveal"><span class="dot"></span>Operational leaks</span>
-      <h2 class="display reveal d1">HVAC shops do not lose margin in one place.</h2>
-      <p class="lede reveal d2">They lose it in handoffs: a missed call, a stale estimate, a confused dispatch board, a tech without context, an invoice that waits until tomorrow.</p>
-    </div>
-    <div class="pain-grid">
-      <div class="pain-card reveal d1"><span>01</span><h3>Calls become scattered notes</h3><p>Customer details land in texts, paper pads and memory instead of a shared operational record.</p></div>
-      <div class="pain-card reveal d2"><span>02</span><h3>Estimates lose momentum</h3><p>Bid sheets, pricing and approvals sit disconnected from scheduling and follow-up.</p></div>
-      <div class="pain-card reveal d3"><span>03</span><h3>Dispatch changes faster than the board</h3><p>Jobs move, routes change and the office has to chase technicians for status.</p></div>
-      <div class="pain-card reveal d1"><span>04</span><h3>Spreadsheets become the system</h3><p>Inventory, invoices, customer history and job notes drift into separate files.</p></div>
-      <div class="pain-card reveal d2"><span>05</span><h3>Field teams lack context</h3><p>Techs need equipment history, parts, photos, signatures and job details before they arrive.</p></div>
-      <div class="pain-card reveal d3"><span>06</span><h3>Revenue waits on paperwork</h3><p>When closeout and invoicing are delayed, cash collection and reporting slow down with it.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- PLATFORM WORKFLOW -->
-<section id="workflow" class="dark workflow-section">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow reveal"><span class="dot"></span>Platform workflow</span>
-      <h2 class="display reveal d1" style="color:var(--cream)">One connected HVAC operating system.</h2>
-      <p class="lede reveal d2">Cliff Group is the operational layer across the customer journey: capture the opportunity, price the work, schedule the crew, run the field day, invoice cleanly and see the numbers.</p>
-    </div>
-
-    <div class="workflow-rail reveal d3">
-      <div class="workflow-step"><span>Lead</span><b>Capture demand</b><p>Customer and opportunity details start in one place.</p></div>
-      <div class="workflow-step"><span>Estimate</span><b>Price the work</b><p>EstimatePro turns bid inputs and sheet review into priced work.</p></div>
-      <div class="workflow-step"><span>Schedule</span><b>Plan capacity</b><p>Approved work becomes a scheduled job without retyping.</p></div>
-      <div class="workflow-step"><span>Dispatch</span><b>Run the day</b><p>HVAC Pro coordinates routes, crews, ETAs and field status.</p></div>
-      <div class="workflow-step"><span>Complete</span><b>Close the job</b><p>Photos, notes, signatures and parts stay attached to the job.</p></div>
-      <div class="workflow-step"><span>Invoice</span><b>Collect faster</b><p>SalesPro keeps invoices, payments and customer records connected.</p></div>
-      <div class="workflow-step"><span>Report</span><b>See the operation</b><p>Owners see jobs, revenue, close rate and work in progress.</p></div>
-    </div>
-
-    <div class="module-map reveal d4">
-      <div><span>EstimatePro</span><strong>Bid and estimate engine</strong><p>For estimators and contractors who need faster, cleaner takeoffs and proposal flow.</p></div>
-      <div><span>HVAC Pro</span><strong>Dispatch and field command</strong><p>For office teams and technicians coordinating jobs, routes, equipment and closeout.</p></div>
-      <div><span>SalesPro</span><strong>Revenue and operations backbone</strong><p>For owners managing customers, products, invoices, payments, inventory and reporting.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section dark">
-  <div class="container cta-row">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Platform walkthrough</span>
-      <h2>See how the workflow would run inside your HVAC shop.</h2>
-      <p>Bring your current process. We will map the estimate, dispatch, field and invoice handoffs.</p>
-    </div>
-    <button class="btn btn-primary" data-modal="demo">Book Demo <span class="btn-arrow">→</span></button>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products">
-  <div class="container">
-    <span class="eyebrow reveal"><span class="dot"></span>Product ecosystem</span>
-    <h2 class="display reveal d1" style="margin:14px 0 14px">Three modules. One operational picture.</h2>
-    <p class="lede reveal d2">Start with the workflow that hurts most. Add the rest when you are ready to connect estimating, dispatch, field work, invoicing and reporting.</p>
-    <div class="products">
-      <div class="product reveal d1" data-product="salespro">
-        <span class="product-badge">Revenue Backbone</span>
-        <div class="product-icon icon-anim"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></div>
-        <h3>SalesPro</h3>
-        <p>For owners and office teams who need customers, products, orders, invoices, payments and reporting in one business system.</p>
-        <ul class="module-list"><li>Connects invoices and payments to the job flow</li><li>Supports inventory, products and purchasing</li><li>Gives leadership cleaner operating numbers</li></ul>
-        <a class="product-link" href="/salespro">Explore SalesPro <span class="arrow">→</span></a>
-      </div>
-      <div class="product accent-gold reveal d2" data-product="hvacpro">
-        <span class="product-badge gold">Field Command</span>
-        <div class="product-icon icon-anim" style="animation-delay:.3s"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 12l10 10 10-10z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h3>HVAC Pro</h3>
-        <p>For dispatchers, service managers and technicians who need the day coordinated from office board to field closeout.</p>
-        <ul class="module-list"><li>Schedules and dispatches jobs across teams</li><li>Keeps techs aligned with job and equipment history</li><li>Turns completed work into invoice-ready records</li></ul>
-        <a class="product-link" href="/hvacpro">Explore HVAC Pro <span class="arrow">→</span></a>
-      </div>
-      <div class="product accent-green reveal d3" data-product="estimatepro">
-        <span class="product-badge green">Bid Management</span>
-        <div class="product-icon icon-anim" style="animation-delay:.6s"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <h3>Estimate Pro</h3>
-        <p>For estimators and project teams turning drawings, bid invites and scope decisions into priced opportunities.</p>
-        <ul class="module-list"><li>Organizes projects, bid invites and sheets</li><li>Supports AI-assisted scan and takeoff review</li><li>Moves approved work toward scheduling</li></ul>
-        <a class="product-link" href="/estimatepro">Explore EstimatePro <span class="arrow">→</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section cta-light">
-  <div class="container cta-row">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Choose the right entry point</span>
-      <h2>Not every contractor starts in the same place.</h2>
-      <p>We will help decide whether dispatch, estimating, invoicing or operating visibility should come first.</p>
-    </div>
-    <button class="btn btn-primary" data-modal="demo">Talk through your operation <span class="btn-arrow">→</span></button>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section id="trust">
-  <div class="container">
-    <span class="eyebrow reveal"><span class="dot"></span>Operational credibility</span>
-    <h2 class="display reveal d1" style="margin:14px 0 14px">Premium software without a heavy rollout.</h2>
-    <p class="lede reveal d2">The platform is designed for real HVAC operations: residential calls, commercial service, project estimates, field teams, office users and owner reporting.</p>
-    <div class="credibility-grid">
-      <div class="credibility-card reveal d1"><h4>Fast onboarding</h4><p>Start with one workflow, import the critical data and train the office around actual jobs.</p></div>
-      <div class="credibility-card reveal d2"><h4>Contractor-focused workflows</h4><p>Dispatch, equipment history, estimates, closeout, invoices and customer communication stay tied to the work.</p></div>
-      <div class="credibility-card reveal d3"><h4>Implementation support</h4><p>Cliff Group helps map your current process before forcing a new one onto the team.</p></div>
-      <div class="credibility-card reveal d1"><h4>Owner visibility</h4><p>Track job volume, active work, estimates, revenue and operational follow-through from one view.</p></div>
-      <div class="credibility-card reveal d2"><h4>Scalable architecture</h4><p>Begin with a single module and grow toward the full operating system as the business matures.</p></div>
-      <div class="credibility-card reveal d3"><h4>Residential + commercial</h4><p>Support service calls, maintenance work, installs, commercial customers and bid-driven projects.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- MOCK PREVIEW -->
-<section id="preview" class="dark">
-  <div class="container">
-    <span class="eyebrow reveal"><span class="dot"></span>Preview</span>
-    <h2 class="display reveal d1" style="margin:14px 0 14px;color:var(--cream)">See the operation, not just the schedule.</h2>
-    <p class="lede reveal d2">The operations board and field view keep office staff, technicians and owners working from the same job reality.</p>
-
-    <div class="mock-area reveal d3">
-      <div class="mock-laptop">
-        <div class="mock-screen">
-          <div class="mock-topbar">
-            <span class="logo" style="gap:8px">
-              <span class="logo-mark" style="width:22px;height:22px;border-radius:5px"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
-              <span class="app-name">HVAC Pro</span>
-            </span>
-            <span class="spacer"></span>
-            <span style="font-size:10px;color:var(--gold);font-family:var(--sans)">● API ONLINE</span>
-          </div>
-          <div class="mock-tabs">
-            <div class="mock-tab active">Dashboard</div>
-            <div class="mock-tab">Dispatch</div>
-            <div class="mock-tab">Jobs</div>
-            <div class="mock-tab">Customers</div>
-            <div class="mock-tab">Invoices</div>
-          </div>
-          <div class="mock-body">
-            <div class="mock-hero-card">
-              <div>
-                <div class="eb">Operations Hub</div>
-                <h5>Owner Dashboard</h5>
-                <p>6 technicians · 48 open jobs · $48,200 this month</p>
-              </div>
-              <div class="pill">Live</div>
-            </div>
-            <div class="mock-stat-row">
-              <div class="mock-stat"><b>243</b><span>Customers</span></div>
-              <div class="mock-stat"><b>48</b><span>Jobs</span></div>
-              <div class="mock-stat"><b>62%</b><span>Close rate</span></div>
-              <div class="mock-stat"><b>$48.2k</b><span>MRR</span></div>
-            </div>
-            <div class="mock-table">
-              <div class="mock-row"><span>Smith residence · AC tune-up</span><span class="pill">10:30</span><span class="pill gold">Route A</span></div>
-              <div class="mock-row"><span>Patel · Install 3-ton</span><span class="pill">12:00</span><span class="pill ink">Route B</span></div>
-              <div class="mock-row"><span>Oak Apts · Coil clean</span><span class="pill">14:15</span><span class="pill gold">Route A</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mock-phone">
-        <div class="mock-phone-screen">
-          <div class="mock-phone-card dark">
-            <b>Next job</b>
-            <div class="row"><span>Smith · AC tune-up</span><span class="pill">10:30</span></div>
-            <div class="row" style="color:var(--fg-on-ink-dim);margin-top:6px">2.4 mi · route A</div>
-          </div>
-          <div class="mock-phone-card">
-            <b>Parts on truck</b>
-            <div class="row"><span>Filter 16x25</span><span>6</span></div>
-            <div class="row"><span>Capacitor 45µF</span><span>2</span></div>
-            <div class="row"><span>R-410A refrigerant</span><span>1 tank</span></div>
-          </div>
-          <div class="mock-phone-card">
-            <b>Today</b>
-            <div class="row"><span>5 jobs</span><span style="color:var(--green);font-weight:600">3 done</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="contact">
-      <div style="position:relative;z-index:2">
-        <span class="eyebrow reveal"><span class="dot"></span>Book Demo</span>
-        <h2 class="display reveal d1" style="margin:14px 0 20px;color:var(--cream)">Map your HVAC operation.</h2>
-        <p class="lede reveal d2" style="color:var(--fg-on-ink-dim);max-width:440px">Tell us where work gets stuck today. We will walk through the right module path and show how the workflow can connect.</p>
-        <div style="margin-top:32px;display:flex;flex-direction:column;gap:12px;font-family:var(--sans);font-size:14px;color:var(--fg-on-ink-dim)">
-          <div>Miami, Florida</div>
-          <div><a href="mailto:hello@cliffgroup.software">hello@cliffgroup.software</a></div>
-          <div><a href="tel:+13055550142">+1 (305) 555-0142</a></div>
-        </div>
-      </div>
-      <form class="form-grid reveal d3" data-lead-form="contact" onsubmit="submitContact(event)">
-        <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required/><label>Your name</label></div>
-        <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required/><label>Email</label></div>
-        <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"/><label>Company</label></div>
-        <div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"/><label>Phone</label></div>
-        <div class="field full"><textarea name="operational_problem" placeholder=" " required></textarea><label>Where does your operation get stuck?</label></div>
-        <div class="field full">
-          <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-submit-label>Request walkthrough</span> <span class="btn-arrow">→</span></button>
-          <p class="form-status" role="status" aria-live="polite"></p>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="cta-section dark final-cta">
-  <div class="container cta-row">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Future-ready platform</span>
-      <h2>Build the operating system before the growth creates more chaos.</h2>
-      <p>Use Cliff Group to connect the workflows you run today and prepare for a fuller SaaS ecosystem tomorrow.</p>
-    </div>
-    <button class="btn btn-primary" data-modal="demo">Book Demo <span class="btn-arrow">→</span></button>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
-      <a class="logo nav-light" href="/">
+      <a class="logo" href="/">
         <span class="logo-mark"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
         <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
       </a>
-      <p style="margin-top:14px;color:var(--fg-dim);font-size:14px;max-width:320px">HVAC operations software for estimating, dispatch, field coordination, invoicing and visibility.</p>
+      <p style="margin-top:14px;color:var(--fg-dim);font-size:14px;max-width:340px">Contractor operations platform for HVAC workflows, estimating, dispatch, invoicing, payments and visibility.</p>
     </div>
-    <div><h5>Products</h5><a href="/salespro">SalesPro</a><a href="/hvacpro">HVAC Pro</a><a href="/estimatepro">EstimatePro</a></div>
-    <div><h5>Platform</h5><a href="#pain">Pain points</a><a href="#workflow">Workflow</a><a href="#trust">Reliability</a><a href="#preview">Preview</a></div>
-    <div><h5>Contact</h5><a href="#contact">Request walkthrough</a><a href="mailto:hello@cliffgroup.software">Email Cliff Group</a><a href="tel:+13055550142">Call Miami office</a></div>
+    <div><h5>Products</h5><a href="/hvacpro">HVAC Pro</a><a href="/estimatepro">EstimatePro</a><a href="/salespro">SalesPro</a></div>
+    <div><h5>Platform</h5><a href="/platform">View Platform</a><a href="/pricing">Pricing</a><a href="/demo">Workflow Review</a></div>
+    <div><h5>Contact</h5><a href="/contact">Contact</a><a href="mailto:hello@cliffgroup.software">Email Cliff Group</a><a href="tel:+13055550142">Call Miami office</a></div>
   </div>
   <div class="footer-bar">
     <span>© 2026 Cliff Group Florida Inc.</span>
-    <span>HVAC operations platform · Miami, Florida</span>
+    <span>Contractor Operations Platform · Miami, Florida</span>
   </div>
 </footer>
 
-<!-- MODALS -->
 <div class="modal-backdrop" id="modal-demo">
   <div class="modal">
-    <button class="modal-close" data-close>✕</button>
-    <span class="eyebrow"><span class="dot"></span>Book Demo</span>
-    <h3 style="margin-top:12px">Walk through your HVAC workflow.</h3>
-    <p class="sub">A focused platform walkthrough for dispatch, estimating, field coordination and invoicing.</p>
-    <form class="form-light form-grid" data-lead-form="demo" onsubmit="submitModal(event,'demo')">
-      <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required/><label>Your name</label></div>
-      <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required/><label>Work email</label></div>
-      <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"/><label>Company</label></div>
-      <div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"/><label>Phone</label></div>
-      <div class="field full"><textarea name="operational_problem" placeholder=" "></textarea><label>Which handoff is costing time today? (optional)</label></div>
+    <button class="modal-close" data-close aria-label="Close">✕</button>
+    <span class="eyebrow">Workflow Review</span>
+    <h3>Schedule a Workflow Review</h3>
+    <p class="sub">A Workflow Review Session helps identify where your operation is getting stuck and which product path should come first.</p>
+    <form class="form-grid" data-lead-form="workflow-review" onsubmit="submitLead(event,'workflow-review')">
+      <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div>
+      <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div>
+      <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"><label>Company</label></div>
+      <div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"><label>Phone</label></div>
+      <div class="field full"><select name="source_interest" required><option value="" selected disabled></option><option>HVAC Pro</option><option>EstimatePro</option><option>SalesPro</option><option>Not sure yet</option></select><label>Product interest</label></div>
+      <div class="field full"><textarea name="operational_problem" placeholder=" "></textarea><label>What workflow is causing the most friction?</label></div>
       <div class="field full">
-        <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center"><span data-submit-label>Request walkthrough</span> <span class="btn-arrow">→</span></button>
+        <button class="btn btn-primary" type="submit" style="width:100%"><span data-submit-label>Schedule Workflow Review</span> <span class="arrow">→</span></button>
         <p class="form-status" role="status" aria-live="polite"></p>
+        <div class="success-box">Thanks — we'll contact you shortly.</div>
       </div>
     </form>
   </div>
 </div>
-
-<div class="modal-backdrop" id="modal-product">
-  <div class="modal wide">
-    <button class="modal-close" data-close>✕</button>
-    <div class="pmodal">
-      <div>
-        <div class="pmodal-mock" id="pmodal-mock"></div>
-      </div>
-      <div>
-        <span class="eyebrow"><span class="dot"></span><span id="pmodal-tag">Product</span></span>
-        <h3 id="pmodal-title" style="margin-top:14px">—</h3>
-        <p id="pmodal-desc" class="sub" style="margin-top:10px">—</p>
-        <ul class="pmodal-features" id="pmodal-features"></ul>
-        <div style="display:flex;gap:10px;margin-top:26px;flex-wrap:wrap">
-          <button class="btn btn-primary" data-modal="demo">Book Demo <span class="btn-arrow">→</span></button>
-          <a class="btn btn-ghost" href="#workflow" data-close>View workflow</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TOASTS -->
 <div class="toast-wrap" id="toasts"></div>
-
-<!-- COOKIES -->
-<div class="cookies" id="cookies">
-  <div>
-    <b>Cookies, just the useful kind.</b>
-    <span>We use cookies for analytics and to remember your preferences. Manage anytime.</span>
-  </div>
-  <div class="cookies-actions">
-    <button class="deny" id="denyCookies">Decline</button>
-    <button class="accept" id="acceptCookies">Accept</button>
-  </div>
-</div>
 
 <script>
 (() => {
-  const routePath = window.location.pathname.replace(/\/+$/, '') || '/';
-  const routeProduct = routePath.startsWith('/salespro') ? 'salespro' : routePath.startsWith('/hvacpro') ? 'hvacpro' : 'hvacpro';
-
-  const productRoutes = {
-    hvacpro: {
-      title: 'HVAC Pro — HVAC Operations Platform | Cliff Group Florida',
-      hero: {
-        eyebrow: 'HVAC operations platform',
-        h1: 'Run every HVAC job from estimate to invoice.',
-        lede: 'Cliff Group Florida gives contractors one operational layer for estimating, scheduling, dispatch, field coordination, invoicing and owner visibility.',
-        tags: ['Estimate approved -> job scheduled', 'Dispatch board live', 'Invoice sent before the truck leaves'],
-        proof: [
-          ['Estimate -> Dispatch -> Invoice', 'Connected job flow'],
-          ['Office + field visibility', 'Same operation, same data'],
-          ['Residential + commercial', 'Built for HVAC contractors']
-        ]
-      },
-      pain: {
-        eyebrow: 'Operational leaks',
-        h2: 'HVAC shops do not lose margin in one place.',
-        lede: 'They lose it in handoffs: a missed call, a stale estimate, a confused dispatch board, a tech without context, an invoice that waits until tomorrow.',
-        cards: [
-          ['01', 'Calls become scattered notes', 'Customer details land in texts, paper pads and memory instead of a shared operational record.'],
-          ['02', 'Estimates lose momentum', 'Bid sheets, pricing and approvals sit disconnected from scheduling and follow-up.'],
-          ['03', 'Dispatch changes faster than the board', 'Jobs move, routes change and the office has to chase technicians for status.'],
-          ['04', 'Spreadsheets become the system', 'Inventory, invoices, customer history and job notes drift into separate files.'],
-          ['05', 'Field teams lack context', 'Techs need equipment history, parts, photos, signatures and job details before they arrive.'],
-          ['06', 'Revenue waits on paperwork', 'When closeout and invoicing are delayed, cash collection and reporting slow down with it.']
-        ]
-      },
-      workflow: {
-        eyebrow: 'Platform workflow',
-        h2: 'One connected HVAC operating system.',
-        lede: 'Cliff Group is the operational layer across the customer journey: capture the opportunity, price the work, schedule the crew, run the field day, invoice cleanly and see the numbers.',
-        steps: [
-          ['Lead', 'Capture demand', 'Customer and opportunity details start in one place.'],
-          ['Estimate', 'Price the work', 'EstimatePro turns bid inputs and sheet review into priced work.'],
-          ['Schedule', 'Plan capacity', 'Approved work becomes a scheduled job without retyping.'],
-          ['Dispatch', 'Run the day', 'HVAC Pro coordinates routes, crews, ETAs and field status.'],
-          ['Complete', 'Close the job', 'Photos, notes, signatures and parts stay attached to the job.'],
-          ['Invoice', 'Collect faster', 'SalesPro keeps invoices, payments and customer records connected.'],
-          ['Report', 'See the operation', 'Owners see jobs, revenue, close rate and work in progress.']
-        ],
-        modules: [
-          ['EstimatePro', 'Bid and estimate engine', 'For estimators and contractors who need faster, cleaner takeoffs and proposal flow.'],
-          ['HVAC Pro', 'Dispatch and field command', 'For office teams and technicians coordinating jobs, routes, equipment and closeout.'],
-          ['SalesPro', 'Revenue and operations backbone', 'For owners managing customers, products, invoices, payments, inventory and reporting.']
-        ]
-      },
-      cta: ['Platform walkthrough', 'See how the workflow would run inside your HVAC shop.', 'Bring your current process. We will map the estimate, dispatch, field and invoice handoffs.'],
-      products: ['Product ecosystem', 'Three modules. One operational picture.', 'Start with the workflow that hurts most. Add the rest when you are ready to connect estimating, dispatch, field work, invoicing and reporting.'],
-      trust: {
-        eyebrow: 'Operational credibility',
-        h2: 'Premium software without a heavy rollout.',
-        lede: 'The platform is designed for real HVAC operations: residential calls, commercial service, project estimates, field teams, office users and owner reporting.'
-      },
-      preview: {
-        eyebrow: 'Preview',
-        h2: 'See the operation, not just the schedule.',
-        lede: 'The operations board and field view keep office staff, technicians and owners working from the same job reality.',
-        appName: 'HVAC Pro',
-        tabs: ['Dashboard', 'Dispatch', 'Jobs', 'Customers', 'Invoices'],
-        card: ['Operations Hub', 'Owner Dashboard', '6 technicians · 48 open jobs · $48,200 this month'],
-        stats: [['243', 'Customers'], ['48', 'Jobs'], ['62%', 'Close rate'], ['$48.2k', 'MRR']],
-        rows: [['Smith residence · AC tune-up', '10:30', 'Route A'], ['Patel · Install 3-ton', '12:00', 'Route B'], ['Oak Apts · Coil clean', '14:15', 'Route A']],
-        phone: ['Next job', 'Smith · AC tune-up', '2.4 mi · route A', 'Parts on truck', [['Filter 16x25', '6'], ['Capacitor 45µF', '2'], ['R-410A refrigerant', '1 tank']], 'Today', '5 jobs', '3 done']
-      },
-      contact: ['Book Demo', 'Map your HVAC operation.', 'Tell us where work gets stuck today. We will walk through the right module path and show how the workflow can connect.', 'Where does your operation get stuck?', 'Walk through your HVAC workflow.', 'A focused platform walkthrough for dispatch, estimating, field coordination and invoicing.', 'Which handoff is costing time today? (optional)'],
-      finalCta: ['Future-ready platform', 'Build the operating system before the growth creates more chaos.', 'Use Cliff Group to connect the workflows you run today and prepare for a fuller SaaS ecosystem tomorrow.'],
-      footer: 'HVAC operations software for estimating, dispatch, field coordination, invoicing and visibility.'
+  const pages = {
+    home: {
+      title: 'Cliff Group Florida - Contractor Operations Platform',
+      description: 'Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting.',
+      heroEyebrow: 'HVAC contractor operations',
+      heroTitle: 'Run every HVAC job from estimate to payment.',
+      heroText: 'Cliff Group Florida helps growing HVAC contractors connect scheduling, dispatch, technician coordination, closeout, invoicing and operational visibility.',
+      heroRows: [
+        ['Estimate', 'Approved work becomes scheduled work', 'Ready'],
+        ['Dispatch', 'Office and field see the same job status', 'Live'],
+        ['Invoice', 'Closeout flows into billing handoff', 'Next']
+      ]
     },
-    salespro: {
-      title: 'SalesPro — Business Management Software | Cliff Group Florida',
-      hero: {
-        eyebrow: 'SalesPro business management software',
-        h1: 'Run inventory, orders, invoices and payments without spreadsheets.',
-        lede: 'SalesPro gives small businesses and solo operators a simple operating layer for products, purchasing, customer records, orders, invoices, payments and reporting.',
-        tags: ['Inventory updated', 'Order approved -> invoice ready', 'Payment recorded'],
-        proof: [
-          ['Inventory + Orders + Invoices', 'One practical business flow'],
-          ['Purchasing + Payments', 'Less spreadsheet chasing'],
-          ['Solo and small teams', 'Built for daily operators']
-        ]
-      },
-      pain: {
-        eyebrow: 'Spreadsheet pressure',
-        h2: 'Small business operations break when the spreadsheet becomes the system.',
-        lede: 'SalesPro focuses on the back-office work that slows operators down: stock counts, order status, invoices, purchase tracking, payments and basic reporting.',
-        cards: [
-          ['01', 'Inventory lives in memory', 'Stock levels, SKUs and product details get guessed instead of tracked in one shared system.'],
-          ['02', 'Orders get buried', 'Quotes, sales orders and customer requests drift across inboxes, texts and spreadsheet tabs.'],
-          ['03', 'Invoices wait too long', 'Completed work or fulfilled orders still require manual cleanup before billing can happen.'],
-          ['04', 'Spreadsheet versions conflict', 'The team loses time figuring out which file has the real customer, product or payment data.'],
-          ['05', 'Purchasing becomes reactive', 'Low stock, supplier activity and purchase records are hard to see until a problem appears.'],
-          ['06', 'Cash visibility is fuzzy', 'Owners need a simple view of sales, unpaid invoices, payments and product movement.']
-        ]
-      },
-      workflow: {
-        eyebrow: 'SalesPro workflow',
-        h2: 'A simple operating system for everyday business management.',
-        lede: 'SalesPro keeps the core commercial flow connected: customer record, product list, order, inventory movement, purchase activity, invoice, payment and owner reporting.',
-        steps: [
-          ['Customer', 'Start clean', 'Keep customer and company records in one place.'],
-          ['Product', 'Know what you sell', 'Track SKUs, pricing, stock and product details.'],
-          ['Order', 'Capture demand', 'Turn requests into orders without spreadsheet re-entry.'],
-          ['Purchase', 'Restock smarter', 'Track supplier purchases and inventory movement.'],
-          ['Invoice', 'Bill clearly', 'Create invoice-ready records from order activity.'],
-          ['Payment', 'See collections', 'Connect payment status to the invoice and customer.'],
-          ['Report', 'Run the business', 'Review sales, inventory, invoices and outstanding work.']
-        ],
-        modules: [
-          ['SalesPro', 'Business management backbone', 'For small businesses that need inventory, orders, invoices, purchasing, payments and reporting without spreadsheet chaos.'],
-          ['HVAC Pro', 'Field-service expansion', 'For teams that later need scheduling, dispatch, job closeout and field coordination.'],
-          ['EstimatePro', 'Bid and estimate expansion', 'For teams that later need structured bid, takeoff and proposal workflows.']
-        ]
-      },
-      cta: ['SalesPro walkthrough', 'See how SalesPro can replace the spreadsheet stack.', 'Bring your current inventory, order and invoice process. We will map the simplest starting workflow.'],
-      products: ['Product ecosystem', 'Start with SalesPro. Add field-service modules later.', 'SalesPro stands on its own for small business operations, while the Cliff Group ecosystem leaves room to expand into dispatch, estimating and field workflows when needed.'],
-      trust: {
-        eyebrow: 'Small business credibility',
-        h2: 'Simple software for operators who need clarity fast.',
-        lede: 'SalesPro is designed for lean teams that need a practical replacement for scattered spreadsheets, paper orders and disconnected payment records.'
-      },
-      preview: {
-        eyebrow: 'Preview',
-        h2: 'See products, orders and invoices in one business view.',
-        lede: 'SalesPro gives owners a clean read on customers, product movement, invoice status and payments without building another spreadsheet.',
-        appName: 'SalesPro',
-        tabs: ['Dashboard', 'Inventory', 'Orders', 'Invoices', 'Payments'],
-        card: ['Business Hub', 'Owner Dashboard', '42 SKUs · 18 open orders · $24,600 invoiced'],
-        stats: [['42', 'SKUs'], ['18', 'Orders'], ['$8.4k', 'Open invoices'], ['11', 'Purchases']],
-        rows: [['ACME Supply · filter reorder', 'PO-1042', 'Open'], ['Miller Co · invoice 1328', '$1,240', 'Due'], ['Thermostat T3 · restock', '21 units', 'Live']],
-        phone: ['Next task', 'Review low-stock items', '6 products below reorder point', 'Inventory snapshot', [['Filter 16x25', '48'], ['Capacitor 45µF', '12'], ['Thermostat T3', '21']], 'Today', '7 invoices', '4 paid']
-      },
-      contact: ['SalesPro Demo', 'Map your business workflow.', 'Tell us where inventory, orders, purchasing or invoicing gets stuck. We will show how SalesPro can simplify the flow.', 'Where does your business process get stuck?', 'Walk through your SalesPro workflow.', 'A focused walkthrough for inventory, orders, purchasing, invoices, payments and reporting.', 'Which spreadsheet or handoff is costing time today? (optional)'],
-      finalCta: ['Spreadsheet replacement', 'Give your business a cleaner operating backbone.', 'Use SalesPro to replace scattered files with one simple system for products, orders, invoices and payments.'],
-      footer: 'Simple business management software for inventory, orders, invoices, purchasing, payments and reporting.'
+    hvacpro: {
+      title: 'HVAC Pro - HVAC Operations Software | Cliff Group Florida',
+      description: 'HVAC Pro helps contractors coordinate scheduling, dispatch, technicians, closeout and invoice handoff.',
+      heroEyebrow: 'HVAC Pro operations software',
+      heroTitle: 'Coordinate dispatch, techs and invoices without the daily scramble.',
+      heroText: 'HVAC Pro is the primary operating layer for HVAC contractors that need cleaner scheduling, field coordination, closeout and office visibility.',
+      heroRows: [
+        ['Schedule', 'Capacity, priority and job timing in one view', 'Plan'],
+        ['Dispatch', 'Technician routes and status stay visible', 'Live'],
+        ['Closeout', 'Photos, notes and invoice handoff stay attached', 'Done']
+      ]
+    },
+    platform: {
+      title: 'Cliff Platform - Connected Contractor Operations',
+      description: 'Cliff Platform connects HVAC Pro, EstimatePro and SalesPro into a modular contractor operations ecosystem.',
+      heroEyebrow: 'Cliff Platform',
+      heroTitle: 'Start with the workflow that hurts most. Expand when ready.',
+      heroText: 'Cliff Platform connects product modules around the contractor journey from estimate to schedule, dispatch, invoice, payment and reporting.',
+      heroRows: [
+        ['Start', 'Pick the workflow creating the most drag', 'Focus'],
+        ['Connect', 'Add the module that improves the handoff', 'Path'],
+        ['Expand', 'Grow into platform visibility over time', 'Scale']
+      ]
+    },
+    estimatepro: {
+      title: 'EstimatePro - AI-Assisted HVAC Estimating Software | Cliff Group Florida',
+      description: 'EstimatePro supports reviewable, estimator-controlled HVAC estimating workflows inside the Cliff Group Florida product ecosystem.',
+      heroEyebrow: 'EstimatePro assisted estimating',
+      heroTitle: 'Prepare HVAC estimates with reviewable, estimator-controlled support.',
+      heroText: 'EstimatePro helps contractors organize estimating work, review details and move approved estimates into the connected operations path without pretending the estimator disappears.',
+      heroRows: [
+        ['Upload', 'Bring the plan set or estimating context together', 'Input'],
+        ['Review', 'Estimator checks and controls the output', 'Control'],
+        ['Handoff', 'Approved scope can move toward schedule and invoice flow', 'Next']
+      ]
+    },
+    pricing: {
+      title: 'Pricing Approach - Cliff Group Florida',
+      description: 'Explore Cliff Group package paths without invented public prices. Start with the workflow that hurts most.',
+      heroEyebrow: 'Pricing approach',
+      heroTitle: 'Pricing starts with the workflow that hurts most.',
+      heroText: 'Rather than forcing a full platform decision upfront, Cliff Group helps identify the right starting product and expansion path.',
+      heroRows: [
+        ['Fit', 'Confirm the operational problem', 'Step 1'],
+        ['Path', 'Choose the right product module', 'Step 2'],
+        ['Scope', 'Define rollout and support needs', 'Step 3']
+      ]
+    },
+    demo: {
+      title: 'Workflow Review - Cliff Group Florida',
+      description: 'Schedule a Workflow Review Session to map your current contractor operation and identify the right product path.',
+      heroEyebrow: 'Workflow Review',
+      heroTitle: 'Map the workflow before choosing the software.',
+      heroText: 'A Workflow Review Session is a practical call to understand your current operation and recommend whether HVAC Pro, EstimatePro, SalesPro or a platform path should come first.',
+      heroRows: [
+        ['Review', 'Discuss the current workflow', 'Listen'],
+        ['Map', 'Identify the bottleneck', 'Clarify'],
+        ['Recommend', 'Choose the right starting path', 'Next']
+      ]
+    },
+    contact: {
+      title: 'Contact Cliff Group Florida',
+      description: 'Contact Cliff Group Florida for general inquiries, product inquiries, partnerships or Workflow Review requests.',
+      heroEyebrow: 'Contact',
+      heroTitle: 'Talk to Cliff Group Florida.',
+      heroText: 'Use this page for general inquiries, product questions, partnership conversations or Workflow Review requests.',
+      heroRows: [
+        ['Product', 'Ask about HVAC Pro, EstimatePro or SalesPro', 'Route'],
+        ['Partner', 'Discuss partnership or ecosystem fit', 'Route'],
+        ['Review', 'Request a Workflow Review Call', 'Route']
+      ]
     }
   };
 
-  function text(selector, value) {
-    const el = document.querySelector(selector);
-    if (el && value !== undefined) el.textContent = value;
+  const path = window.location.pathname.replace(/\/+$/, '') || '/';
+  const route = path === '/' ? 'home' : path.slice(1).split('/')[0];
+  const page = pages[route] || pages.home;
+  document.title = page.title;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = page.description;
+  document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('active', a.dataset.nav === route));
+
+  const app = document.getElementById('app');
+  app.innerHTML = route === 'pricing' ? pricingPage(page) :
+    route === 'demo' ? demoPage(page) :
+    route === 'contact' ? contactPage(page) :
+    route === 'platform' ? platformPage(page) :
+    route === 'hvacpro' ? hvacPage(page) :
+    route === 'estimatepro' ? estimatePage(page) :
+    homePage(page);
+
+  function hero(p){
+    return `<header class="hero">
+      <div class="grid-bg"></div>
+      <div class="container hero-layout">
+        <div>
+          <span class="eyebrow reveal">${p.heroEyebrow}</span>
+          <h1 class="display reveal">${p.heroTitle}</h1>
+          <p class="lede reveal">${p.heroText}</p>
+          <div class="hero-actions reveal">
+            <button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button>
+            <a class="btn btn-light" href="/platform">View Platform</a>
+          </div>
+          <div class="hero-proof reveal">
+            <div><strong>Estimate → Schedule → Dispatch</strong><span>Work moves through a visible path</span></div>
+            <div><strong>Office + field alignment</strong><span>Teams share the same job reality</span></div>
+            <div><strong>Built around HVAC operations</strong><span>Start focused, expand later</span></div>
+          </div>
+        </div>
+        <div class="hero-card reveal">
+          <div class="hero-card-top"><b>Live workflow</b><span class="live-pill">Operational</span></div>
+          <div class="status-list">${p.heroRows.map(r => `<div class="status-row"><span>${r[0]}</span><strong>${r[1]}</strong><em>${r[2]}</em></div>`).join('')}</div>
+        </div>
+      </div>
+    </header>`;
   }
 
-  function html(selector, value) {
-    const el = document.querySelector(selector);
-    if (el && value !== undefined) el.innerHTML = value;
+  function homePage(p){
+    return hero(p) + painSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + platformEcosystemSection() + estimateSection() + salesSection() + trustSection() + finalCta();
   }
 
-  function eyebrow(selector, value) {
-    html(selector, `<span class="dot"></span>${value}`);
+  function hvacPage(p){
+    return hero(p) + painSection() + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should not live in separate systems.') + hvacProSection(true) + workflowDeepDive() + trustSection() + finalCta('Schedule a Workflow Review for HVAC Pro');
   }
 
-  function applyRouteProfile() {
-    const profile = productRoutes[routeProduct];
-    if (!profile) return;
-
-    document.title = profile.title;
-    document.body.dataset.productRoute = routeProduct;
-
-    eyebrow('.hero .eyebrow', profile.hero.eyebrow);
-    text('.hero h1', profile.hero.h1);
-    text('.hero .lede', profile.hero.lede);
-    document.querySelectorAll('.floating-tags .float-tag').forEach((el, index) => {
-      el.childNodes.forEach(node => {
-        if (node.nodeType === Node.TEXT_NODE) node.remove();
-      });
-      el.append(document.createTextNode(profile.hero.tags[index] || ''));
-    });
-    document.querySelectorAll('.hero-proof > div').forEach((el, index) => {
-      text(`.hero-proof > div:nth-child(${index + 1}) strong`, profile.hero.proof[index]?.[0]);
-      text(`.hero-proof > div:nth-child(${index + 1}) span`, profile.hero.proof[index]?.[1]);
-    });
-
-    eyebrow('#pain .eyebrow', profile.pain.eyebrow);
-    text('#pain h2', profile.pain.h2);
-    text('#pain .lede', profile.pain.lede);
-    document.querySelectorAll('.pain-card').forEach((card, index) => {
-      const data = profile.pain.cards[index];
-      if (!data) return;
-      text(`.pain-card:nth-child(${index + 1}) span`, data[0]);
-      text(`.pain-card:nth-child(${index + 1}) h3`, data[1]);
-      text(`.pain-card:nth-child(${index + 1}) p`, data[2]);
-    });
-
-    eyebrow('#workflow .eyebrow', profile.workflow.eyebrow);
-    text('#workflow h2', profile.workflow.h2);
-    text('#workflow .lede', profile.workflow.lede);
-    document.querySelectorAll('.workflow-step').forEach((step, index) => {
-      const data = profile.workflow.steps[index];
-      if (!data) return;
-      text(`.workflow-step:nth-child(${index + 1}) span`, data[0]);
-      text(`.workflow-step:nth-child(${index + 1}) b`, data[1]);
-      text(`.workflow-step:nth-child(${index + 1}) p`, data[2]);
-    });
-    document.querySelectorAll('.module-map > div').forEach((mod, index) => {
-      const data = profile.workflow.modules[index];
-      if (!data) return;
-      text(`.module-map > div:nth-child(${index + 1}) span`, data[0]);
-      text(`.module-map > div:nth-child(${index + 1}) strong`, data[1]);
-      text(`.module-map > div:nth-child(${index + 1}) p`, data[2]);
-    });
-
-    eyebrow('.cta-section.dark:not(.final-cta) .eyebrow', profile.cta[0]);
-    text('.cta-section.dark:not(.final-cta) h2', profile.cta[1]);
-    text('.cta-section.dark:not(.final-cta) p', profile.cta[2]);
-    eyebrow('#products > .container > .eyebrow', profile.products[0]);
-    text('#products h2', profile.products[1]);
-    text('#products > .container > .lede', profile.products[2]);
-    eyebrow('#trust .eyebrow', profile.trust.eyebrow);
-    text('#trust h2', profile.trust.h2);
-    text('#trust .lede', profile.trust.lede);
-    eyebrow('#preview .eyebrow', profile.preview.eyebrow);
-    text('#preview h2', profile.preview.h2);
-    text('#preview .lede', profile.preview.lede);
-    text('.app-name', profile.preview.appName);
-    document.querySelectorAll('.mock-tab').forEach((tab, index) => text(`.mock-tab:nth-child(${index + 1})`, profile.preview.tabs[index]));
-    text('.mock-hero-card .eb', profile.preview.card[0]);
-    text('.mock-hero-card h5', profile.preview.card[1]);
-    text('.mock-hero-card p', profile.preview.card[2]);
-    document.querySelectorAll('.mock-stat').forEach((stat, index) => {
-      text(`.mock-stat:nth-child(${index + 1}) b`, profile.preview.stats[index]?.[0]);
-      text(`.mock-stat:nth-child(${index + 1}) span`, profile.preview.stats[index]?.[1]);
-    });
-    document.querySelectorAll('.mock-row').forEach((row, index) => {
-      const data = profile.preview.rows[index];
-      if (!data) return;
-      text(`.mock-row:nth-child(${index + 1}) span:nth-child(1)`, data[0]);
-      text(`.mock-row:nth-child(${index + 1}) span:nth-child(2)`, data[1]);
-      text(`.mock-row:nth-child(${index + 1}) span:nth-child(3)`, data[2]);
-    });
-
-    const phone = profile.preview.phone;
-    text('.mock-phone-card.dark b', phone[0]);
-    text('.mock-phone-card.dark .row:nth-child(2) span:nth-child(1)', phone[1]);
-    text('.mock-phone-card.dark .row:nth-child(3)', phone[2]);
-    text('.mock-phone-card:nth-child(2) b', phone[3]);
-    document.querySelectorAll('.mock-phone-card:nth-child(2) .row').forEach((row, index) => {
-      text(`.mock-phone-card:nth-child(2) .row:nth-child(${index + 2}) span:nth-child(1)`, phone[4][index]?.[0]);
-      text(`.mock-phone-card:nth-child(2) .row:nth-child(${index + 2}) span:nth-child(2)`, phone[4][index]?.[1]);
-    });
-    text('.mock-phone-card:nth-child(3) b', phone[5]);
-    text('.mock-phone-card:nth-child(3) .row span:nth-child(1)', phone[6]);
-    text('.mock-phone-card:nth-child(3) .row span:nth-child(2)', phone[7]);
-
-    eyebrow('#contact .eyebrow', profile.contact[0]);
-    text('#contact h2', profile.contact[1]);
-    text('#contact .lede', profile.contact[2]);
-    text('#contact textarea + label', profile.contact[3]);
-    text('#modal-demo h3', profile.contact[4]);
-    text('#modal-demo .sub', profile.contact[5]);
-    text('#modal-demo textarea + label', profile.contact[6]);
-    eyebrow('.final-cta .eyebrow', profile.finalCta[0]);
-    text('.final-cta h2', profile.finalCta[1]);
-    text('.final-cta p', profile.finalCta[2]);
-    text('footer p', profile.footer);
-
-    if (routePath === '/salespro/demo' || routePath === '/hvacpro/demo') {
-      setTimeout(() => document.getElementById('modal-demo')?.classList.add('open'), 250);
-    }
+  function platformPage(p){
+    return hero(p) + platformEcosystemSection(true) + modularSection() + journeySection() + outcomesSection() + trustSection() + finalCta('Schedule a Workflow Review');
   }
 
-  applyRouteProfile();
+  function estimatePage(p){
+    return hero(p) + estimateWorkflowSection() + estimateSection() + productFitSection() + trustSection() + finalCta('Schedule a Workflow Review for EstimatePro');
+  }
 
-  /* Reveal */
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  function pricingPage(p){
+    return hero(p) + fitSection() + painSelectorSection() + packageSection() + productFitSection() + scopeSection() + expansionSection() + finalCta('Schedule a Workflow Review');
+  }
 
-  /* Counters */
-  const counterIO = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const raw = el.dataset.count || el.dataset.countDollar || el.dataset.countPercent;
-      const target = parseFloat(raw);
-      const isDollar = el.hasAttribute('data-count-dollar');
-      const isPercent = el.hasAttribute('data-count-percent');
-      const dur = 1400;
-      const start = performance.now();
-      const fmt = v => {
-        if (isDollar) return '$' + Math.round(v).toLocaleString();
-        if (isPercent) return (target % 1 ? v.toFixed(1) : Math.round(v)) + '%';
-        return Math.round(v).toLocaleString();
-      };
-      function tick(now) {
-        const t = Math.min((now - start) / dur, 1);
-        const eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = fmt(target * eased);
-        if (t < 1) requestAnimationFrame(tick);
+  function demoPage(p){
+    return hero(p) + reviewExpectationSection() + productFitSection() + leadFormSection('Schedule your Workflow Review', 'Tell us where the workflow is breaking. We will use this context to prepare a useful Workflow Review Call.', 'workflow-review') + trustStrip() + finalCta('Schedule Workflow Review');
+  }
+
+  function contactPage(p){
+    return hero(p) + inquiryRoutingSection() + leadFormSection('Send an inquiry', 'Choose the inquiry type and tell us what you need. Operational requests can be routed into a Workflow Review Session.', 'contact') + productLinksSection() + finalCta('Schedule a Workflow Review');
+  }
+
+  function painSection(){
+    const cards = [
+      ['01','Dispatch confusion','Jobs move quickly, but the office and field do not always see the same status.'],
+      ['02','Scheduling pressure','Capacity, callbacks, installs and service visits become hard to balance as the team grows.'],
+      ['03','Technician coordination','Techs need job history, customer context, notes, photos and next steps before they arrive.'],
+      ['04','Estimate handoff gaps','Approved work often gets re-entered before it becomes scheduled work.'],
+      ['05','Invoice delays','Closeout details can sit in the field instead of moving into billing.'],
+      ['06','Spreadsheet visibility','Owners lose time stitching together job status, revenue and operational follow-through.']
+    ];
+    return `<section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow reveal">Operational pain</span><h2 class="h2 reveal">HVAC growth creates handoff problems before it creates software problems.</h2></div>
+          <p class="lede reveal">The first job of the site is to make the buyer feel understood: the pain is not abstract SaaS complexity. It is daily scheduling, dispatch, estimating, closeout and invoice friction.</p>
+        </div>
+        <div class="grid-3">${cards.map(c => `<article class="card reveal"><span class="num">${c[0]}</span><h3>${c[1]}</h3><p>${c[2]}</p></article>`).join('')}</div>
+      </div>
+    </section>`;
+  }
+
+  function hvacWorkflowSection(lede){
+    const steps = [
+      ['Lead','Capture demand','Customer and opportunity details start clean.'],
+      ['Estimate','Price the work','EstimatePro supports reviewable estimating.'],
+      ['Schedule','Plan capacity','Approved work becomes scheduled work.'],
+      ['Dispatch','Run the day','HVAC Pro coordinates crews and status.'],
+      ['Complete','Close out','Field details stay attached to the job.'],
+      ['Invoice','Bill cleanly','Closeout moves into invoice handoff.'],
+      ['Report','See operations','Owners get a clearer operating picture.']
+    ];
+    return `<section class="section dark" id="workflow">
+      <div class="container">
+        <span class="eyebrow reveal">HVAC workflow</span>
+        <h2 class="h2 reveal" style="margin:14px 0 14px">Connect the path from lead to reporting.</h2>
+        <p class="lede reveal">${lede || 'Before Cliff Platform is introduced, visitors should understand the HVAC operating flow: estimate, schedule, dispatch, complete, invoice, payment and reporting.'}</p>
+        <div class="workflow">${steps.map(s => `<div class="step reveal"><span>${s[0]}</span><b>${s[1]}</b><p>${s[2]}</p></div>`).join('')}</div>
+      </div>
+    </section>`;
+  }
+
+  function hvacProSection(deep){
+    return `<section class="section soft" id="hvacpro-overview">
+      <div class="container feature-split">
+        <div>
+          <span class="eyebrow reveal">HVAC Pro</span>
+          <h2 class="h2 reveal">The primary operations layer for HVAC teams.</h2>
+          <p class="lede reveal" style="margin-top:16px">HVAC Pro appears before platform messaging because it is the immediate answer for the primary buyer: dispatch, scheduling, technician coordination, closeout and invoice handoff.</p>
+          <div class="section-actions reveal"><a class="btn btn-primary" href="/hvacpro">Explore HVAC Pro <span class="arrow">→</span></a><button class="btn btn-ghost" data-modal="demo">Schedule Workflow Review</button></div>
+        </div>
+        <div class="mock-board reveal">
+          <div class="mock-toolbar"><b>Dispatch board</b><span class="live-pill">Live</span></div>
+          <div class="mock-grid">
+            ${[
+              ['08:30','Maintenance visit assigned','Route A'],
+              ['10:15','Install crew ETA updated','Route B'],
+              ['12:40','Closeout notes ready','Invoice'],
+              ['14:20','Emergency call inserted','Priority']
+            ].map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </section>` + (deep ? '' : '');
+  }
+
+  function outcomesSection(){
+    return `<section class="section">
+      <div class="container">
+        <div class="section-head center"><span class="eyebrow reveal">Business outcomes</span><h2 class="h2 reveal">Better visibility without enterprise overload.</h2><p class="lede reveal">Outcomes should be framed as operational improvements, not unverifiable claims.</p></div>
+        <div class="outcome-band reveal">
+          <div><strong>Cleaner handoffs</strong><span>Less retyping between estimate, dispatch, closeout and invoice work.</span></div>
+          <div><strong>Office visibility</strong><span>Admins and owners can see what is moving and what is stuck.</span></div>
+          <div><strong>Field coordination</strong><span>Technicians get better job context and closeout flow.</span></div>
+          <div><strong>Modular growth</strong><span>Start focused and expand the ecosystem when ready.</span></div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function platformEcosystemSection(full){
+    return `<section class="section dark" id="platform">
+      <div class="container ecosystem">
+        <div>
+          <span class="eyebrow reveal">Platform ecosystem</span>
+          <h2 class="h2 reveal">Cliff Platform connects the modules after the workflow is clear.</h2>
+          <p class="lede reveal" style="margin-top:16px">The platform is introduced after HVAC value. It should feel like the connected operating layer, not internal SaaS architecture.</p>
+          <div class="section-actions reveal"><a class="btn btn-primary" href="/platform">View Platform <span class="arrow">→</span></a><button class="btn btn-light" data-modal="demo">Schedule Workflow Review</button></div>
+        </div>
+        <div class="ecosystem-map reveal">
+          <div class="eco-node main"><b>Cliff Platform</b><span>Connected operating layer</span></div>
+          <div class="eco-node"><b>HVAC Pro</b><span>Scheduling, dispatch, field closeout</span></div>
+          <div class="eco-node"><b>EstimatePro</b><span>Assisted, reviewable estimating</span></div>
+          <div class="eco-node"><b>SalesPro</b><span>Inventory, invoices, payments, purchasing</span></div>
+        </div>
+      </div>
+    </section>` + (full ? modularSection() : '');
+  }
+
+  function estimateSection(){
+    return moduleSection('EstimatePro','AI-assisted HVAC estimating software','EstimatePro should be positioned carefully: assisted, reviewable and estimator-controlled. It helps prepare cleaner estimating workflows while keeping estimator review at the center.','/estimatepro','Explore EstimatePro');
+  }
+
+  function estimateWorkflowSection(){
+    const steps = [
+      ['Intake','Collect the plan set, notes and estimating context in one place.'],
+      ['Assisted pass','Use estimating support to organize what needs review.'],
+      ['Estimator review','Keep the human estimator in control of scope, quantities and assumptions.'],
+      ['Approval','Confirm the estimate before it becomes operational work.'],
+      ['Handoff','Move the approved scope toward scheduling, dispatch and invoice flow.']
+    ];
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">EstimatePro workflow</span><h2 class="h2 reveal">Assisted estimating should stay reviewable.</h2></div><p class="lede reveal">EstimatePro is positioned as practical estimating acceleration with reviewable output, clear assumptions and estimator control at the center.</p></div><div class="grid-3">${steps.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p><button class="btn btn-ghost" data-modal="demo" style="margin-top:18px">Schedule Workflow Review</button></article>`).join('')}</div></div></section>`;
+  }
+
+  function salesSection(){
+    return moduleSection('SalesPro','Small business operations software','SalesPro gives small businesses a practical operating layer for inventory, orders, invoices, purchasing, payments and business visibility without heavy back-office complexity.','/salespro','Explore SalesPro');
+  }
+
+  function moduleSection(name, kicker, text, href, cta){
+    return `<section class="section">
+      <div class="container feature-split">
+        <div class="mock-board reveal">
+          <div class="mock-toolbar"><b>${name}</b><span class="live-pill">Module</span></div>
+          <div class="mock-grid">
+            ${['Review workflow','Confirm details','Move to next step','Report status'].map((x,i) => `<div class="mock-job"><span>0${i+1}</span><b>${x}</b><i>Ready</i></div>`).join('')}
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow reveal">${kicker}</span>
+          <h2 class="h2 reveal">${name} supports the connected operations path.</h2>
+          <p class="lede reveal" style="margin-top:16px">${text}</p>
+          <div class="section-actions reveal"><a class="btn btn-primary" href="${href}">${cta} <span class="arrow">→</span></a><button class="btn btn-ghost" data-modal="demo">Schedule Workflow Review</button></div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function workflowDeepDive(){
+    const items = [
+      ['Dispatch workflow','Job assignment, ETA changes, status visibility and priority updates.'],
+      ['Scheduling workflow','Capacity planning across installs, maintenance, service calls and callbacks.'],
+      ['Technician workflow','Job context, customer history, notes, photos and closeout details.'],
+      ['Closeout workflow','Completed work, field notes and approvals organized for office handoff.'],
+      ['Invoice handoff workflow','Clean transition from job completion to invoice-ready records.']
+    ];
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">HVAC Pro workflows</span><h2 class="h2 reveal">The revenue page needs operational depth.</h2></div><div class="grid-3">${items.map((i,n)=>`<article class="card reveal"><span class="num">0${n+1}</span><h3>${i[0]}</h3><p>${i[1]}</p><button class="btn btn-ghost" data-modal="demo" style="margin-top:18px">Schedule Workflow Review</button></article>`).join('')}</div></div></section>`;
+  }
+
+  function modularSection(){
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Modular adoption</span><h2 class="h2 reveal">Do not buy the whole ecosystem before you know the starting point.</h2></div><p class="lede reveal">The recommended adoption story is simple: review the workflow, solve the biggest handoff first, then connect more modules as the operation matures.</p></div><div class="grid-3">${[['Start focused','Pick the workflow creating the most operational drag.'],['Connect the next handoff','Add the module that improves the next step in the customer journey.'],['Grow into visibility','Use the platform layer for broader operational clarity.']].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function journeySection(){
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Customer journey</span><h2 class="h2 reveal">Workflow Review to rollout to expansion.</h2><p class="lede reveal">The buyer journey should feel guided and practical, not like a forced enterprise transformation.</p></div>${timeline(['Workflow Review Session','Product path recommendation','Focused setup','Workflow adoption','Expansion when ready'])}</div></section>`;
+  }
+
+  function fitSection(){
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Who this is for</span><h2 class="h2 reveal">Best for growing contractors with real workflow friction.</h2></div><p class="lede reveal">This section improves lead quality by making fit clear before buyers ask about package paths.</p></div><div class="grid-3">${[
+      ['Best fit','HVAC contractors with 3-20 technicians, office/admin support and scheduling, dispatch, estimating or invoicing pain.'],
+      ['Not ideal fit','Very large enterprise rollouts, hobby businesses, custom software buyers or teams with no intent to change process.'],
+      ['Qualification benefit','Serious buyers understand that Cliff Group recommends the right starting workflow, not the biggest package.']
+    ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function painSelectorSection(){
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Workflow pain selector</span><h2 class="h2 reveal">Start where the workflow hurts.</h2><p class="lede reveal">Tap a pain point to see the recommended starting product.</p></div><div class="selector reveal" id="painSelector">${['Dispatch','Estimating','Invoicing','Inventory','Visibility'].map((x,i)=>`<button type="button" data-fit="${i}">${x}</button>`).join('')}</div><div class="fit-panel reveal" id="fitPanel"><div><h3 class="h3">Dispatch pain usually starts with HVAC Pro.</h3><p>Scheduling, dispatch, technician coordination and closeout belong in the HVAC Pro path.</p></div><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review</button></div></div></section>`;
+  }
+
+  function packageSection(){
+    const cards = [
+      ['Workflow Starter','One painful workflow, one focused product path.'],
+      ['Operations Core','HVAC Pro-led rollout for scheduling, dispatch, closeout and invoice handoff.'],
+      ['Platform Growth','Multiple connected modules for broader operational visibility.'],
+      ['Custom Workflow Review','For mixed needs where the right starting point is unclear.']
+    ];
+    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Package paths</span><h2 class="h2 reveal">No invented public prices. Clear buying paths.</h2></div><div class="grid-4">${cards.map((c,i)=>`<article class="card reveal"><span class="num">Path 0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p><button class="btn btn-ghost" data-modal="demo" style="margin-top:18px">Schedule Workflow Review</button></article>`).join('')}</div></div></section>`;
+  }
+
+  function productFitSection(){
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Product fit logic</span><h2 class="h2 reveal">The right product depends on the bottleneck.</h2></div><div class="grid-3">${[
+      ['HVAC Pro','Scheduling, dispatch, technician coordination, closeout and invoice handoff.'],
+      ['EstimatePro','Assisted, reviewable, estimator-controlled estimating workflows.'],
+      ['SalesPro','Inventory, orders, invoices, payments, purchasing and business visibility.']
+    ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function scopeSection(){
+    return `<section class="section dark"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Scope factors</span><h2 class="h2 reveal">Scope depends on workflows, users, modules and support needs.</h2></div><p class="lede reveal">This keeps pricing honest while avoiding fake numbers or premature self-serve billing expectations.</p></div><div class="grid-4">${['Product mix','Team size','Workflow complexity','Implementation support'].map((x,i)=>`<article class="card dark-card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>Clarified during the Workflow Review Session.</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function expansionSection(){ return modularSection(); }
+
+  function reviewExpectationSection(){
+    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Workflow Review Session</span><h2 class="h2 reveal">What happens during the review.</h2><p class="lede reveal">This is not a generic software demo. It is a focused conversation about the buyer's current operation.</p></div>${timeline(['Discuss current workflow','Identify the highest-friction handoff','Map the product path','Clarify rollout expectations','Schedule the next step'])}</div></section>`;
+  }
+
+  function inquiryRoutingSection(){
+    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Inquiry routing</span><h2 class="h2 reveal">Choose the right conversation.</h2></div><div class="grid-4">${['General Inquiry','Product Inquiry','Partnership Inquiry','Workflow Review Request'].map((x,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>This route keeps the contact page useful without forcing every visitor into a demo path.</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function productLinksSection(){ return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Product links</span><h2 class="h2 reveal">Explore the product path first.</h2></div><div class="grid-3">${[['HVAC Pro','/hvacpro'],['EstimatePro','/estimatepro'],['SalesPro','/salespro']].map(p=>`<a class="card reveal" href="${p[1]}"><h3>${p[0]}</h3><p>Open the dedicated product page.</p></a>`).join('')}</div></div></section>`; }
+
+  function leadFormSection(title, text, type){
+    return `<section class="section"><div class="container"><div class="form-card reveal"><div><span class="eyebrow">${type === 'contact' ? 'Contact' : 'Workflow Review'}</span><h2 class="h2" style="margin:14px 0 16px">${title}</h2><p class="lede">${text}</p><div style="margin-top:26px;color:var(--on-dark-soft);font-size:14px;display:grid;gap:8px"><span>No payment required.</span><span>No account creation required.</span><span>Cliff Group follows up with the next step.</span></div></div><form class="form-grid" data-lead-form="${type}" onsubmit="submitLead(event,'${type}')"><div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div><div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div><div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"><label>Company</label></div><div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"><label>Phone</label></div><div class="field full"><select name="source_interest" required><option value="" selected disabled></option><option>HVAC Pro</option><option>EstimatePro</option><option>SalesPro</option><option>Partnership</option><option>General inquiry</option></select><label>Inquiry type</label></div><div class="field full"><textarea name="operational_problem" placeholder=" "></textarea><label>What should we know?</label></div><div class="field full"><button class="btn btn-primary" type="submit" style="width:100%"><span data-submit-label>${type === 'contact' ? 'Send Inquiry' : 'Schedule Workflow Review'}</span> <span class="arrow">→</span></button><p class="form-status" role="status" aria-live="polite"></p><div class="success-box">Thanks — we'll contact you shortly.</div></div></form></div></div></section>`;
+  }
+
+  function trustSection(){
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Trust and onboarding</span><h2 class="h2 reveal">Practical rollout, contractor-focused workflows.</h2></div><p class="lede reveal">Trust should come from clarity, fit, onboarding support and operational specificity, not fake testimonials or unverifiable claims.</p></div><div class="grid-3">${[
+      ['Fast onboarding','Start with the workflow that matters most before expanding.'],
+      ['Contractor focus','Language and structure reflect dispatch, field work, estimating and invoicing.'],
+      ['Guided implementation','Workflow Review helps avoid buying the wrong starting module.']
+    ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function trustStrip(){ return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Review clarity</span><h2>Use Workflow Review for the CTA. Use Workflow Review Session when explaining the call.</h2><p>The naming stays branded but clear enough for a buyer to understand what will happen after submission.</p></div><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review</button></div></section>`; }
+
+  function finalCta(label){
+    return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Workflow Review</span><h2>Find the right starting point before adding more tools.</h2><p>Bring the workflow that is causing the most friction. Cliff Group will help map the first product path.</p></div><button class="btn btn-primary" data-modal="demo">${label || 'Schedule Workflow Review'} <span class="arrow">→</span></button></div></section>`;
+  }
+
+  function timeline(items){ return `<div class="workflow">${items.map((x,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${x}</b><p>Designed to keep the buying path practical and low-friction.</p></div>`).join('')}</div>`; }
+
+  setupInteractions();
+  setupReveals();
+  if (route === 'demo') setTimeout(() => document.getElementById('modal-demo')?.classList.add('open'), 450);
+
+  function setupInteractions(){
+    document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('mobileMenu')?.classList.toggle('open'));
+    document.addEventListener('click', e => {
+      const open = e.target.closest('[data-modal]');
+      if (open) {
+        e.preventDefault();
+        document.getElementById('mobileMenu')?.classList.remove('open');
+        document.getElementById('modal-' + open.dataset.modal)?.classList.add('open');
+        return;
       }
-      requestAnimationFrame(tick);
-      counterIO.unobserve(el);
+      if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) {
+        document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+      }
+      const selector = e.target.closest('[data-fit]');
+      if (selector) updateFit(selector.dataset.fit);
     });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-count],[data-count-dollar],[data-count-percent]').forEach(c => counterIO.observe(c));
-
-  /* Parallax */
-  const parallaxEls = document.querySelectorAll('[data-parallax]');
-  let py = 0, pyTarget = 0;
-  window.addEventListener('scroll', () => {
-    pyTarget = window.scrollY;
-    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-  }, {passive:true});
-  function loopParallax() {
-    py += (pyTarget - py) * 0.08;
-    parallaxEls.forEach(el => {
-      const strength = +el.dataset.parallax;
-      const rect = el.getBoundingClientRect();
-      if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
-      el.style.transform = `translateY(${(-py * strength).toFixed(2)}px)`;
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
     });
-    requestAnimationFrame(loopParallax);
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      document.getElementById('nav')?.classList.toggle('scrolled', y > 40);
+      document.getElementById('stickyReview')?.classList.toggle('show', y > 620);
+    }, {passive:true});
   }
-  loopParallax();
 
-  /* Cursor + magnetic */
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
-  addEventListener('pointermove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
-  });
-  (function loop(){
-    rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
-    requestAnimationFrame(loop);
-  })();
-  const hoverSel = 'a, button, .product, .why-item, input, textarea, select';
-  document.addEventListener('pointerover', e => { if (e.target.closest(hoverSel)) { dot.classList.add('hover'); ring.classList.add('hover'); }});
-  document.addEventListener('pointerout',  e => { if (e.target.closest(hoverSel)) { dot.classList.remove('hover'); ring.classList.remove('hover'); }});
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('pointermove', e => {
-      const r = btn.getBoundingClientRect();
-      const dx = (e.clientX - (r.left + r.width/2)) * 0.25;
-      const dy = (e.clientY - (r.top + r.height/2)) * 0.35;
-      btn.style.transform = `translate(${dx}px, ${dy}px)`;
-    });
-    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
-  });
-
-  /* Modals */
-  const productData = {
-    salespro:  { tag:'SalesPro · Revenue Backbone', title:'Keep the business side tied to the job.', desc:'SalesPro connects customers, products, invoices, payments, inventory and reporting so HVAC owners can see the money side of the operation without rebuilding it in spreadsheets.', features:['Customers, products, orders, invoices and payments','Inventory, purchasing and supplier workflows','Connects completed work to invoice-ready records','Gives owners cleaner operating visibility','Designed to support the broader Cliff Group platform'] },
-    hvacpro:   { tag:'HVAC Pro · Field Command', title:'Coordinate the day from office to truck.', desc:'HVAC Pro is the dispatch and field operations module for service managers, office teams and technicians who need live job status, equipment context and cleaner closeout.', features:['Dispatch board for jobs, routes and field status','Technician workflow for job context and closeout','Customer, location and equipment history on the job','Photos, notes, signatures and invoice handoff','Built for residential and commercial HVAC teams'] },
-    estimatepro:{tag:'EstimatePro · Bid Management', title:'Move bid work toward scheduled revenue.', desc:'EstimatePro helps estimators and project teams organize bid invites, upload sheets, review detected components and turn estimate work into the next operational step.', features:['Project workspace for bids, sheets and scopes','AI-assisted sheet scan and takeoff review','Confirm, exclude and edit detected components','Supports faster estimate preparation','Feeds approved work into the platform workflow'] },
-  };
-  function mockFor(key, host){
-    const styles = {
-      salespro: `<div style="display:flex;gap:6px;margin-bottom:10px"><span style="padding:3px 8px;border-radius:999px;background:rgba(201,174,122,.22);color:#C9AE7A;font-size:11px;font-weight:600">INV</span><span style="padding:3px 8px;border-radius:999px;background:rgba(255,255,255,.06);color:#9AA7BD;font-size:11px">42 SKUs</span></div>`
-        + ['Filter 16x25 · 48 in stock','Capacitor 45µF · 12 in stock','Condenser CX-7 · 3 in stock','Thermostat T3 · 21 in stock'].map(t=>`<div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(255,255,255,.04);border-radius:8px;font-size:12px;color:#E6EDF7;margin-bottom:4px"><span>${t.split('·')[0]}</span><span style="color:#C9AE7A;font-weight:600">${t.split('·')[1]}</span></div>`).join(''),
-      hvacpro: `<div style="display:grid;grid-template-columns:60px 1fr;gap:6px;font-size:11px;color:#9AA7BD">`
-        + ['09:00','10:30','12:00','13:30','15:00'].map((t,i)=>`<div style="padding:4px 0">${t}</div><div style="padding:6px 10px;border-radius:6px;background:${['rgba(201,174,122,.2)','rgba(63,102,80,.25)','rgba(201,174,122,.15)','rgba(158,106,85,.2)','rgba(201,174,122,.2)'][i]};color:#E6EDF7">${['Smith · AC tune-up','Patel · Install','Oak Apts · Repair','Hill Co · Estimate','Brown · Maintenance'][i]}</div>`).join('') + `</div>`,
-      estimatepro: `<div style="display:flex;flex-direction:column;gap:4px">`
-        + [['Moore Park / NEW GYM','13 sheets'],['Chiller VA Miami','0 sheets'],['OFP 6th Floor','0 sheets'],['Oak trails Park Ext.','8 sheets']].map(([a,b])=>`<div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(255,255,255,.04);border-radius:6px;font-size:12px;color:#E6EDF7"><span>${a}</span><span style="color:#C9AE7A">${b}</span></div>`).join('')
-        + `<div style="display:flex;justify-content:space-between;padding:12px;border-radius:8px;background:rgba(201,174,122,.18);border:1px solid rgba(201,174,122,.35);font-size:13px;color:#C9AE7A;font-weight:700;margin-top:6px"><span>AI Scan detected</span><span>40 components</span></div></div>`,
-    };
-    host.innerHTML = styles[key] || '';
+  function updateFit(index){
+    const fits = [
+      ['Dispatch pain usually starts with HVAC Pro.','Scheduling, dispatch, technician coordination and closeout belong in the HVAC Pro path.'],
+      ['Estimating pain usually starts with EstimatePro.','Use assisted, reviewable, estimator-controlled workflows before moving approved work into operations.'],
+      ['Invoicing pain may start with HVAC Pro or SalesPro.','The review should clarify whether the issue begins at field closeout or back-office invoicing.'],
+      ['Inventory pain usually starts with SalesPro.','Inventory, purchasing, orders and product visibility belong in the SalesPro path.'],
+      ['Visibility pain may need the Platform path.','If multiple handoffs are disconnected, platform expansion may be the right roadmap.']
+    ];
+    document.querySelectorAll('[data-fit]').forEach(b => b.classList.toggle('active', b.dataset.fit === String(index)));
+    const panel = document.getElementById('fitPanel');
+    if (panel) panel.querySelector('h3').textContent = fits[index][0];
+    if (panel) panel.querySelector('p').textContent = fits[index][1];
   }
-  document.addEventListener('click', e => {
-    const open = e.target.closest('[data-modal]');
-    if (open) {
-      e.preventDefault();
-      document.getElementById('modal-' + open.dataset.modal)?.classList.add('open');
-      return;
-    }
-    const prod = e.target.closest('[data-product]');
-    if (prod) {
-      const key = prod.dataset.product;
-      const d = productData[key];
-      document.getElementById('pmodal-tag').textContent = d.tag;
-      document.getElementById('pmodal-title').textContent = d.title;
-      document.getElementById('pmodal-desc').textContent = d.desc;
-      document.getElementById('pmodal-features').innerHTML = d.features.map(f=>`<li>${f}</li>`).join('');
-      mockFor(key, document.getElementById('pmodal-mock'));
-      document.getElementById('modal-product').classList.add('open');
-      return;
-    }
-    if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) {
-      document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
-    }
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
-  });
 
-  /* Toasts */
-  window.toast = function(msg) {
-    const wrap = document.getElementById('toasts');
-    const el = document.createElement('div');
-    el.className = 'toast';
-    el.innerHTML = `<div class="toast-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><div>${msg}</div>`;
-    wrap.appendChild(el);
-    requestAnimationFrame(() => el.classList.add('show'));
-    setTimeout(() => { el.classList.remove('show'); setTimeout(()=>el.remove(), 400); }, 4000);
-  };
+  function setupReveals(){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
 
-  /* Lead capture */
   const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
     return (explicit || 'https://zesty-reflection-production-274d.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
 
-  function setFormState(form, state, message) {
+  window.submitLead = async function(event, fallbackType){
+    event.preventDefault();
+    const form = event.target;
+    if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
     const button = form.querySelector('button[type="submit"]');
     const label = button?.querySelector('[data-submit-label]');
     const status = form.querySelector('.form-status');
-
-    if (button && !button.dataset.defaultLabel && label) {
-      button.dataset.defaultLabel = label.textContent;
-    }
-
-    if (button) {
-      button.disabled = state === 'loading' || state === 'success';
-      button.classList.toggle('is-loading', state === 'loading');
-    }
-
-    if (label && button) {
-      label.textContent = state === 'loading' ? 'Sending...' : state === 'success' ? 'Sent' : button.dataset.defaultLabel;
-    }
-
-    if (status) {
-      status.textContent = message || '';
-      status.classList.toggle('error', state === 'error');
-      status.classList.toggle('success', state === 'success');
-    }
-  }
-
-  function leadPayload(form, formType) {
+    const successBox = form.querySelector('.success-box');
+    if (button && label && !button.dataset.defaultLabel) button.dataset.defaultLabel = label.textContent;
     const data = new FormData(form);
-    const message = data.get('message') || data.get('operational_problem') || '';
-    return {
-      name: data.get('full_name') || data.get('name') || '',
+    const productInterest = data.get('source_interest') || '';
+    const problem = data.get('operational_problem') || '';
+    const payload = {
+      name: data.get('full_name') || '',
       email: data.get('email') || '',
       phone: data.get('phone') || '',
       company: data.get('company') || '',
-      message,
-      source: `${formType}:${window.location.href}`
+      message: [productInterest, problem].filter(Boolean).join(' - '),
+      source: `${form.dataset.leadForm || fallbackType || 'lead'}:${window.location.href}`
     };
-  }
+    const error = validate(payload);
+    if (error) return setState('error', error);
+    setState('loading', '');
+    try {
+      const response = await fetch(leadApiUrl, {method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok || body.ok === false) throw new Error(body.error || 'We could not send this request. Please try again.');
+      form.reset();
+      setState('success', "Thanks — we'll contact you shortly.");
+      if (successBox) successBox.classList.add('show');
+      toast("Thanks — we'll contact you shortly.");
+      setTimeout(() => {
+        if (successBox) successBox.classList.remove('show');
+        setState('idle', '');
+      }, 5200);
+    } catch (err) {
+      setState('error', err.message || 'We could not send this request. Please try again.');
+      toast(err.message || 'We could not send this request. Please try again.');
+    }
+    function setState(state, message){
+      if (button) {
+        button.disabled = state === 'loading' || state === 'success';
+        button.classList.toggle('is-loading', state === 'loading');
+      }
+      if (label && button) label.textContent = state === 'loading' ? 'Sending...' : state === 'success' ? 'Sent' : button.dataset.defaultLabel;
+      if (status) {
+        status.textContent = message || '';
+        status.classList.toggle('error', state === 'error');
+        status.classList.toggle('success', state === 'success');
+      }
+    }
+  };
 
-  function validateLeadPayload(payload) {
+  function validate(payload){
     if (!String(payload.name || '').trim()) return 'Please enter your name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
     if (String(payload.message || '').length > 3000) return 'Please keep the message under 3000 characters.';
     return '';
   }
 
-  function finishSuccessfulSubmit(form, message) {
-    const modal = form.closest('.modal-backdrop');
-    form.reset();
-    setFormState(form, 'success', message);
-    toast(message);
-
-    if (modal) {
-      setTimeout(() => {
-        modal.classList.remove('open');
-        setFormState(form, 'idle', '');
-      }, 2200);
-      return;
-    }
-
-    setTimeout(() => setFormState(form, 'idle', ''), 4500);
+  function toast(message){
+    const wrap = document.getElementById('toasts');
+    if (!wrap) return;
+    const el = document.createElement('div');
+    el.className = 'toast';
+    el.textContent = message;
+    wrap.appendChild(el);
+    requestAnimationFrame(() => el.classList.add('show'));
+    setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 250); }, 4200);
   }
-
-  async function postLeadPayload(url, payload) {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'omit',
-      body: JSON.stringify(payload)
-    });
-    const body = await response.json().catch(() => ({}));
-
-    if (!response.ok || body.ok === false) {
-      const error = new Error(body.error || 'We could not send this request. Please try again.');
-      error.status = response.status;
-      throw error;
-    }
-
-    return body;
-  }
-
-  async function submitLeadForm(e, fallbackType) {
-    e.preventDefault();
-    const form = e.target;
-    const formType = form.dataset.leadForm || fallbackType || 'contact';
-    if (typeof form.reportValidity === 'function' && !form.reportValidity()) return;
-    const payload = leadPayload(form, formType);
-    const validationError = validateLeadPayload(payload);
-
-    if (validationError) {
-      setFormState(form, 'error', validationError);
-      toast(validationError);
-      return;
-    }
-
-    setFormState(form, 'loading', '');
-
-    try {
-      try {
-        await postLeadPayload(leadApiUrl, payload);
-      } catch (error) {
-        if (error.status !== 404) throw error;
-        await postLeadPayload(`${leadApiUrl}/${formType}`, payload);
-      }
-
-      finishSuccessfulSubmit(form, "Thanks — we'll contact you shortly.");
-    } catch (error) {
-      const message = error.message || 'We could not send this request. Please try again.';
-      setFormState(form, 'error', message);
-      toast(message);
-    }
-  }
-
-  window.submitModal = function(e, which) {
-    submitLeadForm(e, which === 'demo' ? 'demo' : 'walkthrough');
-  };
-  window.submitContact = function(e) {
-    submitLeadForm(e, 'contact');
-  };
-
-  /* Cookies */
-  const CKEY = 'cliff-cookies';
-  if (!localStorage.getItem(CKEY)) {
-    setTimeout(() => document.getElementById('cookies').classList.add('show'), 1200);
-  }
-  document.getElementById('acceptCookies').addEventListener('click', () => {
-    localStorage.setItem(CKEY, 'accept');
-    document.getElementById('cookies').classList.remove('show');
-    toast('Cookie preferences saved.');
-  });
-  document.getElementById('denyCookies').addEventListener('click', () => {
-    localStorage.setItem(CKEY, 'deny');
-    document.getElementById('cookies').classList.remove('show');
-  });
 })();
 </script>
 </body>

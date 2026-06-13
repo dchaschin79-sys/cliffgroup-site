@@ -159,7 +159,7 @@ function resolveRequestPath(url) {
   }
 
   if (pathname === '/estimatepro' || pathname === '/estimatepro/') {
-    return { filePath: path.join(rootDir, 'estimatepro', 'index.html'), fallback: false };
+    return { filePath: path.join(rootDir, 'index.html'), fallback: false };
   }
 
   if (pathname === '/salespro' || pathname === '/salespro/') {
