@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
+<meta name="lead-api-url" content="https://cliffgroup-api-production.up.railway.app/api/leads" />
 <title>Cliff Group Florida - HVAC Operations Software</title>
 <meta name="description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
 <link rel="canonical" href="https://cliffgroupflorida.com/" />
@@ -1255,7 +1255,7 @@ footer a:hover{color:var(--ink)}
 
   const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
-    return (explicit || 'https://zesty-reflection-production-274d.up.railway.app/api/leads').replace(/\/+$/, '');
+    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
 
   window.submitLead = async function(event, fallbackType){

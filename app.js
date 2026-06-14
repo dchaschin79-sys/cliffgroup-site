@@ -329,7 +329,7 @@
 
   const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
-    return (explicit || 'https://zesty-reflection-production-274d.up.railway.app/api/leads').replace(/\/+$/, '');
+    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
 
   function setFormState(form, state, message) {
