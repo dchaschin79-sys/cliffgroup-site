@@ -1,0 +1,98 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "404.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "robots.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "sitemap.xml",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "app.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "salespro/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "estimatepro/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "headers": {
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://web-production-70049.up.railway.app; connect-src 'self' https://zesty-reflection-production-274d.up.railway.app https://platform-web-production-db95.up.railway.app; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests",
+        "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY"
+      },
+      "continue": true
+    },
+    {
+      "src": "/pricing/?",
+      "status": 302,
+      "headers": {
+        "Location": "/hvacpro#pricing"
+      }
+    },
+    {
+      "src": "/salespro/login/?",
+      "status": 302,
+      "headers": {
+        "Location": "https://web-production-70049.up.railway.app/salespro/login"
+      }
+    },
+    {
+      "src": "/login/?",
+      "status": 302,
+      "headers": {
+        "Location": "https://web-production-70049.up.railway.app/salespro/login"
+      }
+    },
+    {
+      "src": "/hvacpro/login/?",
+      "status": 302,
+      "headers": {
+        "Location": "https://keen-mercy-production-1ff8.up.railway.app/#dashboard"
+      }
+    },
+    {
+      "src": "/estimatepro/login/?",
+      "status": 302,
+      "headers": {
+        "Location": "https://frontend-production-9aa65.up.railway.app/login"
+      }
+    },
+    {
+      "src": "/(hvacpro|estimatepro|salespro|contact|demo|platform)/?",
+      "dest": "/index.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ]
+}
