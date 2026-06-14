@@ -4,18 +4,67 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
-<title>Cliff Group Florida - Contractor Operations Platform</title>
+<title>Cliff Group Florida - HVAC Operations Software</title>
 <meta name="description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
+<link rel="canonical" href="https://cliffgroupflorida.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cliff Group Florida" />
+<meta property="og:title" content="Cliff Group Florida - HVAC Operations Software" />
+<meta property="og:description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
+<meta property="og:url" content="https://cliffgroupflorida.com/" />
+<meta property="og:image" content="https://cliffgroupflorida.com/assets/cliff-logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cliff Group Florida - HVAC Operations Software" />
+<meta name="twitter:description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
+<meta name="twitter:image" content="https://cliffgroupflorida.com/assets/cliff-logo.png" />
 <link rel="icon" href="/assets/cliff-logo.png" />
 <link rel="apple-touch-icon" href="/assets/cliff-logo.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Cliff Group Florida Inc.",
+  "url": "https://cliffgroupflorida.com/",
+  "logo": "https://cliffgroupflorida.com/assets/cliff-logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+  },
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Cliff Group Florida Product Suite",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://cliffgroupflorida.com/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "description": "Schedule a Workflow Review for current product plans."
+  }
+}
+</script>
 <script>
   (function () {
     var path = window.location.pathname.replace(/\/+$/, '') || '/';
     if (path === '/salespro/login' || path === '/login') {
       window.location.replace('https://web-production-70049.up.railway.app/salespro/login');
     }
+    if (path === '/hvacpro/login') {
+      window.location.replace('https://keen-mercy-production-1ff8.up.railway.app/#dashboard');
+    }
     if (path === '/estimatepro/login') {
       window.location.replace('https://frontend-production-9aa65.up.railway.app/login');
+    }
+    if (path === '/pricing') {
+      window.location.replace('/hvacpro#pricing');
     }
   })();
 </script>
@@ -53,6 +102,8 @@ p{margin:0}
 .btn-primary:hover{background:var(--gold-2)}
 .btn-light{border:1.5px solid rgba(244,234,219,.34);color:var(--cream);background:rgba(244,234,219,.06)}
 .btn-light:hover{border-color:var(--cream);background:rgba(244,234,219,.12)}
+.btn-login{border:1.5px solid rgba(201,174,122,.58);color:var(--cream);background:rgba(201,174,122,.12);box-shadow:inset 0 0 0 1px rgba(244,234,219,.04)}
+.btn-login:hover{border-color:var(--gold);background:rgba(201,174,122,.2);color:var(--cream)}
 .btn-ghost{border:1.5px solid var(--line-2);color:var(--ink);background:rgba(255,255,255,.16)}
 .btn-ghost:hover{border-color:var(--ink);background:rgba(14,42,74,.05)}
 .btn[disabled]{opacity:.68;cursor:not-allowed;transform:none}
@@ -137,6 +188,11 @@ p{margin:0}
 .step span{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
 .step b{display:block;color:var(--cream);font-size:15px;line-height:1.25;margin-bottom:8px}
 .step p{color:var(--on-dark-soft);font-size:12px;line-height:1.45}
+.section:not(.dark) .step{border-color:var(--line);background:rgba(255,255,255,.34)}
+.section:not(.dark) .step:hover{background:rgba(255,255,255,.58);border-color:var(--line-2);box-shadow:0 12px 28px rgba(14,42,74,.08)}
+.section:not(.dark) .step span{color:var(--gold-2)}
+.section:not(.dark) .step b{color:var(--ink)}
+.section:not(.dark) .step p{color:var(--fg-dim);font-size:13px}
 
 .feature-split{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
 .mock-board{border-radius:22px;padding:16px;background:var(--ink);box-shadow:var(--shadow);border:1px solid rgba(244,234,219,.12);color:var(--cream)}
@@ -204,6 +260,33 @@ p{margin:0}
 .modal-close:hover{background:var(--cream-2);color:var(--ink)}
 .success-box{display:none;margin-top:16px;padding:18px;border-radius:14px;background:rgba(63,102,80,.12);border:1px solid rgba(63,102,80,.25);color:var(--green);font-weight:800}
 .success-box.show{display:block}
+.faq-list{display:grid;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.24);overflow:hidden}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 20px;cursor:pointer;font-weight:800;color:var(--ink);list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";width:26px;height:26px;border-radius:999px;display:grid;place-items:center;background:var(--cream-2);color:var(--fg-dim);font-family:var(--sans);font-weight:900;flex:0 0 auto}
+.faq-item[open] summary::after{content:"−";background:var(--ink);color:var(--cream)}
+.faq-item p{padding:0 20px 18px;color:var(--fg-dim)}
+.dark .faq-item{border-color:rgba(244,234,219,.16);background:rgba(244,234,219,.06)}
+.dark .faq-item summary{color:var(--cream)}
+.dark .faq-item summary::after{background:rgba(244,234,219,.12);color:var(--cream)}
+.dark .faq-item p{color:var(--on-dark-soft)}
+.pricing-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.pricing-tab{border:1px solid var(--line);background:var(--cream-2);color:var(--fg-dim);border-radius:999px;padding:12px 17px;font-weight:800;cursor:pointer}
+.pricing-tab.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.pricing-status{min-height:92px;display:grid;place-items:center;border:1px solid var(--line);border-radius:18px;background:var(--cream-2);color:var(--fg-dim);font-weight:800;text-align:center;padding:24px}
+.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.pricing-card{display:flex;flex-direction:column;gap:16px}
+.pricing-card .price{font-family:var(--serif);font-size:42px;line-height:1;color:var(--ink)}
+.pricing-card .price small{font-family:var(--sans);font-size:13px;color:var(--fg-mute);font-weight:700}
+.pricing-card ul{display:grid;gap:10px;margin:0;padding:0;list-style:none;color:var(--fg-dim);font-size:14px;line-height:1.5}
+.pricing-card li{display:flex;gap:8px}.pricing-card li:before{content:"✓";color:var(--green);font-weight:900}
+.pricing-actions{display:grid;gap:10px;margin-top:auto}.pricing-actions .btn{width:100%;justify-content:center}
+.comparison-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
+.comparison-table{width:100%;border-collapse:collapse;min-width:720px}
+.comparison-table th,.comparison-table td{padding:16px;border-bottom:1px solid var(--line);text-align:center;color:var(--fg-dim);font-size:14px}
+.comparison-table th:first-child,.comparison-table td:first-child{text-align:left;color:var(--ink);font-weight:800}
+.comparison-table tr:last-child td{border-bottom:none}.checkmark{color:var(--green);font-weight:900}.dash{color:var(--fg-mute)}
 
 .toast-wrap{position:fixed;right:22px;bottom:22px;z-index:600;display:grid;gap:10px;pointer-events:none}
 .toast{padding:14px 18px;border-radius:13px;background:var(--ink);color:var(--cream);box-shadow:0 16px 44px rgba(14,42,74,.32);border:1px solid rgba(244,234,219,.12);font-size:14px;opacity:0;transform:translateY(12px);transition:.22s ease;pointer-events:auto}
@@ -223,7 +306,7 @@ footer a:hover{color:var(--ink)}
   .hero-layout,.feature-split,.ecosystem,.form-card,.section-head{grid-template-columns:1fr}
   .hero-card{max-width:560px}
   .workflow{grid-template-columns:repeat(4,1fr)}
-  .grid-4,.outcome-band{grid-template-columns:repeat(2,1fr)}
+  .grid-4,.pricing-grid,.outcome-band{grid-template-columns:repeat(2,1fr)}
   .selector{grid-template-columns:repeat(2,1fr)}
   .outcome-band div{border-bottom:1px solid var(--line)}
   .outcome-band div:nth-child(2n){border-right:none}
@@ -231,7 +314,7 @@ footer a:hover{color:var(--ink)}
 @media (max-width:820px){
   .nav{padding:13px 18px}.nav-links,.nav-cta{display:none}.menu-toggle{display:grid;place-items:center}.logo{min-width:auto}
   .section{padding:78px 20px}.hero{padding:120px 20px 72px;min-height:auto}.display{font-size:clamp(43px,13vw,68px)}
-  .hero-proof,.grid-3,.grid-4,.workflow,.outcome-band,.footer-grid{grid-template-columns:1fr}
+  .hero-proof,.grid-3,.grid-4,.pricing-grid,.workflow,.outcome-band,.footer-grid{grid-template-columns:1fr}
   .status-row,.mock-job{grid-template-columns:1fr;gap:5px}
   .cta-band{padding:46px 20px}.cta-row{align-items:flex-start;flex-direction:column}
   .eco-node,.eco-node.main{position:static;transform:none;width:auto}.ecosystem-map{display:grid;gap:12px;min-height:auto;padding:16px}
@@ -247,28 +330,36 @@ footer a:hover{color:var(--ink)}
     <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
   </a>
   <div class="nav-links" id="navLinks">
-    <a href="/platform" data-nav="platform">Platform</a>
     <a href="/hvacpro" data-nav="hvacpro">HVAC Pro</a>
-    <a href="/estimatepro">EstimatePro</a>
-    <a href="/salespro">SalesPro</a>
-    <a href="/pricing" data-nav="pricing">Pricing</a>
+    <a href="/estimatepro" data-nav="estimatepro">EstimatePro</a>
+    <a href="/salespro" data-nav="salespro">SalesPro</a>
+    <a href="/contact" data-nav="contact">Contact</a>
   </div>
   <div class="nav-cta">
-    <a class="btn btn-light" href="/platform">View Platform</a>
+    <a class="btn btn-login" href="/hvacpro/login" data-product-login hidden>Product Login</a>
     <button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button>
   </div>
-  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="/hvacpro">HVAC Pro</a>
   <a href="/estimatepro">EstimatePro</a>
   <a href="/salespro">SalesPro</a>
-  <a href="/platform">Platform</a>
-  <a href="/pricing">Pricing</a>
   <a href="/contact">Contact</a>
+  <a href="/hvacpro/login" data-product-login hidden>Product Login</a>
   <button data-modal="demo">Schedule Workflow Review</button>
 </div>
 <div class="sticky-review" id="stickyReview"><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button></div>
+
+<noscript>
+  <section class="section">
+    <div class="container">
+      <h1 class="h2">Cliff Group Florida HVAC operations software</h1>
+      <p class="lede" style="margin-top:16px">Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, technician coordination, invoicing, payments and reporting. Enable JavaScript to view product pages and schedule a Workflow Review.</p>
+      <p style="margin-top:18px"><a class="btn btn-ghost" href="/contact">Contact Cliff Group Florida</a></p>
+    </div>
+  </section>
+</noscript>
 
 <main id="app"></main>
 
@@ -279,24 +370,24 @@ footer a:hover{color:var(--ink)}
         <span class="logo-mark"><img src="/assets/cliff-logo.png" alt="Cliff Group Florida logo"></span>
         <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
       </a>
-      <p style="margin-top:14px;color:var(--fg-dim);font-size:14px;max-width:340px">Contractor operations platform for HVAC workflows, estimating, dispatch, invoicing, payments and visibility.</p>
+      <p style="margin-top:14px;color:var(--fg-dim);font-size:14px;max-width:340px">Product-focused software for HVAC operations, assisted estimating and small business operations.</p>
     </div>
     <div><h5>Products</h5><a href="/hvacpro">HVAC Pro</a><a href="/estimatepro">EstimatePro</a><a href="/salespro">SalesPro</a></div>
-    <div><h5>Platform</h5><a href="/platform">View Platform</a><a href="/pricing">Pricing</a><a href="/demo">Workflow Review</a></div>
-    <div><h5>Contact</h5><a href="/contact">Contact</a><a href="mailto:hello@cliffgroup.software">Email Cliff Group</a><a href="tel:+13055550142">Call Miami office</a></div>
+    <div><h5>Software</h5><a href="/hvacpro">HVAC Operations Software</a><a href="/estimatepro">AI-Assisted Estimating Software</a><a href="/salespro">Business Operations Software</a></div>
+    <div><h5>Company</h5><a href="/contact">Contact</a><a href="/demo">Workflow Review</a><a href="/hvacpro#pricing">Plans</a></div>
   </div>
   <div class="footer-bar">
     <span>© 2026 Cliff Group Florida Inc.</span>
-    <span>Contractor Operations Platform · Miami, Florida</span>
+    <span>HVAC Operations Software · Miami, Florida</span>
   </div>
 </footer>
 
-<div class="modal-backdrop" id="modal-demo">
+<div class="modal-backdrop" id="modal-demo" role="dialog" aria-modal="true" aria-labelledby="modal-demo-title" aria-describedby="modal-demo-description" tabindex="-1">
   <div class="modal">
     <button class="modal-close" data-close aria-label="Close">✕</button>
     <span class="eyebrow">Workflow Review</span>
-    <h3>Schedule a Workflow Review</h3>
-    <p class="sub">A Workflow Review Session helps identify where your operation is getting stuck and which product path should come first.</p>
+    <h3 id="modal-demo-title">Schedule a Workflow Review</h3>
+    <p class="sub" id="modal-demo-description">A Workflow Review Session helps identify where your operation is getting stuck and which next step makes sense.</p>
     <form class="form-grid" data-lead-form="workflow-review" onsubmit="submitLead(event,'workflow-review')">
       <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div>
       <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div>
@@ -318,15 +409,21 @@ footer a:hover{color:var(--ink)}
 (() => {
   const pages = {
     home: {
-      title: 'Cliff Group Florida - Contractor Operations Platform',
+      title: 'Cliff Group Florida - HVAC Operations Software',
       description: 'Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting.',
       heroEyebrow: 'HVAC contractor operations',
       heroTitle: 'Run every HVAC job from estimate to payment.',
-      heroText: 'Cliff Group Florida helps growing HVAC contractors connect scheduling, dispatch, technician coordination, closeout, invoicing and operational visibility.',
+      heroText: 'Cliff Group Florida helps growing HVAC contractors connect scheduling, dispatch, technician coordination, closeout, invoicing and office visibility.',
       heroRows: [
         ['Estimate', 'Approved work becomes scheduled work', 'Ready'],
         ['Dispatch', 'Office and field see the same job status', 'Live'],
         ['Invoice', 'Closeout flows into billing handoff', 'Next']
+      ],
+      secondaryCta: ['View HVAC Pro', '/hvacpro'],
+      heroProof: [
+        ['Estimate → Schedule → Dispatch','Work moves through a visible path'],
+        ['Office + field alignment','Teams share the same job reality'],
+        ['Built around HVAC operations','Start focused and grow from there']
       ]
     },
     hvacpro: {
@@ -334,58 +431,88 @@ footer a:hover{color:var(--ink)}
       description: 'HVAC Pro helps contractors coordinate scheduling, dispatch, technicians, closeout and invoice handoff.',
       heroEyebrow: 'HVAC Pro operations software',
       heroTitle: 'Coordinate dispatch, techs and invoices without the daily scramble.',
-      heroText: 'HVAC Pro is the primary operating layer for HVAC contractors that need cleaner scheduling, field coordination, closeout and office visibility.',
+      heroText: 'HVAC Pro helps HVAC contractors run cleaner scheduling, field coordination, closeout and invoice handoff.',
       heroRows: [
         ['Schedule', 'Capacity, priority and job timing in one view', 'Plan'],
         ['Dispatch', 'Technician routes and status stay visible', 'Live'],
         ['Closeout', 'Photos, notes and invoice handoff stay attached', 'Done']
+      ],
+      secondaryCta: ['View Plans', '#pricing'],
+      heroProof: [
+        ['Schedule → Dispatch → Closeout','Keep the day easier to coordinate'],
+        ['Office + field visibility','See what is moving and what needs attention'],
+        ['Built for HVAC teams','Designed around contractor work']
       ]
     },
     platform: {
-      title: 'Cliff Platform - Connected Contractor Operations',
-      description: 'Cliff Platform connects HVAC Pro, EstimatePro and SalesPro into a modular contractor operations ecosystem.',
-      heroEyebrow: 'Cliff Platform',
-      heroTitle: 'Start with the workflow that hurts most. Expand when ready.',
-      heroText: 'Cliff Platform connects product modules around the contractor journey from estimate to schedule, dispatch, invoice, payment and reporting.',
+      title: 'Customer Access & Product Management | Cliff Group Florida',
+      description: 'Manage Cliff Group subscriptions, billing, product licenses and team access.',
+      heroEyebrow: 'Customer access',
+      heroTitle: 'Manage subscriptions, billing and product access.',
+      heroText: 'This area supports customers who need account management, team access, product licenses and subscription visibility across Cliff Group products.',
       heroRows: [
-        ['Start', 'Pick the workflow creating the most drag', 'Focus'],
-        ['Connect', 'Add the module that improves the handoff', 'Path'],
-        ['Expand', 'Grow into platform visibility over time', 'Scale']
+        ['Access', 'Manage users and team permissions', 'Team'],
+        ['Licenses', 'Review active product access', 'Products'],
+        ['Billing', 'Keep subscription details organized', 'Account']
       ]
     },
     estimatepro: {
       title: 'EstimatePro - AI-Assisted HVAC Estimating Software | Cliff Group Florida',
-      description: 'EstimatePro supports reviewable, estimator-controlled HVAC estimating workflows inside the Cliff Group Florida product ecosystem.',
+      description: 'EstimatePro supports reviewable, estimator-controlled HVAC estimating workflows.',
       heroEyebrow: 'EstimatePro assisted estimating',
       heroTitle: 'Prepare HVAC estimates with reviewable, estimator-controlled support.',
-      heroText: 'EstimatePro helps contractors organize estimating work, review details and move approved estimates into the connected operations path without pretending the estimator disappears.',
+      heroText: 'EstimatePro helps contractors organize estimating work, review details and move approved estimates forward without pretending the estimator disappears.',
       heroRows: [
         ['Upload', 'Bring the plan set or estimating context together', 'Input'],
         ['Review', 'Estimator checks and controls the output', 'Control'],
         ['Handoff', 'Approved scope can move toward schedule and invoice flow', 'Next']
+      ],
+      secondaryCta: ['View Plans', '#pricing'],
+      heroProof: [
+        ['Assisted estimating','Support for organizing estimating work'],
+        ['Estimator-controlled review','People stay in control of assumptions and scope'],
+        ['Clear handoff','Approved estimates move forward with less rework']
+      ]
+    },
+    salespro: {
+      title: 'SalesPro - Business Operations Software | Cliff Group Florida',
+      description: 'SalesPro helps small businesses manage inventory, orders, invoices, purchasing, payments and business visibility.',
+      heroEyebrow: 'SalesPro business operations software',
+      heroTitle: 'Run inventory, orders, invoices and payments without spreadsheets.',
+      heroText: 'SalesPro gives small businesses and solo operators one practical place for products, purchasing, customer records, orders, invoices, payments and reporting.',
+      heroRows: [
+        ['Inventory', 'Track stock and reorder needs', 'Live'],
+        ['Orders', 'Keep customers, products and totals connected', 'Active'],
+        ['Invoices', 'Move approved orders into clean payment follow-up', 'Ready']
+      ],
+      secondaryCta: ['View Plans', '#pricing'],
+      heroProof: [
+        ['Inventory → Orders → Invoices','Keep daily business work connected'],
+        ['Payments + purchasing','Track what is owed and what needs restocking'],
+        ['Spreadsheet replacement','Give small teams a calmer operating view']
       ]
     },
     pricing: {
-      title: 'Pricing Approach - Cliff Group Florida',
-      description: 'Explore Cliff Group package paths without invented public prices. Start with the workflow that hurts most.',
-      heroEyebrow: 'Pricing approach',
-      heroTitle: 'Pricing starts with the workflow that hurts most.',
-      heroText: 'Rather than forcing a full platform decision upfront, Cliff Group helps identify the right starting product and expansion path.',
+      title: 'Pricing - Cliff Group Florida',
+      description: 'Compare plans, features and pricing across Cliff Group products.',
+      heroEyebrow: 'Product pricing',
+      heroTitle: 'Choose the product that fits your workflow.',
+      heroText: 'Compare plans, features, and pricing across Cliff Group products.',
       heroRows: [
-        ['Fit', 'Confirm the operational problem', 'Step 1'],
-        ['Path', 'Choose the right product module', 'Step 2'],
-        ['Scope', 'Define rollout and support needs', 'Step 3']
+        ['HVAC Pro', 'Scheduling, dispatch and field coordination', 'Product'],
+        ['EstimatePro', 'Assisted, reviewable HVAC estimating', 'Product'],
+        ['SalesPro', 'Inventory, orders, invoices and payments', 'Product']
       ]
     },
     demo: {
       title: 'Workflow Review - Cliff Group Florida',
-      description: 'Schedule a Workflow Review Session to map your current contractor operation and identify the right product path.',
+      description: 'Schedule a Workflow Review Session to map your current contractor operation and identify the right next step.',
       heroEyebrow: 'Workflow Review',
       heroTitle: 'Map the workflow before choosing the software.',
-      heroText: 'A Workflow Review Session is a practical call to understand your current operation and recommend whether HVAC Pro, EstimatePro, SalesPro or a platform path should come first.',
+      heroText: 'A Workflow Review Session is a practical call to understand your current operation and recommend whether HVAC Pro, EstimatePro or SalesPro should come first.',
       heroRows: [
         ['Review', 'Discuss the current workflow', 'Listen'],
-        ['Map', 'Identify the bottleneck', 'Clarify'],
+        ['Map', 'Identify the highest-friction step', 'Clarify'],
         ['Recommend', 'Choose the right starting path', 'Next']
       ]
     },
@@ -396,9 +523,9 @@ footer a:hover{color:var(--ink)}
       heroTitle: 'Talk to Cliff Group Florida.',
       heroText: 'Use this page for general inquiries, product questions, partnership conversations or Workflow Review requests.',
       heroRows: [
-        ['Product', 'Ask about HVAC Pro, EstimatePro or SalesPro', 'Route'],
-        ['Partner', 'Discuss partnership or ecosystem fit', 'Route'],
-        ['Review', 'Request a Workflow Review Call', 'Route']
+        ['Product', 'Ask about HVAC Pro, EstimatePro or SalesPro', 'Question'],
+        ['Partner', 'Discuss partnership or product fit', 'Conversation'],
+        ['Review', 'Request a Workflow Review Call', 'Next']
       ]
     }
   };
@@ -406,9 +533,7 @@ footer a:hover{color:var(--ink)}
   const path = window.location.pathname.replace(/\/+$/, '') || '/';
   const route = path === '/' ? 'home' : path.slice(1).split('/')[0];
   const page = pages[route] || pages.home;
-  document.title = page.title;
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.content = page.description;
+  updatePageMeta(page, route);
   document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('active', a.dataset.nav === route));
 
   const app = document.getElementById('app');
@@ -418,7 +543,9 @@ footer a:hover{color:var(--ink)}
     route === 'platform' ? platformPage(page) :
     route === 'hvacpro' ? hvacPage(page) :
     route === 'estimatepro' ? estimatePage(page) :
+    route === 'salespro' ? salesPage(page) :
     homePage(page);
+  setupProductLogin(route);
 
   function hero(p){
     return `<header class="hero">
@@ -430,12 +557,14 @@ footer a:hover{color:var(--ink)}
           <p class="lede reveal">${p.heroText}</p>
           <div class="hero-actions reveal">
             <button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button>
-            <a class="btn btn-light" href="/platform">View Platform</a>
+            <a class="btn btn-light" href="${p.secondaryCta?.[1] || '/hvacpro'}">${p.secondaryCta?.[0] || 'View HVAC Pro'}</a>
           </div>
           <div class="hero-proof reveal">
-            <div><strong>Estimate → Schedule → Dispatch</strong><span>Work moves through a visible path</span></div>
-            <div><strong>Office + field alignment</strong><span>Teams share the same job reality</span></div>
-            <div><strong>Built around HVAC operations</strong><span>Start focused, expand later</span></div>
+            ${(p.heroProof || [
+              ['Estimate → Schedule → Dispatch','Work moves through a visible path'],
+              ['Office + field alignment','Teams share the same job reality'],
+              ['Built around HVAC operations','Start focused and grow from there']
+            ]).map(item => `<div><strong>${item[0]}</strong><span>${item[1]}</span></div>`).join('')}
           </div>
         </div>
         <div class="hero-card reveal">
@@ -446,32 +575,74 @@ footer a:hover{color:var(--ink)}
     </header>`;
   }
 
+  function updatePageMeta(p, routeName){
+    const canonicalPath = routeName === 'home' ? '/' : `/${routeName}`;
+    const canonicalUrl = new URL(canonicalPath, 'https://cliffgroupflorida.com').href;
+    document.title = p.title;
+    setMeta('meta[name="description"]', 'content', p.description);
+    setMeta('link[rel="canonical"]', 'href', canonicalUrl);
+    setMeta('meta[property="og:title"]', 'content', p.title);
+    setMeta('meta[property="og:description"]', 'content', p.description);
+    setMeta('meta[property="og:url"]', 'content', canonicalUrl);
+    setMeta('meta[name="twitter:title"]', 'content', p.title);
+    setMeta('meta[name="twitter:description"]', 'content', p.description);
+  }
+
+  function setMeta(selector, attr, value){
+    const tag = document.querySelector(selector);
+    if (tag) tag.setAttribute(attr, value);
+  }
+
+  function setupProductLogin(routeName){
+    const loginUrls = {
+      hvacpro: '/hvacpro/login',
+      estimatepro: '/estimatepro/login',
+      salespro: '/salespro/login'
+    };
+    document.querySelectorAll('[data-product-login]').forEach(link => {
+      const href = loginUrls[routeName];
+      if (!href) {
+        link.hidden = true;
+        link.removeAttribute('aria-label');
+        return;
+      }
+      link.hidden = false;
+      link.href = href;
+      link.textContent = `${productLabel(routeName)} Login`;
+      link.setAttribute('aria-label', `${productLabel(routeName)} login`);
+    });
+  }
+
   function homePage(p){
-    return hero(p) + painSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + platformEcosystemSection() + estimateSection() + salesSection() + trustSection() + finalCta();
+    return hero(p) + painSection() + bestFitSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + estimateSection() + salesSection() + trustSection() + credibilitySection() + finalCta();
   }
 
   function hvacPage(p){
-    return hero(p) + painSection() + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should not live in separate systems.') + hvacProSection(true) + workflowDeepDive() + trustSection() + finalCta('Schedule a Workflow Review for HVAC Pro');
+    return hero(p) + painSection() + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should work from the same operational picture.') + hvacProSection(true) + workflowDeepDive() + productPricingSection('hvacpro', 'HVAC Pro') + productFaqSection('hvacpro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for HVAC Pro');
   }
 
   function platformPage(p){
-    return hero(p) + platformEcosystemSection(true) + modularSection() + journeySection() + outcomesSection() + trustSection() + finalCta('Schedule a Workflow Review');
+    return hero(p) + customerAccessSection() + accountManagementSection() + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review');
   }
 
   function estimatePage(p){
-    return hero(p) + estimateWorkflowSection() + estimateSection() + productFitSection() + trustSection() + finalCta('Schedule a Workflow Review for EstimatePro');
+    return hero(p) + estimatePainSection() + estimateWorkflowSection() + estimateProofSection() + estimateSection() + productPricingSection('estimatepro', 'EstimatePro') + productFaqSection('estimatepro') + productCrossLinkSection('estimatepro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for EstimatePro');
+  }
+
+  function salesPage(p){
+    return hero(p) + salesWorkflowSection() + salesProofSection() + salesSection() + productPricingSection('salespro', 'SalesPro') + productFaqSection('salespro') + productCrossLinkSection('salespro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for SalesPro');
   }
 
   function pricingPage(p){
-    return hero(p) + fitSection() + painSelectorSection() + packageSection() + productFitSection() + scopeSection() + expansionSection() + finalCta('Schedule a Workflow Review');
+    return hero(p) + pricingCatalogSection() + pricingFaqSection() + finalCta('Schedule a Workflow Review');
   }
 
   function demoPage(p){
-    return hero(p) + reviewExpectationSection() + productFitSection() + leadFormSection('Schedule your Workflow Review', 'Tell us where the workflow is breaking. We will use this context to prepare a useful Workflow Review Call.', 'workflow-review') + trustStrip() + finalCta('Schedule Workflow Review');
+    return hero(p) + reviewExpectationSection() + afterSubmitSection() + leadFormSection('Schedule your Workflow Review', 'Tell us where the workflow is breaking. We will use this context to prepare a useful Workflow Review Call.', 'workflow-review') + demoFaqSection() + reviewConfidenceStrip() + finalCta('Schedule Workflow Review');
   }
 
   function contactPage(p){
-    return hero(p) + inquiryRoutingSection() + leadFormSection('Send an inquiry', 'Choose the inquiry type and tell us what you need. Operational requests can be routed into a Workflow Review Session.', 'contact') + productLinksSection() + finalCta('Schedule a Workflow Review');
+    return hero(p) + inquiryRoutingSection() + leadFormSection('Send an inquiry', 'Choose the inquiry type and tell us what you need. Product questions can also start a Workflow Review Session.', 'contact') + productLinksSection() + credibilitySection() + finalCta('Schedule a Workflow Review');
   }
 
   function painSection(){
@@ -487,11 +658,23 @@ footer a:hover{color:var(--ink)}
       <div class="container">
         <div class="section-head">
           <div><span class="eyebrow reveal">Operational pain</span><h2 class="h2 reveal">HVAC growth creates handoff problems before it creates software problems.</h2></div>
-          <p class="lede reveal">The first job of the site is to make the buyer feel understood: the pain is not abstract SaaS complexity. It is daily scheduling, dispatch, estimating, closeout and invoice friction.</p>
+          <p class="lede reveal">When the team grows, the problem is usually not one person. It is the handoff between calls, estimates, schedules, technicians, closeout and billing.</p>
         </div>
         <div class="grid-3">${cards.map(c => `<article class="card reveal"><span class="num">${c[0]}</span><h3>${c[1]}</h3><p>${c[2]}</p></article>`).join('')}</div>
       </div>
     </section>`;
+  }
+
+  function bestFitSection(){
+    const fits = [
+      'HVAC contractors with 3-20 technicians',
+      'Growing dispatch and scheduling complexity',
+      'Spreadsheet-heavy workflows',
+      'Invoice delays after job closeout',
+      'Limited visibility across office and field',
+      'Teams looking for practical software adoption'
+    ];
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Best fit for</span><h2 class="h2 reveal">Built for contractors who need cleaner daily operations.</h2></div><p class="lede reveal">Cliff Group is strongest when a growing team needs better workflow visibility without jumping straight into a heavy enterprise rollout.</p></div><div class="grid-3">${fits.map((x,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>Discuss this workflow during a focused Workflow Review Call.</p></article>`).join('')}</div></div></section>`;
   }
 
   function hvacWorkflowSection(lede){
@@ -508,7 +691,7 @@ footer a:hover{color:var(--ink)}
       <div class="container">
         <span class="eyebrow reveal">HVAC workflow</span>
         <h2 class="h2 reveal" style="margin:14px 0 14px">Connect the path from lead to reporting.</h2>
-        <p class="lede reveal">${lede || 'Before Cliff Platform is introduced, visitors should understand the HVAC operating flow: estimate, schedule, dispatch, complete, invoice, payment and reporting.'}</p>
+        <p class="lede reveal">${lede || 'Every job should move through a clear operating path: estimate, schedule, dispatch, complete, invoice, payment and reporting.'}</p>
         <div class="workflow">${steps.map(s => `<div class="step reveal"><span>${s[0]}</span><b>${s[1]}</b><p>${s[2]}</p></div>`).join('')}</div>
       </div>
     </section>`;
@@ -519,18 +702,18 @@ footer a:hover{color:var(--ink)}
       <div class="container feature-split">
         <div>
           <span class="eyebrow reveal">HVAC Pro</span>
-          <h2 class="h2 reveal">The primary operations layer for HVAC teams.</h2>
-          <p class="lede reveal" style="margin-top:16px">HVAC Pro appears before platform messaging because it is the immediate answer for the primary buyer: dispatch, scheduling, technician coordination, closeout and invoice handoff.</p>
+          <h2 class="h2 reveal">The daily command center for HVAC teams.</h2>
+          <p class="lede reveal" style="margin-top:16px">HVAC Pro helps the office coordinate scheduling, dispatch, technician status, job closeout and invoice handoff from one operational flow.</p>
           <div class="section-actions reveal"><a class="btn btn-primary" href="/hvacpro">Explore HVAC Pro <span class="arrow">→</span></a><button class="btn btn-ghost" data-modal="demo">Schedule Workflow Review</button></div>
         </div>
         <div class="mock-board reveal">
           <div class="mock-toolbar"><b>Dispatch board</b><span class="live-pill">Live</span></div>
           <div class="mock-grid">
             ${[
-              ['08:30','Maintenance visit assigned','Route A'],
-              ['10:15','Install crew ETA updated','Route B'],
-              ['12:40','Closeout notes ready','Invoice'],
-              ['14:20','Emergency call inserted','Priority']
+              ['Job #2418','Commercial service call','Tech assigned'],
+              ['Customer site','Dispatch confirmed','In progress'],
+              ['Work completed','Photos and notes attached','Closeout'],
+              ['Invoice ready','Office handoff complete','Billing']
             ].map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}
           </div>
         </div>
@@ -541,12 +724,12 @@ footer a:hover{color:var(--ink)}
   function outcomesSection(){
     return `<section class="section">
       <div class="container">
-        <div class="section-head center"><span class="eyebrow reveal">Business outcomes</span><h2 class="h2 reveal">Better visibility without enterprise overload.</h2><p class="lede reveal">Outcomes should be framed as operational improvements, not unverifiable claims.</p></div>
+        <div class="section-head center"><span class="eyebrow reveal">Business outcomes</span><h2 class="h2 reveal">Better visibility without enterprise overload.</h2><p class="lede reveal">The goal is a calmer operating rhythm: fewer handoff gaps, faster follow-through and clearer status for owners, office staff and field teams.</p></div>
         <div class="outcome-band reveal">
           <div><strong>Cleaner handoffs</strong><span>Less retyping between estimate, dispatch, closeout and invoice work.</span></div>
           <div><strong>Office visibility</strong><span>Admins and owners can see what is moving and what is stuck.</span></div>
           <div><strong>Field coordination</strong><span>Technicians get better job context and closeout flow.</span></div>
-          <div><strong>Modular growth</strong><span>Start focused and expand the ecosystem when ready.</span></div>
+          <div><strong>Room to grow</strong><span>Start with the workflow that matters most and add more support when the team is ready.</span></div>
         </div>
       </div>
     </section>`;
@@ -556,13 +739,13 @@ footer a:hover{color:var(--ink)}
     return `<section class="section dark" id="platform">
       <div class="container ecosystem">
         <div>
-          <span class="eyebrow reveal">Platform ecosystem</span>
-          <h2 class="h2 reveal">Cliff Platform connects the modules after the workflow is clear.</h2>
-          <p class="lede reveal" style="margin-top:16px">The platform is introduced after HVAC value. It should feel like the connected operating layer, not internal SaaS architecture.</p>
-          <div class="section-actions reveal"><a class="btn btn-primary" href="/platform">View Platform <span class="arrow">→</span></a><button class="btn btn-light" data-modal="demo">Schedule Workflow Review</button></div>
+          <span class="eyebrow reveal">Connected product workflow</span>
+          <h2 class="h2 reveal">Products work best when the handoffs are clear.</h2>
+          <p class="lede reveal" style="margin-top:16px">Use one product where the pain is strongest, then connect the next handoff when the team is ready. HVAC Pro, EstimatePro and SalesPro are designed to support the same operating path.</p>
+          <div class="section-actions reveal"><a class="btn btn-primary" href="/hvacpro#pricing">View Product Plans <span class="arrow">→</span></a><button class="btn btn-light" data-modal="demo">Schedule Workflow Review</button></div>
         </div>
         <div class="ecosystem-map reveal">
-          <div class="eco-node main"><b>Cliff Platform</b><span>Connected operating layer</span></div>
+          <div class="eco-node main"><b>Product workflow</b><span>Estimate, schedule, dispatch, invoice</span></div>
           <div class="eco-node"><b>HVAC Pro</b><span>Scheduling, dispatch, field closeout</span></div>
           <div class="eco-node"><b>EstimatePro</b><span>Assisted, reviewable estimating</span></div>
           <div class="eco-node"><b>SalesPro</b><span>Inventory, invoices, payments, purchasing</span></div>
@@ -571,37 +754,122 @@ footer a:hover{color:var(--ink)}
     </section>` + (full ? modularSection() : '');
   }
 
+  function customerAccessSection(){
+    const items = [
+      ['Manage subscriptions','Review active subscriptions and keep account details organized.'],
+      ['Manage user access','Invite users, adjust roles and keep team access aligned.'],
+      ['Manage product licenses','See which products are active for the customer account.'],
+      ['Manage billing','Keep billing details and subscription changes in one customer area.']
+    ];
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Account management</span><h2 class="h2 reveal">A supporting customer area for product access.</h2></div><p class="lede reveal">This page is not a customer-facing product pitch. It explains the account layer customers use after they have a product relationship with Cliff Group.</p></div><div class="grid-4">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function accountManagementSection(){
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Customer path</span><h2 class="h2 reveal">Products remain the buying decision. Account management supports the rollout.</h2><p class="lede reveal">Visitors should choose the product that solves their workflow first. The customer access layer helps manage billing, users and licenses after the product path is clear.</p></div>${timeline(['Choose product fit','Schedule Workflow Review','Confirm rollout path','Manage users and billing','Expand licenses when needed'])}</div></section>`;
+  }
+
   function estimateSection(){
-    return moduleSection('EstimatePro','AI-assisted HVAC estimating software','EstimatePro should be positioned carefully: assisted, reviewable and estimator-controlled. It helps prepare cleaner estimating workflows while keeping estimator review at the center.','/estimatepro','Explore EstimatePro');
+    return moduleSection('EstimatePro','AI-assisted HVAC estimating software','EstimatePro supports assisted, reviewable estimating workflows while keeping estimator review and approval at the center.','/estimatepro','Explore EstimatePro');
+  }
+
+  function estimatePainSection(){
+    const items = [
+      ['Plan review takes too long','Estimators lose time organizing drawings, notes, quantities and assumptions before pricing can begin.'],
+      ['Assumptions are hard to track','Scope decisions need to stay visible so the estimate can be reviewed before it goes out.'],
+      ['Handoff gets messy','Approved estimates should be easier to move into scheduling, job planning and customer follow-up.']
+    ];
+    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Estimating pain</span><h2 class="h2 reveal">EstimatePro is built for reviewable estimating work.</h2></div><p class="lede reveal">The goal is not to replace estimator judgment. The goal is to make estimating work easier to organize, review and approve.</p></div><div class="grid-3">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
   }
 
   function estimateWorkflowSection(){
     const steps = [
-      ['Intake','Collect the plan set, notes and estimating context in one place.'],
-      ['Assisted pass','Use estimating support to organize what needs review.'],
-      ['Estimator review','Keep the human estimator in control of scope, quantities and assumptions.'],
-      ['Approval','Confirm the estimate before it becomes operational work.'],
-      ['Handoff','Move the approved scope toward scheduling, dispatch and invoice flow.']
+      ['Upload drawings','Bring plans, notes and scope context together.'],
+      ['Review takeoff','Use assisted support to organize what needs review.'],
+      ['Adjust quantities','Estimator checks counts, assumptions and scope details.'],
+      ['Approve estimate','Confirm the estimate before it moves forward.'],
+      ['Prepare proposal','Package the approved estimate for the next step.'],
+      ['Send to operations','Move approved work toward scheduling and handoff.']
     ];
-    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">EstimatePro workflow</span><h2 class="h2 reveal">Assisted estimating should stay reviewable.</h2></div><p class="lede reveal">EstimatePro is positioned as practical estimating acceleration with reviewable output, clear assumptions and estimator control at the center.</p></div><div class="grid-3">${steps.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p><button class="btn btn-ghost" data-modal="demo" style="margin-top:18px">Schedule Workflow Review</button></article>`).join('')}</div></div></section>`;
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">EstimatePro workflow</span><h2 class="h2 reveal">Assisted estimating should stay reviewable.</h2></div><p class="lede reveal">EstimatePro adds structure to estimating while keeping output reviewable, assumptions visible and estimator control at the center.</p></div><div class="workflow">${steps.map((c,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${c[0]}</b><p>${c[1]}</p></div>`).join('')}</div></div></section>`;
+  }
+
+  function estimateProofSection(){
+    const rows = [
+      ['Upload Plans','Plan set, scope notes and project context are attached before review begins.','Input'],
+      ['Review Quantities','Estimator checks quantities, assumptions and any assisted suggestions.','Review'],
+      ['Adjust Scope','Scope items can be changed before the estimate is approved.','Control'],
+      ['Approve Estimate','Final approval stays with the estimator before proposal work begins.','Approved'],
+      ['Prepare Proposal','Approved numbers and scope move into a cleaner customer-ready proposal.','Proposal'],
+      ['Send To Operations','Accepted work can move toward scheduling, dispatch and invoice handoff.','Next']
+    ];
+    return `<section class="section"><div class="container feature-split">
+      <div>
+        <span class="eyebrow reveal">Estimator control</span>
+        <h2 class="h2 reveal">Show the estimating work before it moves forward.</h2>
+        <p class="lede reveal" style="margin-top:16px">EstimatePro should feel like a professional estimating assistant: organize the work, make review easier, and keep approval with the estimator.</p>
+        <div class="outcome-band reveal" style="margin-top:28px">
+          <div><strong>Review before approval</strong><span>Nothing needs to move forward until a person checks it.</span></div>
+          <div><strong>Adjust quantities</strong><span>Counts and assumptions remain editable during review.</span></div>
+          <div><strong>Modify scope</strong><span>Scope decisions stay visible before the proposal goes out.</span></div>
+          <div><strong>Estimator signs off</strong><span>Final approval remains controlled by the estimating team.</span></div>
+        </div>
+      </div>
+      <div class="mock-board reveal">
+        <div class="mock-toolbar"><b>Estimate workspace</b><span class="live-pill">Review</span></div>
+        <div class="mock-grid">${rows.map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}</div>
+      </div>
+    </div></section>`;
   }
 
   function salesSection(){
-    return moduleSection('SalesPro','Small business operations software','SalesPro gives small businesses a practical operating layer for inventory, orders, invoices, purchasing, payments and business visibility without heavy back-office complexity.','/salespro','Explore SalesPro');
+    return moduleSection('SalesPro','Small business operations software','SalesPro gives small businesses one practical place for inventory, orders, invoices, purchasing, payments and business visibility without heavy back-office complexity.','/salespro','Explore SalesPro');
+  }
+
+  function salesWorkflowSection(){
+    const steps = [
+      ['Customer record','Keep account details, orders and invoice history together.'],
+      ['Inventory check','See products, quantities and reorder pressure before work stalls.'],
+      ['Order entry','Build orders with product lines, totals and customer context.'],
+      ['Purchasing','Track supplier needs and purchase activity.'],
+      ['Invoice','Turn approved work into a clean invoice path.'],
+      ['Payment visibility','Follow payment status without chasing separate spreadsheets.']
+    ];
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">SalesPro workflow</span><h2 class="h2 reveal">Small business operations should stay practical.</h2></div><p class="lede reveal">SalesPro keeps back-office work clear without pushing small teams into ERP complexity.</p></div><div class="workflow">${steps.map((c,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${c[0]}</b><p>${c[1]}</p></div>`).join('')}</div></div></section>`;
+  }
+
+  function salesProofSection(){
+    const panels = [
+      ['Inventory','34 units available','Reorder threshold active','Live stock'],
+      ['Purchase Order','PO-1074','Pending supplier confirmation','Purchasing'],
+      ['Invoice','INV-2081','Awaiting payment','Billing'],
+      ['Customer Order','Order #5326','Ready for fulfillment','Orders']
+    ];
+    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">SalesPro in practice</span><h2 class="h2 reveal">Daily business work should be visible without a spreadsheet hunt.</h2></div><p class="lede reveal">SalesPro is built around everyday records small teams already manage: stock, purchase orders, invoices, payments and customer orders.</p></div><div class="grid-4">${panels.map((p,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${p[0]}</h3><p><strong>${p[1]}</strong></p><p>${p[2]}</p><span class="live-pill" style="margin-top:16px">${p[3]}</span></article>`).join('')}</div></div></section>`;
+  }
+
+  function productCrossLinkSection(product){
+    const links = {
+      hvacpro: ['Need estimating?', 'View EstimatePro', '/estimatepro', 'EstimatePro helps organize reviewable HVAC estimating before work moves into scheduling and dispatch.'],
+      estimatepro: ['Need scheduling and dispatch?', 'View HVAC Pro', '/hvacpro', 'HVAC Pro helps move approved work into schedule, dispatch, closeout and invoice handoff.'],
+      salespro: ['Need field operations?', 'View HVAC Pro', '/hvacpro', 'HVAC Pro is built for dispatch, technician coordination, closeout and field visibility.']
+    };
+    const item = links[product];
+    if (!item) return '';
+    return `<section class="section soft"><div class="container"><div class="cta-row reveal"><div><span class="eyebrow">Next step</span><h2>${item[0]}</h2><p>${item[3]}</p></div><a class="btn btn-primary" href="${item[2]}">${item[1]} <span class="arrow">→</span></a></div></div></section>`;
   }
 
   function moduleSection(name, kicker, text, href, cta){
     return `<section class="section">
       <div class="container feature-split">
         <div class="mock-board reveal">
-          <div class="mock-toolbar"><b>${name}</b><span class="live-pill">Module</span></div>
+          <div class="mock-toolbar"><b>${name}</b><span class="live-pill">Product</span></div>
           <div class="mock-grid">
             ${['Review workflow','Confirm details','Move to next step','Report status'].map((x,i) => `<div class="mock-job"><span>0${i+1}</span><b>${x}</b><i>Ready</i></div>`).join('')}
           </div>
         </div>
         <div>
           <span class="eyebrow reveal">${kicker}</span>
-          <h2 class="h2 reveal">${name} supports the connected operations path.</h2>
+          <h2 class="h2 reveal">${name} helps teams keep daily work organized.</h2>
           <p class="lede reveal" style="margin-top:16px">${text}</p>
           <div class="section-actions reveal"><a class="btn btn-primary" href="${href}">${cta} <span class="arrow">→</span></a><button class="btn btn-ghost" data-modal="demo">Schedule Workflow Review</button></div>
         </div>
@@ -611,111 +879,176 @@ footer a:hover{color:var(--ink)}
 
   function workflowDeepDive(){
     const items = [
-      ['Dispatch workflow','Job assignment, ETA changes, status visibility and priority updates.'],
-      ['Scheduling workflow','Capacity planning across installs, maintenance, service calls and callbacks.'],
-      ['Technician workflow','Job context, customer history, notes, photos and closeout details.'],
-      ['Closeout workflow','Completed work, field notes and approvals organized for office handoff.'],
-      ['Invoice handoff workflow','Clean transition from job completion to invoice-ready records.']
+      ['Job #2418','Commercial Service Call','Assigned: Mike R.','Status: In Progress'],
+      ['Technician Update','Parts Installed','Photos Attached','Ready For Review'],
+      ['Closeout Complete','Invoice Ready','Awaiting Payment','Billing Handoff']
     ];
-    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">HVAC Pro workflows</span><h2 class="h2 reveal">The revenue page needs operational depth.</h2></div><div class="grid-3">${items.map((i,n)=>`<article class="card reveal"><span class="num">0${n+1}</span><h3>${i[0]}</h3><p>${i[1]}</p><button class="btn btn-ghost" data-modal="demo" style="margin-top:18px">Schedule Workflow Review</button></article>`).join('')}</div></div></section>`;
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">HVAC Pro in practice</span><h2 class="h2 reveal">Real workflows need clear status, not more scattered notes.</h2></div><div class="grid-3">${items.map((i,n)=>`<article class="card reveal"><span class="num">0${n+1}</span><h3>${i[0]}</h3><p><strong>${i[1]}</strong></p><p>${i[2]}</p><span class="live-pill" style="margin-top:16px">${i[3]}</span></article>`).join('')}</div></div></section>`;
   }
 
   function modularSection(){
-    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Modular adoption</span><h2 class="h2 reveal">Do not buy the whole ecosystem before you know the starting point.</h2></div><p class="lede reveal">The recommended adoption story is simple: review the workflow, solve the biggest handoff first, then connect more modules as the operation matures.</p></div><div class="grid-3">${[['Start focused','Pick the workflow creating the most operational drag.'],['Connect the next handoff','Add the module that improves the next step in the customer journey.'],['Grow into visibility','Use the platform layer for broader operational clarity.']].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Modular adoption</span><h2 class="h2 reveal">Start with one painful workflow, then expand when it makes sense.</h2></div><p class="lede reveal">A contractor can begin with the workflow creating the most drag, prove the operating rhythm, and connect additional modules as the team grows.</p></div><div class="grid-3">${[['Start focused','Pick the workflow creating the most operational drag.'],['Connect the next handoff','Add the module that improves the next step in the customer journey.'],['Grow into visibility','Add product access and reporting support as the customer account grows.']].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
   }
 
   function journeySection(){
-    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Customer journey</span><h2 class="h2 reveal">Workflow Review to rollout to expansion.</h2><p class="lede reveal">The buyer journey should feel guided and practical, not like a forced enterprise transformation.</p></div>${timeline(['Workflow Review Session','Product path recommendation','Focused setup','Workflow adoption','Expansion when ready'])}</div></section>`;
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Adoption path</span><h2 class="h2 reveal">Review the workflow, choose the path, then roll out in focused steps.</h2><p class="lede reveal">The process is designed to help teams move from scattered work to a clearer operating flow without taking on too much at once.</p></div>${timeline(['Workflow Review Session','Product path recommendation','Focused setup','Workflow adoption','Expansion when ready'])}</div></section>`;
   }
 
-  function fitSection(){
-    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Who this is for</span><h2 class="h2 reveal">Best for growing contractors with real workflow friction.</h2></div><p class="lede reveal">This section improves lead quality by making fit clear before buyers ask about package paths.</p></div><div class="grid-3">${[
-      ['Best fit','HVAC contractors with 3-20 technicians, office/admin support and scheduling, dispatch, estimating or invoicing pain.'],
-      ['Not ideal fit','Very large enterprise rollouts, hobby businesses, custom software buyers or teams with no intent to change process.'],
-      ['Qualification benefit','Serious buyers understand that Cliff Group recommends the right starting workflow, not the biggest package.']
-    ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  function pricingCatalogSection(){
+    return `<section class="section soft" id="pricing-catalog"><div class="container">
+      <div class="section-head"><div><span class="eyebrow reveal">Product pricing</span><h2 class="h2 reveal">Compare available plans by product.</h2></div><p class="lede reveal">Review current plan options and schedule a Workflow Review if you are not sure which product fits.</p></div>
+      <div class="pricing-tabs reveal" id="pricingTabs" aria-label="Product pricing tabs"></div>
+      <div id="pricingStatus" class="pricing-status reveal">Loading plans...</div>
+      <div id="pricingCards" class="pricing-grid" style="display:none"></div>
+      <div class="section-head" style="margin-top:58px"><div><span class="eyebrow reveal">Feature comparison</span><h2 class="h2 reveal">Compare plan features.</h2></div><p class="lede reveal">Use the table to compare what is included across available plans.</p></div>
+      <div id="featureComparison" class="comparison-wrap reveal"><div class="pricing-status">Loading plans...</div></div>
+    </div></section>`;
   }
 
-  function painSelectorSection(){
-    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Workflow pain selector</span><h2 class="h2 reveal">Start where the workflow hurts.</h2><p class="lede reveal">Tap a pain point to see the recommended starting product.</p></div><div class="selector reveal" id="painSelector">${['Dispatch','Estimating','Invoicing','Inventory','Visibility'].map((x,i)=>`<button type="button" data-fit="${i}">${x}</button>`).join('')}</div><div class="fit-panel reveal" id="fitPanel"><div><h3 class="h3">Dispatch pain usually starts with HVAC Pro.</h3><p>Scheduling, dispatch, technician coordination and closeout belong in the HVAC Pro path.</p></div><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review</button></div></div></section>`;
+  function productPricingSection(product, label){
+    return `<section class="section soft" id="pricing"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Available plans</span><h2 class="h2 reveal">${label} plans.</h2></div><p class="lede reveal">Review available plan options, then schedule a Workflow Review if you need help choosing the right fit.</p></div><div class="pricing-grid" data-product-pricing="${product}"><div class="pricing-status">Loading plans...</div></div></div></section>`;
   }
 
-  function packageSection(){
-    const cards = [
-      ['Workflow Starter','One painful workflow, one focused product path.'],
-      ['Operations Core','HVAC Pro-led rollout for scheduling, dispatch, closeout and invoice handoff.'],
-      ['Platform Growth','Multiple connected modules for broader operational visibility.'],
-      ['Custom Workflow Review','For mixed needs where the right starting point is unclear.']
-    ];
-    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Package paths</span><h2 class="h2 reveal">No invented public prices. Clear buying paths.</h2></div><div class="grid-4">${cards.map((c,i)=>`<article class="card reveal"><span class="num">Path 0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p><button class="btn btn-ghost" data-modal="demo" style="margin-top:18px">Schedule Workflow Review</button></article>`).join('')}</div></div></section>`;
+  function productFaqSection(product){
+    const faq = {
+      hvacpro: [
+        ['What does HVAC Pro help with?', 'Scheduling, dispatch, technician coordination, job closeout and invoice handoff.'],
+        ['Who is it best for?', 'HVAC teams that need clearer office and field visibility as service calls and installs increase.'],
+        ['What happens during a Workflow Review?', 'Cliff Group reviews your current dispatch and job flow, then recommends the practical next step.']
+      ],
+      estimatepro: [
+        ['Does EstimatePro replace my estimator?', 'No. EstimatePro is designed to keep estimating assisted, reviewable and estimator-controlled.'],
+        ['What estimating work does it help organize?', 'Drawings, scope notes, assumptions, review steps and handoff into the next stage of work.'],
+        ['What happens after I request a review?', 'Cliff Group reviews your estimating workflow and follows up with the next step.']
+      ],
+      salespro: [
+        ['What does SalesPro help with?', 'Inventory, customers, orders, invoices, purchasing, payments and business visibility.'],
+        ['Who is SalesPro for?', 'Small businesses and solo operators that want to replace scattered spreadsheets with a clearer daily workflow.'],
+        ['Do I need field-service software too?', 'Only if your team also needs dispatch, technician coordination or job closeout support.']
+      ]
+    };
+    return faqSection(`${productLabel(product)} FAQ`, 'Common questions before scheduling a Workflow Review.', faq[product] || []);
   }
-
-  function productFitSection(){
-    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Product fit logic</span><h2 class="h2 reveal">The right product depends on the bottleneck.</h2></div><div class="grid-3">${[
-      ['HVAC Pro','Scheduling, dispatch, technician coordination, closeout and invoice handoff.'],
-      ['EstimatePro','Assisted, reviewable, estimator-controlled estimating workflows.'],
-      ['SalesPro','Inventory, orders, invoices, payments, purchasing and business visibility.']
-    ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
-  }
-
-  function scopeSection(){
-    return `<section class="section dark"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Scope factors</span><h2 class="h2 reveal">Scope depends on workflows, users, modules and support needs.</h2></div><p class="lede reveal">This keeps pricing honest while avoiding fake numbers or premature self-serve billing expectations.</p></div><div class="grid-4">${['Product mix','Team size','Workflow complexity','Implementation support'].map((x,i)=>`<article class="card dark-card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>Clarified during the Workflow Review Session.</p></article>`).join('')}</div></div></section>`;
-  }
-
-  function expansionSection(){ return modularSection(); }
 
   function reviewExpectationSection(){
-    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Workflow Review Session</span><h2 class="h2 reveal">What happens during the review.</h2><p class="lede reveal">This is not a generic software demo. It is a focused conversation about the buyer's current operation.</p></div>${timeline(['Discuss current workflow','Identify the highest-friction handoff','Map the product path','Clarify rollout expectations','Schedule the next step'])}</div></section>`;
+    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Workflow Review Session</span><h2 class="h2 reveal">A focused call about how work moves through your operation.</h2><p class="lede reveal">The review is built around your current scheduling, dispatch, estimating, closeout, invoicing and visibility problems.</p></div>${timeline(['Discuss current workflow','Identify the highest-friction handoff','Review the product fit','Clarify rollout expectations','Schedule the next step'])}</div></section>`;
+  }
+
+  function afterSubmitSection(){
+    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">After you submit</span><h2 class="h2 reveal">You will know what happens next.</h2><p class="lede reveal">The form starts a practical review process, not a confusing software purchase.</p></div>${timeline(['We review your request','We contact you to schedule a Workflow Review Call','We discuss your current workflow','We identify the highest-friction step','We recommend a practical starting point','We outline next steps'])}</div></section>`;
   }
 
   function inquiryRoutingSection(){
-    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Inquiry routing</span><h2 class="h2 reveal">Choose the right conversation.</h2></div><div class="grid-4">${['General Inquiry','Product Inquiry','Partnership Inquiry','Workflow Review Request'].map((x,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>This route keeps the contact page useful without forcing every visitor into a demo path.</p></article>`).join('')}</div></div></section>`;
+    return `<section class="section soft"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Contact options</span><h2 class="h2 reveal">Choose the right conversation.</h2></div><div class="grid-4">${['General Inquiry','Product Inquiry','Partnership Inquiry','Workflow Review Request'].map((x,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>Tell us what you need and Cliff Group will follow up with the right next step.</p></article>`).join('')}</div></div></section>`;
   }
 
-  function productLinksSection(){ return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Product links</span><h2 class="h2 reveal">Explore the product path first.</h2></div><div class="grid-3">${[['HVAC Pro','/hvacpro'],['EstimatePro','/estimatepro'],['SalesPro','/salespro']].map(p=>`<a class="card reveal" href="${p[1]}"><h3>${p[0]}</h3><p>Open the dedicated product page.</p></a>`).join('')}</div></div></section>`; }
+  function productLinksSection(){ return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">Products</span><h2 class="h2 reveal">Explore the product that matches your work.</h2></div><div class="grid-3">${[['HVAC Pro','/hvacpro','Scheduling, dispatch and technician coordination.'],['EstimatePro','/estimatepro','Reviewable, estimator-controlled HVAC estimating.'],['SalesPro','/salespro','Inventory, orders, invoices and payments.']].map(p=>`<a class="card reveal" href="${p[1]}"><h3>${p[0]}</h3><p>${p[2]}</p></a>`).join('')}</div></div></section>`; }
 
   function leadFormSection(title, text, type){
     return `<section class="section"><div class="container"><div class="form-card reveal"><div><span class="eyebrow">${type === 'contact' ? 'Contact' : 'Workflow Review'}</span><h2 class="h2" style="margin:14px 0 16px">${title}</h2><p class="lede">${text}</p><div style="margin-top:26px;color:var(--on-dark-soft);font-size:14px;display:grid;gap:8px"><span>No payment required.</span><span>No account creation required.</span><span>Cliff Group follows up with the next step.</span></div></div><form class="form-grid" data-lead-form="${type}" onsubmit="submitLead(event,'${type}')"><div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div><div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div><div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"><label>Company</label></div><div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"><label>Phone</label></div><div class="field full"><select name="source_interest" required><option value="" selected disabled></option><option>HVAC Pro</option><option>EstimatePro</option><option>SalesPro</option><option>Partnership</option><option>General inquiry</option></select><label>Inquiry type</label></div><div class="field full"><textarea name="operational_problem" placeholder=" "></textarea><label>What should we know?</label></div><div class="field full"><button class="btn btn-primary" type="submit" style="width:100%"><span data-submit-label>${type === 'contact' ? 'Send Inquiry' : 'Schedule Workflow Review'}</span> <span class="arrow">→</span></button><p class="form-status" role="status" aria-live="polite"></p><div class="success-box">Thanks — we'll contact you shortly.</div></div></form></div></div></section>`;
   }
 
   function trustSection(){
-    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Trust and onboarding</span><h2 class="h2 reveal">Practical rollout, contractor-focused workflows.</h2></div><p class="lede reveal">Trust should come from clarity, fit, onboarding support and operational specificity, not fake testimonials or unverifiable claims.</p></div><div class="grid-3">${[
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Trust and onboarding</span><h2 class="h2 reveal">Practical rollout, contractor-focused workflows.</h2></div><p class="lede reveal">Cliff Group focuses on clear fit, guided setup and workflows that match how contractors already operate.</p></div><div class="grid-3">${[
       ['Fast onboarding','Start with the workflow that matters most before expanding.'],
       ['Contractor focus','Language and structure reflect dispatch, field work, estimating and invoicing.'],
-      ['Guided implementation','Workflow Review helps avoid buying the wrong starting module.']
+      ['Guided setup','Workflow Review helps you choose the right starting point.']
     ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
   }
 
-  function trustStrip(){ return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Review clarity</span><h2>Use Workflow Review for the CTA. Use Workflow Review Session when explaining the call.</h2><p>The naming stays branded but clear enough for a buyer to understand what will happen after submission.</p></div><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review</button></div></section>`; }
-
-  function finalCta(label){
-    return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Workflow Review</span><h2>Find the right starting point before adding more tools.</h2><p>Bring the workflow that is causing the most friction. Cliff Group will help map the first product path.</p></div><button class="btn btn-primary" data-modal="demo">${label || 'Schedule Workflow Review'} <span class="arrow">→</span></button></div></section>`;
+  function credibilitySection(){
+    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Cliff Group Florida</span><h2 class="h2 reveal">Practical software for contractors and operators.</h2></div><p class="lede reveal">Cliff Group Florida builds software for teams that need clearer work across estimating, dispatch, invoicing, payments and business operations. The focus is practical adoption, clear workflows and support through the first setup.</p></div></div></section>`;
   }
 
-  function timeline(items){ return `<div class="workflow">${items.map((x,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${x}</b><p>Designed to keep the buying path practical and low-friction.</p></div>`).join('')}</div>`; }
+  function reviewConfidenceStrip(){ return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Workflow Review</span><h2>A focused call before you choose software.</h2><p>Bring the workflow that is creating the most friction. Cliff Group will help clarify whether HVAC Pro, EstimatePro or SalesPro should come first.</p></div><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review</button></div></section>`; }
+
+  function pricingFaqSection(){
+    return faqSection('Pricing FAQ', 'Common questions about product plans and billing.', [
+      ['Can I change plans later?', 'Yes. Plan changes can be reviewed as your product usage and team needs change.'],
+      ['Do I need a demo?', 'A Workflow Review is recommended when you are not sure which product or plan fits your operation.'],
+      ['How does billing work?', 'Billing details are confirmed after the right product and plan are selected.'],
+      ['Can I add users?', 'Yes. Team access can grow as your operation grows.']
+    ]);
+  }
+
+  function demoFaqSection(){
+    return faqSection('Workflow Review FAQ', 'Questions buyers often have before scheduling.', [
+      ['How long is the Workflow Review?', 'It is intended to be a focused call about your workflow, friction points and next step.'],
+      ['Do I need to know which product I need?', 'No. The review helps identify whether HVAC Pro, EstimatePro or SalesPro fits best.'],
+      ['Is there a cost?', 'There is no payment required to submit the request.'],
+      ['Will I get a sales pitch?', 'The conversation starts with your current operation and the workflow problems you want to solve.'],
+      ['What happens after the review?', 'You receive a recommended starting path and a practical next step.']
+    ]);
+  }
+
+  function faqSection(title, intro, items){
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">FAQ</span><h2 class="h2 reveal">${title}</h2></div><p class="lede reveal">${intro}</p></div><div class="faq-list">${items.map((item,i)=>`<details class="faq-item reveal" ${i===0?'open':''}><summary>${item[0]}</summary><p>${item[1]}</p></details>`).join('')}</div></div></section>`;
+  }
+
+  function finalCta(label){
+    return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Workflow Review</span><h2>Find the right starting point before adding more tools.</h2><p>Bring the workflow that is causing the most friction. Cliff Group will help map the clearest next step.</p></div><button class="btn btn-primary" data-modal="demo">${label || 'Schedule Workflow Review'} <span class="arrow">→</span></button></div></section>`;
+  }
+
+  function timeline(items){ return `<div class="workflow">${items.map((x,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${x}</b><p>Designed to keep the buying process practical and low-friction.</p></div>`).join('')}</div>`; }
 
   setupInteractions();
+  setupPricing();
   setupReveals();
-  if (route === 'demo') setTimeout(() => document.getElementById('modal-demo')?.classList.add('open'), 450);
+  if (route === 'demo') setTimeout(() => document.querySelector('[data-modal="demo"]')?.click(), 450);
 
   function setupInteractions(){
-    document.getElementById('menuToggle')?.addEventListener('click', () => document.getElementById('mobileMenu')?.classList.toggle('open'));
+    let lastFocusedElement = null;
+    const focusableSelector = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
+    const menuToggle = document.getElementById('menuToggle');
+    menuToggle?.addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      const isOpen = menu?.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
+    });
+    function openModal(id){
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('open');
+      modal.focus();
+      setTimeout(() => modal.querySelector(focusableSelector)?.focus(), 0);
+    }
+    function closeModals(){
+      document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+      if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
+      lastFocusedElement = null;
+    }
     document.addEventListener('click', e => {
       const open = e.target.closest('[data-modal]');
       if (open) {
         e.preventDefault();
         document.getElementById('mobileMenu')?.classList.remove('open');
-        document.getElementById('modal-' + open.dataset.modal)?.classList.add('open');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+        openModal('modal-' + open.dataset.modal);
         return;
       }
       if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) {
-        document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+        closeModals();
       }
       const selector = e.target.closest('[data-fit]');
       if (selector) updateFit(selector.dataset.fit);
     });
     document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+      const modal = document.querySelector('.modal-backdrop.open');
+      if (e.key === 'Escape') closeModals();
+      if (e.key === 'Tab' && modal) {
+        const focusable = Array.from(modal.querySelectorAll(focusableSelector)).filter(el => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
@@ -730,7 +1063,7 @@ footer a:hover{color:var(--ink)}
       ['Estimating pain usually starts with EstimatePro.','Use assisted, reviewable, estimator-controlled workflows before moving approved work into operations.'],
       ['Invoicing pain may start with HVAC Pro or SalesPro.','The review should clarify whether the issue begins at field closeout or back-office invoicing.'],
       ['Inventory pain usually starts with SalesPro.','Inventory, purchasing, orders and product visibility belong in the SalesPro path.'],
-      ['Visibility pain may need the Platform path.','If multiple handoffs are disconnected, platform expansion may be the right roadmap.']
+      ['Visibility pain may need multiple products.','If multiple handoffs are disconnected, the review should clarify which product should come first and what should connect next.']
     ];
     document.querySelectorAll('[data-fit]').forEach(b => b.classList.toggle('active', b.dataset.fit === String(index)));
     const panel = document.getElementById('fitPanel');
@@ -749,6 +1082,176 @@ footer a:hover{color:var(--ink)}
     }, {threshold:.12});
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
+
+  const pricingApiUrl = (() => {
+    const explicit = window.CLIFF_PRICING_API_URL || document.querySelector('meta[name="pricing-api-url"]')?.content?.trim();
+    return explicit || 'https://platform-web-production-db95.up.railway.app/api/v1/public/catalog/pricing';
+  })();
+
+  async function setupPricing(){
+    if (!document.getElementById('pricingTabs') && !document.querySelector('[data-product-pricing]')) return;
+    try {
+      const response = await fetch(pricingApiUrl, {headers:{Accept:'application/json'},credentials:'omit'});
+      const type = response.headers.get('content-type') || '';
+      if (!response.ok) throw new Error(`Pricing request returned ${response.status}`);
+      if (!type.includes('application/json')) throw new Error('Pricing request returned an unexpected response');
+      const catalog = normalizePricing(await response.json());
+      renderPricing(catalog);
+    } catch (error) {
+      renderPricingError();
+    }
+  }
+
+  function normalizePricing(raw){
+    const products = {hvacpro:[], estimatepro:[], salespro:[]};
+    const source = Array.isArray(raw) ? raw : raw.products || raw.data || raw.pricing || raw.catalog || [raw];
+    const productRows = Array.isArray(source) ? source : [source];
+    productRows.forEach(item => {
+      const key = productKey(item.product || item.productCode || item.code || item.slug || item.name);
+      const plans = item.plans || item.tiers || item.prices || (item.name ? [item] : []);
+      if (!key || !Array.isArray(plans)) return;
+      products[key] = plans.map(normalizePlan).filter(Boolean);
+    });
+    return products;
+  }
+
+  function productKey(value){
+    const key = String(value || '').toLowerCase().replace(/[^a-z0-9]/g,'');
+    if (key.includes('hvac')) return 'hvacpro';
+    if (key.includes('estimate')) return 'estimatepro';
+    if (key.includes('sales')) return 'salespro';
+    return '';
+  }
+
+  function normalizePlan(plan){
+    if (!plan) return null;
+    const features = Array.isArray(plan.features) ? plan.features :
+      Array.isArray(plan.featureList) ? plan.featureList :
+      Array.isArray(plan.includedFeatures) ? plan.includedFeatures : [];
+    return {
+      name: plan.name || plan.displayName || plan.title || plan.code || 'Plan',
+      monthly: moneyValue(plan.monthly ?? plan.monthlyPrice ?? plan.priceMonthly ?? plan.monthlyAmount ?? plan.price),
+      yearly: moneyValue(plan.yearly ?? plan.annual ?? plan.annualPrice ?? plan.priceYearly ?? plan.yearlyAmount),
+      features: features.map(f => typeof f === 'string' ? f : (f.name || f.label || f.description)).filter(Boolean),
+      checkoutUrl: plan.checkoutUrl || plan.buyUrl || plan.url || ''
+    };
+  }
+
+  function moneyValue(value){
+    if (value === null || value === undefined || value === '') return null;
+    const number = Number(value);
+    if (!Number.isFinite(number)) return null;
+    return number > 999 ? number / 100 : number;
+  }
+
+  function renderPricing(catalog){
+    const tabs = document.getElementById('pricingTabs');
+    const cards = document.getElementById('pricingCards');
+    const status = document.getElementById('pricingStatus');
+    const products = [
+      ['hvacpro','HVAC Pro'],
+      ['estimatepro','EstimatePro'],
+      ['salespro','SalesPro']
+    ];
+    if (tabs && cards && status) {
+      tabs.innerHTML = products.map(([key,label],i)=>`<button class="pricing-tab ${i===0?'active':''}" type="button" data-pricing-tab="${key}">${label}</button>`).join('');
+      tabs.addEventListener('click', event => {
+        const tab = event.target.closest('[data-pricing-tab]');
+        if (!tab) return;
+        tabs.querySelectorAll('.pricing-tab').forEach(button => button.classList.toggle('active', button === tab));
+        renderPricingProduct(tab.dataset.pricingTab, catalog);
+      });
+      renderPricingProduct('hvacpro', catalog);
+    }
+    document.querySelectorAll('[data-product-pricing]').forEach(container => {
+      const product = container.dataset.productPricing;
+      container.innerHTML = planCards(catalog[product] || [], product);
+    });
+  }
+
+  function renderPricingProduct(product, catalog){
+    const status = document.getElementById('pricingStatus');
+    const cards = document.getElementById('pricingCards');
+    const comparison = document.getElementById('featureComparison');
+    if (!cards || !status || !comparison) return;
+    cards.innerHTML = planCards(catalog[product] || [], product);
+    cards.style.display = 'grid';
+    status.style.display = 'none';
+    comparison.innerHTML = comparisonTable(catalog[product] || [], product);
+  }
+
+  function planCards(plans, product){
+    const safePlans = plans.length ? plans : fallbackPlans(product);
+    return safePlans.map(plan => `<article class="card pricing-card reveal in">
+      <span class="num">${productLabel(product)}</span>
+      <h3>${escapeHtml(plan.name)}</h3>
+      <div class="price">${formatPrice(plan.monthly)} <small>/ month</small></div>
+      <p>${plan.yearly !== null ? `${formatPrice(plan.yearly)} billed annually` : 'Annual billing available by request'}</p>
+      <ul>${(plan.features.length ? plan.features.slice(0,6) : ['Plan features available during Workflow Review']).map(feature => `<li>${escapeHtml(feature)}</li>`).join('')}</ul>
+      <div class="pricing-actions">
+        ${plan.checkoutUrl ? `<a class="btn btn-primary" href="${escapeAttr(plan.checkoutUrl)}">Buy</a>` : `<button class="btn btn-primary" data-modal="demo">Buy</button>`}
+        <button class="btn btn-ghost" data-modal="demo">Request Demo</button>
+      </div>
+    </article>`).join('');
+  }
+
+  function fallbackPlans(product){
+    const catalog = {
+      hvacpro: [
+        ['Starter', ['Scheduling basics', 'Dispatch visibility', 'Workflow Review setup']],
+        ['Professional', ['Scheduling and dispatch', 'Technician coordination', 'Closeout and invoice handoff']],
+        ['Enterprise', ['Multi-team support', 'Advanced workflow review', 'Expanded setup support']]
+      ],
+      estimatepro: [
+        ['Starter', ['Plan upload support', 'Review workflow', 'Estimator-controlled approval']],
+        ['Professional', ['Quantity review', 'Scope adjustment', 'Proposal preparation']],
+        ['Enterprise', ['Advanced estimating support', 'Team review workflows', 'Expanded setup support']]
+      ],
+      salespro: [
+        ['Starter', ['Inventory tracking', 'Customer orders', 'Invoice workflow']],
+        ['Professional', ['Inventory and purchasing', 'Orders and invoices', 'Payment visibility']],
+        ['Enterprise', ['Advanced business operations', 'Team workflows', 'Expanded setup support']]
+      ]
+    };
+    return (catalog[product] || catalog.hvacpro).map(([name, features]) => ({name, monthly:null, yearly:null, features, checkoutUrl:''}));
+  }
+
+  function comparisonTable(plans, product){
+    const safePlans = plans.length ? plans : fallbackPlans(product);
+    const features = [...new Set(safePlans.flatMap(plan => plan.features || []))].slice(0,10);
+    const safeRows = (features.length ? features : ['Included features']).map(feature => `<tr><td>${escapeHtml(feature)}</td>${safePlans.map(plan => `<td>${plan.features?.includes(feature) || !features.length ? '<span class="checkmark">✓</span>' : '<span class="dash">—</span>'}</td>`).join('')}</tr>`).join('');
+    return `<table class="comparison-table"><thead><tr><th>Feature</th>${safePlans.map(plan => `<th>${escapeHtml(plan.name)}</th>`).join('')}</tr></thead><tbody>${safeRows}</tbody></table>`;
+  }
+
+  function renderPricingError(){
+    const status = document.getElementById('pricingStatus');
+    const cards = document.getElementById('pricingCards');
+    if (status) status.style.display = 'none';
+    if (cards) {
+      cards.innerHTML = planCards([], 'hvacpro');
+      cards.style.display = 'grid';
+    }
+    const comparison = document.getElementById('featureComparison');
+    if (comparison) comparison.innerHTML = comparisonTable([], 'hvacpro');
+    document.querySelectorAll('[data-product-pricing]').forEach(container => {
+      container.innerHTML = planCards([], container.dataset.productPricing);
+    });
+  }
+
+  function productLabel(product){
+    return product === 'hvacpro' ? 'HVAC Pro' : product === 'estimatepro' ? 'EstimatePro' : product === 'salespro' ? 'SalesPro' : 'Product';
+  }
+
+  function formatPrice(value){
+    if (value === null || value === undefined) return 'Contact Sales';
+    return `$${Math.round(value).toLocaleString('en-US')}`;
+  }
+
+  function escapeHtml(value){
+    return String(value || '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  }
+
+  function escapeAttr(value){ return escapeHtml(value).replace(/`/g,'&#96;'); }
 
   const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();

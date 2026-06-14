@@ -13,6 +13,7 @@ const mimeTypes = {
   '.mjs': 'application/javascript',
   '.css': 'text/css',
   '.json': 'application/json',
+  '.xml': 'application/xml',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
@@ -28,6 +29,7 @@ const mimeTypes = {
 const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'X-Content-Type-Options': 'nosniff',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
   'Permissions-Policy': 'geolocation=(), microphone=(), camera=()',
   'Content-Security-Policy': [
@@ -36,7 +38,7 @@ const securityHeaders = {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: https://web-production-70049.up.railway.app",
-    "connect-src 'self' https://zesty-reflection-production-274d.up.railway.app",
+    "connect-src 'self' https://zesty-reflection-production-274d.up.railway.app https://platform-web-production-db95.up.railway.app",
     "object-src 'none'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
@@ -45,8 +47,19 @@ const securityHeaders = {
   ].join('; ')
 };
 
+const knownRoutes = new Set([
+  '/',
+  '/hvacpro',
+  '/estimatepro',
+  '/salespro',
+  '/contact',
+  '/demo',
+  '/platform'
+]);
+
 const salesProLoginUrl = process.env.SALESPRO_LOGIN_URL || 'https://web-production-70049.up.railway.app/salespro/login';
 const salesProAppUrl = (process.env.SALESPRO_APP_URL || 'https://web-production-70049.up.railway.app').replace(/\/+$/, '');
+const hvacProLoginUrl = process.env.HVACPRO_LOGIN_URL || 'https://keen-mercy-production-1ff8.up.railway.app/#dashboard';
 const estimateProLoginUrl = process.env.ESTIMATEPRO_LOGIN_URL || 'https://frontend-production-9aa65.up.railway.app/login';
 
 function send(res, statusCode, headers, body) {
@@ -138,7 +151,7 @@ async function proxySalesPro(req, res) {
     send(res, upstreamResponse.status, responseHeaders, buffer);
   } catch (error) {
     console.error('SalesPro proxy failed:', error.message);
-    send(res, 502, { 'Content-Type': 'text/plain; charset=utf-8' }, 'SalesPro page is temporarily unavailable');
+    send(res, 502, { 'Content-Type': 'text/plain; charset=utf-8' }, 'SalesPro page could not load. Please try again.');
   }
 }
 
@@ -154,8 +167,16 @@ function resolveRequestPath(url) {
     return { redirectTo: salesProLoginUrl };
   }
 
+  if (pathname === '/hvacpro/login') {
+    return { redirectTo: hvacProLoginUrl };
+  }
+
   if (pathname === '/estimatepro/login') {
     return { redirectTo: estimateProLoginUrl };
+  }
+
+  if (pathname === '/pricing' || pathname === '/pricing/') {
+    return { redirectTo: '/hvacpro#pricing' };
   }
 
   if (pathname === '/estimatepro' || pathname === '/estimatepro/') {
@@ -163,11 +184,15 @@ function resolveRequestPath(url) {
   }
 
   if (pathname === '/salespro' || pathname === '/salespro/') {
-    return { filePath: path.join(rootDir, 'salespro', 'index.html'), fallback: false };
+    return { filePath: path.join(rootDir, 'index.html'), fallback: false };
   }
 
   if (pathname === '/') {
     return { filePath: path.join(rootDir, 'index.html'), fallback: false };
+  }
+
+  if (!path.extname(pathname) && !knownRoutes.has(pathname.replace(/\/+$/, '') || '/')) {
+    return { notFound: true };
   }
 
   const requestedPath = path.normalize(path.join(rootDir, pathname));
@@ -231,6 +256,11 @@ const server = http.createServer((req, res) => {
 
   if (route.forbidden) {
     send(res, 403, { 'Content-Type': 'text/plain; charset=utf-8' }, 'Forbidden');
+    return;
+  }
+
+  if (route.notFound) {
+    serveFile(res, path.join(rootDir, '404.html'), 404);
     return;
   }
 
