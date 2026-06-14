@@ -32,6 +32,70 @@ function inferFormTypeFromSource(value) {
   return FORM_TYPES.has(prefix) ? prefix : '';
 }
 
+function normalizeProductInterest(value) {
+  const raw = cleanString(value, 80);
+  const normalized = raw.toLowerCase().replace(/\s+/g, '');
+
+  if (normalized === 'hvacpro' || normalized === 'hvac') return 'HVAC Pro';
+  if (normalized === 'estimatepro' || normalized === 'estimate') return 'EstimatePro';
+  if (normalized === 'salespro' || normalized === 'sales') return 'SalesPro';
+  if (normalized === 'notsureyet') return 'Not sure yet';
+  if (normalized === 'partnership') return 'Partnership';
+  if (normalized === 'generalinquiry') return 'General inquiry';
+
+  return raw;
+}
+
+function productInterestFromLegacyMessage(value) {
+  const text = cleanString(value, 300);
+  const lower = text.toLowerCase();
+
+  if (lower === 'hvac pro' || lower.startsWith('hvac pro -')) return 'HVAC Pro';
+  if (lower === 'estimatepro' || lower.startsWith('estimatepro -')) return 'EstimatePro';
+  if (lower === 'salespro' || lower.startsWith('salespro -')) return 'SalesPro';
+
+  return '';
+}
+
+function stripProductPrefix(value, product) {
+  const text = cleanLongText(value, 3000);
+  if (!text || !product) return text;
+
+  const prefix = `${product} -`;
+  if (text.toLowerCase().startsWith(prefix.toLowerCase())) {
+    return cleanLongText(text.slice(prefix.length), 3000);
+  }
+
+  return text.toLowerCase() === product.toLowerCase() ? '' : text;
+}
+
+function pageLabelFromUrl(value) {
+  const source = cleanString(value, 1000);
+  if (!source) return '';
+
+  const cleaned = source.replace(/^(workflow-review|route|source|page_type):/i, '');
+
+  try {
+    const url = new URL(cleaned, 'https://cliffgroupflorida.com');
+    const pathname = url.pathname.replace(/\/+$/, '') || '/';
+    if (pathname === '/') return 'Homepage';
+    if (pathname === '/hvacpro') return 'HVAC Pro';
+    if (pathname === '/estimatepro') return 'EstimatePro';
+    if (pathname === '/salespro') return 'SalesPro';
+    if (pathname === '/contact') return 'Contact';
+    if (pathname === '/demo') return 'Workflow Review';
+    return pathname
+      .replace(/^\//, '')
+      .split('/')
+      .filter(Boolean)
+      .map(part => part.replace(/[-_]+/g, ' '))
+      .map(part => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(' / ');
+  } catch {
+    return cleaned;
+  }
+}
+
 function normalizeLead(body, routeFormType, req) {
   const errors = [];
   const formType = cleanString(
@@ -54,12 +118,20 @@ function normalizeLead(body, routeFormType, req) {
   const role = cleanString(body.role, 120);
   const phone = cleanString(body.phone, 80);
   const teamSize = cleanString(body.team_size, 80);
-  const message = cleanLongText(body.message, 3000);
+  const rawMessage = cleanLongText(body.message, 3000);
+  const productInterest = normalizeProductInterest(
+    body.productInterest || body.product_interest || body.source_interest || body.product
+  ) || productInterestFromLegacyMessage(rawMessage);
+  const message = stripProductPrefix(rawMessage, productInterest);
   const operationalProblem = cleanLongText(
-    body.operational_problem || body.problem || body.handoff || body.message,
+    body.operationalProblem || body.operational_problem || body.problem || body.handoff || stripProductPrefix(rawMessage, productInterest),
     3000
   );
-  const sourcePage = cleanString(body.source_page || body.source || req.get('referer') || '', 1000);
+  const pageUrl = cleanString(body.pageUrl || body.page_url || body.source || body.source_page || req.get('referer') || '', 1000)
+    .replace(/^(workflow-review|route|source|page_type):/i, '');
+  const sourcePage = cleanString(body.sourcePage || body.source_page || pageUrl || req.get('referer') || '', 1000)
+    .replace(/^(workflow-review|route|source|page_type):/i, '');
+  const sourceLabel = pageLabelFromUrl(sourcePage || pageUrl);
 
   if (!fullName) errors.push('Full name is required.');
   if (!email || !isEmail(email)) errors.push('A valid email is required.');
@@ -81,6 +153,11 @@ function normalizeLead(body, routeFormType, req) {
       operational_problem: operationalProblem,
       source_page: sourcePage,
       metadata: {
+        product_interest: productInterest,
+        source_label: sourceLabel,
+        page_url: pageUrl,
+        referrer: cleanString(body.referrer || body.referer || req.get('referer') || '', 1000),
+        submitted_at: new Date().toISOString(),
         user_agent: cleanString(req.get('user-agent') || '', 500),
         ip_hint: cleanString(req.ip || '', 80)
       }

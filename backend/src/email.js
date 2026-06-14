@@ -1,7 +1,5 @@
 const config = require('./config');
 
-const FALLBACK_FROM_EMAIL = 'Cliff Group Florida <hello@cliffgroup.software>';
-
 function escapeHtml(value) {
   return String(value || '')
     .replace(/&/g, '&amp;')
@@ -11,24 +9,86 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function leadMetadata(lead) {
+  if (!lead || !lead.metadata) return {};
+  if (typeof lead.metadata === 'object') return lead.metadata;
+
+  try {
+    return JSON.parse(lead.metadata);
+  } catch {
+    return {};
+  }
+}
+
+function productInterest(lead) {
+  return leadMetadata(lead).product_interest || '';
+}
+
+function sourceDetails(lead) {
+  const metadata = leadMetadata(lead);
+  const rawPage = metadata.source_label || lead.source_page || metadata.page_url || '';
+  const rawUrl = metadata.page_url || lead.source_page || '';
+  const cleanedUrl = String(rawUrl || '').replace(/^(workflow-review|route|source|page_type):/i, '');
+
+  return {
+    page: rawPage || 'Website',
+    url: cleanedUrl
+  };
+}
+
 function leadRows(lead) {
+  const source = sourceDetails(lead);
   const rows = [
-    ['Form type', lead.form_type],
     ['Name', lead.full_name],
     ['Email', lead.email],
-    ['Company', lead.company],
-    ['Role', lead.role],
     ['Phone', lead.phone],
-    ['Team size', lead.team_size],
+    ['Company', lead.company],
+    ['Product Interest', productInterest(lead)],
     ['Operational problem', lead.operational_problem],
-    ['Message', lead.message],
-    ['Source page', lead.source_page]
+    ['Source Page', source.page],
+    ['URL', source.url],
+    ['Lead ID', lead.id]
   ];
 
   return rows
     .filter(([, value]) => value)
     .map(([label, value]) => `<tr><th>${escapeHtml(label)}</th><td>${escapeHtml(value)}</td></tr>`)
     .join('');
+}
+
+function productBadge(lead) {
+  const product = productInterest(lead);
+  if (!product) return '';
+
+  return `
+    <div style="display:inline-block;background:#D6B76A;color:#1C2A3E;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin:0 0 18px">
+      ${escapeHtml(product)}
+    </div>
+  `;
+}
+
+function internalSubject(lead) {
+  const name = lead.full_name || 'New lead';
+  const company = lead.company ? ` (${lead.company})` : '';
+  return `Workflow Review Request — ${name}${company}`;
+}
+
+function customerFocusSentence(lead) {
+  const product = String(productInterest(lead)).toLowerCase();
+
+  if (product === 'hvac pro') {
+    return 'We will focus the conversation on the HVAC workflow you shared, including scheduling, dispatch, field coordination, closeout, invoicing, and the next practical step for your team.';
+  }
+
+  if (product === 'estimatepro') {
+    return 'We will focus the conversation on the estimating workflow you shared, including plan review, quantity checks, scope adjustments, proposal preparation, and the next practical step for your estimating process.';
+  }
+
+  if (product === 'salespro') {
+    return 'We will focus the conversation on the business operations workflow you shared, including inventory visibility, orders, invoices, purchasing, payments, and the next practical step for your business.';
+  }
+
+  return 'We will review the workflow challenge you shared and discuss the best next step for your business.';
 }
 
 function emailShell(title, body) {
@@ -106,7 +166,7 @@ async function sendResendEmail({ to, subject, html, text }) {
   let fromAddress = extractEmailAddress(senderSource);
   if (!isValidEmail(fromAddress)) {
     console.warn('Invalid RESEND_FROM_EMAIL; using fallback sender.');
-    senderSource = FALLBACK_FROM_EMAIL;
+    senderSource = config.resendFallbackFromEmail;
     fromAddress = extractEmailAddress(senderSource);
   }
 
@@ -157,21 +217,21 @@ async function sendLeadNotifications(lead) {
 
   if (config.internalNotificationEmail) {
     const html = emailShell(
-      `New ${lead.form_type} request`,
+      'New Workflow Review',
       `
-        <p style="font-size:15px;line-height:1.6;margin:0 0 18px">A new marketing-site lead was captured.</p>
+        ${productBadge(lead)}
+        <p style="font-size:15px;line-height:1.6;margin:0 0 18px">A new Workflow Review request was captured.</p>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           ${leadRows(lead)}
         </table>
-        <p style="font-size:13px;color:#6E7485;margin:22px 0 0">Lead ID: ${escapeHtml(lead.id)}</p>
       `
     );
 
     results.internal = await sendResendEmail({
       to: config.internalNotificationEmail,
-      subject: `New Cliff Group ${lead.form_type} request from ${lead.full_name}`,
+      subject: internalSubject(lead),
       html,
-      text: `New ${lead.form_type} request from ${lead.full_name} (${lead.email}). Lead ID: ${lead.id}.`
+      text: `${internalSubject(lead)}. Product Interest: ${productInterest(lead) || 'Not specified'}. Operational Problem: ${lead.operational_problem || 'Not specified'}. Lead ID: ${lead.id}.`
     });
     logNotificationResult('internal', lead, results.internal);
   }
@@ -181,7 +241,7 @@ async function sendLeadNotifications(lead) {
     `
       <p style="font-size:15px;line-height:1.6;margin:0 0 14px">Hi ${escapeHtml(lead.full_name)},</p>
       <p style="font-size:15px;line-height:1.6;margin:0 0 14px">Thanks for reaching out to Cliff Group Florida. We received your request and will follow up within one business day.</p>
-      <p style="font-size:15px;line-height:1.6;margin:0 0 20px">We will focus the conversation on the HVAC workflow you shared and the best starting point across estimating, dispatch, field coordination, invoicing, and operating visibility.</p>
+      <p style="font-size:15px;line-height:1.6;margin:0 0 20px">${escapeHtml(customerFocusSentence(lead))}</p>
       <p style="font-size:13px;color:#6E7485;margin:0">Cliff Group Florida Inc.</p>
     `
   );
@@ -190,7 +250,7 @@ async function sendLeadNotifications(lead) {
     to: lead.email,
     subject: 'We received your Cliff Group walkthrough request',
     html: confirmationHtml,
-    text: `Hi ${lead.full_name}, thanks for reaching out to Cliff Group Florida. We received your request and will follow up within one business day.`
+    text: `Hi ${lead.full_name}, thanks for reaching out to Cliff Group Florida. We received your request and will follow up within one business day. ${customerFocusSentence(lead)}`
   });
   logNotificationResult('customer', lead, results.customer);
 

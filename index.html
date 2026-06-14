@@ -1275,8 +1275,12 @@ footer a:hover{color:var(--ink)}
       email: data.get('email') || '',
       phone: data.get('phone') || '',
       company: data.get('company') || '',
-      message: [productInterest, problem].filter(Boolean).join(' - '),
-      source: `${form.dataset.leadForm || fallbackType || 'lead'}:${window.location.href}`
+      productInterest,
+      operationalProblem: problem,
+      sourcePage: window.location.pathname || '/',
+      pageUrl: window.location.href,
+      referrer: document.referrer || '',
+      source: window.location.href
     };
     const error = validate(payload);
     if (error) return setState('error', error);
@@ -1314,7 +1318,7 @@ footer a:hover{color:var(--ink)}
   function validate(payload){
     if (!String(payload.name || '').trim()) return 'Please enter your name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
-    if (String(payload.message || '').length > 3000) return 'Please keep the message under 3000 characters.';
+    if (String(payload.operationalProblem || '').length > 3000) return 'Please keep the note under 3000 characters.';
     return '';
   }
 

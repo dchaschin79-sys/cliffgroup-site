@@ -52,6 +52,17 @@ function requireAdmin(req, res, next) {
   next();
 }
 
+function leadMetadata(lead) {
+  if (!lead || !lead.metadata) return {};
+  if (typeof lead.metadata === 'object') return lead.metadata;
+
+  try {
+    return JSON.parse(lead.metadata);
+  } catch {
+    return {};
+  }
+}
+
 function layout(title, body) {
   return `<!doctype html>
 <html lang="en">
@@ -111,6 +122,7 @@ function leadListPage(leads, filters = {}) {
 }
 
 function leadDetailPage(lead) {
+  const metadata = leadMetadata(lead);
   const fields = [
     ['ID', `#${lead.id}`],
     ['Created', new Date(lead.created_at).toLocaleString()],
@@ -120,12 +132,11 @@ function leadDetailPage(lead) {
     ['Name', lead.full_name],
     ['Email', lead.email],
     ['Company', lead.company],
-    ['Role', lead.role],
     ['Phone', lead.phone],
-    ['Team size', lead.team_size],
+    ['Product Interest', metadata.product_interest],
     ['Operational problem', lead.operational_problem],
-    ['Message', lead.message],
-    ['Source page', lead.source_page]
+    ['Source Page', metadata.source_label || lead.source_page],
+    ['URL', metadata.page_url || lead.source_page]
   ];
 
   const detailRows = fields.map(([label, value]) => `

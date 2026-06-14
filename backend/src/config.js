@@ -29,7 +29,8 @@ module.exports = {
   adminPassword: process.env.ADMIN_PASSWORD || '',
   internalNotificationEmail: process.env.INTERNAL_NOTIFICATION_EMAIL || '',
   resendApiKey: process.env.RESEND_API_KEY || '',
-  resendFromEmail: process.env.RESEND_FROM_EMAIL || 'Cliff Group Florida <hello@cliffgroup.software>',
+  resendFromEmail: process.env.RESEND_FROM_EMAIL || 'Cliff Group Florida <onboarding@resend.dev>',
+  resendFallbackFromEmail: process.env.RESEND_FALLBACK_FROM_EMAIL || 'Cliff Group Florida <onboarding@resend.dev>',
   publicSiteUrl: process.env.PUBLIC_SITE_URL || 'https://cliffgroupflorida.com',
   emailEnabled: String(process.env.EMAIL_ENABLED || 'true').toLowerCase() !== 'false'
 };

@@ -359,21 +359,26 @@
 
   function leadPayload(form, formType) {
     const data = new FormData(form);
-    const message = data.get('message') || data.get('operational_problem') || '';
+    const productInterest = data.get('source_interest') || data.get('product_interest') || data.get('productInterest') || '';
+    const operationalProblem = data.get('operational_problem') || data.get('operationalProblem') || data.get('message') || '';
     return {
       name: data.get('full_name') || data.get('name') || '',
       email: data.get('email') || '',
       phone: data.get('phone') || '',
       company: data.get('company') || '',
-      message,
-      source: `${formType}:${window.location.href}`
+      productInterest,
+      operationalProblem,
+      sourcePage: window.location.pathname || '/',
+      pageUrl: window.location.href,
+      referrer: document.referrer || '',
+      source: window.location.href
     };
   }
 
   function validateLeadPayload(payload) {
     if (!String(payload.name || '').trim()) return 'Please enter your name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
-    if (String(payload.message || '').length > 3000) return 'Please keep the message under 3000 characters.';
+    if (String(payload.operationalProblem || '').length > 3000) return 'Please keep the note under 3000 characters.';
     return '';
   }
 
