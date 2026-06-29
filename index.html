@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="lead-api-url" content="https://cliffgroup-api-production.up.railway.app/api/leads" />
+<meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
 <title>Cliff Group Florida - HVAC Operations Software</title>
 <meta name="description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
 <link rel="canonical" href="https://cliffgroupflorida.com/" />
@@ -147,11 +147,15 @@ p{margin:0}
 .section-head.center{display:block;text-align:center;max-width:820px;margin:0 auto 44px}
 .section-head.center .lede{margin:16px auto 0}
 
-.hero{position:relative;min-height:90vh;display:grid;align-items:end;padding:156px 38px 94px;color:var(--cream);background:radial-gradient(circle at 72% 26%,rgba(201,174,122,.18),transparent 27%),linear-gradient(135deg,var(--ink) 0%,#121D2E 100%);overflow:hidden}
+.hero{position:relative;min-height:calc(100svh - 76px);display:grid;align-items:center;padding:82px 38px 58px;color:var(--cream);background:radial-gradient(circle at 72% 26%,rgba(201,174,122,.18),transparent 27%),linear-gradient(135deg,var(--ink) 0%,#121D2E 100%);overflow:hidden}
 .grid-bg{position:absolute;inset:0;background:linear-gradient(to right,rgba(230,195,106,.055) 1px,transparent 1px) 0 0/64px 64px,linear-gradient(to bottom,rgba(230,195,106,.055) 1px,transparent 1px) 0 0/64px 64px;mask-image:radial-gradient(ellipse at center,#000 20%,transparent 78%);-webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 78%)}
 .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 410px;gap:58px;align-items:end}
 .hero h1{margin:20px 0 26px;max-width:13ch}
 .hero-actions,.section-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-eyebrow-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.powered-badge{display:inline-flex;align-items:center;min-height:30px;padding:7px 12px;border-radius:999px;border:1px solid rgba(201,174,122,.42);background:rgba(201,174,122,.13);color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.powered-badge:hover,.powered-badge:focus-visible{background:rgba(201,174,122,.22);border-color:rgba(201,174,122,.68);transform:translateY(-1px)}
+.memory-section{scroll-margin-top:96px}
 .hero-card{align-self:center;border:1px solid rgba(244,234,219,.14);border-radius:22px;background:rgba(244,234,219,.075);box-shadow:0 28px 70px rgba(0,0,0,.18);overflow:hidden;backdrop-filter:blur(12px)}
 .hero-card-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(244,234,219,.1)}
 .hero-card-top b{font-family:var(--serif);font-size:22px}
@@ -203,6 +207,150 @@ p{margin:0}
 .mock-job span{font-size:12px;color:var(--on-dark-soft)}
 .mock-job b{font-size:13px}
 .mock-job i{font-style:normal;padding:4px 8px;border-radius:999px;background:rgba(201,174,122,.18);color:var(--gold);font-size:11px;font-weight:800}
+.proof-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:24px;align-items:stretch}
+.proof-stack{display:grid;gap:14px}
+.proof-panel{border-radius:18px;padding:18px;background:var(--ink);color:var(--cream);border:1px solid rgba(244,234,219,.12);box-shadow:var(--shadow)}
+.proof-panel.light{background:var(--cream);color:var(--ink);border-color:var(--line);box-shadow:none}
+.proof-panel h3{font-size:20px;margin:0 0 14px}
+.proof-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.proof-meta span{display:inline-flex;border:1px solid rgba(244,234,219,.14);border-radius:999px;padding:6px 9px;color:var(--on-dark-soft);font-size:11px;font-weight:800}
+.proof-panel.light .proof-meta span{border-color:var(--line);color:var(--fg-dim)}
+.proof-row{display:grid;grid-template-columns:96px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid rgba(244,234,219,.12)}
+.proof-panel.light .proof-row{border-top-color:var(--line)}
+.proof-row:first-of-type{border-top:0}
+.proof-row span{font-size:12px;color:var(--on-dark-soft);font-weight:800}
+.proof-panel.light .proof-row span{color:var(--fg-mute)}
+.proof-row b{font-size:14px}
+.proof-row i{font-style:normal;font-size:11px;font-weight:900;color:var(--gold)}
+.proof-panel.light .proof-row i{color:var(--green)}
+.proof-timeline{display:grid;gap:10px}
+.proof-timeline div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.28)}
+.proof-timeline span{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;background:var(--ink);color:var(--cream);font-size:12px;font-weight:900}
+.proof-timeline b{display:block;font-size:14px}.proof-timeline small{display:block;margin-top:3px;color:var(--fg-dim);font-size:12px;line-height:1.45}
+.knowledge-loss-section{position:relative;overflow:hidden}
+.knowledge-loss-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 16%,rgba(201,174,122,.18),transparent 28%),radial-gradient(circle at 78% 74%,rgba(244,234,219,.08),transparent 28%);pointer-events:none}
+.loss-layout{position:relative;display:grid;gap:18px}
+.loss-header{display:grid;grid-template-columns:.92fr 1.08fr;gap:26px;align-items:end}
+.loss-copy{padding:28px;border-radius:24px;background:linear-gradient(145deg,rgba(244,234,219,.1),rgba(244,234,219,.045));border:1px solid rgba(244,234,219,.16);box-shadow:var(--shadow)}
+.loss-copy h2{margin:10px 0 0;color:var(--cream)}
+.loss-copy p{color:var(--on-dark-soft);font-size:16px;line-height:1.6}
+.loss-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:22px 0;padding:0;list-style:none}
+.loss-list li{padding:10px 12px;border-radius:12px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:800;font-size:13px}
+.loss-statement{display:block;padding:20px 22px;border-radius:20px;background:rgba(201,174,122,.16);border:1px solid rgba(201,174,122,.32);color:var(--cream);font-size:22px;line-height:1.28;font-weight:900;text-align:center}
+.loss-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.loss-stat-card{padding:18px;border-radius:18px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.13);display:grid;gap:10px}
+.loss-stat-card .loss-revenue{display:block;color:var(--cream);font-size:16px;font-weight:900;line-height:1.25}
+.loss-stat-card strong{display:block;color:var(--gold);font-family:var(--serif);font-size:34px;line-height:1}
+.loss-stat-card .loss-label{display:block;color:var(--on-dark-soft);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.loss-stat-card ul{margin:2px 0 0;padding-left:18px;color:var(--on-dark-soft);font-size:13px;line-height:1.45}
+.memory-hero-section{position:relative;overflow:hidden}
+.memory-hero-panel{position:relative;padding:42px;border-radius:26px;background:linear-gradient(145deg,rgba(244,234,219,.1),rgba(244,234,219,.045));border:1px solid rgba(244,234,219,.16);box-shadow:var(--shadow)}
+.memory-hero-panel h2{max-width:13ch;color:var(--cream);margin:14px 0 18px}
+.memory-hero-panel p{max-width:760px;color:var(--on-dark-soft);font-size:18px;line-height:1.7}
+.memory-hero-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:26px 0 0}
+.memory-hero-list span{padding:14px;border-radius:14px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:900;font-size:13px}
+.memory-hero-close{display:block;max-width:760px;margin-top:26px;padding:18px 20px;border-radius:18px;background:rgba(201,174,122,.14);border:1px solid rgba(201,174,122,.24);color:var(--cream);font-size:21px;line-height:1.42;font-weight:900}
+.turnover-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:stretch}
+.turnover-quote{display:grid;place-items:center;min-height:100%;padding:34px;border-radius:24px;background:linear-gradient(145deg,rgba(201,174,122,.18),rgba(244,234,219,.06));border:1px solid rgba(201,174,122,.24);text-align:center}
+.turnover-quote strong{font-family:var(--serif);font-size:clamp(36px,5vw,68px);line-height:1.03;color:var(--cream)}
+.turnover-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0;padding:0;list-style:none}
+.turnover-list li{padding:12px 14px;border-radius:14px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:900}
+.five-year-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.five-year-card{padding:26px;border-radius:22px;background:rgba(244,234,219,.065);border:1px solid rgba(244,234,219,.13)}
+.five-year-card.with{background:linear-gradient(145deg,rgba(201,174,122,.16),rgba(244,234,219,.055));border-color:rgba(201,174,122,.28)}
+.five-year-card h3{color:var(--cream);font-size:24px;margin:0 0 6px}
+.five-year-card p{color:var(--gold);font-weight:900;margin-bottom:16px}
+.five-year-card ul{margin:0;padding-left:20px;color:var(--on-dark-soft);font-size:15px;line-height:1.75}
+.five-year-statement{display:block;margin-top:18px;padding:20px;border-radius:18px;background:rgba(201,174,122,.13);border:1px solid rgba(201,174,122,.22);color:var(--cream);font-family:var(--serif);font-size:32px;line-height:1.12;text-align:center}
+.memory-section{position:relative;overflow:hidden}
+.memory-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 12%,rgba(201,174,122,.2),transparent 28%),radial-gradient(circle at 12% 78%,rgba(244,234,219,.08),transparent 26%);pointer-events:none}
+.memory-layout{position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:stretch}
+.memory-narrative{padding:34px;border-radius:24px;background:linear-gradient(145deg,rgba(244,234,219,.1),rgba(244,234,219,.052));border:1px solid rgba(244,234,219,.16);box-shadow:var(--shadow)}
+.memory-narrative h2{margin:8px 0 8px;color:var(--cream)}
+.memory-tagline{font-size:22px;color:var(--gold);font-weight:900;margin:0 0 18px}
+.memory-slogan{display:block;margin:18px 0;padding:16px 18px;border-radius:16px;background:rgba(201,174,122,.14);border:1px solid rgba(201,174,122,.24);color:var(--cream);font-size:20px;line-height:1.35;font-weight:900}
+.memory-narrative p{color:var(--on-dark-soft);font-size:17px;line-height:1.7}
+.memory-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.memory-card{padding:16px;border-radius:16px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.13);transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.memory-card:hover{transform:translateY(-4px);background:rgba(244,234,219,.12);border-color:rgba(201,174,122,.38)}
+.memory-card span{display:block;margin-bottom:8px;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.memory-card b{display:block;color:var(--cream);font-size:16px;line-height:1.35}
+.memory-remember{position:relative;margin-top:28px}
+.memory-remember h3,.memory-flow h3,.memory-value h3,.memory-compare h3,.memory-transaction h3,.memory-difference h3,.memory-cost h3{color:var(--cream);font-size:26px;margin:0 0 16px}
+.memory-remember-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.memory-remember-grid div{min-height:108px;padding:16px;border-radius:15px;background:rgba(244,234,219,.07);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:900;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.memory-remember-grid div:hover{transform:translateY(-3px);border-color:rgba(201,174,122,.34);background:rgba(244,234,219,.1)}
+.memory-cost{position:relative;margin-top:28px;padding:24px;border-radius:20px;background:linear-gradient(145deg,rgba(244,234,219,.07),rgba(244,234,219,.035));border:1px solid rgba(244,234,219,.12)}
+.memory-cost-intro{max-width:860px;color:var(--on-dark-soft);font-size:16px;line-height:1.65;margin-bottom:18px}
+.memory-cost-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.memory-cost-card{padding:18px;border-radius:16px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.13)}
+.memory-cost-card span{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.memory-cost-card strong{display:block;color:var(--cream);font-size:22px;line-height:1.15;margin-bottom:12px}
+.memory-cost-card ul{margin:0;padding-left:18px;color:var(--on-dark-soft);font-size:13px;line-height:1.55}
+.memory-source-note{margin:16px 0 0;padding:14px 16px;border-radius:14px;background:rgba(201,174,122,.1);border:1px solid rgba(201,174,122,.18);color:var(--on-dark-soft);font-size:12px;line-height:1.55}
+.memory-loss-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.memory-loss-grid div{padding:18px;border-radius:16px;border:1px solid rgba(244,234,219,.12);background:rgba(244,234,219,.065)}
+.memory-loss-grid b{display:block;color:var(--cream);font-size:17px;margin-bottom:10px}
+.memory-loss-grid ul{margin:0;padding-left:18px;color:var(--on-dark-soft);font-size:14px;line-height:1.7}
+.memory-flow{position:relative;margin-top:28px;padding:24px;border-radius:20px;background:rgba(244,234,219,.055);border:1px solid rgba(244,234,219,.12)}
+.memory-question-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+.memory-question-grid span{padding:12px;border-radius:999px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.12);color:var(--on-dark-soft);font-size:12px;font-weight:800;text-align:center}
+.memory-path{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.memory-path div{position:relative;padding:18px 14px;border-radius:15px;background:var(--cream);color:var(--ink);border:1px solid rgba(201,174,122,.35)}
+.memory-path div:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--gold);font-weight:900}
+.memory-path span{display:block;color:var(--gold-2);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.memory-path b{display:block;font-size:15px}
+.memory-value{position:relative;margin-top:28px;padding:28px;border-radius:20px;background:linear-gradient(135deg,rgba(201,174,122,.22),rgba(244,234,219,.06));border:1px solid rgba(201,174,122,.25)}
+.memory-value p{max-width:820px;color:var(--on-dark-soft);font-size:17px;line-height:1.7}
+.memory-closing{display:block;margin-top:18px;color:var(--cream);font-family:var(--serif);font-size:28px;line-height:1.15}
+.memory-compare,.memory-transaction,.memory-difference{position:relative;margin-top:28px;padding:24px;border-radius:20px;background:rgba(244,234,219,.055);border:1px solid rgba(244,234,219,.12)}
+.memory-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.memory-compare-card{padding:20px;border-radius:18px;border:1px solid rgba(244,234,219,.13);background:rgba(244,234,219,.055)}
+.memory-compare-card.with{background:linear-gradient(145deg,rgba(201,174,122,.17),rgba(244,234,219,.055));border-color:rgba(201,174,122,.28)}
+.memory-compare-card b{display:block;color:var(--cream);font-size:18px;margin-bottom:14px}
+.memory-compare-card ul{margin:0;padding-left:18px;color:var(--on-dark-soft);font-size:14px;line-height:1.65}
+.memory-compare-card li+li{margin-top:7px}
+.memory-flow-copy{max-width:840px;margin:18px 0 0;color:var(--on-dark-soft);font-size:16px;line-height:1.65}
+.memory-transaction p{max-width:900px;color:var(--on-dark-soft);font-size:16px;line-height:1.65}
+.memory-transaction-flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:20px}
+.memory-transaction-flow span{position:relative;min-height:76px;display:grid;place-items:center;text-align:center;padding:12px;border-radius:15px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.14);color:var(--cream);font-weight:900;font-size:13px}
+.memory-transaction-flow span:not(:last-child)::after{content:"→";position:absolute;right:-12px;color:var(--gold);font-weight:900}
+.memory-difference-table{display:grid;gap:8px}
+.memory-difference-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.memory-difference-row:first-child div{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.memory-difference-row div{padding:14px 16px;border-radius:14px;background:rgba(244,234,219,.07);border:1px solid rgba(244,234,219,.12);color:var(--on-dark-soft);font-size:14px;line-height:1.45}
+.memory-difference-row div:last-child{background:rgba(201,174,122,.12);border-color:rgba(201,174,122,.24);color:var(--cream)}
+.screenshot-showcase{display:grid;grid-template-columns:1.18fr .82fr;gap:24px;align-items:stretch}
+.screenshot-frame{display:block;width:100%;padding:0;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:var(--cream-2);box-shadow:var(--shadow);text-align:left;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.screenshot-frame:hover,.screenshot-frame:focus-visible{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 22px 56px rgba(14,42,74,.16);outline:none}
+.screenshot-frame img{width:100%;height:auto}
+.screenshot-copy{display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.screenshot-copy h3{font-size:34px;margin:10px 0 12px}
+.screenshot-copy p{color:var(--fg-dim);font-size:16px;line-height:1.65}
+.screenshot-points{display:grid;gap:10px}
+.screenshot-points div{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.32)}
+.screenshot-points b{display:block;color:var(--ink);font-size:14px;margin-bottom:3px}
+.screenshot-points span{color:var(--fg-dim);font-size:13px}
+.screenshot-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.screenshot-thumb{display:block;width:100%;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--cream-2);text-align:left;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.screenshot-thumb:hover,.screenshot-thumb:focus-visible{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 14px 32px rgba(14,42,74,.09);outline:none}
+.screenshot-thumb img{width:100%;height:auto}
+.screenshot-thumb div{padding:14px}
+.screenshot-thumb b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+.screenshot-thumb span{display:block;color:var(--fg-dim);font-size:12px;line-height:1.45}
+.screenshot-modal{width:min(1120px,100%);padding:18px}
+.screenshot-modal .modal-close{background:rgba(244,234,219,.9)}
+.screenshot-modal-body{display:grid;gap:14px}
+.screenshot-modal img{width:100%;max-height:72vh;object-fit:contain;border-radius:16px;border:1px solid var(--line);background:var(--cream-2)}
+.screenshot-modal h3{font-size:30px;margin:8px 46px 0 2px}
+.screenshot-modal p{color:var(--fg-dim);font-size:15px;line-height:1.55;margin:0 2px 4px}
+.home-product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.home-product-card{min-height:260px;display:flex;flex-direction:column;justify-content:space-between;border-color:rgba(201,174,122,.28);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.home-product-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 24px 70px rgba(18,31,47,.12)}
+.home-product-card .product-kicker{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.home-product-card h3{font-size:30px;margin:18px 0 12px}
+.home-product-card p{font-size:16px}
+.home-product-card .card-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;color:var(--ink);font-weight:900}
 .outcome-band{display:grid;grid-template-columns:repeat(4,1fr);gap:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--cream-2)}
 .outcome-band div{padding:28px;border-right:1px solid var(--line)}
 .outcome-band div:last-child{border-right:none}
@@ -275,13 +423,21 @@ p{margin:0}
 .pricing-tab{border:1px solid var(--line);background:var(--cream-2);color:var(--fg-dim);border-radius:999px;padding:12px 17px;font-weight:800;cursor:pointer}
 .pricing-tab.active{background:var(--ink);color:var(--cream);border-color:var(--ink)}
 .pricing-status{min-height:92px;display:grid;place-items:center;border:1px solid var(--line);border-radius:18px;background:var(--cream-2);color:var(--fg-dim);font-weight:800;text-align:center;padding:24px}
-.pricing-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.pricing-card{display:flex;flex-direction:column;gap:16px}
-.pricing-card .price{font-family:var(--serif);font-size:42px;line-height:1;color:var(--ink)}
-.pricing-card .price small{font-family:var(--sans);font-size:13px;color:var(--fg-mute);font-weight:700}
-.pricing-card ul{display:grid;gap:10px;margin:0;padding:0;list-style:none;color:var(--fg-dim);font-size:14px;line-height:1.5}
-.pricing-card li{display:flex;gap:8px}.pricing-card li:before{content:"✓";color:var(--green);font-weight:900}
-.pricing-actions{display:grid;gap:10px;margin-top:auto}.pricing-actions .btn{width:100%;justify-content:center}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;align-items:stretch}
+.pricing-card{display:flex;flex-direction:column;gap:14px;padding:28px;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.08));box-shadow:0 18px 46px rgba(18,31,47,.06)}
+.pricing-card .num{color:var(--gold-2)}
+.pricing-card h3{font-size:26px}
+.pricing-card .price{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap;font-family:var(--serif);font-size:44px;line-height:.95;color:var(--ink);letter-spacing:0}
+.pricing-card .price small{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--fg-mute);font-weight:800}
+.pricing-card .price.contact{font-size:32px;line-height:1.08}
+.pricing-card .pricing-note{min-height:22px;color:var(--fg-dim);font-size:14px;line-height:1.55}
+.pricing-card .pricing-description{min-height:48px;color:var(--fg-dim);font-size:15px;line-height:1.55}
+.pricing-card .pricing-features{width:100%;display:grid;gap:10px;margin:4px 0 0;padding:0;list-style:none;color:var(--fg-dim);font-size:14px;line-height:1.45}
+.pricing-card .pricing-features li{width:100%;display:block;list-style:none;list-style-type:none}
+.pricing-card li::marker{content:"";font-size:0;color:transparent}
+.pricing-card .pricing-features li:before{content:none}
+.pricing-card .pricing-features span{flex:1;min-width:0;white-space:normal;overflow-wrap:normal;word-break:normal}
+.pricing-actions{display:grid;gap:10px;margin-top:auto;padding-top:10px}.pricing-actions .btn{width:100%;justify-content:center}
 .comparison-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
 .comparison-table{width:100%;border-collapse:collapse;min-width:720px}
 .comparison-table th,.comparison-table td{padding:16px;border-bottom:1px solid var(--line);text-align:center;color:var(--fg-dim);font-size:14px}
@@ -303,19 +459,42 @@ footer a:hover{color:var(--ink)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}.reveal.in{opacity:1;transform:none}
 
 @media (max-width:1040px){
-  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head{grid-template-columns:1fr}
+  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head,.memory-layout,.loss-layout,.turnover-layout,.screenshot-showcase,.loss-header{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr}
   .hero-card{max-width:560px}
   .workflow{grid-template-columns:repeat(4,1fr)}
-  .grid-4,.pricing-grid,.outcome-band{grid-template-columns:repeat(2,1fr)}
+  .grid-4,.pricing-grid,.outcome-band,.memory-remember-grid,.memory-cost-grid,.memory-hero-list,.screenshot-gallery,.memory-transaction-flow{grid-template-columns:repeat(2,1fr)}
   .selector{grid-template-columns:repeat(2,1fr)}
   .outcome-band div{border-bottom:1px solid var(--line)}
   .outcome-band div:nth-child(2n){border-right:none}
 }
+@media (min-width:1041px){
+  .knowledge-loss-section{min-height:calc(100svh - 78px);display:flex;align-items:center;padding-top:46px;padding-bottom:46px}
+  .knowledge-loss-section .container{max-width:1260px}
+  .knowledge-loss-section .loss-copy h2{font-size:clamp(42px,4.4vw,64px);line-height:.98}
+  .knowledge-loss-section .memory-source-note{margin-top:0;padding:12px 14px;font-size:11px;line-height:1.4}
+}
+@media (min-width:1041px) and (max-height:940px){
+  .knowledge-loss-section{padding-top:32px;padding-bottom:32px}
+  .knowledge-loss-section .loss-copy{padding:24px}
+  .knowledge-loss-section .loss-copy h2{font-size:clamp(38px,3.7vw,54px)}
+  .knowledge-loss-section .loss-copy p{font-size:15px;line-height:1.5}
+  .knowledge-loss-section .loss-statement{padding:16px 18px;font-size:20px}
+  .knowledge-loss-section .loss-stat-card{padding:15px;gap:8px}
+  .knowledge-loss-section .loss-stat-card strong{font-size:30px}
+  .knowledge-loss-section .loss-stat-card ul{font-size:12.5px;line-height:1.36}
+}
 @media (max-width:820px){
   .nav{padding:13px 18px}.nav-links,.nav-cta{display:none}.menu-toggle{display:grid;place-items:center}.logo{min-width:auto}
-  .section{padding:78px 20px}.hero{padding:120px 20px 72px;min-height:auto}.display{font-size:clamp(43px,13vw,68px)}
-  .hero-proof,.grid-3,.grid-4,.pricing-grid,.workflow,.outcome-band,.footer-grid{grid-template-columns:1fr}
-  .status-row,.mock-job{grid-template-columns:1fr;gap:5px}
+  .section{padding:78px 20px}.hero{padding:74px 20px 54px;min-height:auto}.display{font-size:clamp(43px,13vw,68px)}
+  .btn{max-width:100%;white-space:normal;text-align:center;line-height:1.2}
+  .hero-proof,.grid-3,.grid-4,.pricing-grid,.workflow,.outcome-band,.footer-grid,.home-product-grid,.memory-cards,.memory-question-grid,.memory-path,.memory-remember-grid,.memory-cost-grid,.memory-loss-grid,.memory-compare-grid,.memory-transaction-flow,.memory-difference-row,.loss-stat-grid,.loss-list,.turnover-list,.five-year-grid,.memory-hero-list,.screenshot-gallery,.loss-header{grid-template-columns:1fr}
+  .status-row,.mock-job,.proof-row{grid-template-columns:1fr;gap:5px}
+  .memory-path div:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%)}
+  .memory-transaction-flow span:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%)}
+  .memory-narrative,.memory-flow,.memory-value,.memory-compare,.memory-transaction,.memory-difference,.memory-cost,.loss-copy,.memory-hero-panel{padding:22px}
+  .loss-stat-card{min-height:auto}
+  .loss-stat-card strong{font-size:40px}
   .cta-band{padding:46px 20px}.cta-row{align-items:flex-start;flex-direction:column}
   .eco-node,.eco-node.main{position:static;transform:none;width:auto}.ecosystem-map{display:grid;gap:12px;min-height:auto;padding:16px}
   .form-card{padding:30px 22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
@@ -330,23 +509,25 @@ footer a:hover{color:var(--ink)}
     <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
   </a>
   <div class="nav-links" id="navLinks">
+    <a href="/" data-nav="home">Home</a>
     <a href="/hvacpro" data-nav="hvacpro">HVAC Pro</a>
     <a href="/estimatepro" data-nav="estimatepro">EstimatePro</a>
     <a href="/salespro" data-nav="salespro">SalesPro</a>
     <a href="/contact" data-nav="contact">Contact</a>
   </div>
   <div class="nav-cta">
-    <a class="btn btn-login" href="/hvacpro/login" data-product-login hidden>Product Login</a>
+    <a class="btn btn-login" href="/hvacpro/login" target="_blank" rel="noopener noreferrer" data-product-login hidden>Product Login</a>
     <button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button>
   </div>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
   <a href="/hvacpro">HVAC Pro</a>
   <a href="/estimatepro">EstimatePro</a>
   <a href="/salespro">SalesPro</a>
   <a href="/contact">Contact</a>
-  <a href="/hvacpro/login" data-product-login hidden>Product Login</a>
+  <a href="/hvacpro/login" target="_blank" rel="noopener noreferrer" data-product-login hidden>Product Login</a>
   <button data-modal="demo">Schedule Workflow Review</button>
 </div>
 <div class="sticky-review" id="stickyReview"><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button></div>
@@ -389,6 +570,9 @@ footer a:hover{color:var(--ink)}
     <h3 id="modal-demo-title">Schedule a Workflow Review</h3>
     <p class="sub" id="modal-demo-description">A Workflow Review Session helps identify where your operation is getting stuck and which next step makes sense.</p>
     <form class="form-grid" data-lead-form="workflow-review" onsubmit="submitLead(event,'workflow-review')">
+      <input type="hidden" name="selected_product_slug">
+      <input type="hidden" name="selected_plan">
+      <input type="hidden" name="selected_source_page">
       <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div>
       <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div>
       <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"><label>Company</label></div>
@@ -401,6 +585,18 @@ footer a:hover{color:var(--ink)}
         <div class="success-box">Thanks — we'll contact you shortly.</div>
       </div>
     </form>
+  </div>
+</div>
+<div class="modal-backdrop" id="modal-screenshot" role="dialog" aria-modal="true" aria-labelledby="modal-screenshot-title" aria-describedby="modal-screenshot-description" tabindex="-1">
+  <div class="modal screenshot-modal">
+    <button class="modal-close" data-close aria-label="Close screenshot">✕</button>
+    <div class="screenshot-modal-body">
+      <img id="modal-screenshot-image" src="" alt="">
+      <div>
+        <h3 id="modal-screenshot-title">Product screen</h3>
+        <p id="modal-screenshot-description">SalesPro product screen preview.</p>
+      </div>
+    </div>
   </div>
 </div>
 <div class="toast-wrap" id="toasts"></div>
@@ -428,20 +624,20 @@ footer a:hover{color:var(--ink)}
     },
     hvacpro: {
       title: 'HVAC Pro - HVAC Operations Software | Cliff Group Florida',
-      description: 'HVAC Pro helps contractors coordinate scheduling, dispatch, technicians, closeout and invoice handoff.',
+      description: 'HVAC Pro helps HVAC contractors connect scheduling, dispatch, technician coordination, closeout and invoice readiness in one operational command center.',
       heroEyebrow: 'HVAC Pro operations software',
-      heroTitle: 'Coordinate dispatch, techs and invoices without the daily scramble.',
-      heroText: 'HVAC Pro helps HVAC contractors run cleaner scheduling, field coordination, closeout and invoice handoff.',
+      heroTitle: 'Run the HVAC workday from one operational command center.',
+      heroText: 'HVAC Pro gives contractors one connected workflow for scheduling, dispatch, technician status, job closeout and invoice handoff, so the office, field and ownership stop chasing different versions of the same job.',
       heroRows: [
-        ['Schedule', 'Capacity, priority and job timing in one view', 'Plan'],
-        ['Dispatch', 'Technician routes and status stay visible', 'Live'],
-        ['Closeout', 'Photos, notes and invoice handoff stay attached', 'Done']
+        ['Schedule', 'Capacity, priority and timing aligned before the day slips', 'Plan'],
+        ['Dispatch', 'Technician routes, job context and status stay visible', 'Live'],
+        ['Closeout', 'Photos, notes, parts and invoice readiness stay attached', 'Done']
       ],
       secondaryCta: ['View Plans', '#pricing'],
       heroProof: [
-        ['Schedule → Dispatch → Closeout','Keep the day easier to coordinate'],
-        ['Office + field visibility','See what is moving and what needs attention'],
-        ['Built for HVAC teams','Designed around contractor work']
+        ['Built around HVAC handoffs','Estimate, schedule, dispatch, closeout and invoice flow'],
+        ['Office + field visibility','Dispatcher, technician and office context stay aligned'],
+        ['Closeout-to-invoice continuity','Job notes, photos, parts and billing readiness stay attached']
       ]
     },
     platform: {
@@ -458,20 +654,21 @@ footer a:hover{color:var(--ink)}
     },
     estimatepro: {
       title: 'EstimatePro - AI-Assisted HVAC Estimating Software | Cliff Group Florida',
-      description: 'EstimatePro supports reviewable, estimator-controlled HVAC estimating workflows.',
-      heroEyebrow: 'EstimatePro assisted estimating',
-      heroTitle: 'Prepare HVAC estimates with reviewable, estimator-controlled support.',
-      heroText: 'EstimatePro helps contractors organize estimating work, review details and move approved estimates forward without pretending the estimator disappears.',
+      description: 'EstimatePro keeps HVAC estimating fast, reviewable and under estimator control.',
+      heroEyebrow: 'Estimator-controlled HVAC estimating',
+      heroTitle: 'EstimatePro keeps HVAC estimating fast, reviewable, and under estimator control.',
+      heroText: 'Upload plans, organize scope, review quantities, track assumptions and approve the estimate before a proposal moves forward. EstimatePro supports the estimator instead of hiding the work inside a black box.',
       heroRows: [
-        ['Upload', 'Bring the plan set or estimating context together', 'Input'],
-        ['Review', 'Estimator checks and controls the output', 'Control'],
-        ['Handoff', 'Approved scope can move toward schedule and invoice flow', 'Next']
+        ['01 Plan set uploaded', 'Drawings, notes, addenda and scope context attached', 'Reviewable'],
+        ['02 Quantity review', 'Counts and assumptions ready for estimator review', 'Visible'],
+        ['03 Scope approval', 'Exclusions, alternates and adjustments stay editable', 'Controlled'],
+        ['04 Proposal handoff', 'Approved estimate ready for the next step', 'Ready']
       ],
       secondaryCta: ['View Plans', '#pricing'],
       heroProof: [
-        ['Assisted estimating','Support for organizing estimating work'],
-        ['Estimator-controlled review','People stay in control of assumptions and scope'],
-        ['Clear handoff','Approved estimates move forward with less rework']
+        ['Not black-box estimating','Assumptions stay visible before approval'],
+        ['Estimator stays in control','People review quantities, scope and final output'],
+        ['Cleaner proposal handoff','Approved work moves forward with context attached']
       ]
     },
     salespro: {
@@ -546,13 +743,14 @@ footer a:hover{color:var(--ink)}
     route === 'salespro' ? salesPage(page) :
     homePage(page);
   setupProductLogin(route);
+  bindProductLoginNewTabs();
 
   function hero(p){
     return `<header class="hero">
       <div class="grid-bg"></div>
       <div class="container hero-layout">
         <div>
-          <span class="eyebrow reveal">${p.heroEyebrow}</span>
+          <div class="hero-eyebrow-line reveal"><span class="eyebrow">${p.heroEyebrow}</span>${route === 'salespro' ? '<a class="powered-badge" href="#smart-ops-memory" aria-label="Jump to Smart Ops Memory section">Powered by Smart Ops Memory™</a>' : ''}</div>
           <h1 class="display reveal">${p.heroTitle}</h1>
           <p class="lede reveal">${p.heroText}</p>
           <div class="hero-actions reveal">
@@ -595,30 +793,45 @@ footer a:hover{color:var(--ink)}
 
   function setupProductLogin(routeName){
     const loginUrls = {
-      hvacpro: '/hvacpro/login',
-      estimatepro: '/estimatepro/login',
-      salespro: '/salespro/login'
+      hvacpro: 'https://keen-mercy-production-1ff8.up.railway.app/#dashboard',
+      estimatepro: 'https://frontend-production-9aa65.up.railway.app/login',
+      salespro: 'https://web-production-70049.up.railway.app/salespro/login'
     };
     document.querySelectorAll('[data-product-login]').forEach(link => {
       const href = loginUrls[routeName];
       if (!href) {
         link.hidden = true;
         link.removeAttribute('aria-label');
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+        link.removeAttribute('title');
         return;
       }
       link.hidden = false;
       link.href = href;
-      link.textContent = `${productLabel(routeName)} Login`;
-      link.setAttribute('aria-label', `${productLabel(routeName)} login`);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Login';
+      link.title = `${productLabel(routeName)} app login`;
+      link.setAttribute('aria-label', `${productLabel(routeName)} app login opens in a new tab`);
     });
   }
 
+  function bindProductLoginNewTabs(){
+    document.addEventListener('click', event => {
+      const link = event.target.closest('[data-product-login]');
+      if (!link || link.hidden) return;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }, true);
+  }
+
   function homePage(p){
-    return hero(p) + painSection() + bestFitSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + estimateSection() + salesSection() + trustSection() + credibilitySection() + finalCta();
+    return hero(p) + homeProductsSection() + painSection() + bestFitSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + estimateSection() + salesSection() + trustSection() + credibilitySection() + finalCta();
   }
 
   function hvacPage(p){
-    return hero(p) + painSection() + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should work from the same operational picture.') + hvacProSection(true) + workflowDeepDive() + productPricingSection('hvacpro', 'HVAC Pro') + productFaqSection('hvacpro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for HVAC Pro');
+    return hero(p) + painSection('hvacpro') + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should work from the same operational picture.', 'hvacpro') + hvacProSection(true) + workflowDeepDive() + productPricingSection('hvacpro', 'HVAC Pro') + productFaqSection('hvacpro') + trustSection('hvacpro') + credibilitySection() + finalCta('Schedule a Workflow Review for HVAC Pro', 'Fix the handoff before adding another tool.', 'Bring the HVAC workflow that is slowing the team down most. Cliff Group will help map the cleanest next step for HVAC Pro.');
   }
 
   function platformPage(p){
@@ -626,11 +839,11 @@ footer a:hover{color:var(--ink)}
   }
 
   function estimatePage(p){
-    return hero(p) + estimatePainSection() + estimateWorkflowSection() + estimateProofSection() + estimateSection() + productPricingSection('estimatepro', 'EstimatePro') + productFaqSection('estimatepro') + productCrossLinkSection('estimatepro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for EstimatePro');
+    return hero(p) + estimateDifferenceSection() + estimatePainSection() + estimateWorkflowSection() + estimateProofSection() + estimateTeamVisibilitySection() + estimateProductCtaSection() + estimateScreenshotsSection() + productPricingSection('estimatepro', 'EstimatePro') + productFaqSection('estimatepro') + productCrossLinkSection('estimatepro') + trustSection('estimatepro') + credibilitySection() + finalCta('Schedule a Workflow Review for EstimatePro', 'Make estimating reviewable before work moves forward.', 'Bring your current estimating process to a Workflow Review. Cliff Group will help identify where EstimatePro can make review, approval and proposal handoff cleaner.');
   }
 
   function salesPage(p){
-    return hero(p) + salesWorkflowSection() + salesProofSection() + salesSection() + productPricingSection('salespro', 'SalesPro') + productFaqSection('salespro') + productCrossLinkSection('salespro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for SalesPro');
+    return hero(p) + salesMemoryHeroSection() + salesWorkflowSection() + knowledgeLossSection() + employeeTurnoverSection() + fiveYearMemorySection() + smartOpsMemorySection() + salesProofSection() + salesSection() + salesScreenshotsSection() + productPricingSection('salespro', 'SalesPro') + productFaqSection('salespro') + productCrossLinkSection('salespro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for SalesPro');
   }
 
   function pricingPage(p){
@@ -645,8 +858,25 @@ footer a:hover{color:var(--ink)}
     return hero(p) + inquiryRoutingSection() + leadFormSection('Send an inquiry', 'Choose the inquiry type and tell us what you need. Product questions can also start a Workflow Review Session.', 'contact') + productLinksSection() + credibilitySection() + finalCta('Schedule a Workflow Review');
   }
 
-  function painSection(){
-    const cards = [
+  function homeProductsSection(){
+    const products = [
+      ['HVAC Pro', '/hvacpro', 'HVAC operations software for scheduling, dispatch, technician coordination, closeout and invoice handoff.', 'Field operations'],
+      ['EstimatePro', '/estimatepro', 'AI-assisted HVAC estimating software for plan upload, quantity review, scope adjustment and proposal preparation.', 'Estimating'],
+      ['SalesPro', '/salespro', 'Small business operations software for inventory, purchase orders, customer orders, invoices and payments.', 'Back office']
+    ];
+    return `<section class="section soft" id="home"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Home</span><h2 class="h2 reveal">Choose the product you want to explore.</h2></div><p class="lede reveal">Start with the product that matches the work in front of you. Each card opens the product page with workflow examples, pricing and next steps.</p></div><div class="home-product-grid">${products.map((p,i)=>`<a class="card home-product-card reveal" href="${p[1]}"><span class="product-kicker">${p[3]}</span><div><span class="num">0${i+1}</span><h3>${p[0]}</h3><p>${p[2]}</p></div><span class="card-link">View ${p[0]} <span class="arrow">→</span></span></a>`).join('')}</div></div></section>`;
+  }
+
+  function painSection(mode){
+    const hvacMode = mode === 'hvacpro';
+    const cards = hvacMode ? [
+      ['01','Office and field are out of sync','The dispatcher, technician and office staff often work from different versions of the same job.'],
+      ['02','Schedules change faster than the team can react','Callbacks, installs, service calls and emergency work compete for the same capacity.'],
+      ['03','Technicians lack full job context','Customer notes, photos, prior work and parts needs can be scattered before the truck arrives.'],
+      ['04','Approved estimates do not flow cleanly into work','Won work often gets re-entered, re-explained or rebuilt before it becomes scheduled work.'],
+      ['05','Closeout gets trapped in the field','Completion notes, photos and parts details do not always move into invoice readiness.'],
+      ['06','Owners cannot see the operational truth','Job status, bottlenecks and billing handoff are hard to understand without asking multiple people.']
+    ] : [
       ['01','Dispatch confusion','Jobs move quickly, but the office and field do not always see the same status.'],
       ['02','Scheduling pressure','Capacity, callbacks, installs and service visits become hard to balance as the team grows.'],
       ['03','Technician coordination','Techs need job history, customer context, notes, photos and next steps before they arrive.'],
@@ -657,8 +887,8 @@ footer a:hover{color:var(--ink)}
     return `<section class="section">
       <div class="container">
         <div class="section-head">
-          <div><span class="eyebrow reveal">Operational pain</span><h2 class="h2 reveal">HVAC growth creates handoff problems before it creates software problems.</h2></div>
-          <p class="lede reveal">When the team grows, the problem is usually not one person. It is the handoff between calls, estimates, schedules, technicians, closeout and billing.</p>
+          <div><span class="eyebrow reveal">Operational pain</span><h2 class="h2 reveal">${hvacMode ? 'Generic tools track jobs. HVAC Pro protects the handoff.' : 'HVAC growth creates handoff problems before it creates software problems.'}</h2></div>
+          <p class="lede reveal">${hvacMode ? 'The daily problem is not just scheduling. It is the fragile handoff between estimate, schedule, dispatch, technician work, closeout and invoicing.' : 'When the team grows, the problem is usually not one person. It is the handoff between calls, estimates, schedules, technicians, closeout and billing.'}</p>
         </div>
         <div class="grid-3">${cards.map(c => `<article class="card reveal"><span class="num">${c[0]}</span><h3>${c[1]}</h3><p>${c[2]}</p></article>`).join('')}</div>
       </div>
@@ -677,8 +907,17 @@ footer a:hover{color:var(--ink)}
     return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Best fit for</span><h2 class="h2 reveal">Built for contractors who need cleaner daily operations.</h2></div><p class="lede reveal">Cliff Group is strongest when a growing team needs better workflow visibility without jumping straight into a heavy enterprise rollout.</p></div><div class="grid-3">${fits.map((x,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${x}</h3><p>Discuss this workflow during a focused Workflow Review Call.</p></article>`).join('')}</div></div></section>`;
   }
 
-  function hvacWorkflowSection(lede){
-    const steps = [
+  function hvacWorkflowSection(lede, mode){
+    const hvacMode = mode === 'hvacpro';
+    const steps = hvacMode ? [
+      ['Lead','Start clean','Customer need and job context enter the workflow once.'],
+      ['Estimate','Price with context','Approved scope is ready to move forward without rebuilding the story.'],
+      ['Schedule','Plan capacity','Work lands on the calendar with priority, timing and resource awareness.'],
+      ['Dispatch','Run the day','Technician assignments, routes and status stay visible to the office.'],
+      ['Complete','Close out the work','Photos, notes, parts and completion details stay attached to the job.'],
+      ['Invoice','Prepare billing','Closeout details move toward invoice readiness instead of sitting in the field.'],
+      ['Report','See what happened','Owners can review the workday, handoffs and bottlenecks with less chasing.']
+    ] : [
       ['Lead','Capture demand','Customer and opportunity details start clean.'],
       ['Estimate','Price the work','EstimatePro supports reviewable estimating.'],
       ['Schedule','Plan capacity','Approved work becomes scheduled work.'],
@@ -690,31 +929,39 @@ footer a:hover{color:var(--ink)}
     return `<section class="section dark" id="workflow">
       <div class="container">
         <span class="eyebrow reveal">HVAC workflow</span>
-        <h2 class="h2 reveal" style="margin:14px 0 14px">Connect the path from lead to reporting.</h2>
-        <p class="lede reveal">${lede || 'Every job should move through a clear operating path: estimate, schedule, dispatch, complete, invoice, payment and reporting.'}</p>
+        <h2 class="h2 reveal" style="margin:14px 0 14px">${hvacMode ? 'Built around the HVAC operating loop.' : 'Connect the path from lead to reporting.'}</h2>
+        <p class="lede reveal">${hvacMode ? 'HVAC Pro is designed around how work actually moves: lead, estimate, schedule, dispatch, completion, invoice and reporting. The point is not more screens. The point is fewer handoff gaps.' : (lede || 'Every job should move through a clear operating path: estimate, schedule, dispatch, complete, invoice, payment and reporting.')}</p>
         <div class="workflow">${steps.map(s => `<div class="step reveal"><span>${s[0]}</span><b>${s[1]}</b><p>${s[2]}</p></div>`).join('')}</div>
       </div>
     </section>`;
   }
 
   function hvacProSection(deep){
+    const headline = deep ? 'The command center generic field-service software forgot to build.' : 'The daily command center for HVAC teams.';
+    const copy = deep ? 'HVAC Pro keeps the HVAC workday connected across scheduling, dispatch, technician updates, job closeout and invoice handoff. It is built for the office, the field and the owner seeing the same operational picture.' : 'HVAC Pro helps the office coordinate scheduling, dispatch, technician status, job closeout and invoice handoff from one operational flow.';
+    const rows = deep ? [
+      ['Job #2418','Commercial service call','Tech assigned'],
+      ['Dispatch status','Mike R. en route with job context','Live'],
+      ['Field update','Parts required, photos attached','Review'],
+      ['Closeout','Work complete, invoice ready','Billing']
+    ] : [
+      ['Job #2418','Commercial service call','Tech assigned'],
+      ['Customer site','Dispatch confirmed','In progress'],
+      ['Work completed','Photos and notes attached','Closeout'],
+      ['Invoice ready','Office handoff complete','Billing']
+    ];
     return `<section class="section soft" id="hvacpro-overview">
       <div class="container feature-split">
         <div>
           <span class="eyebrow reveal">HVAC Pro</span>
-          <h2 class="h2 reveal">The daily command center for HVAC teams.</h2>
-          <p class="lede reveal" style="margin-top:16px">HVAC Pro helps the office coordinate scheduling, dispatch, technician status, job closeout and invoice handoff from one operational flow.</p>
+          <h2 class="h2 reveal">${headline}</h2>
+          <p class="lede reveal" style="margin-top:16px">${copy}</p>
           <div class="section-actions reveal"><a class="btn btn-primary" href="/hvacpro">Explore HVAC Pro <span class="arrow">→</span></a><button class="btn btn-ghost" data-modal="demo">Schedule Workflow Review</button></div>
         </div>
         <div class="mock-board reveal">
           <div class="mock-toolbar"><b>Dispatch board</b><span class="live-pill">Live</span></div>
           <div class="mock-grid">
-            ${[
-              ['Job #2418','Commercial service call','Tech assigned'],
-              ['Customer site','Dispatch confirmed','In progress'],
-              ['Work completed','Photos and notes attached','Closeout'],
-              ['Invoice ready','Office handoff complete','Billing']
-            ].map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}
+            ${rows.map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}
           </div>
         </div>
       </div>
@@ -772,57 +1019,375 @@ footer a:hover{color:var(--ink)}
     return moduleSection('EstimatePro','AI-assisted HVAC estimating software','EstimatePro supports assisted, reviewable estimating workflows while keeping estimator review and approval at the center.','/estimatepro','Explore EstimatePro');
   }
 
+  function estimateDifferenceSection(){
+    const items = [
+      ['Estimator stays in control','EstimatePro helps organize drawings, quantities and assumptions, but the estimator reviews and approves the final estimate.'],
+      ['Assumptions stay visible','Scope decisions, exclusions, alternates and quantity notes stay tied to the work instead of disappearing into scattered files.'],
+      ['Handoff is cleaner','Approved estimates can move toward proposal, scheduling and operations with the review trail attached.'],
+      ['Built for HVAC work','The workflow is shaped around drawings, equipment, scope notes, quantity checks and contractor review habits.']
+    ];
+    return `<section class="section dark"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Why EstimatePro is different</span><h2 class="h2 reveal">Not a black-box estimator. A reviewable estimating workflow.</h2></div><p class="lede reveal">EstimatePro gives estimating teams structure without pretending software should replace estimator judgment.</p></div><div class="grid-4">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
   function estimatePainSection(){
     const items = [
       ['Plan review takes too long','Estimators lose time organizing drawings, notes, quantities and assumptions before pricing can begin.'],
-      ['Assumptions are hard to track','Scope decisions need to stay visible so the estimate can be reviewed before it goes out.'],
-      ['Handoff gets messy','Approved estimates should be easier to move into scheduling, job planning and customer follow-up.']
+      ['Assumptions disappear','Scope decisions, exclusions and alternates often live in comments, emails or memory instead of the estimate workflow.'],
+      ['Approval is unclear','Teams need to know what was reviewed, adjusted and approved before a proposal leaves the estimating desk.'],
+      ['Operations gets a messy handoff','Approved estimates should move forward with enough context for scheduling, job planning and follow-up.']
     ];
-    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Estimating pain</span><h2 class="h2 reveal">EstimatePro is built for reviewable estimating work.</h2></div><p class="lede reveal">The goal is not to replace estimator judgment. The goal is to make estimating work easier to organize, review and approve.</p></div><div class="grid-3">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Estimating pain</span><h2 class="h2 reveal">HVAC estimating breaks down when the work is hard to review.</h2></div><p class="lede reveal">The goal is not to automate away estimator judgment. The goal is to make estimating work easier to organize, inspect, approve and hand off.</p></div><div class="grid-4">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
   }
 
   function estimateWorkflowSection(){
     const steps = [
-      ['Upload drawings','Bring plans, notes and scope context together.'],
-      ['Review takeoff','Use assisted support to organize what needs review.'],
-      ['Adjust quantities','Estimator checks counts, assumptions and scope details.'],
-      ['Approve estimate','Confirm the estimate before it moves forward.'],
-      ['Prepare proposal','Package the approved estimate for the next step.'],
+      ['Upload plans','Bring drawings, notes, addenda and scope context together.'],
+      ['Organize scope','Keep exclusions, alternates and estimate context visible.'],
+      ['Review quantities','Estimator checks counts, assumptions and scope details.'],
+      ['Adjust estimate','Modify quantities, scope and notes before approval.'],
+      ['Approve scope','Confirm the estimate before it moves forward.'],
+      ['Generate proposal','Package approved work into a cleaner next step.'],
       ['Send to operations','Move approved work toward scheduling and handoff.']
     ];
-    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">EstimatePro workflow</span><h2 class="h2 reveal">Assisted estimating should stay reviewable.</h2></div><p class="lede reveal">EstimatePro adds structure to estimating while keeping output reviewable, assumptions visible and estimator control at the center.</p></div><div class="workflow">${steps.map((c,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${c[0]}</b><p>${c[1]}</p></div>`).join('')}</div></div></section>`;
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">EstimatePro workflow</span><h2 class="h2 reveal">From plan upload to approved proposal, every step stays reviewable.</h2></div><p class="lede reveal">EstimatePro adds structure to estimating while keeping output reviewable, assumptions visible and estimator control at the center.</p></div><div class="workflow">${steps.map((c,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${c[0]}</b><p>${c[1]}</p></div>`).join('')}</div></div></section>`;
   }
 
   function estimateProofSection(){
-    const rows = [
-      ['Upload Plans','Plan set, scope notes and project context are attached before review begins.','Input'],
-      ['Review Quantities','Estimator checks quantities, assumptions and any assisted suggestions.','Review'],
-      ['Adjust Scope','Scope items can be changed before the estimate is approved.','Control'],
-      ['Approve Estimate','Final approval stays with the estimator before proposal work begins.','Approved'],
-      ['Prepare Proposal','Approved numbers and scope move into a cleaner customer-ready proposal.','Proposal'],
-      ['Send To Operations','Accepted work can move toward scheduling, dispatch and invoice handoff.','Next']
+    const checks = [
+      ['Plan set attached','Mechanical drawings, notes and addenda stay connected to the estimate.'],
+      ['Quantity review','Counts and assumptions are visible before approval.'],
+      ['Scope decisions','Exclusions, alternates and adjustments stay attached to the work.'],
+      ['Estimator approval','Final approval remains with the estimator before proposal generation.'],
+      ['Proposal package','Approved estimate is prepared for customer review and next-step handoff.']
     ];
     return `<section class="section"><div class="container feature-split">
       <div>
         <span class="eyebrow reveal">Estimator control</span>
-        <h2 class="h2 reveal">Show the estimating work before it moves forward.</h2>
-        <p class="lede reveal" style="margin-top:16px">EstimatePro should feel like a professional estimating assistant: organize the work, make review easier, and keep approval with the estimator.</p>
-        <div class="outcome-band reveal" style="margin-top:28px">
-          <div><strong>Review before approval</strong><span>Nothing needs to move forward until a person checks it.</span></div>
-          <div><strong>Adjust quantities</strong><span>Counts and assumptions remain editable during review.</span></div>
-          <div><strong>Modify scope</strong><span>Scope decisions stay visible before the proposal goes out.</span></div>
-          <div><strong>Estimator signs off</strong><span>Final approval remains controlled by the estimating team.</span></div>
-        </div>
+        <h2 class="h2 reveal">Make the estimate defendable before it leaves the estimating desk.</h2>
+        <p class="lede reveal" style="margin-top:16px">EstimatePro gives the team a structured review layer so drawings, assumptions, quantities, scope changes and approval status are visible before the proposal moves forward.</p>
+        <div class="proof-timeline reveal" style="margin-top:28px">${checks.map((item,i)=>`<div><span>0${i+1}</span><p><b>${item[0]}</b><small>${item[1]}</small></p></div>`).join('')}</div>
       </div>
-      <div class="mock-board reveal">
-        <div class="mock-toolbar"><b>Estimate workspace</b><span class="live-pill">Review</span></div>
-        <div class="mock-grid">${rows.map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}</div>
+      <div class="proof-stack reveal">
+        <div class="proof-panel">
+          <h3>Plan upload</h3>
+          <div class="proof-row"><span>Project</span><b>Riverside Office TI</b><i>Mechanical</i></div>
+          <div class="proof-row"><span>Sheets</span><b>18 drawings attached</b><i>Ready</i></div>
+          <div class="proof-row"><span>Addenda</span><b>Addendum 02 attached</b><i>Included</i></div>
+          <div class="proof-row"><span>Scope</span><b>Mechanical renovation with lobby alternate</b><i>Open</i></div>
+          <div class="proof-row"><span>Status</span><b>Ready for estimator review</b><i>Review</i></div>
+          <div class="proof-meta"><span>Upload Plans</span><span>Estimator intake</span></div>
+        </div>
+        <div class="proof-panel light">
+          <h3>Estimator review</h3>
+          <div class="proof-row"><span>Supply diffusers</span><b>42 counted</b><i>Review</i></div>
+          <div class="proof-row"><span>VAV boxes</span><b>9 counted</b><i>Confirm</i></div>
+          <div class="proof-row"><span>Alternate lobby zone</span><b>Excluded from base bid</b><i>Adjusted</i></div>
+          <div class="proof-row"><span>RTU note</span><b>Crane coordination required</b><i>Visible</i></div>
+          <div class="proof-meta"><span>Adjust quantities</span><span>Approve scope</span><span>Generate proposal</span></div>
+        </div>
       </div>
     </div></section>`;
   }
 
+  function estimateTeamVisibilitySection(){
+    const items = [
+      ['For estimators','Keep plan context, quantity checks, assumptions and scope decisions visible before final approval.'],
+      ['For project managers','See what was approved and what assumptions matter before work moves into planning.'],
+      ['For operations','Receive a cleaner handoff with scope context, proposal status and next-step notes attached.'],
+      ['For ownership','Understand where estimating work is stuck and which workflow needs support first.']
+    ];
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Team visibility</span><h2 class="h2 reveal">What EstimatePro gives your team.</h2></div><p class="lede reveal">A better estimating workflow helps more than the person building the estimate. It gives the next team clearer context before work moves forward.</p></div><div class="grid-4">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+  }
+
+  function estimateProductCtaSection(){
+    return `<section class="section">
+      <div class="container feature-split">
+        <div class="mock-board reveal">
+          <div class="mock-toolbar"><b>EstimatePro</b><span class="live-pill">Estimator-controlled</span></div>
+          <div class="mock-grid">
+            ${[
+              ['Plan review','Organized'],
+              ['Quantity check','Reviewable'],
+              ['Scope approval','Controlled'],
+              ['Proposal handoff','Ready']
+            ].map((x,i) => `<div class="mock-job"><span>0${i+1}</span><b>${x[0]}</b><i>${x[1]}</i></div>`).join('')}
+          </div>
+        </div>
+        <div>
+          <span class="eyebrow reveal">EstimatePro</span>
+          <h2 class="h2 reveal">Bring estimating discipline into the daily workflow.</h2>
+          <p class="lede reveal" style="margin-top:16px">EstimatePro supports plan review, quantity checks, scope assumptions, approval and proposal prep without automating away estimator judgment.</p>
+          <div class="section-actions reveal"><a class="btn btn-primary" href="/estimatepro#pricing">View EstimatePro Plans <span class="arrow">→</span></a><button class="btn btn-ghost" data-modal="demo" data-product-interest="EstimatePro">Schedule Workflow Review</button></div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function estimateScreenshotsSection(){
+    const screenshots = [
+      ['/assets/estimatepro/import-bid-email.png', 'Import bid from email', 'Paste bid invitations and turn incoming context into a starting point for estimating work.'],
+      ['/assets/estimatepro/contractors-empty.png', 'General contractors', 'Keep contractor records available before estimate requests and follow-up work begin.'],
+      ['/assets/estimatepro/import-contractor-email.png', 'Import contractor details', 'Capture contractor information from email so estimating context starts cleaner.'],
+      ['/assets/estimatepro/integrations.png', 'Integrations', 'Connect AI services for document analysis and email parsing when the team is ready.']
+    ];
+    return `<section class="section soft" id="estimatepro-product-screens">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow reveal">Product screens</span><h2 class="h2 reveal">See the EstimatePro workspace before the first project is created.</h2></div>
+          <p class="lede reveal">These real empty-state product views show where projects, bid imports, contractors and integrations live before estimating work begins.</p>
+        </div>
+        <div class="screenshot-showcase">
+          <button class="screenshot-frame reveal" type="button" data-screenshot="/assets/estimatepro/dashboard-empty.png" data-screenshot-title="EstimatePro dashboard" data-screenshot-description="The project dashboard gives estimators a clean starting point for uploads, bid imports and first project setup.">
+            <img src="/assets/estimatepro/dashboard-empty.png" alt="EstimatePro dashboard empty state with project creation action" loading="lazy">
+          </button>
+          <div class="screenshot-copy reveal">
+            <div>
+              <span class="eyebrow">Estimating workspace</span>
+              <h3>Start from a clean project intake.</h3>
+              <p>EstimatePro begins with a simple project workspace, contractor context and import paths so estimating work can be organized before review and approval.</p>
+            </div>
+            <div class="screenshot-points">
+              <div><b>Project intake</b><span>Create the first project and attach the drawings or bid context that estimators need.</span></div>
+              <div><b>Email import</b><span>Use bid invitation content to speed up data entry while keeping the estimator in control.</span></div>
+              <div><b>Contractor records</b><span>Keep general contractor contacts and bid context closer to the estimate workflow.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-gallery">
+          ${screenshots.map(([src,title,text])=>`<button class="screenshot-thumb reveal" type="button" data-screenshot="${src}" data-screenshot-title="${title}" data-screenshot-description="${text}"><img src="${src}" alt="EstimatePro ${title}" loading="lazy"><div><b>${title}</b><span>${text}</span></div></button>`).join('')}
+        </div>
+      </div>
+    </section>`;
+  }
+
   function salesSection(){
     return moduleSection('SalesPro','Small business operations software','SalesPro gives small businesses one practical place for inventory, orders, invoices, purchasing, payments and business visibility without heavy back-office complexity.','/salespro','Explore SalesPro');
+  }
+
+  function salesMemoryHeroSection(){
+    const memories = ['Every customer preference.','Every pricing decision.','Every supplier lesson.','Every operational exception.','Every successful resolution.'];
+    return `<section class="section dark memory-hero-section">
+      <div class="container">
+        <div class="memory-hero-panel reveal">
+          <span class="eyebrow">Powered By Smart Ops Memory™</span>
+          <h2 class="h2">The System That Doesn’t Let Your Company Forget.</h2>
+          <p>Most software stores transactions. SalesPro stores operational knowledge.</p>
+          <div class="memory-hero-list">${memories.map(item=>`<span>${item}</span>`).join('')}</div>
+          <p style="margin-top:24px">The result is a business that becomes smarter every year instead of starting over every time someone leaves.</p>
+          <strong class="memory-hero-close">Your products can be copied. Your pricing can be matched. Your experience is your competitive advantage. SalesPro helps you keep it.</strong>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function knowledgeLossSection(){
+    const cards = [
+      ['$500K Revenue','$10K-$25K','Forgotten preferences','Pricing inconsistencies','Onboarding delays'],
+      ['$1M-$5M Revenue','$25K-$150K','Operational delays','Customer relationship loss','Duplicate work'],
+      ['$5M-$20M Revenue','$150K-$750K','Undocumented procedures','Decision history loss','Recurring errors'],
+      ['$20M+ Revenue','$750K-Millions','Leadership transitions','Fragmented systems','Repeated problem solving']
+    ];
+    return `<section class="section dark knowledge-loss-section" id="knowledge-loss">
+      <div class="container loss-layout">
+        <div class="loss-header">
+          <div class="loss-copy reveal">
+            <span class="eyebrow">The Hidden Cost Of Forgetting</span>
+            <h2 class="h2">Most businesses lose money because knowledge disappears.</h2>
+          </div>
+          <div class="loss-copy reveal">
+            <p>Most businesses lose money every year because important knowledge is not documented, searchable, or retained.</p>
+            <p>Customer preferences, pricing decisions, vendor experience, past mistakes and successful resolutions should not disappear into email threads or employee memory.</p>
+          </div>
+        </div>
+        <strong class="loss-statement reveal">SalesPro is the system that doesn't let your company forget.</strong>
+        <div class="loss-stat-grid">
+          ${cards.map(([revenue,loss,...examples])=>`<article class="loss-stat-card reveal"><span class="loss-revenue">${revenue}</span><strong>${loss}</strong><span class="loss-label">Estimated Annual Impact</span><ul>${examples.map(item=>`<li>${item}</li>`).join('')}</ul></article>`).join('')}
+        </div>
+        <p class="memory-source-note reveal">Illustrative estimates based on productivity-loss, employee-turnover, and knowledge-management research. Actual impact varies by organization.</p>
+      </div>
+    </section>`;
+  }
+
+  function employeeTurnoverSection(){
+    const items = ['Every order.','Every customer.','Every decision.','Every exception.','Every resolution.'];
+    return `<section class="section dark">
+      <div class="container turnover-layout">
+        <div class="loss-copy reveal">
+          <span class="eyebrow">Your Best Employee Will Eventually Leave</span>
+          <h2 class="h2">Your Best Employee Will Eventually Leave.</h2>
+          <p class="memory-tagline">The question is: Will their knowledge leave too?</p>
+          <p>Most companies store critical operating knowledge inside people. SalesPro stores it inside the business.</p>
+          <ul class="turnover-list">${items.map(item=>`<li>${item}</li>`).join('')}</ul>
+          <p>Smart Ops Memory™ transforms daily experience into permanent operational knowledge.</p>
+          <p>When employees leave, companies often lose years of experience. With Smart Ops Memory™, context, decisions, procedures and lessons remain searchable and available to the next person.</p>
+        </div>
+        <div class="turnover-quote reveal"><strong>Knowledge Should Survive Employee Turnover.</strong></div>
+      </div>
+    </section>`;
+  }
+
+  function fiveYearMemorySection(){
+    const traditional = ['Thousands of transactions','Thousands of emails','Scattered spreadsheets','Multiple employee changes','Missing context','Forgotten decisions','Repeated mistakes','Knowledge trapped in individuals'];
+    const memory = ['Complete operational history','Searchable decisions','Customer preferences preserved','Pricing history available','Supplier experience retained','Proven resolutions documented','Faster onboarding','Better consistency','Smarter decision making'];
+    return `<section class="section dark">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow reveal">What Happens After Five Years?</span><h2 class="h2 reveal">The business either forgets, or it compounds what it has learned.</h2></div><p class="lede reveal">SalesPro turns daily operations into a record your company can keep using long after individual transactions are closed.</p></div>
+        <div class="five-year-grid">
+          <div class="five-year-card reveal"><h3>Traditional Software</h3><p>Five years later:</p><ul>${traditional.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+          <div class="five-year-card with reveal"><h3>SalesPro + Smart Ops Memory™</h3><p>Five years later:</p><ul>${memory.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+        </div>
+        <strong class="five-year-statement reveal">The business becomes smarter every year.</strong>
+      </div>
+    </section>`;
+  }
+
+  function smartOpsMemorySection(){
+    const knowledgeCards = [
+      ['Customer Preference','Preferred delivery on Thursdays'],
+      ['Pricing History','Special pricing approved by Operations Manager'],
+      ['Supplier Note','Supplier resolved similar issue in March'],
+      ['Order History','Previous replacement part used successfully'],
+      ['Internal Procedure','Follow-up inspection required before invoicing'],
+      ['Team Expertise','Operations note saved for the next order']
+    ];
+    const remembers = [
+      'Customer Preferences',
+      'Special Pricing Agreements',
+      'Product-Specific Instructions',
+      'Supplier Requirements',
+      'Delivery Notes',
+      'Internal Procedures',
+      'Purchasing Decisions',
+      'Delivery Instructions',
+      'Sales Conversations',
+      'Operational History',
+      'Approval Decisions',
+      'Problem Resolutions'
+    ];
+    const withoutMemory = ['Employee memory','Email threads','Text messages','Paper notes','Spreadsheets','Sticky notes'];
+    const withoutProblems = ['Knowledge leaves when employees leave','Teams repeat mistakes','Customer preferences are forgotten','Important decisions disappear','New employees start from zero'];
+    const withBenefits = ['Knowledge stays with the company','Decisions remain searchable','Customer history stays available','Teams review previous solutions','New employees inherit context','Operational knowledge compounds over time','Historical decisions stay visible','Fewer repeated mistakes','Faster onboarding','Better customer consistency','Stronger operational discipline'];
+    const questions = [
+      'How was this customer handled before?',
+      'Why was this pricing approved?',
+      'Which supplier solved this issue?',
+      'What happened on the last order?',
+      'How was this problem resolved?'
+    ];
+    const path = [
+      ['Question','A team member needs context before acting.'],
+      ['Search Memory','SalesPro surfaces related notes, history, decisions, approvals and previous actions.'],
+      ['Previous Resolution','The team sees what worked last time.'],
+      ['Recommended Next Step','Work moves forward with confidence.']
+    ];
+    const transactionFlow = ['Lead','Opportunity','Customer','Order','Invoice','Payment','Smart Ops Memory™'];
+    const comparisonRows = [
+      ['Stores contacts','Stores operational knowledge'],
+      ['Stores transactions','Stores decisions'],
+      ['Stores invoices','Stores context'],
+      ['Stores orders','Stores historical reasoning'],
+      ['Requires employees to remember context','Learns from every transaction'],
+      ['Knowledge becomes fragmented','Knowledge stays centralized'],
+      ['Experience leaves with employees','Experience becomes a company asset']
+    ];
+    return `<section class="section dark memory-section" id="smart-ops-memory">
+      <div class="container">
+        <div class="memory-layout">
+          <div class="memory-narrative reveal">
+            <span class="eyebrow">Smart Ops Memory™</span>
+            <h2 class="h2">Your business remembers everything.</h2>
+            <p class="memory-tagline">Operational Memory Infrastructure for Small and Mid-Sized Businesses.</p>
+            <strong class="memory-slogan">Most software stores data. Smart Ops Memory stores experience.</strong>
+            <p>Every customer interaction, order, invoice, purchase, approval, note, task and operational decision becomes part of your company's operational memory.</p>
+            <p>Instead of relying on employee memory, spreadsheets, emails and tribal knowledge, your business builds a permanent operating record that stays with the company.</p>
+            <div class="section-actions"><button class="btn btn-primary" data-modal="demo" data-product-interest="SalesPro">Schedule Workflow Review <span class="arrow">→</span></button></div>
+          </div>
+          <div class="memory-cards">
+            ${knowledgeCards.map(([label,value])=>`<div class="memory-card reveal"><span>${label}</span><b>${value}</b></div>`).join('')}
+          </div>
+        </div>
+        <div class="memory-remember reveal">
+          <h3>Never Lose Critical Knowledge</h3>
+          <div class="memory-remember-grid">
+            ${remembers.map(item=>`<div>${item}</div>`).join('')}
+          </div>
+        </div>
+        <div class="memory-compare reveal">
+          <h3>Stop Paying To Learn The Same Lesson Twice.</h3>
+          <div class="memory-compare-grid">
+            <div class="memory-compare-card"><b>Without Smart Ops Memory</b><ul>${withoutMemory.map(item=>`<li>${item}</li>`).join('')}${withoutProblems.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+            <div class="memory-compare-card with"><b>With Smart Ops Memory</b><ul>${withBenefits.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+          </div>
+        </div>
+        <div class="memory-flow reveal">
+          <h3>Every Answer Already Exists Somewhere. Smart Ops Memory Helps You Find It.</h3>
+          <p class="memory-flow-copy" style="margin:0 0 18px">Instead of asking coworkers, digging through emails or searching shared drives, teams can locate the operational context they need before making decisions.</p>
+          <div class="memory-question-grid">
+            ${questions.map(item=>`<span>${item}</span>`).join('')}
+          </div>
+          <div class="memory-path">
+            ${path.map(([label,value])=>`<div><span>${label}</span><b>${value}</b></div>`).join('')}
+          </div>
+          <p class="memory-flow-copy">A team member gets the context they need before acting, sees what worked last time and moves forward without hunting through scattered files or asking around the office.</p>
+        </div>
+        <div class="memory-transaction reveal">
+          <h3>Powered By Every Transaction</h3>
+          <p>Every transaction makes your company smarter. Smart Ops Memory grows automatically as leads, opportunities, customer interactions, quotes, orders, invoices, payments, approvals, tasks, shipments and operational decisions contribute to the memory layer. No additional data entry required.</p>
+          <div class="memory-transaction-flow">${transactionFlow.map(item=>`<span>${item}</span>`).join('')}</div>
+        </div>
+        <div class="memory-difference reveal">
+          <h3>Why SalesPro Is Different</h3>
+          <div class="memory-difference-table">
+            <div class="memory-difference-row"><div>Traditional Business Software</div><div>SalesPro + Smart Ops Memory™</div></div>
+            ${comparisonRows.map(([traditional,salespro])=>`<div class="memory-difference-row"><div>${traditional}</div><div>${salespro}</div></div>`).join('')}
+          </div>
+        </div>
+        <div class="memory-value reveal">
+          <h3>Employees Come And Go. Knowledge Should Stay.</h3>
+          <p>Every action inside SalesPro contributes to your company’s operational memory. The more your team uses the system, the smarter and more valuable it becomes.</p>
+          <p>Companies without operational memory repeat the same mistakes. Companies with Smart Ops Memory build a competitive advantage that compounds year after year.</p>
+          <strong class="memory-closing">The Most Valuable Asset In Your Business Is Not Inventory. It Is Accumulated Experience.</strong>
+          <div class="section-actions"><button class="btn btn-primary" data-modal="demo" data-product-interest="SalesPro">Schedule Workflow Review <span class="arrow">→</span></button><button class="btn btn-ghost" data-modal="demo" data-product-interest="SalesPro">Request Demo</button></div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function salesScreenshotsSection(){
+    const screenshots = [
+      ['/assets/salespro/smart-ops-snapshot.jpg', 'Smart Ops snapshot', 'Recommendations, risks, predictions and next best actions stay visible.'],
+      ['/assets/salespro/orders.jpg', 'Orders workspace', 'Track customer orders, fulfillment status, approvals and backorder risk.'],
+      ['/assets/salespro/invoices.jpg', 'Invoice management', 'See open, paid and overdue invoices with fast follow-up actions.'],
+      ['/assets/salespro/customer-portal.jpg', 'Customer portal', 'Give customers a clean invoice view with payment and download actions.']
+    ];
+    return `<section class="section soft" id="salespro-product-screens">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow reveal">Product screens</span><h2 class="h2 reveal">See how SalesPro looks in daily operations.</h2></div>
+          <p class="lede reveal">Real product views help buyers understand that SalesPro is not another spreadsheet wrapper. It gives the team a working place for orders, inventory, invoices, customer records and operational memory.</p>
+        </div>
+        <div class="screenshot-showcase">
+          <button class="screenshot-frame reveal" type="button" data-screenshot="/assets/salespro/dashboard.jpg" data-screenshot-title="SalesPro dashboard" data-screenshot-description="Revenue, invoices, orders, outstanding balances and Smart Ops Memory signals in one operating view.">
+            <img src="/assets/salespro/dashboard.jpg" alt="SalesPro dashboard with revenue, invoices, orders and Smart Ops Memory snapshot" loading="lazy">
+          </button>
+          <div class="screenshot-copy reveal">
+            <div>
+              <span class="eyebrow">Dashboard</span>
+              <h3>Business context at login.</h3>
+              <p>The dashboard keeps revenue, open invoices, orders, outstanding balance and operational signals in one place so owners and admins can see what needs attention first.</p>
+            </div>
+            <div class="screenshot-points">
+              <div><b>Operational snapshot</b><span>Approvals, overdue invoices, low stock and backorder risks are surfaced quickly.</span></div>
+              <div><b>Next best actions</b><span>SalesPro turns daily activity into recommended follow-up work.</span></div>
+              <div><b>Connected records</b><span>Orders, invoices, products and customer context stay tied together.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-gallery">
+          ${screenshots.map(([src,title,text])=>`<button class="screenshot-thumb reveal" type="button" data-screenshot="${src}" data-screenshot-title="${title}" data-screenshot-description="${text}"><img src="${src}" alt="SalesPro ${title}" loading="lazy"><div><b>${title}</b><span>${text}</span></div></button>`).join('')}
+        </div>
+      </div>
+    </section>`;
   }
 
   function salesWorkflowSection(){
@@ -838,19 +1403,35 @@ footer a:hover{color:var(--ink)}
   }
 
   function salesProofSection(){
-    const panels = [
-      ['Inventory','34 units available','Reorder threshold active','Live stock'],
-      ['Purchase Order','PO-1074','Pending supplier confirmation','Purchasing'],
-      ['Invoice','INV-2081','Awaiting payment','Billing'],
-      ['Customer Order','Order #5326','Ready for fulfillment','Orders']
-    ];
-    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">SalesPro in practice</span><h2 class="h2 reveal">Daily business work should be visible without a spreadsheet hunt.</h2></div><p class="lede reveal">SalesPro is built around everyday records small teams already manage: stock, purchase orders, invoices, payments and customer orders.</p></div><div class="grid-4">${panels.map((p,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${p[0]}</h3><p><strong>${p[1]}</strong></p><p>${p[2]}</p><span class="live-pill" style="margin-top:16px">${p[3]}</span></article>`).join('')}</div></div></section>`;
+    return `<section class="section"><div class="container">
+      <div class="section-head"><div><span class="eyebrow reveal">SalesPro in practice</span><h2 class="h2 reveal">Daily business work should be visible without a spreadsheet hunt.</h2></div><p class="lede reveal">SalesPro is built around everyday records small teams already manage: stock, purchase orders, invoices, payments and customer orders.</p></div>
+      <div class="proof-grid">
+        <div class="proof-panel reveal">
+          <h3>Business operations snapshot</h3>
+          <div class="proof-row"><span>Inventory</span><b>34 condenser pads available</b><i>Live stock</i></div>
+          <div class="proof-row"><span>Purchase order</span><b>PO-1074 pending supplier confirmation</b><i>Purchasing</i></div>
+          <div class="proof-row"><span>Customer order</span><b>Order #5326 ready for fulfillment</b><i>Orders</i></div>
+          <div class="proof-row"><span>Invoice</span><b>INV-2081 awaiting payment</b><i>Billing</i></div>
+          <div class="proof-row"><span>Payment</span><b>ACH link sent to customer</b><i>Open</i></div>
+        </div>
+        <div class="proof-panel light reveal">
+          <h3>What you see</h3>
+          <p class="lede" style="font-size:16px">This view represents the daily back-office work a small business owner or admin checks before orders, purchasing and invoicing drift into separate spreadsheets.</p>
+          <div class="proof-meta"><span>Owner</span><span>Office admin</span><span>Inventory lead</span></div>
+          <div class="proof-timeline" style="margin-top:18px">
+            <div><span>01</span><p><b>Inventory snapshot</b><small>See what is available and what needs reorder attention.</small></p></div>
+            <div><span>02</span><p><b>Order and purchase activity</b><small>Keep customer orders and supplier follow-up in the same view.</small></p></div>
+            <div><span>03</span><p><b>Invoice and payment status</b><small>Track what is billed, paid and still waiting.</small></p></div>
+          </div>
+        </div>
+      </div>
+    </div></section>`;
   }
 
   function productCrossLinkSection(product){
     const links = {
       hvacpro: ['Need estimating?', 'View EstimatePro', '/estimatepro', 'EstimatePro helps organize reviewable HVAC estimating before work moves into scheduling and dispatch.'],
-      estimatepro: ['Need scheduling and dispatch?', 'View HVAC Pro', '/hvacpro', 'HVAC Pro helps move approved work into schedule, dispatch, closeout and invoice handoff.'],
+      estimatepro: ['After the estimate is approved, keep the handoff moving.', 'View HVAC Pro', '/hvacpro', 'EstimatePro controls the estimating review. HVAC Pro helps move approved work into scheduling, dispatch, closeout and invoice handoff.'],
       salespro: ['Need field operations?', 'View HVAC Pro', '/hvacpro', 'HVAC Pro is built for dispatch, technician coordination, closeout and field visibility.']
     };
     const item = links[product];
@@ -878,12 +1459,34 @@ footer a:hover{color:var(--ink)}
   }
 
   function workflowDeepDive(){
-    const items = [
-      ['Job #2418','Commercial Service Call','Assigned: Mike R.','Status: In Progress'],
-      ['Technician Update','Parts Installed','Photos Attached','Ready For Review'],
-      ['Closeout Complete','Invoice Ready','Awaiting Payment','Billing Handoff']
-    ];
-    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">HVAC Pro in practice</span><h2 class="h2 reveal">Real workflows need clear status, not more scattered notes.</h2></div><div class="grid-3">${items.map((i,n)=>`<article class="card reveal"><span class="num">0${n+1}</span><h3>${i[0]}</h3><p><strong>${i[1]}</strong></p><p>${i[2]}</p><span class="live-pill" style="margin-top:16px">${i[3]}</span></article>`).join('')}</div></div></section>`;
+    return `<section class="section"><div class="container">
+      <div class="section-head"><div><span class="eyebrow reveal">HVAC Pro in practice</span><h2 class="h2 reveal">Every role sees the same job, without needing the same screen.</h2></div><p class="lede reveal">HVAC Pro makes the service call easier to understand from each seat: dispatch sees the day, technicians see the work, the office sees closeout, and ownership sees what is actually moving.</p></div>
+      <div class="proof-grid">
+        <div class="proof-panel reveal">
+          <h3>Dispatch board preview</h3>
+          <div class="proof-row"><span>Job #2418</span><b>Commercial Service Call</b><i>In Progress</i></div>
+          <div class="proof-row"><span>Assigned</span><b>Mike R. · ETA 10:30 AM</b><i>Tech assigned</i></div>
+          <div class="proof-row"><span>Parts</span><b>Contactor and capacitor required</b><i>Parts required</i></div>
+          <div class="proof-row"><span>Closeout</span><b>Photos attached, invoice ready</b><i>Invoice ready</i></div>
+          <div class="proof-meta"><span>Dispatcher view</span><span>Office visibility</span><span>Technician assignment</span></div>
+        </div>
+        <div class="proof-stack">
+          <div class="proof-panel light reveal">
+            <h3>What you see</h3>
+            <p class="lede" style="font-size:16px">This screen represents one service job from assignment through closeout. It is not a generic task list. It keeps the operational evidence around the job: status, technician assignment, parts, photos, notes and invoice readiness.</p>
+            <div class="proof-meta"><span>Dispatcher</span><span>Office admin</span><span>Field technician</span></div>
+          </div>
+          <div class="proof-panel light reveal">
+            <h3>Job status timeline</h3>
+            <div class="proof-timeline">
+              <div><span>01</span><p><b>Tech Assigned</b><small>Mike R. receives job details and customer context.</small></p></div>
+              <div><span>02</span><p><b>Parts Required</b><small>Required parts are visible before closeout.</small></p></div>
+              <div><span>03</span><p><b>Closeout → Invoice</b><small>Photos and completion notes move into invoice handoff.</small></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></section>`;
   }
 
   function modularSection(){
@@ -906,20 +1509,27 @@ footer a:hover{color:var(--ink)}
   }
 
   function productPricingSection(product, label){
-    return `<section class="section soft" id="pricing"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Available plans</span><h2 class="h2 reveal">${label} plans.</h2></div><p class="lede reveal">Review available plan options, then schedule a Workflow Review if you need help choosing the right fit.</p></div><div class="pricing-grid" data-product-pricing="${product}"><div class="pricing-status">Loading plans...</div></div></div></section>`;
+    const copy = product === 'estimatepro'
+      ? ['Choose the EstimatePro workflow that fits your estimating team.', 'Start with the review layer your team needs now, then expand into quantity review, proposal preparation and team approval workflows.']
+      : [`${label} plans.`, 'Review available plan options, then schedule a Workflow Review if you need help choosing the right fit.'];
+    return `<section class="section soft" id="pricing"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Available plans</span><h2 class="h2 reveal">${copy[0]}</h2></div><p class="lede reveal">${copy[1]}</p></div><div class="pricing-grid" data-product-pricing="${product}"><div class="pricing-status">Loading plans...</div></div></div></section>`;
   }
 
   function productFaqSection(product){
     const faq = {
       hvacpro: [
-        ['What does HVAC Pro help with?', 'Scheduling, dispatch, technician coordination, job closeout and invoice handoff.'],
-        ['Who is it best for?', 'HVAC teams that need clearer office and field visibility as service calls and installs increase.'],
-        ['What happens during a Workflow Review?', 'Cliff Group reviews your current dispatch and job flow, then recommends the practical next step.']
+        ['What does HVAC Pro help with?', 'HVAC Pro helps with scheduling, dispatch, technician coordination, job closeout, invoice handoff and owner visibility.'],
+        ['Is HVAC Pro only for dispatch?', 'No. Dispatch is the daily center, but the value comes from connecting dispatch to technician updates, closeout details and invoice readiness.'],
+        ['Who is HVAC Pro best for?', 'HVAC contractors that have grown beyond simple calendars, spreadsheets or disconnected job notes and need cleaner office-to-field coordination.'],
+        ['Do technicians need to change everything at once?', 'No. The Workflow Review is used to identify the first handoff to improve so rollout can stay practical.'],
+        ['What happens during a Workflow Review?', 'Cliff Group reviews your current HVAC workflow, identifies the biggest handoff problem and recommends the practical next step.']
       ],
       estimatepro: [
-        ['Does EstimatePro replace my estimator?', 'No. EstimatePro is designed to keep estimating assisted, reviewable and estimator-controlled.'],
-        ['What estimating work does it help organize?', 'Drawings, scope notes, assumptions, review steps and handoff into the next stage of work.'],
-        ['What happens after I request a review?', 'Cliff Group reviews your estimating workflow and follows up with the next step.']
+        ['Does EstimatePro replace my estimator?', 'No. EstimatePro is designed to keep estimator judgment at the center. It assists with organization, review visibility, quantity checks, scope tracking and approval workflow, but the estimator controls the final estimate.'],
+        ['Is EstimatePro just automated takeoff?', 'No. Takeoff support is only one part of the workflow. EstimatePro focuses on making the estimating process reviewable: drawings, notes, assumptions, quantities, exclusions, alternates, approvals and proposal handoff.'],
+        ['What estimating work does it help organize?', 'Plan uploads, addenda, scope notes, quantity review, assumptions, exclusions, alternates, estimator approvals, proposal preparation and handoff into scheduling or operations.'],
+        ['What makes it different from spreadsheets?', 'Spreadsheets can hold numbers, but they usually do not keep the full review trail together. EstimatePro keeps estimating context, scope decisions, quantity review and approval status connected in one workflow.'],
+        ['What happens after I request a Workflow Review?', 'Cliff Group reviews your current estimating process, identifies where work gets stuck or duplicated and recommends the EstimatePro setup that fits your team.']
       ],
       salespro: [
         ['What does SalesPro help with?', 'Inventory, customers, orders, invoices, purchasing, payments and business visibility.'],
@@ -948,12 +1558,25 @@ footer a:hover{color:var(--ink)}
     return `<section class="section"><div class="container"><div class="form-card reveal"><div><span class="eyebrow">${type === 'contact' ? 'Contact' : 'Workflow Review'}</span><h2 class="h2" style="margin:14px 0 16px">${title}</h2><p class="lede">${text}</p><div style="margin-top:26px;color:var(--on-dark-soft);font-size:14px;display:grid;gap:8px"><span>No payment required.</span><span>No account creation required.</span><span>Cliff Group follows up with the next step.</span></div></div><form class="form-grid" data-lead-form="${type}" onsubmit="submitLead(event,'${type}')"><div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div><div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div><div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"><label>Company</label></div><div class="field"><input name="phone" type="tel" placeholder=" " autocomplete="tel"><label>Phone</label></div><div class="field full"><select name="source_interest" required><option value="" selected disabled></option><option>HVAC Pro</option><option>EstimatePro</option><option>SalesPro</option><option>Partnership</option><option>General inquiry</option></select><label>Inquiry type</label></div><div class="field full"><textarea name="operational_problem" placeholder=" "></textarea><label>What should we know?</label></div><div class="field full"><button class="btn btn-primary" type="submit" style="width:100%"><span data-submit-label>${type === 'contact' ? 'Send Inquiry' : 'Schedule Workflow Review'}</span> <span class="arrow">→</span></button><p class="form-status" role="status" aria-live="polite"></p><div class="success-box">Thanks — we'll contact you shortly.</div></div></form></div></div></section>`;
   }
 
-  function trustSection(){
-    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Trust and onboarding</span><h2 class="h2 reveal">Practical rollout, contractor-focused workflows.</h2></div><p class="lede reveal">Cliff Group focuses on clear fit, guided setup and workflows that match how contractors already operate.</p></div><div class="grid-3">${[
+  function trustSection(mode){
+    const hvacMode = mode === 'hvacpro';
+    const estimateMode = mode === 'estimatepro';
+    const items = hvacMode ? [
+      ['Fits existing work rhythms','Start with how calls, schedules, technicians and closeout already move today.'],
+      ['Built for office and field','Keep dispatchers, admins, technicians and owners aligned around the same job reality.'],
+      ['Guided first rollout','Use the Workflow Review to choose the first handoff worth fixing before adding complexity.']
+    ] : estimateMode ? [
+      ['Fast onboarding','Start with the estimating workflow that matters most before expanding.'],
+      ['Contractor language','Built around drawings, scope, quantities, review, approval, scheduling, dispatch and invoices.'],
+      ['Guided setup','Workflow Review helps choose the right starting point and implementation path.']
+    ] : [
       ['Fast onboarding','Start with the workflow that matters most before expanding.'],
       ['Contractor focus','Language and structure reflect dispatch, field work, estimating and invoicing.'],
       ['Guided setup','Workflow Review helps you choose the right starting point.']
-    ].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
+    ];
+    const title = hvacMode ? 'Built to fit the way contractors already run work.' : estimateMode ? 'Built for contractors who need practical rollout, not software theater.' : 'Practical rollout, contractor-focused workflows.';
+    const text = hvacMode ? 'HVAC Pro should support the operating rhythm your team already has: calls, schedules, dispatch, field updates, closeout and invoice handoff.' : estimateMode ? 'EstimatePro starts with the estimating review work your team already understands: drawings, scope, quantities, assumptions, approvals and the handoff after the estimate is ready.' : 'Cliff Group focuses on clear fit, guided setup and workflows that match how contractors already operate.';
+    return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Trust and onboarding</span><h2 class="h2 reveal">${title}</h2></div><p class="lede reveal">${text}</p></div><div class="grid-3">${items.map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
   }
 
   function credibilitySection(){
@@ -985,8 +1608,8 @@ footer a:hover{color:var(--ink)}
     return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">FAQ</span><h2 class="h2 reveal">${title}</h2></div><p class="lede reveal">${intro}</p></div><div class="faq-list">${items.map((item,i)=>`<details class="faq-item reveal" ${i===0?'open':''}><summary>${item[0]}</summary><p>${item[1]}</p></details>`).join('')}</div></div></section>`;
   }
 
-  function finalCta(label){
-    return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Workflow Review</span><h2>Find the right starting point before adding more tools.</h2><p>Bring the workflow that is causing the most friction. Cliff Group will help map the clearest next step.</p></div><button class="btn btn-primary" data-modal="demo">${label || 'Schedule Workflow Review'} <span class="arrow">→</span></button></div></section>`;
+  function finalCta(label, title, text){
+    return `<section class="cta-band"><div class="container cta-row"><div><span class="eyebrow">Workflow Review</span><h2>${title || 'Find the right starting point before adding more tools.'}</h2><p>${text || 'Bring the workflow that is causing the most friction. Cliff Group will help map the clearest next step.'}</p></div><button class="btn btn-primary" data-modal="demo">${label || 'Schedule Workflow Review'} <span class="arrow">→</span></button></div></section>`;
   }
 
   function timeline(items){ return `<div class="workflow">${items.map((x,i)=>`<div class="step reveal"><span>0${i+1}</span><b>${x}</b><p>Designed to keep the buying process practical and low-friction.</p></div>`).join('')}</div>`; }
@@ -1008,6 +1631,25 @@ footer a:hover{color:var(--ink)}
     function openModal(id){
       const modal = document.getElementById(id);
       if (!modal) return;
+      applyWorkflowReviewContext(document.querySelector('[data-modal].is-opening'));
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('open');
+      modal.focus();
+      setTimeout(() => modal.querySelector(focusableSelector)?.focus(), 0);
+    }
+    function openScreenshotModal(trigger){
+      const modal = document.getElementById('modal-screenshot');
+      const image = document.getElementById('modal-screenshot-image');
+      const title = document.getElementById('modal-screenshot-title');
+      const description = document.getElementById('modal-screenshot-description');
+      if (!modal || !image || !title || !description) return;
+      const src = trigger.dataset.screenshot || '';
+      const titleText = trigger.dataset.screenshotTitle || 'SalesPro product screen';
+      const descriptionText = trigger.dataset.screenshotDescription || 'SalesPro product screen preview.';
+      image.src = src;
+      image.alt = titleText;
+      title.textContent = titleText;
+      description.textContent = descriptionText;
       lastFocusedElement = document.activeElement;
       modal.classList.add('open');
       modal.focus();
@@ -1024,7 +1666,15 @@ footer a:hover{color:var(--ink)}
         e.preventDefault();
         document.getElementById('mobileMenu')?.classList.remove('open');
         menuToggle?.setAttribute('aria-expanded', 'false');
+        open.classList.add('is-opening');
         openModal('modal-' + open.dataset.modal);
+        open.classList.remove('is-opening');
+        return;
+      }
+      const screenshot = e.target.closest('[data-screenshot]');
+      if (screenshot) {
+        e.preventDefault();
+        openScreenshotModal(screenshot);
         return;
       }
       if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) {
@@ -1033,6 +1683,23 @@ footer a:hover{color:var(--ink)}
       const selector = e.target.closest('[data-fit]');
       if (selector) updateFit(selector.dataset.fit);
     });
+    function applyWorkflowReviewContext(trigger){
+      if (!trigger || trigger.dataset.modal !== 'demo') return;
+      const form = document.querySelector('#modal-demo form');
+      if (!form) return;
+      const product = trigger.dataset.productCode || trigger.dataset.product || '';
+      const plan = trigger.dataset.planCode || trigger.dataset.plan || '';
+      const sourcePage = trigger.dataset.sourcePage || pageLabel(route);
+      const productLabelText = productLabel(product);
+      const select = form.querySelector('[name="source_interest"]');
+      if (product && select) select.value = productLabelText;
+      const productInput = form.querySelector('[name="selected_product_slug"]');
+      const planInput = form.querySelector('[name="selected_plan"]');
+      const sourceInput = form.querySelector('[name="selected_source_page"]');
+      if (productInput) productInput.value = product;
+      if (planInput) planInput.value = plan;
+      if (sourceInput) sourceInput.value = sourcePage;
+    }
     document.addEventListener('keydown', e => {
       const modal = document.querySelector('.modal-backdrop.open');
       if (e.key === 'Escape') closeModals();
@@ -1085,8 +1752,17 @@ footer a:hover{color:var(--ink)}
 
   const pricingApiUrl = (() => {
     const explicit = window.CLIFF_PRICING_API_URL || document.querySelector('meta[name="pricing-api-url"]')?.content?.trim();
-    return explicit || 'https://platform-web-production-db95.up.railway.app/api/v1/public/catalog/pricing';
+    if (explicit) return explicit;
+    return `${defaultPlatformWebUrl()}/api/v1/public/catalog/pricing`;
   })();
+
+  function defaultPlatformWebUrl(){
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host.includes('staging')) {
+      return 'https://platform-web-staging-fac5.up.railway.app';
+    }
+    return 'https://platform-web-production-db95.up.railway.app';
+  }
 
   async function setupPricing(){
     if (!document.getElementById('pricingTabs') && !document.querySelector('[data-product-pricing]')) return;
@@ -1104,7 +1780,7 @@ footer a:hover{color:var(--ink)}
 
   function normalizePricing(raw){
     const products = {hvacpro:[], estimatepro:[], salespro:[]};
-    const source = Array.isArray(raw) ? raw : raw.products || raw.data || raw.pricing || raw.catalog || [raw];
+    const source = pricingProductsFrom(raw);
     const productRows = Array.isArray(source) ? source : [source];
     productRows.forEach(item => {
       const key = productKey(item.product || item.productCode || item.code || item.slug || item.name);
@@ -1113,6 +1789,17 @@ footer a:hover{color:var(--ink)}
       products[key] = plans.map(normalizePlan).filter(Boolean);
     });
     return products;
+  }
+
+  function pricingProductsFrom(raw){
+    if (Array.isArray(raw)) return raw;
+    if (!raw || typeof raw !== 'object') return [];
+    if (Array.isArray(raw.products)) return raw.products;
+    if (raw.data && Array.isArray(raw.data.products)) return raw.data.products;
+    if (Array.isArray(raw.data)) return raw.data;
+    if (raw.catalog && Array.isArray(raw.catalog.products)) return raw.catalog.products;
+    if (Array.isArray(raw.pricing)) return raw.pricing;
+    return [raw];
   }
 
   function productKey(value){
@@ -1129,19 +1816,46 @@ footer a:hover{color:var(--ink)}
       Array.isArray(plan.featureList) ? plan.featureList :
       Array.isArray(plan.includedFeatures) ? plan.includedFeatures : [];
     return {
+      id: plan.id || plan.code || plan.slug || plan.name || 'plan',
       name: plan.name || plan.displayName || plan.title || plan.code || 'Plan',
-      monthly: moneyValue(plan.monthly ?? plan.monthlyPrice ?? plan.priceMonthly ?? plan.monthlyAmount ?? plan.price),
-      yearly: moneyValue(plan.yearly ?? plan.annual ?? plan.annualPrice ?? plan.priceYearly ?? plan.yearlyAmount),
+      description: plan.description || plan.summary || plan.subtitle || '',
+      monthly: firstMoneyValue([
+        [plan.monthly, false],
+        [plan.monthlyPrice, false],
+        [plan.priceMonthly, false],
+        [plan.monthlyAmount, false],
+        [plan.monthlyAmountCents, true],
+        [plan.amountCents, true],
+        [plan.price, false]
+      ]),
+      yearly: firstMoneyValue([
+        [plan.yearly, false],
+        [plan.annual, false],
+        [plan.annualPrice, false],
+        [plan.priceYearly, false],
+        [plan.yearlyAmount, false],
+        [plan.yearlyAmountCents, true],
+        [plan.annualAmountCents, true]
+      ]),
       features: features.map(f => typeof f === 'string' ? f : (f.name || f.label || f.description)).filter(Boolean),
-      checkoutUrl: plan.checkoutUrl || plan.buyUrl || plan.url || ''
+      checkoutUrl: plan.checkoutUrl || plan.buyUrl || plan.url || '',
+      purchasable: plan.purchasable === true || plan.allowSelfCheckout === true
     };
   }
 
-  function moneyValue(value){
+  function firstMoneyValue(candidates){
+    for (const [value, cents] of candidates) {
+      const amount = moneyValue(value, cents);
+      if (amount !== null) return amount;
+    }
+    return null;
+  }
+
+  function moneyValue(value, cents){
     if (value === null || value === undefined || value === '') return null;
     const number = Number(value);
     if (!Number.isFinite(number)) return null;
-    return number > 999 ? number / 100 : number;
+    return cents ? number / 100 : number;
   }
 
   function renderPricing(catalog){
@@ -1182,38 +1896,50 @@ footer a:hover{color:var(--ink)}
 
   function planCards(plans, product){
     const safePlans = plans.length ? plans : fallbackPlans(product);
-    return safePlans.map(plan => `<article class="card pricing-card reveal in">
-      <span class="num">${productLabel(product)}</span>
-      <h3>${escapeHtml(plan.name)}</h3>
-      <div class="price">${formatPrice(plan.monthly)} <small>/ month</small></div>
-      <p>${plan.yearly !== null ? `${formatPrice(plan.yearly)} billed annually` : 'Annual billing available by request'}</p>
-      <ul>${(plan.features.length ? plan.features.slice(0,6) : ['Plan features available during Workflow Review']).map(feature => `<li>${escapeHtml(feature)}</li>`).join('')}</ul>
-      <div class="pricing-actions">
-        ${plan.checkoutUrl ? `<a class="btn btn-primary" href="${escapeAttr(plan.checkoutUrl)}">Buy</a>` : `<button class="btn btn-primary" data-modal="demo">Buy</button>`}
-        <button class="btn btn-ghost" data-modal="demo">Request Demo</button>
-      </div>
-    </article>`).join('');
+    return safePlans.map(plan => {
+      const planId = plan.id || plan.name || 'starter';
+      const sourcePage = pageLabel(product || route);
+      const primaryLabel = plan.purchasable === true ? 'Buy Now' : 'Schedule Workflow Review';
+      const productCode = productCatalogCode(product);
+      const sharedAttrs = `data-product="${escapeAttr(productCode)}" data-product-code="${escapeAttr(productCode)}" data-plan="${escapeAttr(planId)}" data-plan-code="${escapeAttr(planId)}" data-source-page="${escapeAttr(sourcePage)}"`;
+      const primaryCta = plan.purchasable === true && plan.checkoutUrl
+        ? `<a class="btn btn-primary" href="${escapeAttr(plan.checkoutUrl)}" ${sharedAttrs}>${primaryLabel}</a>`
+        : `<button class="btn btn-primary" data-modal="demo" ${sharedAttrs}>${primaryLabel}</button>`;
+      const price = pricingDisplay(plan);
+      const description = plan.description || planDescription(product, plan.name);
+      return `<article class="card pricing-card reveal in">
+        <span class="num">${productLabel(product).toUpperCase()}</span>
+        <h3>${escapeHtml(plan.name)}</h3>
+        <div class="price ${price.isContact ? 'contact' : ''}">${price.primary}</div>
+        <p class="pricing-note">${price.note}</p>
+        <p class="pricing-description">${escapeHtml(description)}</p>
+        <ul class="pricing-features">${(plan.features.length ? plan.features.slice(0,4) : ['Plan details reviewed together']).map(feature => `<li><span>${escapeHtml(feature)}</span></li>`).join('')}</ul>
+        <div class="pricing-actions">
+          ${primaryCta}
+        </div>
+      </article>`;
+    }).join('');
   }
 
   function fallbackPlans(product){
     const catalog = {
       hvacpro: [
-        ['Starter', ['Scheduling basics', 'Dispatch visibility', 'Workflow Review setup']],
-        ['Professional', ['Scheduling and dispatch', 'Technician coordination', 'Closeout and invoice handoff']],
-        ['Enterprise', ['Multi-team support', 'Advanced workflow review', 'Expanded setup support']]
+        ['Starter', 'Scheduling and dispatch basics for small HVAC teams.', ['Scheduling basics', 'Dispatch visibility', 'Workflow Review setup', 'Clean first rollout']],
+        ['Professional', 'Field coordination, closeout, and office visibility for growing teams.', ['Scheduling and dispatch', 'Technician coordination', 'Closeout handoff', 'Office visibility']],
+        ['Enterprise', 'Advanced workflows and support for larger operations.', ['Multi-team support', 'Advanced workflows', 'Expanded setup support', 'Owner reporting']]
       ],
       estimatepro: [
-        ['Starter', ['Plan upload support', 'Review workflow', 'Estimator-controlled approval']],
-        ['Professional', ['Quantity review', 'Scope adjustment', 'Proposal preparation']],
-        ['Enterprise', ['Advanced estimating support', 'Team review workflows', 'Expanded setup support']]
+        ['Starter', 'Plan upload and review workflow support.', ['Plan upload support', 'Review workflow', 'Scope notes', 'Estimator approval']],
+        ['Professional', 'Quantity review, scope adjustment, and proposal preparation.', ['Quantity review', 'Scope adjustment', 'Assumption tracking', 'Proposal preparation']],
+        ['Enterprise', 'Team estimating workflows with advanced review structure.', ['Advanced estimating support', 'Team review workflows', 'Expanded setup support', 'Multi-step approvals']]
       ],
       salespro: [
-        ['Starter', ['Inventory tracking', 'Customer orders', 'Invoice workflow']],
-        ['Professional', ['Inventory and purchasing', 'Orders and invoices', 'Payment visibility']],
-        ['Enterprise', ['Advanced business operations', 'Team workflows', 'Expanded setup support']]
+        ['Starter', 'Customers, orders, invoices, and simple inventory tracking.', ['Inventory tracking', 'Customer orders', 'Invoice workflow', 'Customer records']],
+        ['Professional', 'Purchasing, payments, inventory controls, and daily operations visibility.', ['Inventory and purchasing', 'Orders and invoices', 'Payment visibility', 'Daily operations']],
+        ['Enterprise', 'Advanced business workflows, approvals, and operational memory.', ['Advanced workflows', 'Team approvals', 'Smart Ops Memory', 'Expanded setup support']]
       ]
     };
-    return (catalog[product] || catalog.hvacpro).map(([name, features]) => ({name, monthly:null, yearly:null, features, checkoutUrl:''}));
+    return (catalog[product] || catalog.hvacpro).map(([name, description, features]) => ({id:name.toLowerCase().replace(/[^a-z0-9]+/g,'-'), name, description, monthly:null, yearly:null, features, checkoutUrl:'', purchasable:false}));
   }
 
   function comparisonTable(plans, product){
@@ -1239,11 +1965,65 @@ footer a:hover{color:var(--ink)}
   }
 
   function productLabel(product){
-    return product === 'hvacpro' ? 'HVAC Pro' : product === 'estimatepro' ? 'EstimatePro' : product === 'salespro' ? 'SalesPro' : 'Product';
+    return product === 'hvacpro' || product === 'HVAC_PRO' ? 'HVAC Pro' : product === 'estimatepro' || product === 'ESTIMATE_PRO' ? 'EstimatePro' : product === 'salespro' || product === 'SALES_PRO' ? 'SalesPro' : 'Product';
+  }
+
+  function productCatalogCode(product){
+    if (product === 'HVAC_PRO' || product === 'SALES_PRO' || product === 'ESTIMATE_PRO') return product;
+    return product === 'hvacpro' ? 'HVAC_PRO' : product === 'estimatepro' ? 'ESTIMATE_PRO' : product === 'salespro' ? 'SALES_PRO' : '';
+  }
+
+  function pageLabel(value){
+    return productLabel(value) !== 'Product' ? productLabel(value) : value === 'home' ? 'Home' : value === 'contact' ? 'Contact' : value === 'demo' ? 'Workflow Review' : 'Website';
+  }
+
+  function pricingDisplay(plan){
+    const monthly = Number(plan.monthly);
+    const yearly = Number(plan.yearly);
+    const hasMonthly = plan.monthly !== null && plan.monthly !== undefined && plan.monthly !== '' && Number.isFinite(monthly);
+    const hasYearly = plan.yearly !== null && plan.yearly !== undefined && plan.yearly !== '' && Number.isFinite(yearly);
+    if (!hasMonthly) {
+      return {
+        isContact: true,
+        primary: 'Contact Sales',
+        note: 'Pricing confirmed during Workflow Review'
+      };
+    }
+    return {
+      isContact: false,
+      primary: `${formatPrice(monthly)} <small>/ month</small>`,
+      note: hasYearly ? `${formatPrice(yearly)} / year` : 'Annual billing available by request'
+    };
+  }
+
+  function planDescription(product, name){
+    const key = String(name || '').toLowerCase();
+    const descriptions = {
+      hvacpro: {
+        starter: 'Scheduling and dispatch basics for small HVAC teams.',
+        professional: 'Field coordination, closeout, and office visibility for growing teams.',
+        enterprise: 'Advanced workflows and support for larger operations.'
+      },
+      estimatepro: {
+        starter: 'Plan upload and review workflow support.',
+        professional: 'Quantity review, scope adjustment, and proposal preparation.',
+        enterprise: 'Team estimating workflows with advanced review structure.'
+      },
+      salespro: {
+        starter: 'Customers, orders, invoices, and simple inventory tracking.',
+        professional: 'Purchasing, payments, inventory controls, and daily operations visibility.',
+        enterprise: 'Advanced business workflows, approvals, and operational memory.'
+      }
+    };
+    const productDescriptions = descriptions[product] || descriptions.hvacpro;
+    if (key.includes('starter')) return productDescriptions.starter;
+    if (key.includes('professional') || key.includes('growth')) return productDescriptions.professional;
+    if (key.includes('enterprise')) return productDescriptions.enterprise;
+    return 'Plan details confirmed during Workflow Review.';
   }
 
   function formatPrice(value){
-    if (value === null || value === undefined) return 'Contact Sales';
+    if (value === null || value === undefined || value === '' || !Number.isFinite(Number(value))) return 'Contact Sales';
     return `$${Math.round(value).toLocaleString('en-US')}`;
   }
 
@@ -1253,9 +2033,9 @@ footer a:hover{color:var(--ink)}
 
   function escapeAttr(value){ return escapeHtml(value).replace(/`/g,'&#96;'); }
 
-  const leadApiUrl = (() => {
-    const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
-    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
+  const platformRequestsApiUrl = (() => {
+    const explicit = window.CLIFF_PLATFORM_REQUESTS_API_URL || document.querySelector('meta[name="platform-requests-api-url"]')?.content?.trim();
+    return (explicit || `${defaultPlatformWebUrl()}/api/website-requests`).replace(/\/+$/, '');
   })();
 
   window.submitLead = async function(event, fallbackType){
@@ -1270,23 +2050,36 @@ footer a:hover{color:var(--ink)}
     const data = new FormData(form);
     const productInterest = data.get('source_interest') || '';
     const problem = data.get('operational_problem') || '';
+    const selectedPlan = String(data.get('selected_plan') || '').trim();
+    const productCode = productCatalogCode(String(data.get('selected_product_slug') || productInterest || route));
+    const requestType = selectedPlan ? 'PLAN' : fallbackType === 'contact' ? 'INFORMATION' : 'DEMO';
     const payload = {
+      type: requestType,
+      requestType,
+      source: 'cliffgroup-site',
+      product: productCode || undefined,
+      productCode: productCode || undefined,
+      planCode: selectedPlan || undefined,
+      contactName: data.get('full_name') || '',
       name: data.get('full_name') || '',
       email: data.get('email') || '',
       phone: data.get('phone') || '',
-      company: data.get('company') || '',
-      productInterest,
-      operationalProblem: problem,
-      sourcePage: window.location.pathname || '/',
+      companyName: data.get('company') || '',
+      message: problem || undefined,
       pageUrl: window.location.href,
       referrer: document.referrer || '',
-      source: window.location.href
+      metadataJson: {
+        productInterest,
+        selectedPlanLabel: selectedPlan || undefined,
+        selectedSourcePage: data.get('selected_source_page') || pageLabel(route),
+        sourcePage: pageLabel(route)
+      }
     };
     const error = validate(payload);
     if (error) return setState('error', error);
     setState('loading', '');
     try {
-      const response = await fetch(leadApiUrl, {method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
+      const response = await fetch(platformRequestsApiUrl, {method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
       const body = await response.json().catch(() => ({}));
       if (!response.ok || body.ok === false) throw new Error(body.error || 'We could not send this request. Please try again.');
       form.reset();
@@ -1316,9 +2109,9 @@ footer a:hover{color:var(--ink)}
   };
 
   function validate(payload){
-    if (!String(payload.name || '').trim()) return 'Please enter your name.';
+    if (!String(payload.contactName || '').trim()) return 'Please enter your name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
-    if (String(payload.operationalProblem || '').length > 3000) return 'Please keep the note under 3000 characters.';
+    if (String(payload.message || '').length > 3000) return 'Please keep the note under 3000 characters.';
     return '';
   }
 

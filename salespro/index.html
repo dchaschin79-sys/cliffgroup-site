@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<meta name="lead-api-url" content="https://cliffgroup-api-production.up.railway.app/api/leads" />
+<meta name="lead-api-url" content="https://zesty-reflection-production-274d.up.railway.app/api/leads" />
 <title>Cliff Group Florida - HVAC Operations Software</title>
 <meta name="description" content="Cliff Group Florida helps HVAC contractors connect estimating, scheduling, dispatch, job completion, invoicing, payments and reporting." />
 <link rel="canonical" href="https://cliffgroupflorida.com/" />
@@ -152,6 +152,10 @@ p{margin:0}
 .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) 410px;gap:58px;align-items:end}
 .hero h1{margin:20px 0 26px;max-width:13ch}
 .hero-actions,.section-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero-eyebrow-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.powered-badge{display:inline-flex;align-items:center;min-height:30px;padding:7px 12px;border-radius:999px;border:1px solid rgba(201,174,122,.42);background:rgba(201,174,122,.13);color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.powered-badge:hover,.powered-badge:focus-visible{background:rgba(201,174,122,.22);border-color:rgba(201,174,122,.68);transform:translateY(-1px)}
+.memory-section{scroll-margin-top:96px}
 .hero-card{align-self:center;border:1px solid rgba(244,234,219,.14);border-radius:22px;background:rgba(244,234,219,.075);box-shadow:0 28px 70px rgba(0,0,0,.18);overflow:hidden;backdrop-filter:blur(12px)}
 .hero-card-top{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid rgba(244,234,219,.1)}
 .hero-card-top b{font-family:var(--serif);font-size:22px}
@@ -203,6 +207,150 @@ p{margin:0}
 .mock-job span{font-size:12px;color:var(--on-dark-soft)}
 .mock-job b{font-size:13px}
 .mock-job i{font-style:normal;padding:4px 8px;border-radius:999px;background:rgba(201,174,122,.18);color:var(--gold);font-size:11px;font-weight:800}
+.proof-grid{display:grid;grid-template-columns:1.04fr .96fr;gap:24px;align-items:stretch}
+.proof-stack{display:grid;gap:14px}
+.proof-panel{border-radius:18px;padding:18px;background:var(--ink);color:var(--cream);border:1px solid rgba(244,234,219,.12);box-shadow:var(--shadow)}
+.proof-panel.light{background:var(--cream);color:var(--ink);border-color:var(--line);box-shadow:none}
+.proof-panel h3{font-size:20px;margin:0 0 14px}
+.proof-meta{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.proof-meta span{display:inline-flex;border:1px solid rgba(244,234,219,.14);border-radius:999px;padding:6px 9px;color:var(--on-dark-soft);font-size:11px;font-weight:800}
+.proof-panel.light .proof-meta span{border-color:var(--line);color:var(--fg-dim)}
+.proof-row{display:grid;grid-template-columns:96px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-top:1px solid rgba(244,234,219,.12)}
+.proof-panel.light .proof-row{border-top-color:var(--line)}
+.proof-row:first-of-type{border-top:0}
+.proof-row span{font-size:12px;color:var(--on-dark-soft);font-weight:800}
+.proof-panel.light .proof-row span{color:var(--fg-mute)}
+.proof-row b{font-size:14px}
+.proof-row i{font-style:normal;font-size:11px;font-weight:900;color:var(--gold)}
+.proof-panel.light .proof-row i{color:var(--green)}
+.proof-timeline{display:grid;gap:10px}
+.proof-timeline div{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.28)}
+.proof-timeline span{width:30px;height:30px;border-radius:999px;display:grid;place-items:center;background:var(--ink);color:var(--cream);font-size:12px;font-weight:900}
+.proof-timeline b{display:block;font-size:14px}.proof-timeline small{display:block;margin-top:3px;color:var(--fg-dim);font-size:12px;line-height:1.45}
+.knowledge-loss-section{position:relative;overflow:hidden}
+.knowledge-loss-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 18% 16%,rgba(201,174,122,.18),transparent 28%),radial-gradient(circle at 78% 74%,rgba(244,234,219,.08),transparent 28%);pointer-events:none}
+.loss-layout{position:relative;display:grid;gap:18px}
+.loss-header{display:grid;grid-template-columns:.92fr 1.08fr;gap:26px;align-items:end}
+.loss-copy{padding:28px;border-radius:24px;background:linear-gradient(145deg,rgba(244,234,219,.1),rgba(244,234,219,.045));border:1px solid rgba(244,234,219,.16);box-shadow:var(--shadow)}
+.loss-copy h2{margin:10px 0 0;color:var(--cream)}
+.loss-copy p{color:var(--on-dark-soft);font-size:16px;line-height:1.6}
+.loss-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin:22px 0;padding:0;list-style:none}
+.loss-list li{padding:10px 12px;border-radius:12px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:800;font-size:13px}
+.loss-statement{display:block;padding:20px 22px;border-radius:20px;background:rgba(201,174,122,.16);border:1px solid rgba(201,174,122,.32);color:var(--cream);font-size:22px;line-height:1.28;font-weight:900;text-align:center}
+.loss-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.loss-stat-card{padding:18px;border-radius:18px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.13);display:grid;gap:10px}
+.loss-stat-card .loss-revenue{display:block;color:var(--cream);font-size:16px;font-weight:900;line-height:1.25}
+.loss-stat-card strong{display:block;color:var(--gold);font-family:var(--serif);font-size:34px;line-height:1}
+.loss-stat-card .loss-label{display:block;color:var(--on-dark-soft);font-size:12px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.loss-stat-card ul{margin:2px 0 0;padding-left:18px;color:var(--on-dark-soft);font-size:13px;line-height:1.45}
+.memory-hero-section{position:relative;overflow:hidden}
+.memory-hero-panel{position:relative;padding:42px;border-radius:26px;background:linear-gradient(145deg,rgba(244,234,219,.1),rgba(244,234,219,.045));border:1px solid rgba(244,234,219,.16);box-shadow:var(--shadow)}
+.memory-hero-panel h2{max-width:13ch;color:var(--cream);margin:14px 0 18px}
+.memory-hero-panel p{max-width:760px;color:var(--on-dark-soft);font-size:18px;line-height:1.7}
+.memory-hero-list{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:26px 0 0}
+.memory-hero-list span{padding:14px;border-radius:14px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:900;font-size:13px}
+.memory-hero-close{display:block;max-width:760px;margin-top:26px;padding:18px 20px;border-radius:18px;background:rgba(201,174,122,.14);border:1px solid rgba(201,174,122,.24);color:var(--cream);font-size:21px;line-height:1.42;font-weight:900}
+.turnover-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;align-items:stretch}
+.turnover-quote{display:grid;place-items:center;min-height:100%;padding:34px;border-radius:24px;background:linear-gradient(145deg,rgba(201,174,122,.18),rgba(244,234,219,.06));border:1px solid rgba(201,174,122,.24);text-align:center}
+.turnover-quote strong{font-family:var(--serif);font-size:clamp(36px,5vw,68px);line-height:1.03;color:var(--cream)}
+.turnover-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0;padding:0;list-style:none}
+.turnover-list li{padding:12px 14px;border-radius:14px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:900}
+.five-year-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.five-year-card{padding:26px;border-radius:22px;background:rgba(244,234,219,.065);border:1px solid rgba(244,234,219,.13)}
+.five-year-card.with{background:linear-gradient(145deg,rgba(201,174,122,.16),rgba(244,234,219,.055));border-color:rgba(201,174,122,.28)}
+.five-year-card h3{color:var(--cream);font-size:24px;margin:0 0 6px}
+.five-year-card p{color:var(--gold);font-weight:900;margin-bottom:16px}
+.five-year-card ul{margin:0;padding-left:20px;color:var(--on-dark-soft);font-size:15px;line-height:1.75}
+.five-year-statement{display:block;margin-top:18px;padding:20px;border-radius:18px;background:rgba(201,174,122,.13);border:1px solid rgba(201,174,122,.22);color:var(--cream);font-family:var(--serif);font-size:32px;line-height:1.12;text-align:center}
+.memory-section{position:relative;overflow:hidden}
+.memory-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 12%,rgba(201,174,122,.2),transparent 28%),radial-gradient(circle at 12% 78%,rgba(244,234,219,.08),transparent 26%);pointer-events:none}
+.memory-layout{position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:stretch}
+.memory-narrative{padding:34px;border-radius:24px;background:linear-gradient(145deg,rgba(244,234,219,.1),rgba(244,234,219,.052));border:1px solid rgba(244,234,219,.16);box-shadow:var(--shadow)}
+.memory-narrative h2{margin:8px 0 8px;color:var(--cream)}
+.memory-tagline{font-size:22px;color:var(--gold);font-weight:900;margin:0 0 18px}
+.memory-slogan{display:block;margin:18px 0;padding:16px 18px;border-radius:16px;background:rgba(201,174,122,.14);border:1px solid rgba(201,174,122,.24);color:var(--cream);font-size:20px;line-height:1.35;font-weight:900}
+.memory-narrative p{color:var(--on-dark-soft);font-size:17px;line-height:1.7}
+.memory-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.memory-card{padding:16px;border-radius:16px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.13);transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.memory-card:hover{transform:translateY(-4px);background:rgba(244,234,219,.12);border-color:rgba(201,174,122,.38)}
+.memory-card span{display:block;margin-bottom:8px;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.memory-card b{display:block;color:var(--cream);font-size:16px;line-height:1.35}
+.memory-remember{position:relative;margin-top:28px}
+.memory-remember h3,.memory-flow h3,.memory-value h3,.memory-compare h3,.memory-transaction h3,.memory-difference h3,.memory-cost h3{color:var(--cream);font-size:26px;margin:0 0 16px}
+.memory-remember-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.memory-remember-grid div{min-height:108px;padding:16px;border-radius:15px;background:rgba(244,234,219,.07);border:1px solid rgba(244,234,219,.12);color:var(--cream);font-weight:900;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+.memory-remember-grid div:hover{transform:translateY(-3px);border-color:rgba(201,174,122,.34);background:rgba(244,234,219,.1)}
+.memory-cost{position:relative;margin-top:28px;padding:24px;border-radius:20px;background:linear-gradient(145deg,rgba(244,234,219,.07),rgba(244,234,219,.035));border:1px solid rgba(244,234,219,.12)}
+.memory-cost-intro{max-width:860px;color:var(--on-dark-soft);font-size:16px;line-height:1.65;margin-bottom:18px}
+.memory-cost-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.memory-cost-card{padding:18px;border-radius:16px;background:rgba(244,234,219,.075);border:1px solid rgba(244,234,219,.13)}
+.memory-cost-card span{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.memory-cost-card strong{display:block;color:var(--cream);font-size:22px;line-height:1.15;margin-bottom:12px}
+.memory-cost-card ul{margin:0;padding-left:18px;color:var(--on-dark-soft);font-size:13px;line-height:1.55}
+.memory-source-note{margin:16px 0 0;padding:14px 16px;border-radius:14px;background:rgba(201,174,122,.1);border:1px solid rgba(201,174,122,.18);color:var(--on-dark-soft);font-size:12px;line-height:1.55}
+.memory-loss-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.memory-loss-grid div{padding:18px;border-radius:16px;border:1px solid rgba(244,234,219,.12);background:rgba(244,234,219,.065)}
+.memory-loss-grid b{display:block;color:var(--cream);font-size:17px;margin-bottom:10px}
+.memory-loss-grid ul{margin:0;padding-left:18px;color:var(--on-dark-soft);font-size:14px;line-height:1.7}
+.memory-flow{position:relative;margin-top:28px;padding:24px;border-radius:20px;background:rgba(244,234,219,.055);border:1px solid rgba(244,234,219,.12)}
+.memory-question-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+.memory-question-grid span{padding:12px;border-radius:999px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.12);color:var(--on-dark-soft);font-size:12px;font-weight:800;text-align:center}
+.memory-path{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.memory-path div{position:relative;padding:18px 14px;border-radius:15px;background:var(--cream);color:var(--ink);border:1px solid rgba(201,174,122,.35)}
+.memory-path div:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:var(--gold);font-weight:900}
+.memory-path span{display:block;color:var(--gold-2);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.memory-path b{display:block;font-size:15px}
+.memory-value{position:relative;margin-top:28px;padding:28px;border-radius:20px;background:linear-gradient(135deg,rgba(201,174,122,.22),rgba(244,234,219,.06));border:1px solid rgba(201,174,122,.25)}
+.memory-value p{max-width:820px;color:var(--on-dark-soft);font-size:17px;line-height:1.7}
+.memory-closing{display:block;margin-top:18px;color:var(--cream);font-family:var(--serif);font-size:28px;line-height:1.15}
+.memory-compare,.memory-transaction,.memory-difference{position:relative;margin-top:28px;padding:24px;border-radius:20px;background:rgba(244,234,219,.055);border:1px solid rgba(244,234,219,.12)}
+.memory-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.memory-compare-card{padding:20px;border-radius:18px;border:1px solid rgba(244,234,219,.13);background:rgba(244,234,219,.055)}
+.memory-compare-card.with{background:linear-gradient(145deg,rgba(201,174,122,.17),rgba(244,234,219,.055));border-color:rgba(201,174,122,.28)}
+.memory-compare-card b{display:block;color:var(--cream);font-size:18px;margin-bottom:14px}
+.memory-compare-card ul{margin:0;padding-left:18px;color:var(--on-dark-soft);font-size:14px;line-height:1.65}
+.memory-compare-card li+li{margin-top:7px}
+.memory-flow-copy{max-width:840px;margin:18px 0 0;color:var(--on-dark-soft);font-size:16px;line-height:1.65}
+.memory-transaction p{max-width:900px;color:var(--on-dark-soft);font-size:16px;line-height:1.65}
+.memory-transaction-flow{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:20px}
+.memory-transaction-flow span{position:relative;min-height:76px;display:grid;place-items:center;text-align:center;padding:12px;border-radius:15px;background:rgba(244,234,219,.08);border:1px solid rgba(244,234,219,.14);color:var(--cream);font-weight:900;font-size:13px}
+.memory-transaction-flow span:not(:last-child)::after{content:"→";position:absolute;right:-12px;color:var(--gold);font-weight:900}
+.memory-difference-table{display:grid;gap:8px}
+.memory-difference-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.memory-difference-row:first-child div{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.memory-difference-row div{padding:14px 16px;border-radius:14px;background:rgba(244,234,219,.07);border:1px solid rgba(244,234,219,.12);color:var(--on-dark-soft);font-size:14px;line-height:1.45}
+.memory-difference-row div:last-child{background:rgba(201,174,122,.12);border-color:rgba(201,174,122,.24);color:var(--cream)}
+.screenshot-showcase{display:grid;grid-template-columns:1.18fr .82fr;gap:24px;align-items:stretch}
+.screenshot-frame{display:block;width:100%;padding:0;overflow:hidden;border-radius:22px;border:1px solid var(--line);background:var(--cream-2);box-shadow:var(--shadow);text-align:left;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.screenshot-frame:hover,.screenshot-frame:focus-visible{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 22px 56px rgba(14,42,74,.16);outline:none}
+.screenshot-frame img{width:100%;height:auto}
+.screenshot-copy{display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.screenshot-copy h3{font-size:34px;margin:10px 0 12px}
+.screenshot-copy p{color:var(--fg-dim);font-size:16px;line-height:1.65}
+.screenshot-points{display:grid;gap:10px}
+.screenshot-points div{padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.32)}
+.screenshot-points b{display:block;color:var(--ink);font-size:14px;margin-bottom:3px}
+.screenshot-points span{color:var(--fg-dim);font-size:13px}
+.screenshot-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.screenshot-thumb{display:block;width:100%;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--cream-2);text-align:left;cursor:pointer;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.screenshot-thumb:hover,.screenshot-thumb:focus-visible{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 14px 32px rgba(14,42,74,.09);outline:none}
+.screenshot-thumb img{width:100%;height:auto}
+.screenshot-thumb div{padding:14px}
+.screenshot-thumb b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
+.screenshot-thumb span{display:block;color:var(--fg-dim);font-size:12px;line-height:1.45}
+.screenshot-modal{width:min(1120px,100%);padding:18px}
+.screenshot-modal .modal-close{background:rgba(244,234,219,.9)}
+.screenshot-modal-body{display:grid;gap:14px}
+.screenshot-modal img{width:100%;max-height:72vh;object-fit:contain;border-radius:16px;border:1px solid var(--line);background:var(--cream-2)}
+.screenshot-modal h3{font-size:30px;margin:8px 46px 0 2px}
+.screenshot-modal p{color:var(--fg-dim);font-size:15px;line-height:1.55;margin:0 2px 4px}
+.home-product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.home-product-card{min-height:260px;display:flex;flex-direction:column;justify-content:space-between;border-color:rgba(201,174,122,.28);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.home-product-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 24px 70px rgba(18,31,47,.12)}
+.home-product-card .product-kicker{color:var(--gold);font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.home-product-card h3{font-size:30px;margin:18px 0 12px}
+.home-product-card p{font-size:16px}
+.home-product-card .card-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;color:var(--ink);font-weight:900}
 .outcome-band{display:grid;grid-template-columns:repeat(4,1fr);gap:0;overflow:hidden;border:1px solid var(--line);border-radius:18px;background:var(--cream-2)}
 .outcome-band div{padding:28px;border-right:1px solid var(--line)}
 .outcome-band div:last-child{border-right:none}
@@ -303,19 +451,41 @@ footer a:hover{color:var(--ink)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}.reveal.in{opacity:1;transform:none}
 
 @media (max-width:1040px){
-  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head{grid-template-columns:1fr}
+  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head,.memory-layout,.loss-layout,.turnover-layout,.screenshot-showcase,.loss-header{grid-template-columns:1fr}
+  .proof-grid{grid-template-columns:1fr}
   .hero-card{max-width:560px}
   .workflow{grid-template-columns:repeat(4,1fr)}
-  .grid-4,.pricing-grid,.outcome-band{grid-template-columns:repeat(2,1fr)}
+  .grid-4,.pricing-grid,.outcome-band,.memory-remember-grid,.memory-cost-grid,.memory-hero-list,.screenshot-gallery,.memory-transaction-flow{grid-template-columns:repeat(2,1fr)}
   .selector{grid-template-columns:repeat(2,1fr)}
   .outcome-band div{border-bottom:1px solid var(--line)}
   .outcome-band div:nth-child(2n){border-right:none}
 }
+@media (min-width:1041px){
+  .knowledge-loss-section{min-height:calc(100svh - 78px);display:flex;align-items:center;padding-top:46px;padding-bottom:46px}
+  .knowledge-loss-section .container{max-width:1260px}
+  .knowledge-loss-section .loss-copy h2{font-size:clamp(42px,4.4vw,64px);line-height:.98}
+  .knowledge-loss-section .memory-source-note{margin-top:0;padding:12px 14px;font-size:11px;line-height:1.4}
+}
+@media (min-width:1041px) and (max-height:940px){
+  .knowledge-loss-section{padding-top:32px;padding-bottom:32px}
+  .knowledge-loss-section .loss-copy{padding:24px}
+  .knowledge-loss-section .loss-copy h2{font-size:clamp(38px,3.7vw,54px)}
+  .knowledge-loss-section .loss-copy p{font-size:15px;line-height:1.5}
+  .knowledge-loss-section .loss-statement{padding:16px 18px;font-size:20px}
+  .knowledge-loss-section .loss-stat-card{padding:15px;gap:8px}
+  .knowledge-loss-section .loss-stat-card strong{font-size:30px}
+  .knowledge-loss-section .loss-stat-card ul{font-size:12.5px;line-height:1.36}
+}
 @media (max-width:820px){
   .nav{padding:13px 18px}.nav-links,.nav-cta{display:none}.menu-toggle{display:grid;place-items:center}.logo{min-width:auto}
   .section{padding:78px 20px}.hero{padding:120px 20px 72px;min-height:auto}.display{font-size:clamp(43px,13vw,68px)}
-  .hero-proof,.grid-3,.grid-4,.pricing-grid,.workflow,.outcome-band,.footer-grid{grid-template-columns:1fr}
-  .status-row,.mock-job{grid-template-columns:1fr;gap:5px}
+  .hero-proof,.grid-3,.grid-4,.pricing-grid,.workflow,.outcome-band,.footer-grid,.home-product-grid,.memory-cards,.memory-question-grid,.memory-path,.memory-remember-grid,.memory-cost-grid,.memory-loss-grid,.memory-compare-grid,.memory-transaction-flow,.memory-difference-row,.loss-stat-grid,.loss-list,.turnover-list,.five-year-grid,.memory-hero-list,.screenshot-gallery,.loss-header{grid-template-columns:1fr}
+  .status-row,.mock-job,.proof-row{grid-template-columns:1fr;gap:5px}
+  .memory-path div:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%)}
+  .memory-transaction-flow span:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-17px;transform:translateX(-50%)}
+  .memory-narrative,.memory-flow,.memory-value,.memory-compare,.memory-transaction,.memory-difference,.memory-cost,.loss-copy,.memory-hero-panel{padding:22px}
+  .loss-stat-card{min-height:auto}
+  .loss-stat-card strong{font-size:40px}
   .cta-band{padding:46px 20px}.cta-row{align-items:flex-start;flex-direction:column}
   .eco-node,.eco-node.main{position:static;transform:none;width:auto}.ecosystem-map{display:grid;gap:12px;min-height:auto;padding:16px}
   .form-card{padding:30px 22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
@@ -330,23 +500,25 @@ footer a:hover{color:var(--ink)}
     <span class="logo-word">Cliff Group<small>Florida Inc.</small></span>
   </a>
   <div class="nav-links" id="navLinks">
+    <a href="/" data-nav="home">Home</a>
     <a href="/hvacpro" data-nav="hvacpro">HVAC Pro</a>
     <a href="/estimatepro" data-nav="estimatepro">EstimatePro</a>
     <a href="/salespro" data-nav="salespro">SalesPro</a>
     <a href="/contact" data-nav="contact">Contact</a>
   </div>
   <div class="nav-cta">
-    <a class="btn btn-login" href="/hvacpro/login" data-product-login hidden>Product Login</a>
+    <a class="btn btn-login" href="/hvacpro/login" target="_blank" rel="noopener noreferrer" data-product-login hidden>Product Login</a>
     <button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button>
   </div>
   <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <a href="/">Home</a>
   <a href="/hvacpro">HVAC Pro</a>
   <a href="/estimatepro">EstimatePro</a>
   <a href="/salespro">SalesPro</a>
   <a href="/contact">Contact</a>
-  <a href="/hvacpro/login" data-product-login hidden>Product Login</a>
+  <a href="/hvacpro/login" target="_blank" rel="noopener noreferrer" data-product-login hidden>Product Login</a>
   <button data-modal="demo">Schedule Workflow Review</button>
 </div>
 <div class="sticky-review" id="stickyReview"><button class="btn btn-primary" data-modal="demo">Schedule Workflow Review <span class="arrow">→</span></button></div>
@@ -389,6 +561,9 @@ footer a:hover{color:var(--ink)}
     <h3 id="modal-demo-title">Schedule a Workflow Review</h3>
     <p class="sub" id="modal-demo-description">A Workflow Review Session helps identify where your operation is getting stuck and which next step makes sense.</p>
     <form class="form-grid" data-lead-form="workflow-review" onsubmit="submitLead(event,'workflow-review')">
+      <input type="hidden" name="selected_product_slug">
+      <input type="hidden" name="selected_plan">
+      <input type="hidden" name="selected_source_page">
       <div class="field"><input name="full_name" type="text" placeholder=" " autocomplete="name" required><label>Your name</label></div>
       <div class="field"><input name="email" type="email" placeholder=" " autocomplete="email" required><label>Work email</label></div>
       <div class="field"><input name="company" type="text" placeholder=" " autocomplete="organization"><label>Company</label></div>
@@ -401,6 +576,18 @@ footer a:hover{color:var(--ink)}
         <div class="success-box">Thanks — we'll contact you shortly.</div>
       </div>
     </form>
+  </div>
+</div>
+<div class="modal-backdrop" id="modal-screenshot" role="dialog" aria-modal="true" aria-labelledby="modal-screenshot-title" aria-describedby="modal-screenshot-description" tabindex="-1">
+  <div class="modal screenshot-modal">
+    <button class="modal-close" data-close aria-label="Close screenshot">✕</button>
+    <div class="screenshot-modal-body">
+      <img id="modal-screenshot-image" src="" alt="">
+      <div>
+        <h3 id="modal-screenshot-title">Product screen</h3>
+        <p id="modal-screenshot-description">SalesPro product screen preview.</p>
+      </div>
+    </div>
   </div>
 </div>
 <div class="toast-wrap" id="toasts"></div>
@@ -546,13 +733,14 @@ footer a:hover{color:var(--ink)}
     route === 'salespro' ? salesPage(page) :
     homePage(page);
   setupProductLogin(route);
+  bindProductLoginNewTabs();
 
   function hero(p){
     return `<header class="hero">
       <div class="grid-bg"></div>
       <div class="container hero-layout">
         <div>
-          <span class="eyebrow reveal">${p.heroEyebrow}</span>
+          <div class="hero-eyebrow-line reveal"><span class="eyebrow">${p.heroEyebrow}</span>${route === 'salespro' ? '<a class="powered-badge" href="#smart-ops-memory" aria-label="Jump to Smart Ops Memory section">Powered by Smart Ops Memory™</a>' : ''}</div>
           <h1 class="display reveal">${p.heroTitle}</h1>
           <p class="lede reveal">${p.heroText}</p>
           <div class="hero-actions reveal">
@@ -595,26 +783,41 @@ footer a:hover{color:var(--ink)}
 
   function setupProductLogin(routeName){
     const loginUrls = {
-      hvacpro: '/hvacpro/login',
-      estimatepro: '/estimatepro/login',
-      salespro: '/salespro/login'
+      hvacpro: 'https://keen-mercy-production-1ff8.up.railway.app/#dashboard',
+      estimatepro: 'https://frontend-production-9aa65.up.railway.app/login',
+      salespro: 'https://web-production-70049.up.railway.app/salespro/login'
     };
     document.querySelectorAll('[data-product-login]').forEach(link => {
       const href = loginUrls[routeName];
       if (!href) {
         link.hidden = true;
         link.removeAttribute('aria-label');
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+        link.removeAttribute('title');
         return;
       }
       link.hidden = false;
       link.href = href;
-      link.textContent = `${productLabel(routeName)} Login`;
-      link.setAttribute('aria-label', `${productLabel(routeName)} login`);
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Login';
+      link.title = `${productLabel(routeName)} app login`;
+      link.setAttribute('aria-label', `${productLabel(routeName)} app login opens in a new tab`);
     });
   }
 
+  function bindProductLoginNewTabs(){
+    document.addEventListener('click', event => {
+      const link = event.target.closest('[data-product-login]');
+      if (!link || link.hidden) return;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }, true);
+  }
+
   function homePage(p){
-    return hero(p) + painSection() + bestFitSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + estimateSection() + salesSection() + trustSection() + credibilitySection() + finalCta();
+    return hero(p) + homeProductsSection() + painSection() + bestFitSection() + hvacWorkflowSection() + hvacProSection() + outcomesSection() + estimateSection() + salesSection() + trustSection() + credibilitySection() + finalCta();
   }
 
   function hvacPage(p){
@@ -630,7 +833,7 @@ footer a:hover{color:var(--ink)}
   }
 
   function salesPage(p){
-    return hero(p) + salesWorkflowSection() + salesProofSection() + salesSection() + productPricingSection('salespro', 'SalesPro') + productFaqSection('salespro') + productCrossLinkSection('salespro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for SalesPro');
+    return hero(p) + salesMemoryHeroSection() + salesWorkflowSection() + knowledgeLossSection() + employeeTurnoverSection() + fiveYearMemorySection() + smartOpsMemorySection() + salesProofSection() + salesSection() + salesScreenshotsSection() + productPricingSection('salespro', 'SalesPro') + productFaqSection('salespro') + productCrossLinkSection('salespro') + trustSection() + credibilitySection() + finalCta('Schedule a Workflow Review for SalesPro');
   }
 
   function pricingPage(p){
@@ -643,6 +846,15 @@ footer a:hover{color:var(--ink)}
 
   function contactPage(p){
     return hero(p) + inquiryRoutingSection() + leadFormSection('Send an inquiry', 'Choose the inquiry type and tell us what you need. Product questions can also start a Workflow Review Session.', 'contact') + productLinksSection() + credibilitySection() + finalCta('Schedule a Workflow Review');
+  }
+
+  function homeProductsSection(){
+    const products = [
+      ['HVAC Pro', '/hvacpro', 'HVAC operations software for scheduling, dispatch, technician coordination, closeout and invoice handoff.', 'Field operations'],
+      ['EstimatePro', '/estimatepro', 'AI-assisted HVAC estimating software for plan upload, quantity review, scope adjustment and proposal preparation.', 'Estimating'],
+      ['SalesPro', '/salespro', 'Small business operations software for inventory, purchase orders, customer orders, invoices and payments.', 'Back office']
+    ];
+    return `<section class="section soft" id="home"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Home</span><h2 class="h2 reveal">Choose the product you want to explore.</h2></div><p class="lede reveal">Start with the product that matches the work in front of you. Each card opens the product page with workflow examples, pricing and next steps.</p></div><div class="home-product-grid">${products.map((p,i)=>`<a class="card home-product-card reveal" href="${p[1]}"><span class="product-kicker">${p[3]}</span><div><span class="num">0${i+1}</span><h3>${p[0]}</h3><p>${p[2]}</p></div><span class="card-link">View ${p[0]} <span class="arrow">→</span></span></a>`).join('')}</div></div></section>`;
   }
 
   function painSection(){
@@ -794,35 +1006,267 @@ footer a:hover{color:var(--ink)}
   }
 
   function estimateProofSection(){
-    const rows = [
-      ['Upload Plans','Plan set, scope notes and project context are attached before review begins.','Input'],
-      ['Review Quantities','Estimator checks quantities, assumptions and any assisted suggestions.','Review'],
-      ['Adjust Scope','Scope items can be changed before the estimate is approved.','Control'],
-      ['Approve Estimate','Final approval stays with the estimator before proposal work begins.','Approved'],
-      ['Prepare Proposal','Approved numbers and scope move into a cleaner customer-ready proposal.','Proposal'],
-      ['Send To Operations','Accepted work can move toward scheduling, dispatch and invoice handoff.','Next']
+    const steps = [
+      ['Upload Plans','Mechanical set A2.1-A7.4 uploaded with scope notes and addendum context.'],
+      ['Review Quantities','Estimator reviews duct runs, equipment counts, grilles and assumptions.'],
+      ['Adjust Scope','Alternate scope and quantity changes stay editable before approval.'],
+      ['Approve Estimate','Final approval stays with the estimator before proposal generation.'],
+      ['Generate Proposal','Approved estimate is packaged for customer review and next-step handoff.']
     ];
     return `<section class="section"><div class="container feature-split">
       <div>
         <span class="eyebrow reveal">Estimator control</span>
         <h2 class="h2 reveal">Show the estimating work before it moves forward.</h2>
         <p class="lede reveal" style="margin-top:16px">EstimatePro should feel like a professional estimating assistant: organize the work, make review easier, and keep approval with the estimator.</p>
-        <div class="outcome-band reveal" style="margin-top:28px">
-          <div><strong>Review before approval</strong><span>Nothing needs to move forward until a person checks it.</span></div>
-          <div><strong>Adjust quantities</strong><span>Counts and assumptions remain editable during review.</span></div>
-          <div><strong>Modify scope</strong><span>Scope decisions stay visible before the proposal goes out.</span></div>
-          <div><strong>Estimator signs off</strong><span>Final approval remains controlled by the estimating team.</span></div>
-        </div>
+        <div class="proof-timeline reveal" style="margin-top:28px">${steps.map((item,i)=>`<div><span>0${i+1}</span><p><b>${item[0]}</b><small>${item[1]}</small></p></div>`).join('')}</div>
       </div>
-      <div class="mock-board reveal">
-        <div class="mock-toolbar"><b>Estimate workspace</b><span class="live-pill">Review</span></div>
-        <div class="mock-grid">${rows.map(r => `<div class="mock-job"><span>${r[0]}</span><b>${r[1]}</b><i>${r[2]}</i></div>`).join('')}</div>
+      <div class="proof-stack reveal">
+        <div class="proof-panel">
+          <h3>Plan upload</h3>
+          <div class="proof-row"><span>Project</span><b>Riverside Office TI</b><i>Mechanical</i></div>
+          <div class="proof-row"><span>Sheets</span><b>18 drawings attached</b><i>Ready</i></div>
+          <div class="proof-row"><span>Context</span><b>Bid due Friday, scope notes included</b><i>Open</i></div>
+          <div class="proof-meta"><span>Upload Plans</span><span>Estimator intake</span></div>
+        </div>
+        <div class="proof-panel light">
+          <h3>Quantity review</h3>
+          <div class="proof-row"><span>Supply diffusers</span><b>42 counted</b><i>Review</i></div>
+          <div class="proof-row"><span>VAV boxes</span><b>9 counted</b><i>Confirm</i></div>
+          <div class="proof-row"><span>Scope note</span><b>Exclude alternate lobby zone</b><i>Adjusted</i></div>
+          <div class="proof-meta"><span>Adjust quantities</span><span>Approve estimate</span><span>Generate proposal</span></div>
+        </div>
       </div>
     </div></section>`;
   }
 
   function salesSection(){
     return moduleSection('SalesPro','Small business operations software','SalesPro gives small businesses one practical place for inventory, orders, invoices, purchasing, payments and business visibility without heavy back-office complexity.','/salespro','Explore SalesPro');
+  }
+
+  function salesMemoryHeroSection(){
+    const memories = ['Every customer preference.','Every pricing decision.','Every supplier lesson.','Every operational exception.','Every successful resolution.'];
+    return `<section class="section dark memory-hero-section">
+      <div class="container">
+        <div class="memory-hero-panel reveal">
+          <span class="eyebrow">Powered By Smart Ops Memory™</span>
+          <h2 class="h2">The System That Doesn’t Let Your Company Forget.</h2>
+          <p>Most software stores transactions. SalesPro stores operational knowledge.</p>
+          <div class="memory-hero-list">${memories.map(item=>`<span>${item}</span>`).join('')}</div>
+          <p style="margin-top:24px">The result is a business that becomes smarter every year instead of starting over every time someone leaves.</p>
+          <strong class="memory-hero-close">Your products can be copied. Your pricing can be matched. Your experience is your competitive advantage. SalesPro helps you keep it.</strong>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function knowledgeLossSection(){
+    const cards = [
+      ['$500K Revenue','$10K-$25K','Forgotten preferences','Pricing inconsistencies','Onboarding delays'],
+      ['$1M-$5M Revenue','$25K-$150K','Operational delays','Customer relationship loss','Duplicate work'],
+      ['$5M-$20M Revenue','$150K-$750K','Undocumented procedures','Decision history loss','Recurring errors'],
+      ['$20M+ Revenue','$750K-Millions','Leadership transitions','Fragmented systems','Repeated problem solving']
+    ];
+    return `<section class="section dark knowledge-loss-section" id="knowledge-loss">
+      <div class="container loss-layout">
+        <div class="loss-header">
+          <div class="loss-copy reveal">
+            <span class="eyebrow">The Hidden Cost Of Forgetting</span>
+            <h2 class="h2">Most businesses lose money because knowledge disappears.</h2>
+          </div>
+          <div class="loss-copy reveal">
+            <p>Most businesses lose money every year because important knowledge is not documented, searchable, or retained.</p>
+            <p>Customer preferences, pricing decisions, vendor experience, past mistakes and successful resolutions should not disappear into email threads or employee memory.</p>
+          </div>
+        </div>
+        <strong class="loss-statement reveal">SalesPro is the system that doesn't let your company forget.</strong>
+        <div class="loss-stat-grid">
+          ${cards.map(([revenue,loss,...examples])=>`<article class="loss-stat-card reveal"><span class="loss-revenue">${revenue}</span><strong>${loss}</strong><span class="loss-label">Estimated Annual Impact</span><ul>${examples.map(item=>`<li>${item}</li>`).join('')}</ul></article>`).join('')}
+        </div>
+        <p class="memory-source-note reveal">Illustrative estimates based on productivity-loss, employee-turnover, and knowledge-management research. Actual impact varies by organization.</p>
+      </div>
+    </section>`;
+  }
+
+  function employeeTurnoverSection(){
+    const items = ['Every order.','Every customer.','Every decision.','Every exception.','Every resolution.'];
+    return `<section class="section dark">
+      <div class="container turnover-layout">
+        <div class="loss-copy reveal">
+          <span class="eyebrow">Your Best Employee Will Eventually Leave</span>
+          <h2 class="h2">Your Best Employee Will Eventually Leave.</h2>
+          <p class="memory-tagline">The question is: Will their knowledge leave too?</p>
+          <p>Most companies store critical operating knowledge inside people. SalesPro stores it inside the business.</p>
+          <ul class="turnover-list">${items.map(item=>`<li>${item}</li>`).join('')}</ul>
+          <p>Smart Ops Memory™ transforms daily experience into permanent operational knowledge.</p>
+          <p>When employees leave, companies often lose years of experience. With Smart Ops Memory™, context, decisions, procedures and lessons remain searchable and available to the next person.</p>
+        </div>
+        <div class="turnover-quote reveal"><strong>Knowledge Should Survive Employee Turnover.</strong></div>
+      </div>
+    </section>`;
+  }
+
+  function fiveYearMemorySection(){
+    const traditional = ['Thousands of transactions','Thousands of emails','Scattered spreadsheets','Multiple employee changes','Missing context','Forgotten decisions','Repeated mistakes','Knowledge trapped in individuals'];
+    const memory = ['Complete operational history','Searchable decisions','Customer preferences preserved','Pricing history available','Supplier experience retained','Proven resolutions documented','Faster onboarding','Better consistency','Smarter decision making'];
+    return `<section class="section dark">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow reveal">What Happens After Five Years?</span><h2 class="h2 reveal">The business either forgets, or it compounds what it has learned.</h2></div><p class="lede reveal">SalesPro turns daily operations into a record your company can keep using long after individual transactions are closed.</p></div>
+        <div class="five-year-grid">
+          <div class="five-year-card reveal"><h3>Traditional Software</h3><p>Five years later:</p><ul>${traditional.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+          <div class="five-year-card with reveal"><h3>SalesPro + Smart Ops Memory™</h3><p>Five years later:</p><ul>${memory.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+        </div>
+        <strong class="five-year-statement reveal">The business becomes smarter every year.</strong>
+      </div>
+    </section>`;
+  }
+
+  function smartOpsMemorySection(){
+    const knowledgeCards = [
+      ['Customer Preference','Preferred delivery on Thursdays'],
+      ['Pricing History','Special pricing approved by Operations Manager'],
+      ['Supplier Note','Supplier resolved similar issue in March'],
+      ['Order History','Previous replacement part used successfully'],
+      ['Internal Procedure','Follow-up inspection required before invoicing'],
+      ['Team Expertise','Operations note saved for the next order']
+    ];
+    const remembers = [
+      'Customer Preferences',
+      'Special Pricing Agreements',
+      'Product-Specific Instructions',
+      'Supplier Requirements',
+      'Delivery Notes',
+      'Internal Procedures',
+      'Purchasing Decisions',
+      'Delivery Instructions',
+      'Sales Conversations',
+      'Operational History',
+      'Approval Decisions',
+      'Problem Resolutions'
+    ];
+    const withoutMemory = ['Employee memory','Email threads','Text messages','Paper notes','Spreadsheets','Sticky notes'];
+    const withoutProblems = ['Knowledge leaves when employees leave','Teams repeat mistakes','Customer preferences are forgotten','Important decisions disappear','New employees start from zero'];
+    const withBenefits = ['Knowledge stays with the company','Decisions remain searchable','Customer history stays available','Teams review previous solutions','New employees inherit context','Operational knowledge compounds over time','Historical decisions stay visible','Fewer repeated mistakes','Faster onboarding','Better customer consistency','Stronger operational discipline'];
+    const questions = [
+      'How was this customer handled before?',
+      'Why was this pricing approved?',
+      'Which supplier solved this issue?',
+      'What happened on the last order?',
+      'How was this problem resolved?'
+    ];
+    const path = [
+      ['Question','A team member needs context before acting.'],
+      ['Search Memory','SalesPro surfaces related notes, history, decisions, approvals and previous actions.'],
+      ['Previous Resolution','The team sees what worked last time.'],
+      ['Recommended Next Step','Work moves forward with confidence.']
+    ];
+    const transactionFlow = ['Lead','Opportunity','Customer','Order','Invoice','Payment','Smart Ops Memory™'];
+    const comparisonRows = [
+      ['Stores contacts','Stores operational knowledge'],
+      ['Stores transactions','Stores decisions'],
+      ['Stores invoices','Stores context'],
+      ['Stores orders','Stores historical reasoning'],
+      ['Requires employees to remember context','Learns from every transaction'],
+      ['Knowledge becomes fragmented','Knowledge stays centralized'],
+      ['Experience leaves with employees','Experience becomes a company asset']
+    ];
+    return `<section class="section dark memory-section" id="smart-ops-memory">
+      <div class="container">
+        <div class="memory-layout">
+          <div class="memory-narrative reveal">
+            <span class="eyebrow">Smart Ops Memory™</span>
+            <h2 class="h2">Your business remembers everything.</h2>
+            <p class="memory-tagline">Operational Memory Infrastructure for Small and Mid-Sized Businesses.</p>
+            <strong class="memory-slogan">Most software stores data. Smart Ops Memory stores experience.</strong>
+            <p>Every customer interaction, order, invoice, purchase, approval, note, task and operational decision becomes part of your company's operational memory.</p>
+            <p>Instead of relying on employee memory, spreadsheets, emails and tribal knowledge, your business builds a permanent operating record that stays with the company.</p>
+            <div class="section-actions"><button class="btn btn-primary" data-modal="demo" data-product-interest="SalesPro">Schedule Workflow Review <span class="arrow">→</span></button></div>
+          </div>
+          <div class="memory-cards">
+            ${knowledgeCards.map(([label,value])=>`<div class="memory-card reveal"><span>${label}</span><b>${value}</b></div>`).join('')}
+          </div>
+        </div>
+        <div class="memory-remember reveal">
+          <h3>Never Lose Critical Knowledge</h3>
+          <div class="memory-remember-grid">
+            ${remembers.map(item=>`<div>${item}</div>`).join('')}
+          </div>
+        </div>
+        <div class="memory-compare reveal">
+          <h3>Stop Paying To Learn The Same Lesson Twice.</h3>
+          <div class="memory-compare-grid">
+            <div class="memory-compare-card"><b>Without Smart Ops Memory</b><ul>${withoutMemory.map(item=>`<li>${item}</li>`).join('')}${withoutProblems.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+            <div class="memory-compare-card with"><b>With Smart Ops Memory</b><ul>${withBenefits.map(item=>`<li>${item}</li>`).join('')}</ul></div>
+          </div>
+        </div>
+        <div class="memory-flow reveal">
+          <h3>Every Answer Already Exists Somewhere. Smart Ops Memory Helps You Find It.</h3>
+          <p class="memory-flow-copy" style="margin:0 0 18px">Instead of asking coworkers, digging through emails or searching shared drives, teams can locate the operational context they need before making decisions.</p>
+          <div class="memory-question-grid">
+            ${questions.map(item=>`<span>${item}</span>`).join('')}
+          </div>
+          <div class="memory-path">
+            ${path.map(([label,value])=>`<div><span>${label}</span><b>${value}</b></div>`).join('')}
+          </div>
+          <p class="memory-flow-copy">A team member gets the context they need before acting, sees what worked last time and moves forward without hunting through scattered files or asking around the office.</p>
+        </div>
+        <div class="memory-transaction reveal">
+          <h3>Powered By Every Transaction</h3>
+          <p>Every transaction makes your company smarter. Smart Ops Memory grows automatically as leads, opportunities, customer interactions, quotes, orders, invoices, payments, approvals, tasks, shipments and operational decisions contribute to the memory layer. No additional data entry required.</p>
+          <div class="memory-transaction-flow">${transactionFlow.map(item=>`<span>${item}</span>`).join('')}</div>
+        </div>
+        <div class="memory-difference reveal">
+          <h3>Why SalesPro Is Different</h3>
+          <div class="memory-difference-table">
+            <div class="memory-difference-row"><div>Traditional Business Software</div><div>SalesPro + Smart Ops Memory™</div></div>
+            ${comparisonRows.map(([traditional,salespro])=>`<div class="memory-difference-row"><div>${traditional}</div><div>${salespro}</div></div>`).join('')}
+          </div>
+        </div>
+        <div class="memory-value reveal">
+          <h3>Employees Come And Go. Knowledge Should Stay.</h3>
+          <p>Every action inside SalesPro contributes to your company’s operational memory. The more your team uses the system, the smarter and more valuable it becomes.</p>
+          <p>Companies without operational memory repeat the same mistakes. Companies with Smart Ops Memory build a competitive advantage that compounds year after year.</p>
+          <strong class="memory-closing">The Most Valuable Asset In Your Business Is Not Inventory. It Is Accumulated Experience.</strong>
+          <div class="section-actions"><button class="btn btn-primary" data-modal="demo" data-product-interest="SalesPro">Schedule Workflow Review <span class="arrow">→</span></button><button class="btn btn-ghost" data-modal="demo" data-product-interest="SalesPro">Request Demo</button></div>
+        </div>
+      </div>
+    </section>`;
+  }
+
+  function salesScreenshotsSection(){
+    const screenshots = [
+      ['/assets/salespro/smart-ops-snapshot.jpg', 'Smart Ops snapshot', 'Recommendations, risks, predictions and next best actions stay visible.'],
+      ['/assets/salespro/orders.jpg', 'Orders workspace', 'Track customer orders, fulfillment status, approvals and backorder risk.'],
+      ['/assets/salespro/invoices.jpg', 'Invoice management', 'See open, paid and overdue invoices with fast follow-up actions.'],
+      ['/assets/salespro/customer-portal.jpg', 'Customer portal', 'Give customers a clean invoice view with payment and download actions.']
+    ];
+    return `<section class="section soft" id="salespro-product-screens">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow reveal">Product screens</span><h2 class="h2 reveal">See how SalesPro looks in daily operations.</h2></div>
+          <p class="lede reveal">Real product views help buyers understand that SalesPro is not another spreadsheet wrapper. It gives the team a working place for orders, inventory, invoices, customer records and operational memory.</p>
+        </div>
+        <div class="screenshot-showcase">
+          <button class="screenshot-frame reveal" type="button" data-screenshot="/assets/salespro/dashboard.jpg" data-screenshot-title="SalesPro dashboard" data-screenshot-description="Revenue, invoices, orders, outstanding balances and Smart Ops Memory signals in one operating view.">
+            <img src="/assets/salespro/dashboard.jpg" alt="SalesPro dashboard with revenue, invoices, orders and Smart Ops Memory snapshot" loading="lazy">
+          </button>
+          <div class="screenshot-copy reveal">
+            <div>
+              <span class="eyebrow">Dashboard</span>
+              <h3>Business context at login.</h3>
+              <p>The dashboard keeps revenue, open invoices, orders, outstanding balance and operational signals in one place so owners and admins can see what needs attention first.</p>
+            </div>
+            <div class="screenshot-points">
+              <div><b>Operational snapshot</b><span>Approvals, overdue invoices, low stock and backorder risks are surfaced quickly.</span></div>
+              <div><b>Next best actions</b><span>SalesPro turns daily activity into recommended follow-up work.</span></div>
+              <div><b>Connected records</b><span>Orders, invoices, products and customer context stay tied together.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="screenshot-gallery">
+          ${screenshots.map(([src,title,text])=>`<button class="screenshot-thumb reveal" type="button" data-screenshot="${src}" data-screenshot-title="${title}" data-screenshot-description="${text}"><img src="${src}" alt="SalesPro ${title}" loading="lazy"><div><b>${title}</b><span>${text}</span></div></button>`).join('')}
+        </div>
+      </div>
+    </section>`;
   }
 
   function salesWorkflowSection(){
@@ -838,13 +1282,29 @@ footer a:hover{color:var(--ink)}
   }
 
   function salesProofSection(){
-    const panels = [
-      ['Inventory','34 units available','Reorder threshold active','Live stock'],
-      ['Purchase Order','PO-1074','Pending supplier confirmation','Purchasing'],
-      ['Invoice','INV-2081','Awaiting payment','Billing'],
-      ['Customer Order','Order #5326','Ready for fulfillment','Orders']
-    ];
-    return `<section class="section"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">SalesPro in practice</span><h2 class="h2 reveal">Daily business work should be visible without a spreadsheet hunt.</h2></div><p class="lede reveal">SalesPro is built around everyday records small teams already manage: stock, purchase orders, invoices, payments and customer orders.</p></div><div class="grid-4">${panels.map((p,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${p[0]}</h3><p><strong>${p[1]}</strong></p><p>${p[2]}</p><span class="live-pill" style="margin-top:16px">${p[3]}</span></article>`).join('')}</div></div></section>`;
+    return `<section class="section"><div class="container">
+      <div class="section-head"><div><span class="eyebrow reveal">SalesPro in practice</span><h2 class="h2 reveal">Daily business work should be visible without a spreadsheet hunt.</h2></div><p class="lede reveal">SalesPro is built around everyday records small teams already manage: stock, purchase orders, invoices, payments and customer orders.</p></div>
+      <div class="proof-grid">
+        <div class="proof-panel reveal">
+          <h3>Business operations snapshot</h3>
+          <div class="proof-row"><span>Inventory</span><b>34 condenser pads available</b><i>Live stock</i></div>
+          <div class="proof-row"><span>Purchase order</span><b>PO-1074 pending supplier confirmation</b><i>Purchasing</i></div>
+          <div class="proof-row"><span>Customer order</span><b>Order #5326 ready for fulfillment</b><i>Orders</i></div>
+          <div class="proof-row"><span>Invoice</span><b>INV-2081 awaiting payment</b><i>Billing</i></div>
+          <div class="proof-row"><span>Payment</span><b>ACH link sent to customer</b><i>Open</i></div>
+        </div>
+        <div class="proof-panel light reveal">
+          <h3>What you see</h3>
+          <p class="lede" style="font-size:16px">This view represents the daily back-office work a small business owner or admin checks before orders, purchasing and invoicing drift into separate spreadsheets.</p>
+          <div class="proof-meta"><span>Owner</span><span>Office admin</span><span>Inventory lead</span></div>
+          <div class="proof-timeline" style="margin-top:18px">
+            <div><span>01</span><p><b>Inventory snapshot</b><small>See what is available and what needs reorder attention.</small></p></div>
+            <div><span>02</span><p><b>Order and purchase activity</b><small>Keep customer orders and supplier follow-up in the same view.</small></p></div>
+            <div><span>03</span><p><b>Invoice and payment status</b><small>Track what is billed, paid and still waiting.</small></p></div>
+          </div>
+        </div>
+      </div>
+    </div></section>`;
   }
 
   function productCrossLinkSection(product){
@@ -878,12 +1338,34 @@ footer a:hover{color:var(--ink)}
   }
 
   function workflowDeepDive(){
-    const items = [
-      ['Job #2418','Commercial Service Call','Assigned: Mike R.','Status: In Progress'],
-      ['Technician Update','Parts Installed','Photos Attached','Ready For Review'],
-      ['Closeout Complete','Invoice Ready','Awaiting Payment','Billing Handoff']
-    ];
-    return `<section class="section"><div class="container"><div class="section-head center"><span class="eyebrow reveal">HVAC Pro in practice</span><h2 class="h2 reveal">Real workflows need clear status, not more scattered notes.</h2></div><div class="grid-3">${items.map((i,n)=>`<article class="card reveal"><span class="num">0${n+1}</span><h3>${i[0]}</h3><p><strong>${i[1]}</strong></p><p>${i[2]}</p><span class="live-pill" style="margin-top:16px">${i[3]}</span></article>`).join('')}</div></div></section>`;
+    return `<section class="section"><div class="container">
+      <div class="section-head"><div><span class="eyebrow reveal">HVAC Pro in practice</span><h2 class="h2 reveal">Real workflows need clear status, not more scattered notes.</h2></div><p class="lede reveal">These examples show the kind of operational screen the office, dispatcher and technician use around the same service call.</p></div>
+      <div class="proof-grid">
+        <div class="proof-panel reveal">
+          <h3>Dispatch board preview</h3>
+          <div class="proof-row"><span>Job #2418</span><b>Commercial Service Call</b><i>In Progress</i></div>
+          <div class="proof-row"><span>Assigned</span><b>Mike R. · ETA 10:30 AM</b><i>Tech assigned</i></div>
+          <div class="proof-row"><span>Parts</span><b>Contactor and capacitor required</b><i>Parts required</i></div>
+          <div class="proof-row"><span>Closeout</span><b>Photos attached, invoice ready</b><i>Invoice ready</i></div>
+          <div class="proof-meta"><span>Dispatcher view</span><span>Office visibility</span><span>Technician assignment</span></div>
+        </div>
+        <div class="proof-stack">
+          <div class="proof-panel light reveal">
+            <h3>What you see</h3>
+            <p class="lede" style="font-size:16px">This screen represents one service job from assignment through closeout. Dispatch sees the job status, the office sees billing readiness, and the technician sees the work context.</p>
+            <div class="proof-meta"><span>Dispatcher</span><span>Office admin</span><span>Field technician</span></div>
+          </div>
+          <div class="proof-panel light reveal">
+            <h3>Job status timeline</h3>
+            <div class="proof-timeline">
+              <div><span>01</span><p><b>Tech Assigned</b><small>Mike R. receives job details and customer context.</small></p></div>
+              <div><span>02</span><p><b>Parts Required</b><small>Required parts are visible before closeout.</small></p></div>
+              <div><span>03</span><p><b>Closeout → Invoice</b><small>Photos and completion notes move into invoice handoff.</small></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></section>`;
   }
 
   function modularSection(){
@@ -1008,6 +1490,25 @@ footer a:hover{color:var(--ink)}
     function openModal(id){
       const modal = document.getElementById(id);
       if (!modal) return;
+      applyWorkflowReviewContext(document.querySelector('[data-modal].is-opening'));
+      lastFocusedElement = document.activeElement;
+      modal.classList.add('open');
+      modal.focus();
+      setTimeout(() => modal.querySelector(focusableSelector)?.focus(), 0);
+    }
+    function openScreenshotModal(trigger){
+      const modal = document.getElementById('modal-screenshot');
+      const image = document.getElementById('modal-screenshot-image');
+      const title = document.getElementById('modal-screenshot-title');
+      const description = document.getElementById('modal-screenshot-description');
+      if (!modal || !image || !title || !description) return;
+      const src = trigger.dataset.screenshot || '';
+      const titleText = trigger.dataset.screenshotTitle || 'SalesPro product screen';
+      const descriptionText = trigger.dataset.screenshotDescription || 'SalesPro product screen preview.';
+      image.src = src;
+      image.alt = titleText;
+      title.textContent = titleText;
+      description.textContent = descriptionText;
       lastFocusedElement = document.activeElement;
       modal.classList.add('open');
       modal.focus();
@@ -1024,7 +1525,15 @@ footer a:hover{color:var(--ink)}
         e.preventDefault();
         document.getElementById('mobileMenu')?.classList.remove('open');
         menuToggle?.setAttribute('aria-expanded', 'false');
+        open.classList.add('is-opening');
         openModal('modal-' + open.dataset.modal);
+        open.classList.remove('is-opening');
+        return;
+      }
+      const screenshot = e.target.closest('[data-screenshot]');
+      if (screenshot) {
+        e.preventDefault();
+        openScreenshotModal(screenshot);
         return;
       }
       if (e.target.matches('[data-close]') || e.target.classList.contains('modal-backdrop')) {
@@ -1033,6 +1542,23 @@ footer a:hover{color:var(--ink)}
       const selector = e.target.closest('[data-fit]');
       if (selector) updateFit(selector.dataset.fit);
     });
+    function applyWorkflowReviewContext(trigger){
+      if (!trigger || trigger.dataset.modal !== 'demo') return;
+      const form = document.querySelector('#modal-demo form');
+      if (!form) return;
+      const product = trigger.dataset.product || '';
+      const plan = trigger.dataset.plan || '';
+      const sourcePage = trigger.dataset.sourcePage || pageLabel(route);
+      const productLabelText = productLabel(product);
+      const select = form.querySelector('[name="source_interest"]');
+      if (product && select) select.value = productLabelText;
+      const productInput = form.querySelector('[name="selected_product_slug"]');
+      const planInput = form.querySelector('[name="selected_plan"]');
+      const sourceInput = form.querySelector('[name="selected_source_page"]');
+      if (productInput) productInput.value = product;
+      if (planInput) planInput.value = plan;
+      if (sourceInput) sourceInput.value = sourcePage;
+    }
     document.addEventListener('keydown', e => {
       const modal = document.querySelector('.modal-backdrop.open');
       if (e.key === 'Escape') closeModals();
@@ -1085,7 +1611,7 @@ footer a:hover{color:var(--ink)}
 
   const pricingApiUrl = (() => {
     const explicit = window.CLIFF_PRICING_API_URL || document.querySelector('meta[name="pricing-api-url"]')?.content?.trim();
-    return explicit || 'https://platform-web-production-db95.up.railway.app/api/v1/public/catalog/pricing';
+    return explicit || 'https://platform-api-production-a95c.up.railway.app/api/v1/public/catalog/pricing';
   })();
 
   async function setupPricing(){
@@ -1104,7 +1630,7 @@ footer a:hover{color:var(--ink)}
 
   function normalizePricing(raw){
     const products = {hvacpro:[], estimatepro:[], salespro:[]};
-    const source = Array.isArray(raw) ? raw : raw.products || raw.data || raw.pricing || raw.catalog || [raw];
+    const source = pricingProductsFrom(raw);
     const productRows = Array.isArray(source) ? source : [source];
     productRows.forEach(item => {
       const key = productKey(item.product || item.productCode || item.code || item.slug || item.name);
@@ -1113,6 +1639,17 @@ footer a:hover{color:var(--ink)}
       products[key] = plans.map(normalizePlan).filter(Boolean);
     });
     return products;
+  }
+
+  function pricingProductsFrom(raw){
+    if (Array.isArray(raw)) return raw;
+    if (!raw || typeof raw !== 'object') return [];
+    if (Array.isArray(raw.products)) return raw.products;
+    if (raw.data && Array.isArray(raw.data.products)) return raw.data.products;
+    if (Array.isArray(raw.data)) return raw.data;
+    if (raw.catalog && Array.isArray(raw.catalog.products)) return raw.catalog.products;
+    if (Array.isArray(raw.pricing)) return raw.pricing;
+    return [raw];
   }
 
   function productKey(value){
@@ -1129,19 +1666,45 @@ footer a:hover{color:var(--ink)}
       Array.isArray(plan.featureList) ? plan.featureList :
       Array.isArray(plan.includedFeatures) ? plan.includedFeatures : [];
     return {
+      id: plan.id || plan.code || plan.slug || plan.name || 'plan',
       name: plan.name || plan.displayName || plan.title || plan.code || 'Plan',
-      monthly: moneyValue(plan.monthly ?? plan.monthlyPrice ?? plan.priceMonthly ?? plan.monthlyAmount ?? plan.price),
-      yearly: moneyValue(plan.yearly ?? plan.annual ?? plan.annualPrice ?? plan.priceYearly ?? plan.yearlyAmount),
+      monthly: firstMoneyValue([
+        [plan.monthly, false],
+        [plan.monthlyPrice, false],
+        [plan.priceMonthly, false],
+        [plan.monthlyAmount, false],
+        [plan.monthlyAmountCents, true],
+        [plan.amountCents, true],
+        [plan.price, false]
+      ]),
+      yearly: firstMoneyValue([
+        [plan.yearly, false],
+        [plan.annual, false],
+        [plan.annualPrice, false],
+        [plan.priceYearly, false],
+        [plan.yearlyAmount, false],
+        [plan.yearlyAmountCents, true],
+        [plan.annualAmountCents, true]
+      ]),
       features: features.map(f => typeof f === 'string' ? f : (f.name || f.label || f.description)).filter(Boolean),
-      checkoutUrl: plan.checkoutUrl || plan.buyUrl || plan.url || ''
+      checkoutUrl: plan.checkoutUrl || plan.buyUrl || plan.url || '',
+      purchasable: plan.purchasable === true || plan.allowSelfCheckout === true
     };
   }
 
-  function moneyValue(value){
+  function firstMoneyValue(candidates){
+    for (const [value, cents] of candidates) {
+      const amount = moneyValue(value, cents);
+      if (amount !== null) return amount;
+    }
+    return null;
+  }
+
+  function moneyValue(value, cents){
     if (value === null || value === undefined || value === '') return null;
     const number = Number(value);
     if (!Number.isFinite(number)) return null;
-    return number > 999 ? number / 100 : number;
+    return cents ? number / 100 : number;
   }
 
   function renderPricing(catalog){
@@ -1182,17 +1745,26 @@ footer a:hover{color:var(--ink)}
 
   function planCards(plans, product){
     const safePlans = plans.length ? plans : fallbackPlans(product);
-    return safePlans.map(plan => `<article class="card pricing-card reveal in">
-      <span class="num">${productLabel(product)}</span>
-      <h3>${escapeHtml(plan.name)}</h3>
-      <div class="price">${formatPrice(plan.monthly)} <small>/ month</small></div>
-      <p>${plan.yearly !== null ? `${formatPrice(plan.yearly)} billed annually` : 'Annual billing available by request'}</p>
-      <ul>${(plan.features.length ? plan.features.slice(0,6) : ['Plan features available during Workflow Review']).map(feature => `<li>${escapeHtml(feature)}</li>`).join('')}</ul>
-      <div class="pricing-actions">
-        ${plan.checkoutUrl ? `<a class="btn btn-primary" href="${escapeAttr(plan.checkoutUrl)}">Buy</a>` : `<button class="btn btn-primary" data-modal="demo">Buy</button>`}
-        <button class="btn btn-ghost" data-modal="demo">Request Demo</button>
-      </div>
-    </article>`).join('');
+    return safePlans.map(plan => {
+      const planId = plan.id || plan.name || 'starter';
+      const sourcePage = pageLabel(product || route);
+      const primaryLabel = plan.purchasable === true ? 'Buy Now' : 'Schedule Workflow Review';
+      const sharedAttrs = `data-product="${escapeAttr(product)}" data-plan="${escapeAttr(planId)}" data-source-page="${escapeAttr(sourcePage)}"`;
+      const primaryCta = plan.purchasable === true && plan.checkoutUrl
+        ? `<a class="btn btn-primary" href="${escapeAttr(plan.checkoutUrl)}" ${sharedAttrs}>${primaryLabel}</a>`
+        : `<button class="btn btn-primary" data-modal="demo" ${sharedAttrs}>${primaryLabel}</button>`;
+      return `<article class="card pricing-card reveal in">
+        <span class="num">${productLabel(product)}</span>
+        <h3>${escapeHtml(plan.name)}</h3>
+        <div class="price">${formatPrice(plan.monthly)} <small>/ month</small></div>
+        <p>${plan.yearly !== null ? `${formatPrice(plan.yearly)} billed annually` : 'Annual billing available by request'}</p>
+        <ul>${(plan.features.length ? plan.features.slice(0,6) : ['Plan features available during Workflow Review']).map(feature => `<li>${escapeHtml(feature)}</li>`).join('')}</ul>
+        <div class="pricing-actions">
+          ${primaryCta}
+          <button class="btn btn-ghost" data-modal="demo" ${sharedAttrs}>Request Demo</button>
+        </div>
+      </article>`;
+    }).join('');
   }
 
   function fallbackPlans(product){
@@ -1213,7 +1785,7 @@ footer a:hover{color:var(--ink)}
         ['Enterprise', ['Advanced business operations', 'Team workflows', 'Expanded setup support']]
       ]
     };
-    return (catalog[product] || catalog.hvacpro).map(([name, features]) => ({name, monthly:null, yearly:null, features, checkoutUrl:''}));
+    return (catalog[product] || catalog.hvacpro).map(([name, features]) => ({id:name.toLowerCase().replace(/[^a-z0-9]+/g,'-'), name, monthly:0, yearly:0, features, checkoutUrl:'', purchasable:false}));
   }
 
   function comparisonTable(plans, product){
@@ -1242,6 +1814,10 @@ footer a:hover{color:var(--ink)}
     return product === 'hvacpro' ? 'HVAC Pro' : product === 'estimatepro' ? 'EstimatePro' : product === 'salespro' ? 'SalesPro' : 'Product';
   }
 
+  function pageLabel(value){
+    return productLabel(value) !== 'Product' ? productLabel(value) : value === 'home' ? 'Home' : value === 'contact' ? 'Contact' : value === 'demo' ? 'Workflow Review' : 'Website';
+  }
+
   function formatPrice(value){
     if (value === null || value === undefined) return 'Contact Sales';
     return `$${Math.round(value).toLocaleString('en-US')}`;
@@ -1255,7 +1831,7 @@ footer a:hover{color:var(--ink)}
 
   const leadApiUrl = (() => {
     const explicit = window.CLIFF_LEADS_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
-    return (explicit || 'https://cliffgroup-api-production.up.railway.app/api/leads').replace(/\/+$/, '');
+    return (explicit || 'https://zesty-reflection-production-274d.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
 
   window.submitLead = async function(event, fallbackType){
@@ -1276,8 +1852,10 @@ footer a:hover{color:var(--ink)}
       phone: data.get('phone') || '',
       company: data.get('company') || '',
       productInterest,
+      selectedPlan: data.get('selected_plan') || '',
+      selectedProductSlug: data.get('selected_product_slug') || '',
       operationalProblem: problem,
-      sourcePage: window.location.pathname || '/',
+      sourcePage: data.get('selected_source_page') || pageLabel(route),
       pageUrl: window.location.href,
       referrer: document.referrer || '',
       source: window.location.href
