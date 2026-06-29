@@ -801,7 +801,7 @@ footer a:hover{color:var(--ink)}
       link.href = href;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.textContent = 'Login';
+      link.textContent = `${productLabel(routeName)} Login`;
       link.title = `${productLabel(routeName)} app login`;
       link.setAttribute('aria-label', `${productLabel(routeName)} app login opens in a new tab`);
     });
