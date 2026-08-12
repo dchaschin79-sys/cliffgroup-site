@@ -1969,10 +1969,6 @@ footer a:hover{color:var(--ink)}
   })();
 
   function defaultPlatformWebUrl(){
-    const host = window.location.hostname;
-    if (host === 'localhost' || host === '127.0.0.1' || host.includes('staging')) {
-      return 'https://platform-web-staging-fac5.up.railway.app';
-    }
     return 'https://platform-web-production-db95.up.railway.app';
   }
 

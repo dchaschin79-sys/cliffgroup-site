@@ -1,12 +1,7 @@
 (() => {
-  const STAGING_PLATFORM_WEB_URL = 'https://platform-web-staging-fac5.up.railway.app';
   const PRODUCTION_PLATFORM_WEB_URL = 'https://platform-web-production-db95.up.railway.app';
 
   function defaultPlatformWebUrl() {
-    const host = window.location.hostname;
-    if (host === 'localhost' || host === '127.0.0.1' || host.includes('staging')) {
-      return STAGING_PLATFORM_WEB_URL;
-    }
     return PRODUCTION_PLATFORM_WEB_URL;
   }
 

@@ -38,7 +38,7 @@ const securityHeaders = {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: https://web-production-70049.up.railway.app",
-    "connect-src 'self' https://zesty-reflection-production-274d.up.railway.app https://platform-web-production-db95.up.railway.app https://platform-api-production-a95c.up.railway.app https://platform-web-staging-fac5.up.railway.app https://platform-api-staging-473c.up.railway.app",
+    "connect-src 'self' https://zesty-reflection-production-274d.up.railway.app https://platform-web-production-db95.up.railway.app https://platform-api-production-a95c.up.railway.app",
     "object-src 'none'",
     "base-uri 'self'",
     "frame-ancestors 'none'",
