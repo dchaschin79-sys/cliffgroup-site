@@ -88,6 +88,7 @@
 html{scroll-behavior:smooth}
 html,body{margin:0;padding:0}
 body{background:var(--cream);color:var(--fg);font:400 16px/1.58 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.lightbox-open{overflow:hidden}
 a{color:inherit;text-decoration:none}
 button,input,textarea,select{font:inherit}
 button{cursor:pointer;border:none;background:none;color:inherit}
@@ -338,12 +339,43 @@ p{margin:0}
 .screenshot-thumb div{padding:14px}
 .screenshot-thumb b{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}
 .screenshot-thumb span{display:block;color:var(--fg-dim);font-size:12px;line-height:1.45}
-.screenshot-modal{width:min(1120px,100%);padding:18px}
-.screenshot-modal .modal-close{background:rgba(244,234,219,.9)}
-.screenshot-modal-body{display:grid;gap:14px}
-.screenshot-modal img{width:100%;max-height:72vh;object-fit:contain;border-radius:16px;border:1px solid var(--line);background:var(--cream-2)}
-.screenshot-modal h3{font-size:30px;margin:8px 46px 0 2px}
-.screenshot-modal p{color:var(--fg-dim);font-size:15px;line-height:1.55;margin:0 2px 4px}
+#modal-screenshot{display:block;padding:0;background:rgba(8,15,28,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.screenshot-lightbox{position:relative;width:100vw;height:100svh;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px;padding:10px 20px 14px;color:var(--cream);opacity:0;transform:scale(.985);transition:opacity .18s ease,transform .18s ease}
+#modal-screenshot.open .screenshot-lightbox{opacity:1;transform:none}
+.screenshot-lightbox-counter{position:absolute;top:16px;left:20px;z-index:3;min-width:54px;padding:9px 12px;border:1px solid rgba(244,234,219,.2);border-radius:999px;background:rgba(18,31,47,.76);color:var(--on-dark-soft);font-size:12px;font-weight:800;text-align:center;backdrop-filter:blur(10px)}
+.screenshot-lightbox-close,.screenshot-lightbox-nav{display:grid;place-items:center;width:48px;height:48px;border:1px solid rgba(244,234,219,.2);border-radius:999px;background:rgba(18,31,47,.8);color:var(--cream);font-size:24px;line-height:1;box-shadow:0 12px 32px rgba(0,0,0,.22);backdrop-filter:blur(10px);transition:background .18s ease,border-color .18s ease,transform .18s ease}
+.screenshot-lightbox-close:hover,.screenshot-lightbox-nav:hover{background:rgba(201,174,122,.24);border-color:rgba(201,174,122,.72)}
+.screenshot-lightbox-close:focus-visible,.screenshot-lightbox-nav:focus-visible,.screenshot-lightbox-zoom:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.screenshot-lightbox-close{position:absolute;top:14px;right:18px;z-index:4}
+.screenshot-lightbox-stage{position:relative;display:grid;place-items:center;min-width:0;min-height:0;padding:46px 58px 0}
+.screenshot-lightbox-viewport{width:100%;height:100%;display:grid;place-items:center;min-width:0;min-height:0;overflow:hidden}
+.screenshot-lightbox-zoom{display:block;width:auto;height:auto;padding:0;cursor:zoom-in}
+.screenshot-lightbox-zoom img{width:auto;height:auto;max-width:95vw;max-height:min(92vh,calc(100svh - 126px));object-fit:contain;border-radius:8px;box-shadow:0 24px 80px rgba(0,0,0,.4);user-select:none;-webkit-user-drag:none}
+.screenshot-lightbox-viewport.is-zoomed{display:block;overflow:auto;overscroll-behavior:contain}
+.screenshot-lightbox-viewport.is-zoomed .screenshot-lightbox-zoom{display:block;width:max-content;height:max-content;min-width:100%;min-height:100%;cursor:zoom-out}
+.screenshot-lightbox-viewport.is-zoomed img{max-width:none;max-height:none;border-radius:0;margin:auto}
+.screenshot-lightbox-nav{position:absolute;top:50%;z-index:3;transform:translateY(-50%);font-size:30px}
+.screenshot-lightbox-nav:hover{transform:translateY(-50%) scale(1.04)}
+.screenshot-lightbox-nav.prev{left:0}
+.screenshot-lightbox-nav.next{right:0}
+.screenshot-lightbox-nav[disabled]{opacity:.35;cursor:default}
+.screenshot-lightbox-caption{width:min(1200px,95vw);margin:0 auto;padding:4px 0 0}
+.screenshot-lightbox-caption h3{color:var(--cream);font-size:22px;line-height:1.15;margin:0 0 4px}
+.screenshot-lightbox-caption p{max-width:1000px;color:var(--on-dark-soft);font-size:13px;line-height:1.45;margin:0}
+.hvac-screen-list{display:grid;gap:72px;margin-top:42px}
+.hvac-screen-row{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.48fr);gap:clamp(30px,5vw,72px);align-items:center}
+.hvac-screen-row:nth-child(even){grid-template-columns:minmax(0,1.48fr) minmax(280px,.72fr)}
+.hvac-screen-row:nth-child(even) .hvac-screen-copy{order:2}
+.hvac-screen-row:nth-child(even) .hvac-screen-media{order:1}
+.hvac-screen-copy{max-width:430px}
+.hvac-screen-copy h3{font-size:clamp(30px,3.4vw,48px);margin:12px 0 16px}
+.hvac-screen-copy p{color:var(--fg-dim);font-size:17px;line-height:1.7}
+.hvac-screen-role{display:inline-flex;align-items:center;gap:8px;margin-top:22px;color:var(--ink);font-size:12px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+.hvac-screen-role::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.hvac-screen-media{position:relative;aspect-ratio:16/10}
+.hvac-screen-media img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hvac-screen-media.is-tall{aspect-ratio:4/3}
+.hvac-screen-media::after{content:"View full screen";position:absolute;right:14px;bottom:14px;padding:9px 12px;border-radius:999px;background:rgba(18,31,47,.88);color:var(--cream);font-size:11px;font-weight:900;letter-spacing:.04em;box-shadow:0 8px 24px rgba(18,31,47,.18)}
 .home-product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .home-product-card{min-height:260px;display:flex;flex-direction:column;justify-content:space-between;border-color:rgba(201,174,122,.28);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
 .home-product-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 24px 70px rgba(18,31,47,.12)}
@@ -459,7 +491,9 @@ footer a:hover{color:var(--ink)}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}.reveal.in{opacity:1;transform:none}
 
 @media (max-width:1040px){
-  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head,.memory-layout,.loss-layout,.turnover-layout,.screenshot-showcase,.loss-header{grid-template-columns:1fr}
+  .hero-layout,.feature-split,.ecosystem,.form-card,.section-head,.memory-layout,.loss-layout,.turnover-layout,.screenshot-showcase,.loss-header,.hvac-screen-row,.hvac-screen-row:nth-child(even){grid-template-columns:1fr}
+  .hvac-screen-row:nth-child(even) .hvac-screen-copy,.hvac-screen-row:nth-child(even) .hvac-screen-media{order:initial}
+  .hvac-screen-copy{max-width:720px}
   .proof-grid{grid-template-columns:1fr}
   .hero-card{max-width:560px}
   .workflow{grid-template-columns:repeat(4,1fr)}
@@ -499,6 +533,26 @@ footer a:hover{color:var(--ink)}
   .eco-node,.eco-node.main{position:static;transform:none;width:auto}.ecosystem-map{display:grid;gap:12px;min-height:auto;padding:16px}
   .form-card{padding:30px 22px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
   .footer-bar{flex-direction:column}.sticky-review{display:block}
+  .hvac-screen-list{gap:54px;margin-top:32px}
+  .hvac-screen-row,.hvac-screen-row:nth-child(even){display:flex;flex-direction:column;align-items:stretch;gap:22px}
+  .hvac-screen-row .hvac-screen-copy,.hvac-screen-row:nth-child(even) .hvac-screen-copy{order:1}
+  .hvac-screen-row .hvac-screen-media,.hvac-screen-row:nth-child(even) .hvac-screen-media{order:2}
+  .hvac-screen-copy h3{font-size:34px}
+  .hvac-screen-copy p{font-size:16px}
+  .hvac-screen-media,.hvac-screen-media.is-tall{aspect-ratio:16/10}
+  .hvac-screen-media::after{right:10px;bottom:10px}
+  .screenshot-lightbox{padding:8px 8px 12px;gap:7px}
+  .screenshot-lightbox-stage{padding:50px 2px 0}
+  .screenshot-lightbox-counter{top:12px;left:12px}
+  .screenshot-lightbox-close{top:10px;right:10px}
+  .screenshot-lightbox-close,.screenshot-lightbox-nav{width:44px;height:44px}
+  .screenshot-lightbox-nav{background:rgba(18,31,47,.72)}
+  .screenshot-lightbox-nav.prev{left:4px}
+  .screenshot-lightbox-nav.next{right:4px}
+  .screenshot-lightbox-zoom img{max-width:calc(100vw - 16px);max-height:calc(100svh - 138px);border-radius:5px}
+  .screenshot-lightbox-caption{width:calc(100vw - 24px)}
+  .screenshot-lightbox-caption h3{font-size:18px}
+  .screenshot-lightbox-caption p{font-size:12px;line-height:1.35}
 }
 </style>
 </head>
@@ -588,14 +642,21 @@ footer a:hover{color:var(--ink)}
   </div>
 </div>
 <div class="modal-backdrop" id="modal-screenshot" role="dialog" aria-modal="true" aria-labelledby="modal-screenshot-title" aria-describedby="modal-screenshot-description" tabindex="-1">
-  <div class="modal screenshot-modal">
-    <button class="modal-close" data-close aria-label="Close screenshot">✕</button>
-    <div class="screenshot-modal-body">
-      <img id="modal-screenshot-image" src="" alt="">
-      <div>
-        <h3 id="modal-screenshot-title">Product screen</h3>
-        <p id="modal-screenshot-description">SalesPro product screen preview.</p>
+  <div class="screenshot-lightbox">
+    <div class="screenshot-lightbox-counter" id="modal-screenshot-counter" aria-live="polite">1 / 1</div>
+    <button class="screenshot-lightbox-close" type="button" data-close aria-label="Close screenshot viewer">✕</button>
+    <div class="screenshot-lightbox-stage" id="screenshot-lightbox-stage">
+      <button class="screenshot-lightbox-nav prev" type="button" data-screenshot-prev aria-label="View previous screenshot">‹</button>
+      <div class="screenshot-lightbox-viewport" id="screenshot-lightbox-viewport">
+        <button class="screenshot-lightbox-zoom" type="button" data-screenshot-zoom aria-label="Toggle full-size image zoom" aria-pressed="false">
+          <img id="modal-screenshot-image" src="" alt="" draggable="false">
+        </button>
       </div>
+      <button class="screenshot-lightbox-nav next" type="button" data-screenshot-next aria-label="View next screenshot">›</button>
+    </div>
+    <div class="screenshot-lightbox-caption">
+      <h3 id="modal-screenshot-title">Product screen</h3>
+      <p id="modal-screenshot-description">Product screen preview.</p>
     </div>
   </div>
 </div>
@@ -831,7 +892,7 @@ footer a:hover{color:var(--ink)}
   }
 
   function hvacPage(p){
-    return hero(p) + painSection('hvacpro') + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should work from the same operational picture.', 'hvacpro') + hvacProSection(true) + workflowDeepDive() + productPricingSection('hvacpro', 'HVAC Pro') + productFaqSection('hvacpro') + trustSection('hvacpro') + credibilitySection() + finalCta('Schedule a Workflow Review for HVAC Pro', 'Fix the handoff before adding another tool.', 'Bring the HVAC workflow that is slowing the team down most. Cliff Group will help map the cleanest next step for HVAC Pro.');
+    return hero(p) + painSection('hvacpro') + hvacWorkflowSection('Dispatch, schedule, field work, closeout and invoice handoff should work from the same operational picture.', 'hvacpro') + hvacProSection(true) + hvacScreenshotsSection() + outcomesSection() + productPricingSection('hvacpro', 'HVAC Pro') + productFaqSection('hvacpro') + trustSection('hvacpro') + credibilitySection() + finalCta('Schedule a Workflow Review for HVAC Pro', 'Fix the handoff before adding another tool.', 'Bring the HVAC workflow that is slowing the team down most. Cliff Group will help map the cleanest next step for HVAC Pro.');
   }
 
   function platformPage(p){
@@ -1489,6 +1550,73 @@ footer a:hover{color:var(--ink)}
     </div></section>`;
   }
 
+  function hvacScreenshotsSection(){
+    const screens = [
+      {
+        src: '/assets/hvacpro/hvacpro-dispatch-board.png',
+        stage: 'Dispatch and scheduling',
+        title: 'Run the day from one live dispatch board.',
+        text: 'Dispatchers can see unassigned work, active technicians, job status and the day\'s timeline without collecting updates by phone.',
+        role: 'Dispatcher and operations manager',
+        alt: 'HVAC Pro live dispatch board showing an unassigned service call, four technicians and their daily schedule.'
+      },
+      {
+        src: '/assets/hvacpro/hvacpro-work-orders.png',
+        stage: 'Office visibility',
+        title: 'Keep every work order in one operational queue.',
+        text: 'Office staff can filter work orders and keep the customer, technician, equipment, schedule and current status attached to the same job.',
+        role: 'Office staff and service manager',
+        alt: 'HVAC Pro work order queue showing job status, assigned technician, equipment and scheduled visit time.'
+      },
+      {
+        src: '/assets/hvacpro/hvacpro-field-work-capture.png',
+        stage: 'Technician work capture',
+        title: 'Capture the field record while the work is happening.',
+        text: 'Technicians record notes, photos, materials, labor and recommendations from one focused field workflow, with drafts kept available during the visit.',
+        role: 'Field technician',
+        alt: 'HVAC Pro technician work capture screen with sections for notes, photos, materials, labor and recommendations.'
+      },
+      {
+        src: '/assets/hvacpro/hvacpro-closeout-review.png',
+        stage: 'Closeout review',
+        title: 'Review the completion packet before the job closes.',
+        text: 'Customer approval, notes, labor, materials, recommendations, photos and signature come together for one final readiness check.',
+        role: 'Technician and service manager',
+        alt: 'HVAC Pro completion review dialog summarizing customer approval, labor, materials, photos and signature readiness.'
+      },
+      {
+        src: '/assets/hvacpro/hvacpro-invoice-handoff.png',
+        stage: 'Invoice handoff',
+        title: 'Give the office a complete record for billing review.',
+        text: 'The invoice preview carries the field record into office review so billable work does not have to be rebuilt from calls and loose notes.',
+        role: 'Office staff and billing',
+        alt: 'HVAC Pro invoice preview showing customer, equipment, work record, labor, materials and customer authorization from a completed job.',
+        tall: true
+      }
+    ];
+    return `<section class="section soft" id="hvac-product-screens">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow reveal">Real product screens</span><h2 class="h2 reveal">See HVAC Pro in the workflow.</h2></div>
+          <p class="lede reveal">Follow the same operating path from the dispatch board through field work, closeout and the office's invoice review.</p>
+        </div>
+        <div class="hvac-screen-list">
+          ${screens.map(screen => `<article class="hvac-screen-row">
+            <div class="hvac-screen-copy reveal">
+              <span class="eyebrow">${screen.stage}</span>
+              <h3>${screen.title}</h3>
+              <p>${screen.text}</p>
+              <span class="hvac-screen-role">${screen.role}</span>
+            </div>
+            <button class="screenshot-frame hvac-screen-media${screen.tall ? ' is-tall' : ''} reveal" type="button" data-screenshot="${screen.src}" data-screenshot-title="${screen.title}" data-screenshot-description="${screen.text}" aria-label="Open ${screen.title} screenshot at full size">
+              <img src="${screen.src}" alt="${screen.alt}" loading="lazy" decoding="async">
+            </button>
+          </article>`).join('')}
+        </div>
+      </div>
+    </section>`;
+  }
+
   function modularSection(){
     return `<section class="section soft"><div class="container"><div class="section-head"><div><span class="eyebrow reveal">Modular adoption</span><h2 class="h2 reveal">Start with one painful workflow, then expand when it makes sense.</h2></div><p class="lede reveal">A contractor can begin with the workflow creating the most drag, prove the operating rhythm, and connect additional modules as the team grows.</p></div><div class="grid-3">${[['Start focused','Pick the workflow creating the most operational drag.'],['Connect the next handoff','Add the module that improves the next step in the customer journey.'],['Grow into visibility','Add product access and reporting support as the customer account grows.']].map((c,i)=>`<article class="card reveal"><span class="num">0${i+1}</span><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>`;
   }
@@ -1621,6 +1749,9 @@ footer a:hover{color:var(--ink)}
 
   function setupInteractions(){
     let lastFocusedElement = null;
+    let screenshotItems = [];
+    let activeScreenshotIndex = -1;
+    let touchStartX = null;
     const focusableSelector = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])';
     const menuToggle = document.getElementById('menuToggle');
     menuToggle?.addEventListener('click', () => {
@@ -1637,30 +1768,86 @@ footer a:hover{color:var(--ink)}
       modal.focus();
       setTimeout(() => modal.querySelector(focusableSelector)?.focus(), 0);
     }
-    function openScreenshotModal(trigger){
+    function renderScreenshot(index){
       const modal = document.getElementById('modal-screenshot');
       const image = document.getElementById('modal-screenshot-image');
       const title = document.getElementById('modal-screenshot-title');
       const description = document.getElementById('modal-screenshot-description');
-      if (!modal || !image || !title || !description) return;
+      const counter = document.getElementById('modal-screenshot-counter');
+      const viewport = document.getElementById('screenshot-lightbox-viewport');
+      const zoomButton = modal?.querySelector('[data-screenshot-zoom]');
+      const previousButton = modal?.querySelector('[data-screenshot-prev]');
+      const nextButton = modal?.querySelector('[data-screenshot-next]');
+      if (!modal || !image || !title || !description || !screenshotItems.length) return;
+      activeScreenshotIndex = (index + screenshotItems.length) % screenshotItems.length;
+      const trigger = screenshotItems[activeScreenshotIndex];
       const src = trigger.dataset.screenshot || '';
-      const titleText = trigger.dataset.screenshotTitle || 'SalesPro product screen';
-      const descriptionText = trigger.dataset.screenshotDescription || 'SalesPro product screen preview.';
+      const titleText = trigger.dataset.screenshotTitle || 'Product screen';
+      const descriptionText = trigger.dataset.screenshotDescription || 'Product screen preview.';
       image.src = src;
       image.alt = titleText;
       title.textContent = titleText;
       description.textContent = descriptionText;
-      lastFocusedElement = document.activeElement;
+      if (counter) counter.textContent = `${activeScreenshotIndex + 1} / ${screenshotItems.length}`;
+      viewport?.classList.remove('is-zoomed');
+      viewport?.scrollTo({top:0,left:0});
+      zoomButton?.setAttribute('aria-pressed', 'false');
+      const singleImage = screenshotItems.length < 2;
+      if (previousButton) previousButton.disabled = singleImage;
+      if (nextButton) nextButton.disabled = singleImage;
+    }
+    function openScreenshotModal(trigger){
+      const modal = document.getElementById('modal-screenshot');
+      if (!modal) return;
+      screenshotItems = Array.from(document.querySelectorAll('[data-screenshot]'));
+      const selectedIndex = screenshotItems.indexOf(trigger);
+      if (selectedIndex < 0) return;
+      lastFocusedElement = trigger;
+      renderScreenshot(selectedIndex);
       modal.classList.add('open');
+      document.body.classList.add('lightbox-open');
       modal.focus();
-      setTimeout(() => modal.querySelector(focusableSelector)?.focus(), 0);
+      setTimeout(() => modal.querySelector('[data-close]')?.focus(), 0);
+    }
+    function navigateScreenshot(direction){
+      if (!document.getElementById('modal-screenshot')?.classList.contains('open')) return;
+      renderScreenshot(activeScreenshotIndex + direction);
+    }
+    function toggleScreenshotZoom(){
+      const viewport = document.getElementById('screenshot-lightbox-viewport');
+      const zoomButton = document.querySelector('#modal-screenshot [data-screenshot-zoom]');
+      if (!viewport || !zoomButton) return;
+      const isZoomed = viewport.classList.toggle('is-zoomed');
+      zoomButton.setAttribute('aria-pressed', String(isZoomed));
+      if (!isZoomed) viewport.scrollTo({top:0,left:0,behavior:'smooth'});
     }
     function closeModals(){
       document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open'));
+      document.body.classList.remove('lightbox-open');
+      document.getElementById('screenshot-lightbox-viewport')?.classList.remove('is-zoomed');
       if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
       lastFocusedElement = null;
     }
     document.addEventListener('click', e => {
+      if (e.target.closest('[data-screenshot-prev]')) {
+        e.preventDefault();
+        navigateScreenshot(-1);
+        return;
+      }
+      if (e.target.closest('[data-screenshot-next]')) {
+        e.preventDefault();
+        navigateScreenshot(1);
+        return;
+      }
+      if (e.target.closest('[data-screenshot-zoom]')) {
+        e.preventDefault();
+        toggleScreenshotZoom();
+        return;
+      }
+      if (e.target.classList.contains('screenshot-lightbox') || e.target.classList.contains('screenshot-lightbox-stage') || e.target.classList.contains('screenshot-lightbox-viewport')) {
+        closeModals();
+        return;
+      }
       const open = e.target.closest('[data-modal]');
       if (open) {
         e.preventDefault();
@@ -1702,7 +1889,19 @@ footer a:hover{color:var(--ink)}
     }
     document.addEventListener('keydown', e => {
       const modal = document.querySelector('.modal-backdrop.open');
-      if (e.key === 'Escape') closeModals();
+      const screenshotModalOpen = document.getElementById('modal-screenshot')?.classList.contains('open');
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeModals();
+      }
+      if (screenshotModalOpen && e.key === 'ArrowLeft') {
+        e.preventDefault();
+        navigateScreenshot(-1);
+      }
+      if (screenshotModalOpen && e.key === 'ArrowRight') {
+        e.preventDefault();
+        navigateScreenshot(1);
+      }
       if (e.key === 'Tab' && modal) {
         const focusable = Array.from(modal.querySelectorAll(focusableSelector)).filter(el => el.offsetParent !== null);
         if (!focusable.length) return;
@@ -1717,6 +1916,19 @@ footer a:hover{color:var(--ink)}
         }
       }
     });
+    const screenshotStage = document.getElementById('screenshot-lightbox-stage');
+    screenshotStage?.addEventListener('touchstart', e => {
+      if (document.getElementById('screenshot-lightbox-viewport')?.classList.contains('is-zoomed')) return;
+      touchStartX = e.changedTouches[0]?.clientX ?? null;
+    }, {passive:true});
+    screenshotStage?.addEventListener('touchend', e => {
+      if (touchStartX === null || document.getElementById('screenshot-lightbox-viewport')?.classList.contains('is-zoomed')) return;
+      const touchEndX = e.changedTouches[0]?.clientX ?? touchStartX;
+      const distance = touchEndX - touchStartX;
+      touchStartX = null;
+      if (Math.abs(distance) < 55) return;
+      navigateScreenshot(distance > 0 ? -1 : 1);
+    }, {passive:true});
     window.addEventListener('scroll', () => {
       const y = window.scrollY;
       document.getElementById('nav')?.classList.toggle('scrolled', y > 40);
@@ -2033,9 +2245,9 @@ footer a:hover{color:var(--ink)}
 
   function escapeAttr(value){ return escapeHtml(value).replace(/`/g,'&#96;'); }
 
-  const platformRequestsApiUrl = (() => {
-    const explicit = window.CLIFF_PLATFORM_REQUESTS_API_URL || document.querySelector('meta[name="platform-requests-api-url"]')?.content?.trim();
-    return (explicit || `${defaultPlatformWebUrl()}/api/website-requests`).replace(/\/+$/, '');
+  const leadApiUrl = (() => {
+    const explicit = window.CLIFF_LEAD_API_URL || document.querySelector('meta[name="lead-api-url"]')?.content?.trim();
+    return (explicit || 'https://zesty-reflection-production-274d.up.railway.app/api/leads').replace(/\/+$/, '');
   })();
 
   window.submitLead = async function(event, fallbackType){
@@ -2052,34 +2264,30 @@ footer a:hover{color:var(--ink)}
     const problem = data.get('operational_problem') || '';
     const selectedPlan = String(data.get('selected_plan') || '').trim();
     const productCode = productCatalogCode(String(data.get('selected_product_slug') || productInterest || route));
-    const requestType = selectedPlan ? 'PLAN' : fallbackType === 'contact' ? 'INFORMATION' : 'DEMO';
+    const selectedProduct = productCode ? productLabel(productCode) : String(productInterest).trim();
+    const selectedSourcePage = String(data.get('selected_source_page') || pageLabel(route)).trim();
     const payload = {
-      type: requestType,
-      requestType,
-      source: 'cliffgroup-site',
-      product: productCode || undefined,
-      productCode: productCode || undefined,
-      planCode: selectedPlan || undefined,
-      contactName: data.get('full_name') || '',
+      form_type: fallbackType === 'contact' ? 'contact' : fallbackType === 'walkthrough' ? 'walkthrough' : 'demo',
+      full_name: data.get('full_name') || '',
       name: data.get('full_name') || '',
       email: data.get('email') || '',
       phone: data.get('phone') || '',
-      companyName: data.get('company') || '',
-      message: problem || undefined,
+      company: data.get('company') || '',
+      productInterest: selectedProduct,
+      operationalProblem: problem,
+      sourcePage: selectedSourcePage,
       pageUrl: window.location.href,
       referrer: document.referrer || '',
-      metadataJson: {
-        productInterest,
-        selectedPlanLabel: selectedPlan || undefined,
-        selectedSourcePage: data.get('selected_source_page') || pageLabel(route),
-        sourcePage: pageLabel(route)
-      }
+      selectedProduct,
+      selectedPlan,
+      source: window.location.href,
+      website: data.get('website') || ''
     };
     const error = validate(payload);
     if (error) return setState('error', error);
     setState('loading', '');
     try {
-      const response = await fetch(platformRequestsApiUrl, {method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
+      const response = await fetch(leadApiUrl, {method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(payload)});
       const body = await response.json().catch(() => ({}));
       if (!response.ok || body.ok === false) throw new Error(body.error || 'We could not send this request. Please try again.');
       form.reset();
@@ -2109,9 +2317,9 @@ footer a:hover{color:var(--ink)}
   };
 
   function validate(payload){
-    if (!String(payload.contactName || '').trim()) return 'Please enter your name.';
+    if (!String(payload.full_name || '').trim()) return 'Please enter your name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(payload.email || '').trim())) return 'Please enter a valid email.';
-    if (String(payload.message || '').length > 3000) return 'Please keep the note under 3000 characters.';
+    if (String(payload.operationalProblem || '').length > 3000) return 'Please keep the note under 3000 characters.';
     return '';
   }
 

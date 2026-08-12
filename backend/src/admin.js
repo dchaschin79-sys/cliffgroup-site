@@ -134,6 +134,8 @@ function leadDetailPage(lead) {
     ['Company', lead.company],
     ['Phone', lead.phone],
     ['Product Interest', metadata.product_interest],
+    ['Selected Product', metadata.selected_product],
+    ['Selected Plan', metadata.selected_plan],
     ['Operational problem', lead.operational_problem],
     ['Source Page', metadata.source_label || lead.source_page],
     ['URL', metadata.page_url || lead.source_page]

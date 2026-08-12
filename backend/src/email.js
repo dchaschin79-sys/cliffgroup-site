@@ -38,12 +38,14 @@ function sourceDetails(lead) {
 
 function leadRows(lead) {
   const source = sourceDetails(lead);
+  const metadata = leadMetadata(lead);
   const rows = [
     ['Name', lead.full_name],
     ['Email', lead.email],
     ['Phone', lead.phone],
     ['Company', lead.company],
     ['Product Interest', productInterest(lead)],
+    ['Selected Plan', metadata.selected_plan],
     ['Operational problem', lead.operational_problem],
     ['Source Page', source.page],
     ['URL', source.url],

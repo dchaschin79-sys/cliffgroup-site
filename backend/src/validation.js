@@ -74,6 +74,12 @@ function pageLabelFromUrl(value) {
   if (!source) return '';
 
   const cleaned = source.replace(/^(workflow-review|route|source|page_type):/i, '');
+  const knownLabel = normalizeProductInterest(cleaned);
+  if (knownLabel === 'HVAC Pro' || knownLabel === 'EstimatePro' || knownLabel === 'SalesPro') {
+    return knownLabel;
+  }
+  if (cleaned.toLowerCase() === 'contact') return 'Contact';
+  if (cleaned.toLowerCase() === 'workflow review') return 'Workflow Review';
 
   try {
     const url = new URL(cleaned, 'https://cliffgroupflorida.com');
@@ -122,6 +128,13 @@ function normalizeLead(body, routeFormType, req) {
   const productInterest = normalizeProductInterest(
     body.productInterest || body.product_interest || body.source_interest || body.product
   ) || productInterestFromLegacyMessage(rawMessage);
+  const selectedProduct = normalizeProductInterest(
+    body.selectedProduct || body.selected_product || productInterest
+  );
+  const selectedPlan = cleanString(
+    body.selectedPlan || body.selected_plan || body.planCode || body.plan_code,
+    120
+  );
   const message = stripProductPrefix(rawMessage, productInterest);
   const operationalProblem = cleanLongText(
     body.operationalProblem || body.operational_problem || body.problem || body.handoff || stripProductPrefix(rawMessage, productInterest),
@@ -154,6 +167,8 @@ function normalizeLead(body, routeFormType, req) {
       source_page: sourcePage,
       metadata: {
         product_interest: productInterest,
+        selected_product: selectedProduct || productInterest,
+        selected_plan: selectedPlan,
         source_label: sourceLabel,
         page_url: pageUrl,
         referrer: cleanString(body.referrer || body.referer || req.get('referer') || '', 1000),
