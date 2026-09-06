@@ -82,7 +82,7 @@ function pageLabelFromUrl(value) {
   if (cleaned.toLowerCase() === 'workflow review') return 'Workflow Review';
 
   try {
-    const url = new URL(cleaned, 'https://cliffgroupflorida.com');
+    const url = new URL(cleaned, 'https://cliffops.com');
     const pathname = url.pathname.replace(/\/+$/, '') || '/';
     if (pathname === '/') return 'Homepage';
     if (pathname === '/hvacpro') return 'HVAC Pro';

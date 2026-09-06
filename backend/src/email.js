@@ -98,7 +98,7 @@ function emailShell(title, body) {
     <div style="margin:0;padding:0;background:#EFEAE0;font-family:Inter,Arial,sans-serif;color:#1C2A3E">
       <div style="max-width:640px;margin:0 auto;padding:32px 18px">
         <div style="background:#1C2A3E;color:#EFEAE0;border-radius:14px 14px 0 0;padding:22px 26px">
-          <div style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C9AE7A">Cliff Group Florida</div>
+          <div style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#C9AE7A">Cliff Ops</div>
           <h1 style="font-family:Georgia,serif;font-size:28px;line-height:1.12;margin:8px 0 0">${escapeHtml(title)}</h1>
         </div>
         <div style="background:#fffdf7;border:1px solid rgba(28,42,62,.14);border-top:0;border-radius:0 0 14px 14px;padding:26px">
@@ -242,7 +242,7 @@ async function sendLeadNotifications(lead) {
     'We received your request',
     `
       <p style="font-size:15px;line-height:1.6;margin:0 0 14px">Hi ${escapeHtml(lead.full_name)},</p>
-      <p style="font-size:15px;line-height:1.6;margin:0 0 14px">Thanks for reaching out to Cliff Group Florida. We received your request and will follow up within one business day.</p>
+      <p style="font-size:15px;line-height:1.6;margin:0 0 14px">Thanks for reaching out to Cliff Ops. We received your request and will follow up within one business day.</p>
       <p style="font-size:15px;line-height:1.6;margin:0 0 20px">${escapeHtml(customerFocusSentence(lead))}</p>
       <p style="font-size:13px;color:#6E7485;margin:0">Cliff Group Florida Inc.</p>
     `
@@ -250,9 +250,9 @@ async function sendLeadNotifications(lead) {
 
   results.customer = await sendResendEmail({
     to: lead.email,
-    subject: 'We received your Cliff Group walkthrough request',
+    subject: 'We received your Cliff Ops Workflow Review request',
     html: confirmationHtml,
-    text: `Hi ${lead.full_name}, thanks for reaching out to Cliff Group Florida. We received your request and will follow up within one business day. ${customerFocusSentence(lead)}`
+    text: `Hi ${lead.full_name}, thanks for reaching out to Cliff Ops. We received your request and will follow up within one business day. ${customerFocusSentence(lead)}`
   });
   logNotificationResult('customer', lead, results.customer);
 

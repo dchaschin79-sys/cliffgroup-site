@@ -280,7 +280,7 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`Cliff Group site listening on ${host}:${port}`);
+  console.log(`Cliff Ops site listening on ${host}:${port}`);
 });
 
 process.on('SIGTERM', () => {

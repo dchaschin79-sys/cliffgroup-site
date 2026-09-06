@@ -2,7 +2,7 @@
   "name": "cliffgroup-site",
   "version": "1.0.0",
   "private": true,
-  "description": "Railway-ready static marketing site for Cliff Group Florida.",
+  "description": "Railway-ready static marketing site for Cliff Ops.",
   "engines": {
     "node": ">=20"
   },

@@ -1,7 +1,7 @@
 {
   "name": "cliff-group-leads-api",
   "version": "1.0.0",
-  "description": "Lightweight lead capture API for the Cliff Group Florida marketing site.",
+  "description": "Lightweight lead capture API for the Cliff Ops marketing site.",
   "private": true,
   "main": "src/server.js",
   "scripts": {

@@ -3,6 +3,8 @@ require('dotenv').config();
 const defaultOrigins = [
   'https://cliffgroupflorida.com',
   'https://www.cliffgroupflorida.com',
+  'https://cliffops.com',
+  'https://www.cliffops.com',
   'https://cliffgroup-site-production-4726.up.railway.app',
   'https://cliffgroup-site-production.up.railway.app',
   'http://127.0.0.1:8787',
@@ -31,6 +33,6 @@ module.exports = {
   resendApiKey: process.env.RESEND_API_KEY || '',
   resendFromEmail: process.env.RESEND_FROM_EMAIL || 'Cliff Group Florida <onboarding@resend.dev>',
   resendFallbackFromEmail: process.env.RESEND_FALLBACK_FROM_EMAIL || 'Cliff Group Florida <onboarding@resend.dev>',
-  publicSiteUrl: process.env.PUBLIC_SITE_URL || 'https://cliffgroupflorida.com',
+  publicSiteUrl: process.env.PUBLIC_SITE_URL || 'https://cliffops.com',
   emailEnabled: String(process.env.EMAIL_ENABLED || 'true').toLowerCase() !== 'false'
 };
