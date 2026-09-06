@@ -231,6 +231,17 @@ function serveFile(res, filePath, statusCode = 200) {
 const server = http.createServer((req, res) => {
   const parsed = new URL(req.url || '/', 'http://localhost');
   const pathname = decodeURIComponent(parsed.pathname);
+  const requestHost = (req.headers.host || '').split(':')[0].toLowerCase();
+
+  if (requestHost === 'www.cliffops.com') {
+    const target = `https://cliffops.com${req.url || '/'}`;
+    send(res, 301, {
+      'Location': target,
+      'Cache-Control': 'public, max-age=300',
+      'Content-Type': 'text/plain; charset=utf-8'
+    }, `Redirecting to ${target}`);
+    return;
+  }
 
   if (isSalesProProxyPath(pathname)) {
     proxySalesPro(req, res);
